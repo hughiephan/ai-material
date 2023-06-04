@@ -115,29 +115,25 @@ The given code generates a grid of distribution plots that allow users to view t
 Step 10: Split data
 ```py
 xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size= 0.2, random_state=42, shuffle = True)
+```
+Divide the input data into training and testing sets using the Sklearn library’s train test split function
+
+```py
 col = xtrain.columns
 scalerx = MinMaxScaler()
-
 xtrain = scalerx.fit_transform(xtrain)
 xtest = scalerx.transform(xtest)
-
 xtrain = pd.DataFrame(xtrain, columns = col)
 xtest = pd.DataFrame(xtest, columns = col)
+```
+We use the MinMaxScaler scaling and normalizing the data.
+
+```py
 le = preprocessing.LabelEncoder()
 ytrain = le.fit_transform(ytrain)
 ytest = le.transform(ytest)
-
-x = pd.concat([xtrain, xtest], axis = 0)
-y = pd.concat([pd.DataFrame(ytrain), pd.DataFrame(ytest)], axis = 0)
-
-y_train = le.inverse_transform(ytrain)
-y_test = le.inverse_transform(ytest)
-y_org = pd.concat([pd.DataFrame(y_train), pd.DataFrame(y_test)], axis = 0)
 ```
-
-The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. We use the MinMaxScaler, mainly for scaling and normalizing the data.
-
-The code provided preprocesses the data. The first step is to divide the input data into training and testing sets using the Sklearn library’s train test split function. It then adjusts the numerical characteristics in the supplied data using the MinMaxScaler function from the same package. The code encodes the category target variable using the preprocessing module’s LabelEncoder function. As a result, the training and testing sets are preprocessed previously are merged into a single dataset that the machine learning algorithm can process.
+The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit_transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. 
 
 Step 11:
 ```py
