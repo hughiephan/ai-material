@@ -1,3 +1,7 @@
+# References
+- https://www.kaggle.com/code/accountstatus/spotify-songs-eda-andrecommendation-system
+- https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify
+
 Step 1: Import necessary libraries
 ```py
 import pandas as pd
