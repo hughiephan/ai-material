@@ -1,4 +1,4 @@
-**Step 1: Import necessary libraries **
+Step 1: Import necessary libraries
 ```py
 import pandas as pd
 import matplotlib.pyplot as plt
