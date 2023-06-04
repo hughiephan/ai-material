@@ -10,7 +10,6 @@ Step 1: Import necessary libraries
 ```py
 import pandas as pd
 import matplotlib.pyplot as plt
-import tensorflow
 import warnings 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
@@ -20,10 +19,10 @@ warnings.simplefilter("ignore")
 ```
 Step 2: Load Dataset
 ```py
-data = pd.read_csv("kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from https://www.kaggle.com/datasets/thala321/genres-v2-spotify
+data = pd.read_csv("kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from 
 data
 ```
-We load the dataset using pandas read_csv, and the data set contains 42305 rows and 22 columns and consists of 18000+ tracks.
+You can use this dataset https://www.kaggle.com/datasets/thala321/genres-v2-spotify . Then we load the dataset using pandas read_csv, and the data set contains 42305 rows and 22 columns and consists of 18000+ tracks. 
 ![Screenshot_2023-03-01_at_9](https://github.com/hughiephan/DPL/assets/16631121/bc6618d7-bc0c-476b-a066-576c0a9f2e1a)
 
 
@@ -76,11 +75,9 @@ axe = sns.histplot(df[“genre”]) generates a histogram of the distribution of
 
 Step 7: Drop and show Data Correlation
 ```py
-df.drop(df.loc[df['genre']=="Pop"].index, inplace=True) 
-df = df.reset_index(drop = True) 
 df.corr()
 ```
-The code eliminates or deletes all rows in a Pandas DataFrame where the value in the “genre” column is equal to “Pop”. The DataFrame’s index is then reset to the range where it starts with 0. Lastly, it computes the correlation matrix of the DataFrame’s remaining columns. This code helps study a dataset by deleting unnecessary rows and finding correlations between the remaining variables.
+We computes the correlation matrix of the DataFrame to find correlations between the features.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7b0261af-821f-4dd4-9804-59bc5a8beb77)
 
@@ -135,24 +132,29 @@ scalerx = MinMaxScaler()
 xtrain = scalerx.fit_transform(xtrain)
 xtest = scalerx.transform(xtest)
 ```
-Then MinMaxScaler is used for scaling and normalizing the data.
+Then MinMaxScaler is used for scaling and normalizing the data. The purpose of using MinMaxScaler is to ensure that all the features are on a similar scale, preventing certain features from dominating the learning algorithm due to their larger magnitude. Then we use `fit_transform` for train data and `transform` for test data. `fit_transform` means to do some calculation and then do transformation. So for training set, you need to both calculate and do transformation. But for testing set, Machine learning applies prediction based on what was learned during the training set and so it doesn't need to calculate, it just performs the transformation.
 
 ```py
 le = preprocessing.LabelEncoder()
 ytrain = le.fit_transform(ytrain)
 ytest = le.transform(ytest)
 ```
-The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit_transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. 
+The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit_transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. You can read more about LabelEncoder here https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
 
-Step 11: Define our Neural Network
+Step 11: Define early stopping 
 ```py
 early_stopping1 = keras.callbacks.EarlyStopping(monitor = "val_loss", patience = 10, restore_best_weights = True) 
 early_stopping2 = keras.callbacks.EarlyStopping(monitor = "val_accuracy", patience = 10, restore_best_weights = True) 
+```
+This code creates two early stopping callbacks for model training, one based on validation loss and the other on validation accuracy. `Patience = 10` means we will stop if there is no improvement in the last 10 epochs. `restore_best_weights = False` will return the final weights.
 
+Step 12: Define our Neural Network
+```
 model = keras.Sequential([ 
   keras.layers.Input(name = "input", shape = (xtrain.shape[1])),  
   keras.layers.Dense(256, activation = "relu"),
-  keras.layers.BatchNormalization(), keras.layers.Dropout(0.2), 
+  keras.layers.BatchNormalization(), 
+  keras.layers.Dropout(0.2), 
   keras.layers.Dense(128, activation = "relu"),   
   keras.layers.BatchNormalization(), 
   keras.layers.Dropout(0.2), 
@@ -161,7 +163,7 @@ model = keras.Sequential([
 ]) 
 model.summary()
 ```
-This code creates two early stopping callbacks for model training, one based on validation loss and the other on validation accuracy. Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. The summary of the model is printed on the console. The final output layer outputs class probabilities using the softmax activation function. The summary of the model is printed on the console.
+Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. The summary of the model is printed on the console. The final output layer outputs class probabilities using the softmax activation function. The summary of the model is printed on the console.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/42b02a59-cd7c-4090-b951-158f6ac2c621)
 
