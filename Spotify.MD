@@ -138,8 +138,11 @@ Then MinMaxScaler is used for scaling and normalizing the data. The purpose of u
 le = preprocessing.LabelEncoder()
 ytrain = le.fit_transform(ytrain)
 ytest = le.transform(ytest)
+print(dict(zip(le.classes_, le.transform(le.classes_))))
 ```
 The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit_transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. You can read more about LabelEncoder here https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/857926b4-4f75-48b3-8b58-0850cd66e5f8)
 
 Step 11: Define early stopping 
 ```py
@@ -163,11 +166,11 @@ model = keras.Sequential([
 ]) 
 model.summary()
 ```
-Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. The summary of the model is printed on the console. The final output layer outputs class probabilities using the softmax activation function. The summary of the model is printed on the console.
+Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. `Dense` is the connected layer that connects each unit of the layer input with each output unit of this layer. `xtrain.shape[1]` will print the number of features, while `max(ytrain)+1` equals to the number of the output target (Genres) that we want to predict. `BatchNormalization` means we use the mini-batch statistics (mean and variance) for normalization rather than population statistics (computed over the entire training dataset) which lead to faster convergence, better stability, and improved generalization. And in the final output layer, we can outputs class probabilities using the softmax activation function (https://www.analyticsvidhya.com/blog/2021/04/introduction-to-softmax-for-neural-network/)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/42b02a59-cd7c-4090-b951-158f6ac2c621)
 
-Step 12: Train the Neural Network
+Step 13: Train the Neural Network
 ```py
 model.compile(optimizer = keras.optimizers.Adam(), 
              loss = "sparse_categorical_crossentropy", 
@@ -179,11 +182,11 @@ model_history = model.fit(xtrain, ytrain,
                validation_data = (xtest, ytest), 
                callbacks = [early_stopping1, early_stopping2])
 ```
-The following code block uses Keras to compile and train a neural network model. The model is a sequential model with multiple dense layers with relu activation function, batch normalization, and dropout regularisation. “sparse categorical cross entropy” is the loss function utilized. At the same time, “Adam” is the optimizer. The model is trained for 100 epochs, with callbacks that end early based on validation loss and accuracy.
+The following code block will compile and train a neural network model. `sparse_categorical_crossentropy` is a loss function commonly used in classification tasks where the target labels are integers. If the target labels are one-hot encoded vectors, the regular `categorical cross-entropy` loss function should be used. Then we use “Adam” as our optimizer. The model is trained for 100 epochs, batch_size = 128, with callbacks that end early based on validation loss and accuracy.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bef5bf14-d8fc-4e4a-a7f7-785a32a74ae5)
 
-Step 13: Evaluate
+Step 14: Evaluate
 ```py
 print(model.evaluate(xtrain, ytrain)) 
 print(model.evaluate(xtest, ytest))
@@ -192,7 +195,7 @@ The training data is xtrain and ytrain, whereas the validation data is sent as x
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/16a6ea7d-b149-4c0e-aec3-dc57ddd47866)
 
-Step 14: Plot the results
+Step 15: Plot the results
 ```py
 plt.plot(model_history.history["loss"]) 
 plt.plot(model_history.history["val_loss"]) 
@@ -215,13 +218,25 @@ plt.show()
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2f5880e4-dc14-4647-84e2-f8d537d2b135)
 
 
-Step 15: Run a prediction
+Step 16: Run some Prediction
+```py
+numToPredict = 4
+predictMe = df.drop('genre', axis = 1).iloc[0:numToPredict]
+print(predictMe)
+ypred = model.predict(scalerx.transform(predictMe)).argmax(axis=1)
+print('Prediction in Numerical ', ypred)
+print('Prediction in Text ', le.inverse_transform(ypred))
+print('Actual Value ', df.iloc[0:numToPredict]['genre'].to_numpy())
 ```
-ypred = model.predict(xtest).argmax(axis=1)
+Let's get the first 4 data and predict their genres. We need to `transform` the data using the same scaler we used in the training phase. After we get the prediction, we use `inverse_transform` to get back the Genres in text format instead of Encoded Numerical Label. Finally, compare the Predicted Genres with the Actual Genres.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d31740f4-d997-42be-95c4-6f5c55c04417)
+
+Step 17: Save the model
+```py
+model.save("saved_model.h5")
+loaded_model = keras.models.load_model("saved_model.h5")
 ```
-The following code ypred will predicts the xtest.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/2f02bd08-efb4-4fc3-a378-ef4dc9987a21)
-
-
+After training, the model.save() method is called to save the model to a file named "saved_model.h5". The ".h5" extension indicates that the model will be saved in the HDF5 format. You can replace "saved_model.h5" with the desired file path where you want to save your model. After saving the model, you can later load it using `keras.models.load_model()` to reuse it for predicting or further training.
 
