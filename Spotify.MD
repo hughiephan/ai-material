@@ -39,7 +39,7 @@ Step 4: Data Cleaning
 df = data.drop(["type","type","id","uri","track_href","analysis_url","song_name", "Unnamed: 0","title", "duration_ms", "time_signature"], axis =1) 
 df
 ```
-Here, we want to clean our data by removing unnecessary columns that add no value to the prediction. We have removed some columns that add no value to this particular problem and put axis = 1, where it drops the columns rather than rows. We are again calling the Data Frame to see the new Data Frame with helpful information.
+Here, we want to clean our data by removing unnecessary columns that add no value to the prediction. We have removed some columns that add no value to this particular problem and put axis = 1, where it drops the columns rather than rows. If you specify axis=1 you will be removing columns. If you specify axis=0 you will be removing rows from dataset. We are again calling the Data Frame to see the new Data Frame with helpful information.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c9b0ccfa-b056-45ec-af45-70e8e3429f07)
 
 Step 5: Describe the data
@@ -74,11 +74,13 @@ The code eliminates or deletes all rows in a Pandas DataFrame where the value in
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7b0261af-821f-4dd4-9804-59bc5a8beb77)
 
-Step 8: Input and Output 
+Step 8: Define Feature Input X and Target Output Y
+
 ```py
-x = df.loc[:,:"tempo"] 
+x = df.drop('genre', axis=1)
 y = df["genre"]
 ```
+We remove the Genre column from the feature data so our model can learn to fit X and predict y
 
 ```py
 x
