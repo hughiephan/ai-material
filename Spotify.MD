@@ -119,12 +119,9 @@ xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size= 0.2, random_sta
 Above code divide the input data into training and testing sets using the Sklearn library’s train test split function
 
 ```py
-col = xtrain.columns
 scalerx = MinMaxScaler()
 xtrain = scalerx.fit_transform(xtrain)
 xtest = scalerx.transform(xtest)
-xtrain = pd.DataFrame(xtrain, columns = col)
-xtest = pd.DataFrame(xtest, columns = col)
 ```
 Then MinMaxScaler is used for scaling and normalizing the data.
 
