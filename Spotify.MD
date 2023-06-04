@@ -209,6 +209,7 @@ Step 15
 ypred = model.predict(xtest).argmax(axis=1)
 ```
 The following code ypred will predicts the xtest.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2f02bd08-efb4-4fc3-a378-ef4dc9987a21)
 
 
