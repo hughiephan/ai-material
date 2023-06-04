@@ -116,7 +116,7 @@ Step 10: Split data
 ```py
 xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size= 0.2, random_state=42, shuffle = True)
 ```
-Divide the input data into training and testing sets using the Sklearn library’s train test split function
+Above code divide the input data into training and testing sets using the Sklearn library’s train test split function
 
 ```py
 col = xtrain.columns
@@ -126,7 +126,7 @@ xtest = scalerx.transform(xtest)
 xtrain = pd.DataFrame(xtrain, columns = col)
 xtest = pd.DataFrame(xtest, columns = col)
 ```
-We use the MinMaxScaler scaling and normalizing the data.
+Then MinMaxScaler is used for scaling and normalizing the data.
 
 ```py
 le = preprocessing.LabelEncoder()
@@ -145,7 +145,6 @@ model = keras.Sequential([
   keras.layers.Dense(256, activation = "relu"),
   keras.layers.BatchNormalization(), keras.layers.Dropout(0.2), 
   keras.layers.Dense(128, activation = "relu"),   
-  keras.layers.Dense(128, activation = "relu"), 
   keras.layers.BatchNormalization(), 
   keras.layers.Dropout(0.2), 
   keras.layers.Dense(64, activation = "relu"), 
