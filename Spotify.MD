@@ -65,7 +65,7 @@ axe = sns.histplot(df[“genre”]) generates a histogram of the distribution of
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6c2d6189-9757-4cb6-acb9-ce06c182e11c)
 
 Step 7: Drop and show Data Correlation
-```
+```py
 df.drop(df.loc[df['genre']=="Pop"].index, inplace=True) 
 df = df.reset_index(drop = True) 
 df.corr()
