@@ -31,6 +31,7 @@ When you call data.info(), it will print the following information:
 - The name of each column, its data type, and the number of non-null values in that column.
 - The total number of non-null values in the data frame.
 - The memory usage of the DataFrame.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bd15ecd5-1417-4ab3-9fb1-2b573f17cffd)
 
 Step 4: Data Cleaning 
@@ -61,13 +62,17 @@ _ = plt.title("Genres")
 ```
 axe = sns.histplot(df[“genre”]) generates a histogram of the distribution of values in a Pandas DataFrame named df’s “genre” column. This code may be used to visualize the frequency of some Spotify genres in a music dataset.
 
-Step 7: Drop unnecessary data
+![image](https://github.com/hughiephan/DPL/assets/16631121/6c2d6189-9757-4cb6-acb9-ce06c182e11c)
+
+Step 7: Drop and show Data Correlation
 ```
 df.drop(df.loc[df['genre']=="Pop"].index, inplace=True) 
 df = df.reset_index(drop = True) 
 df.corr()
 ```
 The code eliminates or deletes all rows in a Pandas DataFrame where the value in the “genre” column is equal to “Pop”. The DataFrame’s index is then reset to the range where it starts with 0. Lastly, it computes the correlation matrix of the DataFrame’s remaining columns. This code helps study a dataset by deleting unnecessary rows and finding correlations between the remaining variables.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7b0261af-821f-4dd4-9804-59bc5a8beb77)
 
 Step 8: Input and Output 
 ```py
@@ -78,14 +83,18 @@ y = df["genre"]
 ```
 x
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/9b71b69d-9131-4702-851d-38656eb12098)
 
 ```
 y
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/9e22c5d7-e364-4ec1-a2ab-c3aebe7428b9)
 
 ```
 y.unique()
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/aace972d-e1a0-43f7-a7e1-8ad7a6e361dc)
+
 
 Step 9: Plot data distribution
 ```py
@@ -99,6 +108,9 @@ for i in x.columns:
 ```
 
 The given code generates a grid of distribution plots that allow users to view the distribution of values over several columns in a dataset. Discovering patterns, trends, and outliers in the data by showing the distribution of values in each column. These are helpful and beneficial for exploratory data analysis and finding valuable and potential faults or inaccuracies in a dataset.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/27f87946-ce49-4fa3-bb33-9f657a4b591f)
+
 
 Step 10: Split data
 ```py
@@ -123,6 +135,8 @@ y_test = le.inverse_transform(ytest)
 y_org = pd.concat([pd.DataFrame(y_train), pd.DataFrame(y_test)], axis = 0)
 ```
 
+The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. We use the MinMaxScaler, mainly for scaling and normalizing the data.
+
 The code provided preprocesses the data. The first step is to divide the input data into training and testing sets using the Sklearn library’s train test split function. It then adjusts the numerical characteristics in the supplied data using the MinMaxScaler function from the same package. The code encodes the category target variable using the preprocessing module’s LabelEncoder function. As a result, the training and testing sets are preprocessed previously are merged into a single dataset that the machine learning algorithm can process.
 
 Step 11:
@@ -145,6 +159,8 @@ model.summary()
 ```
 This code creates two early stopping callbacks for model training, one based on validation loss and the other on validation accuracy. Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. The summary of the model is printed on the console. The final output layer outputs class probabilities using the softmax activation function. The summary of the model is printed on the console.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/1cb9e314-7dcd-49d0-ab26-793caa45977b)
+
 Step 12
 ```py
 model.compile(optimizer = keras.optimizers.Adam(), 
@@ -159,12 +175,16 @@ model_history = model.fit(xtrain, ytrain,
 ```
 The following code block uses Keras to compile and train a neural network model. The model is a sequential model with multiple dense layers with relu activation function, batch normalization, and dropout regularisation. “sparse categorical cross entropy” is the loss function utilized. At the same time, “Adam” is the optimizer. The model is trained for 100 epochs, with callbacks that end early based on validation loss and accuracy.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/bef5bf14-d8fc-4e4a-a7f7-785a32a74ae5)
+
 Step 13
 ```py
 print(model.evaluate(xtrain, ytrain)) 
 print(model.evaluate(xtest, ytest))
 ```
 The training data is xtrain and ytrain, whereas the validation data is sent as xtest and ytest. The training history of the model is saved in the model history variable.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/16a6ea7d-b149-4c0e-aec3-dc57ddd47866)
 
 Step 14
 ```py
@@ -174,6 +194,9 @@ plt.xlabel("epoch")
 plt.ylabel("Sparse Categorical Cross Entropy") 
 plt.show()
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/11f7cc68-3bbd-427a-8e72-9a55518a05d3)
+
 The following code generates a plot using matplotlib; on the x_axis, we have the epoch, and on the y_axis, we have the sparse Categorical Cross Entropy.
 ```py
 plt.plot(model_history.history["accuracy"]) plt.plot(model_history.history["val_accuracy"]) plt.legend(["accuracy", "validation accuracy"], loc ="upper right") plt.title("Train and Validation Accuracy") 
@@ -182,8 +205,15 @@ plt.ylabel("Accuracy")
 plt.show()
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/2f5880e4-dc14-4647-84e2-f8d537d2b135)
 
 
+Step 15
+```
+ypred = model.predict(xtest).argmax(axis=1)
+```
+The following code ypred will predicts the xtest.
+![image](https://github.com/hughiephan/DPL/assets/16631121/2f02bd08-efb4-4fc3-a378-ef4dc9987a21)
 
 
 
