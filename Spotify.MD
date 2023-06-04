@@ -9,15 +9,14 @@ import warnings
 warnings.simplefilter("ignore")
 ```
 Step 2: Load Dataset
-```
+```py
 data = pd.read_csv("kaggle/input/genres-v2-spotify/genres_v2.csv") 
 data
 ```
 We load the dataset using pandas read_csv, and the data set contains 42305 rows and 22 columns and consists of 18000+ tracks.
 
-
 Step 3: Exploring the Data
-```
+```py
 data.iloc[:,:20]
 ```
 We can use the ‘iloc’ method to select the rows and columns that form a data frame by their integer index positions. Example of choosing the first 20 columns of the df.
@@ -31,10 +30,10 @@ When you call data.info(), it will print the following information:
 - The memory usage of the DataFrame.
 
 Step 4: Data Cleaning 
-
+```py
 df = data.drop(["type","type","id","uri","track_href","analysis_url","song_name", "Unnamed: 0","title", "duration_ms", "time_signature"], axis =1) 
 df
-
+```
 
 Here, we want to clean our data by removing unnecessary columns that add no value to the prediction. We have removed some columns that add no value to this particular problem and put axis = 1, where it drops the columns rather than rows. We are again calling the Data Frame to see the new Data Frame with helpful information.
 
