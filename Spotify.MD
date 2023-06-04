@@ -155,7 +155,7 @@ This code creates two early stopping callbacks for model training, one based on 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/42b02a59-cd7c-4090-b951-158f6ac2c621)
 
-Step 12
+Step 12: Train the Neural Network
 ```py
 model.compile(optimizer = keras.optimizers.Adam(), 
              loss = "sparse_categorical_crossentropy", 
@@ -171,7 +171,7 @@ The following code block uses Keras to compile and train a neural network model.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bef5bf14-d8fc-4e4a-a7f7-785a32a74ae5)
 
-Step 13
+Step 13: Evaluate
 ```py
 print(model.evaluate(xtrain, ytrain)) 
 print(model.evaluate(xtest, ytest))
@@ -180,7 +180,7 @@ The training data is xtrain and ytrain, whereas the validation data is sent as x
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/16a6ea7d-b149-4c0e-aec3-dc57ddd47866)
 
-Step 14
+Step 14: Plot the results
 ```py
 plt.plot(model_history.history["loss"]) plt.plot(model_history.history["val_loss"]) 
 plt.legend(["loss", "validation loss"], loc ="upper right") plt.title("Train and Validation Loss") 
@@ -202,7 +202,7 @@ plt.show()
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2f5880e4-dc14-4647-84e2-f8d537d2b135)
 
 
-Step 15
+Step 15: Run a prediction
 ```
 ypred = model.predict(xtest).argmax(axis=1)
 ```
