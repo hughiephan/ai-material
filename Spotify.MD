@@ -134,7 +134,7 @@ ytest = le.transform(ytest)
 ```
 The LabelEncoder() function from the sklearn.preprocessing package is used to encode labels. It uses the fit_transform() and transform() routines to encode the category target variables (ytrain and ytest) into numerical values. 
 
-Step 11:
+Step 11: Define our Neural Network
 ```py
 early_stopping1 = keras.callbacks.EarlyStopping(monitor = "val_loss", patience = 10, restore_best_weights = True) 
 early_stopping2 = keras.callbacks.EarlyStopping(monitor = "val_accuracy", patience = 10, restore_best_weights = True) 
