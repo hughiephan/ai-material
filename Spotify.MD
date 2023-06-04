@@ -152,7 +152,7 @@ early_stopping2 = keras.callbacks.EarlyStopping(monitor = "val_accuracy", patien
 This code creates two early stopping callbacks for model training, one based on validation loss and the other on validation accuracy. `Patience = 10` means we will stop if there is no improvement in the last 10 epochs. `restore_best_weights = False` will return the final weights.
 
 Step 12: Define our Neural Network
-```
+```py
 model = keras.Sequential([ 
   keras.layers.Input(name = "input", shape = (xtrain.shape[1])),  
   keras.layers.Dense(256, activation = "relu"),
