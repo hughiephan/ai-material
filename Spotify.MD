@@ -182,7 +182,8 @@ The training data is xtrain and ytrain, whereas the validation data is sent as x
 
 Step 14: Plot the results
 ```py
-plt.plot(model_history.history["loss"]) plt.plot(model_history.history["val_loss"]) 
+plt.plot(model_history.history["loss"]) 
+plt.plot(model_history.history["val_loss"]) 
 plt.legend(["loss", "validation loss"], loc ="upper right") plt.title("Train and Validation Loss") 
 plt.xlabel("epoch") 
 plt.ylabel("Sparse Categorical Cross Entropy") 
