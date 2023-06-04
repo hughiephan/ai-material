@@ -23,7 +23,7 @@ data.iloc[:,:20]
 ```
 We can use the ‘iloc’ method to select the rows and columns that form a data frame by their integer index positions. Example of choosing the first 20 columns of the df.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/986a9a9f-871c-407e-9bd4-5806a0a826f7)
-```
+```py
 data.info()
 ```
 When you call data.info(), it will print the following information:
@@ -43,19 +43,19 @@ Here, we want to clean our data by removing unnecessary columns that add no valu
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c9b0ccfa-b056-45ec-af45-70e8e3429f07)
 
 Step 5: Describe the data
-```
+```py
 df.describe()
 ```
 The df.describe( ) method generates descriptive statistics of a Pandas Data Frame. It provides a summary of the central tendency and dispersion and the shape of the distribution of a dataset.
 After running this command, you can see all the descriptive statistics of the Data Frame, like std, mean, median, percentile, min, and max.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/175db13c-d661-4737-8139-43eac2c8ebfe)
 
-```
+```py
 df["genre"].value_counts()
 ```
 
 Step 6: Genre Types
-```
+```py
 ax = sns.histplot(df["genre"]) 
 _ = plt.xticks(rotation=60) 
 _ = plt.title("Genres")
@@ -80,17 +80,17 @@ x = df.loc[:,:"tempo"]
 y = df["genre"]
 ```
 
-```
+```py
 x
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9b71b69d-9131-4702-851d-38656eb12098)
 
-```
+```py
 y
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9e22c5d7-e364-4ec1-a2ab-c3aebe7428b9)
 
-```
+```py
 y.unique()
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/aace972d-e1a0-43f7-a7e1-8ad7a6e361dc)
