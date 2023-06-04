@@ -153,7 +153,7 @@ model.summary()
 ```
 This code creates two early stopping callbacks for model training, one based on validation loss and the other on validation accuracy. Keras’ Sequential API makes a NN model with various connected layers using the ReLU activation function, batch normalization, and dropout regularisation. The summary of the model is printed on the console. The final output layer outputs class probabilities using the softmax activation function. The summary of the model is printed on the console.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/1cb9e314-7dcd-49d0-ab26-793caa45977b)
+![image](https://github.com/hughiephan/DPL/assets/16631121/42b02a59-cd7c-4090-b951-158f6ac2c621)
 
 Step 12
 ```py
