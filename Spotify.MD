@@ -10,7 +10,7 @@ warnings.simplefilter("ignore")
 ```
 Step 2: Load Dataset
 ```py
-data = pd.read_csv("kaggle/input/genres-v2-spotify/genres_v2.csv") 
+data = pd.read_csv("kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from https://www.kaggle.com/datasets/thala321/genres-v2-spotify
 data
 ```
 We load the dataset using pandas read_csv, and the data set contains 42305 rows and 22 columns and consists of 18000+ tracks.
