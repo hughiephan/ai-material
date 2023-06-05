@@ -1,6 +1,5 @@
 # References
 EDA
-- https://www.kaggle.com/code/accountstatus/spotify-songs-eda-andrecommendation-system
 - https://www.kaggle.com/code/muhammedtausif/top-songs-eda
 
 Original Dataset
