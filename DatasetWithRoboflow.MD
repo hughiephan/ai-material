@@ -4,7 +4,7 @@ Step 1: Create new Project
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/307eb057-1af4-429c-be8d-52e52b9cdcc0)
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/29d2210a-da27-41a0-b7fc-93055d913e03)
+![image](https://github.com/hughiephan/DPL/assets/16631121/9435c558-3e58-414e-bfe5-e71f0226fa4b)
 
 Step 2: Upload Dataset
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6e3ff2b0-f070-40ba-8055-b3da360e0a25)
