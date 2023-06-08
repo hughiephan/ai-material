@@ -117,3 +117,10 @@ print("Predicted Class:", predicted_class)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
 
+Step 10: Make adjustment by Image pre-processing and Augmentation
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
+
+Step 11: Update your Notebook code with the new version and train again
