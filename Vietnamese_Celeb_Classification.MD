@@ -1,7 +1,10 @@
-# Vietnamese Celeb Classification
+# Vietnamese Celeb Classification with Roboflow
 
 ## Dataset
 https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
+
+## Prerequisites
+Register a free account at https://app.roboflow.com/
 
 ## Tutorial
 
