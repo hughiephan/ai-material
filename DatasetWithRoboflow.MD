@@ -27,7 +27,7 @@ Step 4: Export the Dataset
 
 Step 5: Copy the code
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/2bf43b3d-e083-454a-8c97-2d400bdb4af0)
+![image](https://github.com/hughiephan/DPL/assets/16631121/0eaef9df-3095-4e69-a1b1-000df6daec75)
 
 Step 6: Create new Notebook
 ```py
