@@ -1,4 +1,4 @@
-# Vietnamese Celeb Classification with Roboflow
+# Vietnamese Celeb Classification with Roboflow (Image Preprocessing and Augmentation)
 
 ## Dataset
 https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
