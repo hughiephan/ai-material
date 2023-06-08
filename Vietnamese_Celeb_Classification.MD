@@ -1,4 +1,9 @@
-# Image Dataset with Roboflow
+# Vietnamese Celeb Classification
+
+## Dataset
+https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
+
+## Tutorial
 
 Step 1: Create new Project
 
