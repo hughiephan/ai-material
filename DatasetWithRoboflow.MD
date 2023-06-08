@@ -46,7 +46,7 @@ Step 7: Train a CNN model with Train and Validation Set
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5c8bbc57-f8be-4de2-95b1-3936d590e359)
 
-```
+```py
 image_size = (128, 128)
 input_shape = (128, 128, 3)
 batch_size = 32
@@ -94,7 +94,7 @@ model.fit(train_data, epochs=10, validation_data=val_data)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
 Step 8: Evaluate with Test Set
-```
+```py
 loss, accuracy = model.evaluate(test_data)
 print("Test Loss:", loss)
 print("Test Accuracy:", accuracy)
@@ -103,7 +103,7 @@ print("Test Accuracy:", accuracy)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
 
 Step 9: Make a prediction
-```
+```py
 test_images, test_labels = next(iter(test_data))
 random_index = np.random.randint(0, len(test_images))
 random_image = test_images[random_index]
