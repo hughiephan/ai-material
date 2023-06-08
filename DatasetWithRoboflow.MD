@@ -22,9 +22,24 @@ Step 4: Export the Dataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e1c7e138-edd7-458a-a956-7ed621445bbe)
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8803782d-9e6e-497b-b913-1d19d1a1084c)
+![image](https://github.com/hughiephan/DPL/assets/16631121/36d69c15-9c9f-4644-ab95-cb4336daa0b7)
 
-Step 5: Extract the Dataset
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/82965315-3039-4bae-afe5-073a486c2635)
+Step 5: Copy the code
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/2bf43b3d-e083-454a-8c97-2d400bdb4af0)
+
+Step 6: Create new Notebook
+```py
+!pip install roboflow
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from torchvision import transforms
+from roboflow import Roboflow
+rf = Roboflow(api_key="ADD_YOUR_API_KEY")
+project = rf.workspace("ADD_YOUR_WORKSPACE").project("ADD_YOUR_PROJECT")
+dataset = project.version("ADD_PROJECT_VERSION").download("folder")
+```
+
 
