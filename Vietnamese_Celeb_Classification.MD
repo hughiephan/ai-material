@@ -14,7 +14,7 @@ Step 1: Create new Project
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9435c558-3e58-414e-bfe5-e71f0226fa4b)
 
-Step 2: Upload Dataset
+Step 2: Upload this Celeb Dataset (https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini) to Roboflow for Image Preprocessing and Augmentation 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6e3ff2b0-f070-40ba-8055-b3da360e0a25)
 
