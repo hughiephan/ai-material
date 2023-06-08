@@ -42,4 +42,78 @@ project = rf.workspace("ADD_YOUR_WORKSPACE").project("ADD_YOUR_PROJECT")
 dataset = project.version("ADD_PROJECT_VERSION").download("folder")
 ```
 
+Step 7: Train a CNN model with Train and Validation Set
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/5c8bbc57-f8be-4de2-95b1-3936d590e359)
+
+```
+image_size = (128, 128)
+input_shape = (128, 128, 3)
+batch_size = 32
+num_classes = 10 
+train_data = tf.keras.preprocessing.image_dataset_from_directory(
+    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/train',
+    image_size=image_size,
+    batch_size=batch_size,
+    label_mode='categorical',
+    shuffle=True
+)
+
+val_data = tf.keras.preprocessing.image_dataset_from_directory(
+    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/valid',
+    image_size=image_size,
+    batch_size=batch_size,
+    label_mode='categorical',
+    shuffle=False
+)
+
+test_data = tf.keras.preprocessing.image_dataset_from_directory(
+    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/test',
+    image_size=image_size,
+    batch_size=batch_size,
+    label_mode='categorical',
+    shuffle=False
+)
+
+def create_model(input_shape, num_labels):
+    model = tf.keras.models.Sequential()
+    model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
+    model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+    model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
+    model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+    model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
+    model.add(tf.keras.layers.Flatten())
+    model.add(tf.keras.layers.Dense(64, activation='relu'))
+    model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    return model
+model = create_model(input_shape, num_labels)
+model.fit(train_data, epochs=10, validation_data=val_data)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
+
+Step 8: Evaluate with Test Set
+```
+loss, accuracy = model.evaluate(test_data)
+print("Test Loss:", loss)
+print("Test Accuracy:", accuracy)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
+
+Step 9: Make a prediction
+```
+test_images, test_labels = next(iter(test_data))
+random_index = np.random.randint(0, len(test_images))
+random_image = test_images[random_index]
+plt.imshow(random_image.numpy().astype("uint8"))
+input_image = np.expand_dims(random_image, axis=0)
+predictions = model.predict(input_image)
+predicted_class_index = np.argmax(predictions[0])
+predicted_class = test_data.class_names[predicted_class_index]
+print("Predicted Class:", predicted_class)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
 
