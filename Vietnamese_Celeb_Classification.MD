@@ -6,6 +6,9 @@ https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
 ## Prerequisites
 Register a free account at https://app.roboflow.com/
 
+## References
+https://blog.roboflow.com/why-preprocess-augment/
+
 ## Tutorial
 
 Step 1: Create new Project
@@ -26,12 +29,13 @@ Step 3: Generate new version for the dataset with minimum Pre-processing and Aug
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b73d1127-b7f0-4f22-a0ee-85ed46f7f0ba)
 
+Image augmentation manipulations are forms of image preprocessing, but there is a critical difference: while image preprocessing steps are applied to training and test sets, image augmentation is only applied to the training data. By augmenting your images, you can increase the sample size of your training data and add in new cases that might be hard to find in the real-world. This is particularly important when collected datasets may be small
+
 Step 4: Export the Dataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e1c7e138-edd7-458a-a956-7ed621445bbe)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/36d69c15-9c9f-4644-ab95-cb4336daa0b7)
-
 
 Step 5: Copy the code
 
