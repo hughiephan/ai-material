@@ -131,8 +131,10 @@ print("Predicted Class:", predicted_class)
 
 Step 10: Create a new version for the dataset with different adjustments for pre-processing and Augmentation 
 
+You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
 
-Step 11: Update your Notebook code with the new version and then train again. And hope that this will increase the accuracy.
+Step 11: Update your Notebook with the new version and then train again to see if the new set of pre-processing and augmentation increase the accuracy or not.
