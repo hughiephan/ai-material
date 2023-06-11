@@ -27,9 +27,9 @@ Step 2: Upload this Celeb Dataset (https://www.kaggle.com/datasets/thala321/famo
 
 Step 3: Generate new version for the dataset with minimum Pre-processing and Augmentation
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b73d1127-b7f0-4f22-a0ee-85ed46f7f0ba)
-
 Image augmentation manipulations are forms of image preprocessing, but there is a critical difference: while image preprocessing steps are applied to training and test sets, image augmentation is only applied to the training data. By augmenting your images, you can increase the sample size of your training data and add in new cases that might be hard to find in the real-world. This is particularly important when collected datasets may be small
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/b73d1127-b7f0-4f22-a0ee-85ed46f7f0ba)
 
 Step 4: Export the Dataset
 
