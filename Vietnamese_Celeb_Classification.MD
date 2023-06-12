@@ -103,6 +103,8 @@ model = create_model(input_shape, num_classes)
 model.fit(train_data, epochs=10, validation_data=val_data)
 ```
 
+Numer `3` in Input Shape means we are handling colored image. If you want to set it to Gray image, you can use `1`.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
 Step 8: Evaluate with Test Set
