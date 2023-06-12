@@ -135,6 +135,8 @@ Step 10: Create a new version for the dataset with different adjustments for pre
 
 You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/6361218b-f8e0-4917-aeea-7ca716b982a1)
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
