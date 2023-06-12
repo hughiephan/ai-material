@@ -107,7 +107,22 @@ Numer `3` in Input Shape means we are handling colored image. If you want to set
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
-Step 8: Evaluate with Test Set
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
+
+Step 8: Create a new version for the dataset with different adjustments for pre-processing and Augmentation 
+
+You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6361218b-f8e0-4917-aeea-7ca716b982a1)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
+
+Step 9: Update your Notebook with the new version and then train again to see if the new set of pre-processing and augmentation increase the accuracy or not.
+
+Step 10: Evaluate with Test Set
 ```py
 loss, accuracy = model.evaluate(test_data)
 print("Test Loss:", loss)
@@ -116,7 +131,7 @@ print("Test Accuracy:", accuracy)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
 
-Step 9: Make a prediction
+Step 11: Make a prediction
 ```py
 test_images, test_labels = next(iter(test_data))
 random_index = np.random.randint(0, len(test_images))
@@ -128,17 +143,3 @@ predicted_class_index = np.argmax(predictions[0])
 predicted_class = test_data.class_names[predicted_class_index]
 print("Predicted Class:", predicted_class)
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
-
-Step 10: Create a new version for the dataset with different adjustments for pre-processing and Augmentation 
-
-You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/6361218b-f8e0-4917-aeea-7ca716b982a1)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
-
-Step 11: Update your Notebook with the new version and then train again to see if the new set of pre-processing and augmentation increase the accuracy or not.
