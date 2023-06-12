@@ -108,8 +108,6 @@ Numer `3` in Input Shape means we are handling colored image. If you want to set
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
-
 Step 8: Create a new version for the dataset with different adjustments for pre-processing and Augmentation 
 
 You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
@@ -143,3 +141,5 @@ predicted_class_index = np.argmax(predictions[0])
 predicted_class = test_data.class_names[predicted_class_index]
 print("Predicted Class:", predicted_class)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
