@@ -99,7 +99,7 @@ def create_model(input_shape, num_labels):
     model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     return model
-model = create_model(input_shape, num_labels)
+model = create_model(input_shape, num_classes)
 model.fit(train_data, epochs=10, validation_data=val_data)
 ```
 
