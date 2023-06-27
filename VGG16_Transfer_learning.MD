@@ -53,7 +53,6 @@ vgg16.summary()
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3d0043ac-22ac-497e-ae3f-3813378c79c5)
 
-
 ```py
 output = Flatten()(vgg16.output)
 output = Dense(500, activation='relu')(output)
@@ -74,6 +73,6 @@ Train the model
 ```py
 history = model.fit(train_data,
                     batch_size=32,
-                    epochs=1,
+                    epochs=10,
                     validation_data=val_data)
 ```
