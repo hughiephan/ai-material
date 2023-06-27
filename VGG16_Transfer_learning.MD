@@ -41,7 +41,32 @@ test_data = training_datagen.flow_from_directory('/content/Face Mask Dataset/Tes
                                                      class_mode = 'binary')
 ```
 
-vgg16 = VGG16(input_shape=INPUT_SIZE + [3], weights='imagenet', include_top=False)
+Transfer learning
+```py
+vgg16 = VGG16(input_shape=(128, 128, 3), weights='imagenet', include_top=False)
+for layer in vgg16.layers:
+    layer.trainable = False
+output = Flatten(name='flatten')(vgg16.output)
+output = Dense(4096, activation='relu', name='fc1')(output)
+output = Dropout(0.5)(output)
+output = Dense(4096, activation='relu', name='fc2')(output)
+output = Dropout(0.5)(output)
+output = Dense(4, activation='softmax', name='predictions')(output)
+model = Model(inputs=vgg16.input, outputs=output)
+model.compile(
+  loss='binary_crossentropy',
+  optimizer='adam',
+  metrics=['accuracy']
+)
+```
 
-
-
+Train the model
+```py
+history = model.fit_generator(
+  training_data,
+  validation_data=test_data,
+  epochs=60,
+  steps_per_epoch=len(training_data),
+  validation_steps=len(test_data)
+)
+```
