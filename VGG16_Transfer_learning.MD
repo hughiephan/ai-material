@@ -41,12 +41,20 @@ train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
 test_ds = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,seed=42)
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/3dc60840-7919-49fa-a626-45678cc4d1e9)
+
 
 Transfer learning
 ```py
 vgg16 = VGG16(input_shape=input_shape, weights='imagenet', include_top=False)
 for layer in vgg16.layers:
     layer.trainable = False
+vgg16.summary()
+```
+![image](https://github.com/hughiephan/DPL/assets/16631121/3d0043ac-22ac-497e-ae3f-3813378c79c5)
+
+
+```py
 output = Flatten()(vgg16.output)
 output = Dense(500, activation='relu')(output)
 output = Dense(100, activation='relu')(output)
@@ -58,7 +66,9 @@ model.compile(
   optimizer='adam',
   metrics=['accuracy']
 )
+model.summary()
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/807ef1fb-0805-496f-aaef-0aba55627094)
 
 Train the model
 ```py
