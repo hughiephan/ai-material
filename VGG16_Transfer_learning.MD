@@ -23,6 +23,14 @@ base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ```
 
 Import generator
+
+I use the ImageDataGenerator function from Keras to create an image generator that can apply these augmentations to the training images. The parameters for the different augmentations are set as follows:
+- Rotation: Up to 30 degrees
+- Height Shift: Up to 10% of the image height
+- Width Shift: Up to 10% of the image width
+- Zoom: Up to 10%
+- Horizontal Flip: Enabled
+
 ```py
 train_gen = ImageDataGenerator(
     rescale=1./255, 
