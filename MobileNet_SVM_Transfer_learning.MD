@@ -5,18 +5,12 @@ Transfer learning is used for feature extraction. Pretrained MobileNet is loaded
 ```py
 import os
 import numpy as np
-import pandas as pd
 import tensorflow as tf
 from tensorflow.keras.applications.mobilenet import MobileNet
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet import preprocess_input
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.regularizers import l2
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.utils import shuffle
 from sklearn import svm
 ```
 
