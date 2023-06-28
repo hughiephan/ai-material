@@ -1,13 +1,11 @@
-Introduction
-Transfer learning is a machine learning research subject that is concerned with the storage of knowledge obtained while resolving one problem and its subsequent application to another related problem.
-
-Pre-trained models are frequently utilized as the foundation for deep learning tasks in computer vision and natural language processing because they save both cost and time compared to developing neural network models from scratch and because they perform significantly better on related tasks.
+# Introduction
+Transfer learning is a machine learning research subject that is concerned with the storage of knowledge obtained while resolving one problem and its subsequent application to another related problem. Pre-trained models are frequently utilized as the foundation for deep learning tasks in computer vision and natural language processing because they save both cost and time compared to developing neural network models from scratch and because they perform significantly better on related tasks.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8be69cb2-072a-40a5-8141-6b6b776cdde0)
 
-Objective
+# Objective
 
-Identiying if a person is wearing facemask or not and violating any social distance norms.
+Identifying if a person is wearing a facemask or not.
 
 
 Import Libraries
@@ -34,7 +32,7 @@ input_shape = (128, 128, 3)
 base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ```
 
-Data Augmentation
+## Data Augmentation
 
 Data augmentation is a process of artificially increasing the amount of data by generating new data points from existing data. This includes adding minor alterations to data or using machine learning models to generate new data points in the latent space of original data to amplify the dataset. Use the ImageDataGenerator function from Keras to create an image generator that can apply these augmentations to the training images. The parameters for the different augmentations are set as follows:
 - Rotation: Up to 20 degrees
