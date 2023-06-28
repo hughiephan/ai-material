@@ -1,4 +1,4 @@
-# Transfer Learning with VGG16 + our own Fully-connected Layer
+# Transfer Learning with VGG16 + our custom Fully-connected Layer
 Transfer learning is a machine learning research subject that is concerned with the storage of knowledge obtained while resolving one problem and its subsequent application to another related problem. Pre-trained models are frequently utilized as the foundation for deep learning tasks in computer vision and natural language processing because they save both cost and time compared to developing neural network models from scratch and because they perform significantly better on related tasks.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8be69cb2-072a-40a5-8141-6b6b776cdde0)
