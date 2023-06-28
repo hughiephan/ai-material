@@ -23,7 +23,7 @@ path = "/kaggle/input/flowers-recognition/flowers"
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
 ## Step 3: Import Model
-MobileNet is an efficient and portable CNN architecture. Because of the small size of the model, these models are considered very useful to be implemented on mobile and embedded devices. While a VGG16 model can take up to 500 MB of disk space, MobileNet just needs 16–18MB. This makes it ideal to be loaded on mobile devices.
+MobileNet is an efficient and portable CNN architecture. Because of the small size of the model, these models are considered very useful to be implemented on mobile and embedded devices. While a VGG16 model can take up to 500 MB of disk space, MobileNet just needs 16–18MB. This makes it ideal to be loaded on mobile devices. Having `include_top=True` means that a fully-connected layer will be added at the end of the model
 
 ```py
 model = MobileNet(input_shape=(224,224,3), include_top=True)
@@ -62,8 +62,10 @@ for f in range(5): # Flowers folder have 5 classes
 ![image](https://github.com/hughiephan/DPL/assets/16631121/94cbceba-2e7a-4f98-a072-90f5c2008a01)
 
 ## Step 6: Train Test Split
-Dataset is splitted into train and test sets. We want stratified splits with same class distributions.
+`X` and `Y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`. We want stratified splits with same class distributions.
 ```py
+X = np.asarray(X, dtype=np.float32)
+Y = np.asarray(Y, dtype=np.float32)
 train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2, stratify=Y, random_state=42, shuffle=True)
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ae440bdc-2be2-4b9d-b992-2117ee82a170)
