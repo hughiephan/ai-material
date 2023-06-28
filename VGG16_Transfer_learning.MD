@@ -68,9 +68,7 @@ test_ds = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,
 
 
 ## Step 6: Import pre-trained model
-Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dataset. The “16” stand for the number of weight layers in the network. In 2014, 16 networks were considered very deep. 
-
-The network is characterized by its simplicity, using only 3×3 convolutional layers stacked on top of each other in increasing depth. Reducing volume size is handled by max pooling. Two fully-connected layers, each with 4,096 nodes are then followed by a softmax classifier
+Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dataset. The “16” stand for the number of weight layers in the network. In 2014, 16 networks were considered very deep. The network uses only 3×3 convolutional layers stacked on top of each other in increasing depth. Reducing volume size is handled by max pooling. Two fully-connected layers, each with 4,096 nodes are then followed by a softmax classifier
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5f852ca0-a3fd-484c-94c1-2026617adedd)
 
@@ -83,8 +81,11 @@ for layer in vgg16.layers:
 vgg16.summary()
 ```
 
-The parameters are 14.714.688 but because we have already frozen them so they will not be updated in the training process
+The total parameters are 14,714,688 but because we have already frozen them so they will not be updated in the training process
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3d0043ac-22ac-497e-ae3f-3813378c79c5)
+
+## Step 7: New classifier
+Add our fully-connected layer after VGG16. These hyperparameters are chosen randomly, and by experimenting we should know what are the best hyperparameters for this classifier layer. Number `2` in the last layer is equal to the `with mask` and `without mask` label. Binary cross-entropy is used for the binary classification task (two target classes)
 
 ```py
 output = Flatten()(vgg16.output)
@@ -100,9 +101,11 @@ model.compile(
 )
 model.summary()
 ```
+
+Total parameters change from 14,714,688 to 18,861,490. With the Trainable parameters: 4,146,802 come from our fully-connected layer 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/807ef1fb-0805-496f-aaef-0aba55627094)
 
-Train the model
+## Step 8: Train our model
 ```py
 history = model.fit(train_data,
                     batch_size=32,
