@@ -1,4 +1,4 @@
-# Introduction
+# Transfer Learning with MobileNet + SVM 
 Transfer learning is used for feature extraction. Pretrained MobileNet is loaded from Keras applications and used to get a feature vector for each image in the dataset. Then we use SVM for classifying.
 
 ## Step 1: Import libraries
