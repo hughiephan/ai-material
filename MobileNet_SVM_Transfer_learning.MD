@@ -20,8 +20,8 @@ from sklearn.utils import shuffle
 from sklearn import svm
 ```
 
-## Step 2: Config
-Flowers Recognition dataset will be used to compare different methods. In dataset, there are 5 classes: daisy, dandelion, rose, sunflower and tulip. Images belonging to a specific class are collected in the corresponding folder name
+## Step 2: Import Dataset
+Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name
 ```py
 classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
 path = "/kaggle/input/flowers-recognition/flowers"
