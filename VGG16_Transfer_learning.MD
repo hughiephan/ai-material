@@ -74,12 +74,16 @@ The network is characterized by its simplicity, using only 3×3 convolutional la
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5f852ca0-a3fd-484c-94c1-2026617adedd)
 
+Loop through all the VGG16 layers and freeze those layer's weights using `layer.trainable = False`
+
 ```py
 vgg16 = VGG16(input_shape=input_shape, weights='imagenet', include_top=False)
 for layer in vgg16.layers:
     layer.trainable = False
 vgg16.summary()
 ```
+
+The parameters are 14.714.688 but because we have already frozen them so they will not be updated in the training process
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3d0043ac-22ac-497e-ae3f-3813378c79c5)
 
 ```py
