@@ -1,7 +1,7 @@
 # Introduction
-Transfer learning is used for feature extraction. Pretrained MobileNet is loaded from Keras applications and used to get feature vector for each image in the dataset. Then we use SVM for classifying.
+Transfer learning is used for feature extraction. Pretrained MobileNet is loaded from Keras applications and used to get a feature vector for each image in the dataset. Then we use SVM for classifying.
 
-## Import libraries
+## Step 1: Import libraries
 ```py
 import os
 import numpy as np
@@ -20,21 +20,24 @@ from sklearn.utils import shuffle
 from sklearn import svm
 ```
 
-## Config
+## Step 2: Config
+Flowers Recognition dataset will be used to compare different methods. In dataset, there are 5 classes: daisy, dandelion, rose, sunflower and tulip. Images belonging to a specific class are collected in the corresponding folder name
 ```py
 classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
 path = "/kaggle/input/flowers-recognition/flowers"
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
-## Import Model
+## Step 3: Import Model
+MobileNet is an efficient and portable CNN architecture. Because of the small size of the model, these models are considered very useful to be implemented on mobile and embedded devices. While a VGG16 model can take up to 500 MB of disk space, MobileNet just needs 16–18MB. This makes it ideal to be loaded on mobile devices.
+
 ```py
 model = MobileNet(input_shape=(224,224,3), include_top=True)
 model.summary()
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/69cb2019-a45f-4a36-aa85-dbaedcd01d08)
 
-## Feature Extractor
+## Step 4: Feature Extractor
 The output of reshape_2 layer is a 1000 elements vector. MobileNet predictions layer takes this vector as input. We use this vector as our feature and try to do classification. A new model `feature_extractor` is created.
 
 ```py
@@ -42,7 +45,9 @@ vector = model.get_layer("reshape_2").output
 feature_extractor = tf.keras.Model(model.input, vector)
 ```
 
-## Run Extract Feature
+## Step 5: Run Feature Extract
+All files in 5 folders are scanned one by one. There are some non-image files in dataset folders. Extension of each file is checked and file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array and preprocessed. Then, feature_extractor takes image and produces corresponding feature vector.
+
 ```py
 X = []
 Y = []
@@ -62,12 +67,17 @@ for f in range(5): # Flowers folder have 5 classes
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/94cbceba-2e7a-4f98-a072-90f5c2008a01)
 
-## Make prediction with SVM
+## Step 6: Train Test Split
+Dataset is splitted into train and test sets. We want stratified splits with same class distributions.
 ```py
 train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2, stratify=Y, random_state=42, shuffle=True)
-svm_nlin = svm.SVC(C=1.0, kernel="rbf")
-svm_nlin.fit(train_X, train_Y)
-y_pred = svm_nlin.predict(test_X)
+```
+
+## Step 7: Make prediction with SVM
+```py
+svm_model = svm.SVC(C=1.0, kernel="rbf")
+svm_model.fit(train_X, train_Y)
+y_pred = svm_model.predict(test_X)
 print(classification_report(test_Y, y_pred,target_names=classes))
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/adaa6b93-7a3b-428e-8167-ce224e2938e3)
