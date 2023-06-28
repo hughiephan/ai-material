@@ -32,7 +32,7 @@ input_shape = (128, 128, 3)
 base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ```
 
-## Step 4: Import Augmentation Generator
+## Step 4: Import Pre-processing & Augmentation Generator
 
 Data augmentation is a process of artificially increasing the amount of data by generating new data points from existing data. This includes adding minor alterations to data or using machine learning models to generate new data points in the latent space of original data to amplify the dataset. Use the ImageDataGenerator function from Keras to create an image generator that can apply these augmentations to the training images. The parameters for the different augmentations are set as follows:
 - Rotation: Up to 20 degrees
@@ -58,7 +58,7 @@ val_gen = ImageDataGenerator(rescale=1./255)
 test_gen = ImageDataGenerator(rescale=1./255)
 ```
 
-## Step 5: Apply Augmentation 
+## Step 5: Apply Pre-processing & Augmentation 
 ```py
 train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_size,seed=42)
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
@@ -67,7 +67,7 @@ test_ds = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3dc60840-7919-49fa-a626-45678cc4d1e9)
 
 
-## Step6: Import pre-trained model
+## Step 6: Import pre-trained model
 Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dataset. The “16” stand for the number of weight layers in the network. In 2014, 16 networks were considered very deep. 
 
 The network is characterized by its simplicity, using only 3×3 convolutional layers stacked on top of each other in increasing depth. Reducing volume size is handled by max pooling. Two fully-connected layers, each with 4,096 nodes are then followed by a softmax classifier
