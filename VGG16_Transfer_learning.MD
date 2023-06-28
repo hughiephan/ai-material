@@ -7,8 +7,16 @@ Transfer learning is a machine learning research subject that is concerned with 
 
 Identifying if a person is wearing a facemask or not.
 
+## Step 1: Create a new Notebook from Dataset
+Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
 
-## Step 1: Import Libraries
+![image](https://github.com/hughiephan/DPL/assets/16631121/40eeb8d3-3b12-497c-8ba3-cb2b4e1ffc8d)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/71604595-7981-4808-890e-e5d57a224c81)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/15f8cff9-cd23-4d5e-ad79-3e63e1e437eb)
+
+## Step 2: Import Libraries
 ```py
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import Input, Lambda, Dense, Flatten, Dropout
@@ -16,13 +24,6 @@ from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.applications.vgg16 import preprocess_input
 ```
-
-## Step 2: Download Face Mask Dataset
-Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/71604595-7981-4808-890e-e5d57a224c81)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/15f8cff9-cd23-4d5e-ad79-3e63e1e437eb)
 
 ## Step 3: Config variables
 ```py
