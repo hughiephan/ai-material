@@ -12,10 +12,6 @@ Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dat
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/40eeb8d3-3b12-497c-8ba3-cb2b4e1ffc8d)
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/71604595-7981-4808-890e-e5d57a224c81)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/15f8cff9-cd23-4d5e-ad79-3e63e1e437eb)
-
 ## Step 2: Import Libraries
 ```py
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -31,6 +27,9 @@ input_size = (128,128)
 input_shape = (128, 128, 3)
 base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/71604595-7981-4808-890e-e5d57a224c81)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/15f8cff9-cd23-4d5e-ad79-3e63e1e437eb)
 
 ## Step 4: Import Pre-processing & Augmentation Generator
 
