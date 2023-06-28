@@ -72,6 +72,7 @@ Dataset is splitted into train and test sets. We want stratified splits with sam
 ```py
 train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2, stratify=Y, random_state=42, shuffle=True)
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/ae440bdc-2be2-4b9d-b992-2117ee82a170)
 
 ## Step 7: Make prediction with SVM
 ```py
