@@ -72,7 +72,7 @@ Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dat
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5f852ca0-a3fd-484c-94c1-2026617adedd)
 
-Loop through all the VGG16 layers and freeze those layer's weights using `layer.trainable = False`
+Loop through all the VGG16 layers and freeze those layer's weights using `layer.trainable = False`. With `include_top=False`, the model can be used for feature extraction, then we can stack any other model on top of it.
 
 ```py
 vgg16 = VGG16(input_shape=input_shape, weights='imagenet', include_top=False)
