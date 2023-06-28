@@ -17,8 +17,8 @@ from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.applications.vgg16 import preprocess_input
 ```
 
-## Step 2: Import Face Mask Dataset
-Download Face Mask Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
+## Step 2: Download Face Mask Dataset
+Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/71604595-7981-4808-890e-e5d57a224c81)
 
