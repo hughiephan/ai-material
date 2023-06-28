@@ -25,14 +25,14 @@ https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/15f8cff9-cd23-4d5e-ad79-3e63e1e437eb)
 
-Config
+## Step 3: Config variables
 ```py
 input_size = (128,128)
 input_shape = (128, 128, 3)
 base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ```
 
-## Data Augmentation
+## Step 4: Import Augmentation Generator
 
 Data augmentation is a process of artificially increasing the amount of data by generating new data points from existing data. This includes adding minor alterations to data or using machine learning models to generate new data points in the latent space of original data to amplify the dataset. Use the ImageDataGenerator function from Keras to create an image generator that can apply these augmentations to the training images. The parameters for the different augmentations are set as follows:
 - Rotation: Up to 20 degrees
@@ -40,6 +40,8 @@ Data augmentation is a process of artificially increasing the amount of data by 
 - Width Shift: Up to 10% of the image width
 - Zoom: Up to 10%
 - Horizontal Flip: Enabled
+
+For Validation and Test Set, we only apply normalization by dividing with 255 and get the pixel range from [0 ~ 1] 
 
 ```py
 train_gen = ImageDataGenerator(
@@ -56,7 +58,7 @@ val_gen = ImageDataGenerator(rescale=1./255)
 test_gen = ImageDataGenerator(rescale=1./255)
 ```
 
-Pre-process the data
+## Step 5: Apply Augmentation 
 ```py
 train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_size,seed=42)
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
@@ -65,7 +67,13 @@ test_ds = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3dc60840-7919-49fa-a626-45678cc4d1e9)
 
 
-Transfer learning
+## Step6: Import pre-trained model
+Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dataset. The “16” stand for the number of weight layers in the network. In 2014, 16 networks were considered very deep. 
+
+The network is characterized by its simplicity, using only 3×3 convolutional layers stacked on top of each other in increasing depth. Reducing volume size is handled by max pooling. Two fully-connected layers, each with 4,096 nodes are then followed by a softmax classifier
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/5f852ca0-a3fd-484c-94c1-2026617adedd)
+
 ```py
 vgg16 = VGG16(input_shape=input_shape, weights='imagenet', include_top=False)
 for layer in vgg16.layers:
