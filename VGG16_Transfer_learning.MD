@@ -8,7 +8,7 @@ Transfer learning is a machine learning research subject that is concerned with 
 Identifying if a person is wearing a facemask or not.
 
 
-Import Libraries
+## Step 1: Import Libraries
 ```py
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import Input, Lambda, Dense, Flatten, Dropout
@@ -17,7 +17,7 @@ from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.applications.vgg16 import preprocess_input
 ```
 
-Face Mask Dataset
+## Step 2: Import Face Mask Dataset
 ```py
 https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dataset
 ```
