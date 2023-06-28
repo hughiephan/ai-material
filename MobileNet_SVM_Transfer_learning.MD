@@ -40,7 +40,9 @@ feature_extractor = tf.keras.Model(model.input, vector)
 ```
 
 ## Step 5: Run Feature Extract
-All files in 5 folders are scanned one by one. There are some non-image files in dataset folders. Extension of each file is checked and file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array and preprocessed. Then, feature_extractor takes image and produces corresponding feature vector.
+All files in 5 folders are scanned one by one. There are some non-image files in dataset folders. Extension of each file is checked and file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array and preprocessed. Then, feature_extractor takes image and produces corresponding feature vector.  Looking at the first layer of `model.summary()` you can see it's expecting data in this format `[(None, 224, 224, 3)]` so we need to add 1 more dimension by `np.expand_dims(img_arr, axis=0)`, after that the image will transform from `(224, 224, 3)` into `(1, 224, 224, 3)`.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ef2c9233-602b-4c73-a57f-43c869d771cf)
 
 ```py
 X = []
@@ -53,7 +55,7 @@ for f in range(5): # Flowers folder have 5 classes
             continue
         img = image.load_img(file_path, target_size=(224,224))
         img_arr = image.img_to_array(img)
-        img_arr_b = np.expand_dims(img_arr, axis=0) # add 1 more dimension
+        img_arr_b = np.expand_dims(img_arr, axis=0)
         input_img = preprocess_input(img_arr_b)
         feature_vec = feature_extractor.predict(input_img)
         X.append(feature_vec.ravel())
