@@ -37,6 +37,7 @@ Data augmentation is a process of artificially increasing the amount of data by 
 - Rotation: Up to 20 degrees
 - Height Shift: Up to 10% of the image height
 - Width Shift: Up to 10% of the image width
+- Fill Mode: Nearest, replaces the empty area with the nearest pixel values when shifting
 - Zoom: Up to 10%
 - Horizontal Flip: Enabled
 
@@ -49,9 +50,9 @@ train_gen = ImageDataGenerator(
     rotation_range=20,
     width_shift_range=0.1,
     height_shift_range=0.1,
+    fill_mode="nearest"
     horizontal_flip=True,
     brightness_range=[0.2,1.5],
-    fill_mode="nearest"
 )
 val_gen = ImageDataGenerator(rescale=1./255)
 test_gen = ImageDataGenerator(rescale=1./255)
