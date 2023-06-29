@@ -62,7 +62,7 @@ test_gen = ImageDataGenerator(rescale=1./255)
 ```py
 train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_size,seed=42)
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
-test_ds = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,seed=42)
+test_data = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,seed=42)
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3dc60840-7919-49fa-a626-45678cc4d1e9)
 
