@@ -50,7 +50,7 @@ train_gen = ImageDataGenerator(
     rotation_range=20,
     width_shift_range=0.1,
     height_shift_range=0.1,
-    fill_mode="nearest"
+    fill_mode="nearest",
     horizontal_flip=True,
     brightness_range=[0.2,1.5],
 )
