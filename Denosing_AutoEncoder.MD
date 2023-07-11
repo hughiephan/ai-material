@@ -4,7 +4,7 @@ In the following section, you will create a noisy version of the Fashion MNIST d
 
 # Architecture of Denosing AutoEncoder
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8b6ac459-d9f1-4dd1-b60a-8c44f8767dba)
+![image](https://github.com/hughiephan/DPL/assets/16631121/dbe0125c-e950-45fe-a0fb-118754cb2024)
 
 The architecture of a denoising autoencoder (DAE) is similar to that of a standard autoencoder. It consists of an encoder, which maps the input data to a lower-dimensional representation, or encoding, and a decoder, which maps the encoding back to the original data space. During training, the autoencoder is given a set of clean input examples `x_train / x_test` and the corresponding noisy versions of these examples `x_train_noisy / x_test_noisy`. The goal is to learn a function that maps the noisy input to the clean output using the encoder-decoder architecture.
 
