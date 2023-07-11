@@ -7,8 +7,6 @@ An autoencoder can also be trained to remove noise from images. In the following
 ## Step 1: Import TensorFlow and other libraries
 ```py
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 import tensorflow as tf
 from tensorflow.keras import layers, losses
 from tensorflow.keras.datasets import fashion_mnist
@@ -78,7 +76,8 @@ autoencoder.fit(x_train_noisy, x_train,
 ```
 
 ## Step 6: Evaluate
-Plotting both the noisy images and the denoised images produced by the autoencoder.
+Plotting both the noisy images and the denoised images produced by the autoencoder. `tf.squeeze()` removes dimensions whose size is 1, for example, if a tensor with shape [width, 1, height], then `tf.squeeze()) will return a tensor with the size [width, height]
+
 ```py
 encoded_imgs = autoencoder.encoder(x_test_noisy).numpy()
 decoded_imgs = autoencoder.decoder(encoded_imgs).numpy()
