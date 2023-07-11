@@ -76,8 +76,6 @@ class AnomalyDetector(Model):
     encoded = self.encoder(x)
     decoded = self.decoder(encoded)
     return decoded
-
-
 ```
 
 ## Step 6: Training
@@ -103,6 +101,7 @@ threshold = np.mean(train_loss) + np.std(train_loss)
 ```
 
 Train loss
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c3f8d28-f12a-42d6-abc8-3b571767858a)
 
 ## Step 8: Predict
