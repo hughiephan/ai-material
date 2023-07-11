@@ -42,7 +42,7 @@ x_test_noisy = tf.clip_by_value(x_test_noisy, clip_value_min=0., clip_value_max=
 ```
 
 ## Step 4: Define a convolutional autoencoder
-Train a convolutional autoencoder using Conv2D layers in the encoder, and Conv2DTranspose layers in the decoder.
+Train a convolutional autoencoder using Conv2D layers in the encoder, and Conv2DTranspose layers in the decoder. `Conv2D` is mainly used when you want to detect features and `Conv2DTranspose` is used for constructing features (https://stackoverflow.com/questions/68976745/in-keras-what-is-the-difference-between-conv2dtranspose-and-conv2d)
 ```py
 class Denoise(Model):
   def __init__(self):
