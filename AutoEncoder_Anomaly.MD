@@ -89,7 +89,7 @@ history = autoencoder.fit(normal_train_data, normal_train_data,
           shuffle=True)
 ```
 
-## Step 7: 
+## Step 7: Set a threshold
 Detect anomalies by calculating whether the reconstruction loss is greater than a fixed threshold. 
 In this tutorial, you will calculate the mean average error for normal examples from the training set, then classify future examples as anomalous if the reconstruction error is higher than one standard deviation from the training set. 
 And choose a threshold value that is one standard deviation above the mean
