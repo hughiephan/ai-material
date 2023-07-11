@@ -16,7 +16,7 @@ from tensorflow.keras.models import Model
 ```
 
 ## Step 2: Train the basic autoencoder using the Fashion MNIST dataset. 
-Each image in this dataset is 28x28 pixels.
+Each image in this dataset is 28x28 pixels. `tf.newaxis` is similar to `expand_dims()` which adds a new axis. 
 
 ```py
 (x_train, _), (x_test, _) = fashion_mnist.load_data()
@@ -28,6 +28,7 @@ x_test = x_test[..., tf.newaxis]
 
 ## Step 3: Adding random noise to the images
 
+`tf.random.normal()` function is used to create a tf.Tensor with values sampled from a normal distribution. (What is a normal distribution? https://www.quora.com/What-is-the-normal-distribution-Could-you-explain-it-to-me-with-easy-language-and-example). The `clip_by_value()` in TensorFlow clips values of a tensor to a specified minimum and maximum value.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4f42e3b5-e774-49a2-bf69-e5de48917ccd)
 
 ```py
