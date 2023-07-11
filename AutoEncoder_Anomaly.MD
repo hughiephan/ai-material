@@ -23,7 +23,8 @@ dataframe.head()
 ```
 
 ## Step 3: Pre-process the data
-Normalize the data to [0,1]
+`tf.reduce_min / tf.reduce_max` operations are to get the minimum and maximum value of a TensorFlow tensor. Then we normalize the data to [0,1] by dividing with `(max_val - min_val)` (It is similar to divide by `/255` for image processing)
+
 ```py
 labels = raw_data[:, -1] # Last element contains the labels
 data = raw_data[:, 0:-1] # Other data points are the ECG data
