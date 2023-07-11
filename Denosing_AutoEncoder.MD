@@ -84,14 +84,12 @@ decoded_imgs = autoencoder.decoder(encoded_imgs).numpy()
 n = 10
 plt.figure(figsize=(20, 4))
 for i in range(n):
-    # display original + noise
     ax = plt.subplot(2, n, i + 1)
     plt.title("original + noise")
     plt.imshow(tf.squeeze(x_test_noisy[i]))
     plt.gray()
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
-    # display reconstruction
     bx = plt.subplot(2, n, i + n + 1)
     plt.title("reconstructed")
     plt.imshow(tf.squeeze(decoded_imgs[i]))
