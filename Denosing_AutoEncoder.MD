@@ -78,6 +78,8 @@ autoencoder.fit(x_train_noisy, x_train,
 ## Step 6: Evaluate
 Plotting both the noisy images and the denoised images produced by the autoencoder. `tf.squeeze()` removes dimensions whose size is 1. For example: (28, 28, 1) will become (28, 28), which is similar to (width, height) of an image.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/8d6a8b83-d2b3-4cc8-83e2-08a9d757b433)
+
 ```py
 encoded_imgs = autoencoder.encoder(x_test_noisy).numpy()
 decoded_imgs = autoencoder.decoder(encoded_imgs).numpy()
