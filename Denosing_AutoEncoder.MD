@@ -1,22 +1,12 @@
 # Denosing AutoEncoder
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8b6ac459-d9f1-4dd1-b60a-8c44f8767dba)
-
-An autoencoder can also be trained to remove noise from images. In the following section, you will create a noisy version of the Fashion MNIST dataset by applying random noise to each image. You will then train an autoencoder using the noisy image as input, and the original image as the target.
+In the following section, you will create a noisy version of the Fashion MNIST dataset by applying random noise to each image. You will then train an autoencoder using the noisy image as input, and the original image as the target.
 
 # Architecture of Denosing AutoEncoder
-The architecture of a denoising autoencoder (DAE) is similar to that of a standard autoencoder. It consists of an encoder, which maps the input data to a lower-dimensional representation, or encoding, and a decoder, which maps the encoding back to the original data space.
 
-Encoder:
-- Encoder is a neural network with one or more hidden layers.
-- It takes noisy data as input and outputs an encoding.
-- Encoding has fewer dimensions than the input data, so the encoder is a compression function.
+![image](https://github.com/hughiephan/DPL/assets/16631121/8b6ac459-d9f1-4dd1-b60a-8c44f8767dba)
 
-Decoder:
-- Decoder is an expansion function that reconstructs original data from compressed encoding.
-- Input to the decoder is the encoding from an encoder, and output is a reconstruction of the original data.
-- Decoder is a neural network with one or more hidden layers.
-
+The architecture of a denoising autoencoder (DAE) is similar to that of a standard autoencoder. It consists of an encoder, which maps the input data to a lower-dimensional representation, or encoding, and a decoder, which maps the encoding back to the original data space. During training, the autoencoder is given a set of clean input examples `x_train / x_test` and the corresponding noisy versions of these examples `x_train_noisy / x_test_noisy`. The goal is to learn a function that maps the noisy input to the clean output using the encoder-decoder architecture.
 
 ## Step 1: Import TensorFlow and other libraries
 ```py
