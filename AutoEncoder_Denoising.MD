@@ -1,4 +1,4 @@
-# Denosing AutoEncoder
+# AutoEncoder for Denoising
 
 In the following section, you will create a noisy version of the Fashion MNIST dataset by applying random noise to each image. You will then train an autoencoder using the noisy image as input, and the original image as the target.
 
