@@ -6,9 +6,12 @@ In this example, you will train an autoencoder to detect anomalies on the ECG500
 ```py
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import pandas as pd
+import numpy as np
 from tensorflow.keras import layers, losses
-from tensorflow.keras.datasets import fashion_mnist
 from tensorflow.keras.models import Model
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score
 ```
 
 ## Step 2: Download the dataset
@@ -22,6 +25,11 @@ dataframe.head()
 ## Step 3: Normalize the data to [0,1]
 
 ```py
+labels = raw_data[:, -1] # Last element contains the labels
+data = raw_data[:, 0:-1] # Other data points are the ECG data
+train_data, test_data, train_labels, test_labels = train_test_split(
+    data, labels, test_size=0.2, random_state=21
+)
 min_val = tf.reduce_min(train_data)
 max_val = tf.reduce_max(train_data)
 train_data = (train_data - min_val) / (max_val - min_val)
@@ -29,6 +37,8 @@ test_data = (test_data - min_val) / (max_val - min_val)
 train_data = tf.cast(train_data, tf.float32)
 test_data = tf.cast(test_data, tf.float32)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7fa9c39c-c22d-4859-9414-6e1aa910d563)
 
 ## Step 4: Separate the normal rhythms from the abnormal rhythms.
 Train the autoencoder using only the normal rhythms, which are labeled in this dataset as 1
@@ -100,11 +110,10 @@ def predict(model, data, threshold):
   loss = tf.keras.losses.mae(reconstructions, data)
   return tf.math.less(loss, threshold)
 
-def print_stats(predictions, labels):
-  print("Accuracy = {}".format(accuracy_score(labels, predictions)))
-  print("Precision = {}".format(precision_score(labels, predictions)))
-  print("Recall = {}".format(recall_score(labels, predictions)))
-
-preds = predict(autoencoder, test_data, threshold)
-print_stats(preds, test_labels)
+predictions = predict(autoencoder, test_data, threshold)
+print("Accuracy = {}".format(accuracy_score(test_labels, predictions)))
+print("Precision = {}".format(precision_score(test_labels, predictions)))
+print("Recall = {}".format(recall_score(test_labels, predictions)))
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/fc723dc7-042a-4c8b-a168-8b206639505c)
