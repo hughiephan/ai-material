@@ -26,7 +26,7 @@ x_train = x_train[..., tf.newaxis]
 x_test = x_test[..., tf.newaxis]
 ```
 
-# Step 3: Adding random noise to the images
+## Step 3: Adding random noise to the images
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4f42e3b5-e774-49a2-bf69-e5de48917ccd)
 
@@ -38,7 +38,7 @@ x_train_noisy = tf.clip_by_value(x_train_noisy, clip_value_min=0., clip_value_ma
 x_test_noisy = tf.clip_by_value(x_test_noisy, clip_value_min=0., clip_value_max=1.)
 ```
 
-# Step 4: Define a convolutional autoencoder
+## Step 4: Define a convolutional autoencoder
 Train a convolutional autoencoder using Conv2D layers in the encoder, and Conv2DTranspose layers in the decoder.
 ```py
 class Denoise(Model):
@@ -66,7 +66,7 @@ Decoder upsamples the images back from 7x7 to 28x28.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c373a000-4096-4a60-bde9-3d6047e34b3f)
 
 
-# Step 5: Training
+## Step 5: Training
 ```py
 autoencoder = Denoise()
 autoencoder.compile(optimizer='adam', loss=losses.MeanSquaredError())
@@ -76,7 +76,7 @@ autoencoder.fit(x_train_noisy, x_train,
                 validation_data=(x_test_noisy, x_test))
 ```
 
-Step 6: Evaluate
+## Step 6: Evaluate
 Plotting both the noisy images and the denoised images produced by the autoencoder.
 ```py
 encoded_imgs = autoencoder.encoder(x_test_noisy).numpy()
