@@ -23,7 +23,7 @@ dataframe.head()
 ```
 
 ## Step 3: Pre-process the data
-`tf.reduce_min / tf.reduce_max` operations are to get the minimum and maximum value of a TensorFlow tensor. Then we normalize the data to [0,1] by dividing with `(max_val - min_val)` (It is similar to divide by `/255` for image processing)
+`tf.reduce_min / tf.reduce_max` operations are to get the minimum and maximum value of a TensorFlow tensor. Then we normalize the data to [0,1] by dividing with `(max_val - min_val)`.It is similar to dividing by 255 for image processing). Then apply `tf.cast` to cast the tensor to float type.
 
 ```py
 labels = raw_data[:, -1] # Last element contains the labels
