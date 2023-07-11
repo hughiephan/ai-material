@@ -14,7 +14,7 @@ from tensorflow.keras.models import Model
 ```
 
 ## Step 2: Train the basic autoencoder using the Fashion MNIST dataset. 
-Each image in this dataset is 28x28 pixels. `tf.newaxis` is similar to `expand_dims()` which adds a new axis. 
+Each image in this dataset is 28x28 pixels. `tf.newaxis` is similar to `expand_dims()` which adds a new axis.  `/ 255` to normalize the pixels into [0, 1] range
 
 ```py
 (x_train, _), (x_test, _) = fashion_mnist.load_data()
@@ -76,7 +76,7 @@ autoencoder.fit(x_train_noisy, x_train,
 ```
 
 ## Step 6: Evaluate
-Plotting both the noisy images and the denoised images produced by the autoencoder. `tf.squeeze()` removes dimensions whose size is 1, for example, if a tensor with shape [width, 1, height], then `tf.squeeze()) will return a tensor with the size [width, height]
+Plotting both the noisy images and the denoised images produced by the autoencoder. `tf.squeeze()` removes dimensions whose size is 1. For example: (28, 28, 1) will become (28, 28), which is similar to (width, height) of an image.
 
 ```py
 encoded_imgs = autoencoder.encoder(x_test_noisy).numpy()
