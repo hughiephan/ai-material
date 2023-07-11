@@ -105,6 +105,7 @@ Train loss
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c3f8d28-f12a-42d6-abc8-3b571767858a)
 
 ## Step 8: Predict
+Classify an ECG as an anomaly if the reconstruction error is greater than the threshold (one standard deviation) from the normal training examples
 ```py
 def predict(model, data, threshold):
   reconstructions = model(data)
@@ -116,5 +117,7 @@ print("Accuracy = {}".format(accuracy_score(test_labels, predictions)))
 print("Precision = {}".format(precision_score(test_labels, predictions)))
 print("Recall = {}".format(recall_score(test_labels, predictions)))
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6bd1ed9f-7305-4b73-8435-fd19c4abd0c0)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fc723dc7-042a-4c8b-a168-8b206639505c)
