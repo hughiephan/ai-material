@@ -102,9 +102,9 @@ train_loss = tf.keras.losses.mae(reconstructions, normal_train_data)
 threshold = np.mean(train_loss) + np.std(train_loss)
 ```
 
-Train loss
+Example of one standard deviation away from the mean
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/9c3f8d28-f12a-42d6-abc8-3b571767858a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/cc34bb2d-b25f-4476-a4f4-2de819c0fd0b)
 
 ## Step 8: Define prediction function
 Classify an ECG as an anomaly if the reconstruction error is greater than the threshold (one standard deviation) from the normal training examples. We use Mean Absolute Error `tf.keras.losses.mae` to calculate the difference between reconstruction and our input.
