@@ -58,11 +58,7 @@ Results of `train_labels` and `~train_labels`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9ebe42a9-a5a3-436d-8b34-3d8883087438)
 
-Normal ECG
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b985c836-1e9d-4266-a361-dd18176245b4)
-
-Anomalous ECG
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ba8a88cc-0a7d-4249-b1a0-742eac6ed05c)
 
