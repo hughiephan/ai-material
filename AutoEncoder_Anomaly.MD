@@ -1,6 +1,8 @@
 # AutoEncoder for Anomaly Detection
 
-In this example, you will train an autoencoder to detect anomalies on the ECG5000 dataset. This dataset contains 5,000 Electrocardiograms, each with 140 data points. You will use a simplified version of the dataset, where each example has been labeled either 0 (corresponding to an abnormal rhythm), or 1 (corresponding to a normal rhythm). You are interested in identifying the abnormal rhythms.
+In this example, you will train an autoencoder to detect anomalies on the ECG5000 dataset http://www.timeseriesclassification.com/description.php?Dataset=ECG5000.  This dataset contains 5,000 Electrocardiograms, each with 140 data points. You will use a simplified version of the dataset, where each example has been labeled either 0 (corresponding to an abnormal rhythm), or 1 (corresponding to a normal rhythm). You are interested in identifying the abnormal rhythms.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/97729dba-0a1a-482f-84d7-6e6c95d8ac01)
 
 ## Step 1: Import TensorFlow and other libraries
 ```py
@@ -92,8 +94,7 @@ history = autoencoder.fit(normal_train_data, normal_train_data,
 
 ## Step 7: Set a threshold
 Detect anomalies by calculating whether the reconstruction loss is greater than a fixed threshold. 
-In this tutorial, you will calculate the mean average error for normal examples from the training set, then classify future examples as anomalous if the reconstruction error is higher than one standard deviation from the training set. 
-And choose a threshold value that is one standard deviation above the mean
+In this tutorial, you will calculate the mean average error for normal examples from the training set, then classify future examples as anomalous if the reconstruction error is higher than one standard deviation from the training set (https://www.quora.com/What-is-meant-by-one-standard-deviation-away-from-the-mean). And choose a threshold value that is one standard deviation above the mean
 
 ```py
 reconstructions = autoencoder.predict(normal_train_data)
@@ -105,14 +106,20 @@ Train loss
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c3f8d28-f12a-42d6-abc8-3b571767858a)
 
-## Step 8: Predict
-Classify an ECG as an anomaly if the reconstruction error is greater than the threshold (one standard deviation) from the normal training examples
+## Step 8: Define prediction function
+Classify an ECG as an anomaly if the reconstruction error is greater than the threshold (one standard deviation) from the normal training examples. We use Mean Absolute Error `tf.keras.losses.mae` to calculate the difference between reconstruction and our input.
+
 ```py
 def predict(model, data, threshold):
   reconstructions = model(data)
   loss = tf.keras.losses.mae(reconstructions, data)
   return tf.math.less(loss, threshold)
+```
 
+Example of `tf.math.less` function
+![image](https://github.com/hughiephan/DPL/assets/16631121/f4dbe95c-3402-4a68-b9ec-336afcdae61d)
+
+## Step 9: Make prediction
 predictions = predict(autoencoder, test_data, threshold)
 print("Accuracy = {}".format(accuracy_score(test_labels, predictions)))
 print("Precision = {}".format(precision_score(test_labels, predictions)))
