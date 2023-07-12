@@ -1,6 +1,6 @@
 # AutoEncoder for Anomaly Detection
 
-In this example, you will train an autoencoder to detect anomalies on the ECG5000 dataset http://www.timeseriesclassification.com/description.php?Dataset=ECG5000.  This dataset contains 5,000 Electrocardiograms, each with 140 data points. You will use a simplified version of the dataset, where each example has been labeled either 0 (corresponding to an abnormal rhythm), or 1 (corresponding to a normal rhythm). You are interested in identifying the abnormal rhythms.
+In this example, you will train an autoencoder to detect anomalies on the ECG5000 dataset http://www.timeseriesclassification.com/description.php?Dataset=ECG5000.  This dataset contains 5,000 Electrocardiograms, each with 140 data points. You will use a simplified version of the dataset, where each example has been labeled either 0 (corresponding to an abnormal rhythm), or 1 (corresponding to a normal rhythm). Our goal is to identify abnormal rhythms.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/97729dba-0a1a-482f-84d7-6e6c95d8ac01)
 
