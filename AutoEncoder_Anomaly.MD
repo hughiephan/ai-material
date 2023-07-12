@@ -31,7 +31,7 @@ dataframe.head()
 labels = raw_data[:, -1] # Last element contains the labels
 data = raw_data[:, 0:-1] # Other data points are the ECG data
 train_data, test_data, train_labels, test_labels = train_test_split(
-    data, labels, test_size=0.2, random_state=21
+    data, labels, test_size=0.2, random_state=42
 )
 min_val = tf.reduce_min(train_data)
 max_val = tf.reduce_max(train_data)
