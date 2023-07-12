@@ -120,6 +120,7 @@ Example of `tf.math.less` function
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f4dbe95c-3402-4a68-b9ec-336afcdae61d)
 
 ## Step 9: Make prediction
+```py
 predictions = predict(autoencoder, test_data, threshold)
 print("Accuracy = {}".format(accuracy_score(test_labels, predictions)))
 print("Precision = {}".format(precision_score(test_labels, predictions)))
