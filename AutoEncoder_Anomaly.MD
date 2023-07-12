@@ -117,6 +117,7 @@ def predict(model, data, threshold):
 ```
 
 Example of `tf.math.less` function
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f4dbe95c-3402-4a68-b9ec-336afcdae61d)
 
 ## Step 9: Make prediction
