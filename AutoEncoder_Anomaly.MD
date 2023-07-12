@@ -55,6 +55,7 @@ anomalous_test_data = test_data[~test_labels]
 ```
 
 Results of `train_labels and` `~train_labels`
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b2ec7168-8eee-4e39-9ac6-a4e68b777de6)
 
 Normal ECG
