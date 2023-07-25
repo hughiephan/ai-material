@@ -5,7 +5,7 @@ EDA
 Original Dataset
 - https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify
 
-## Step 1: Import necessary libraries
+### Step 1: Import necessary libraries
 ```py
 import pandas as pd
 import matplotlib.pyplot as plt
