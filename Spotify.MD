@@ -31,6 +31,7 @@ Step 3: Exploring the Data
 data.iloc[:,:20]
 ```
 We can use the ‘iloc’ method to select the rows and columns that form a data frame by their integer index positions. Example of choosing the first 20 columns of the df.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/986a9a9f-871c-407e-9bd4-5806a0a826f7)
 ```py
 data.info()
