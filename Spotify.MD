@@ -16,6 +16,7 @@ from sklearn import preprocessing
 from tensorflow import keras
 warnings.simplefilter("ignore")
 ```
+
 ### Step 2: Load Dataset
 ```py
 data = pd.read_csv("/kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from 
