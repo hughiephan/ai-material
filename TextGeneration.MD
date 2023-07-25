@@ -38,13 +38,16 @@ int_to_char
 
 
 Step: Prepare data for training 
+
+Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then format both input and output characters as integers.
+
 ```py
 n_chars = len(raw_text)
 n_vocab = len(chars)
 seq_length = 100
 dataX = []
 dataY = []
-for i in range(0, n_chars - seq_length, 1): # prepare the dataset of input to output pairs encoded as integers
+for i in range(0, n_chars - seq_length, 1):
     seq_in = raw_text[i:i + seq_length]
     seq_out = raw_text[i + seq_length]
     dataX.append([char_to_int[char] for char in seq_in])
@@ -54,7 +57,6 @@ for i in range(0, n_chars - seq_length, 1): # prepare the dataset of input to ou
 Output of seq_in and seq_out
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d26de4c5-e585-4e39-ab99-9e31c6b8a2a6)
-
 
 Step: Reshape in to LSTM Input Format
 ```py
@@ -111,7 +113,6 @@ for epoch in range(20):
 Step: Make a prediction 
 
 ```py
-int_to_char = dict((i, c) for c, i in char_to_int.items())
 start = np.random.randint(0, len(raw_text)-seq_length)
 prompt = raw_text[start:start+seq_length]
 pattern = [char_to_int[c] for c in prompt]
