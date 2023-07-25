@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TensorFlow.js Prediction</title>
+</head>
+<body>
+  <h1>TensorFlow.js Prediction</h1>
+  <p>Open the browser console to see the prediction results.</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script>
+    async function loadJSONFile() {
+        return fetch('./word_index.json')
+            .then(response => response.json())
+            .then(data => {
+                return data
+            })
+    }
+
+    async function getTokenisedWord(seedWord) {
+        const word2index = await loadJSONFile()
+        const _token = word2index[seedWord.toLowerCase()]
+        return tf.tensor1d([_token])
+    }
+        
+    async function loadAndPredict() {
+      const model = await tf.loadLayersModel('./model.json');
+      const seedWordToken = await getTokenisedWord('flexing');
+      
+      model.predict(seedWordToken).data().then(predictions => {  
+        const resultIdx = tf.argMax(predictions).dataSync()[0];
+        console.log('Predicted Word ::', index2word[resultIdx]);
+      })
+    }
+
+    window.onload = loadAndPredict;
+  </script>
+</body>
+</html>
