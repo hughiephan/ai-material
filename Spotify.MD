@@ -5,7 +5,7 @@ EDA
 Original Dataset
 - https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify
 
-### Step 1: Import necessary libraries
+Step 1: Import necessary libraries
 ```py
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,7 +17,7 @@ from tensorflow import keras
 warnings.simplefilter("ignore")
 ```
 
-### Step 2: Load Dataset
+Step 2: Load Dataset
 ```py
 data = pd.read_csv("/kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from 
 data
