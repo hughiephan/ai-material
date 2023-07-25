@@ -54,7 +54,10 @@ class LanguageModel(nn.Module):
         x = x[:, -1, :] # take only the last output
         x = self.linear(self.dropout(x))
         return x
+```
 
+Step: Start training
+```py
 model = LanguageModel()
 optimizer = optim.Adam(model.parameters())
 loss_fn = nn.CrossEntropyLoss(reduction="sum")
