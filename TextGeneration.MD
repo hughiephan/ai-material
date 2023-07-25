@@ -1,5 +1,6 @@
 # Text Generation with LSTM
 
+Take a sequence of characters as input and the immediate next character as the target. As long as it can predict what is the next character given what are preceding, we can run the model in a loop to generate a long piece of text
 
 Step: Import Neural Network and necessary librarires
 ```py
@@ -11,6 +12,8 @@ import torch.utils.data as data
 ```
 
 Step: Load Dataset
+Download Alice in Wonderland Dataset from: https://www.kaggle.com/datasets/thala321/alice-in-wonderland
+
 ```py
 filename = "../input/alice-in-wonderland/wonderland.txt"
 raw_text = open(filename, 'r', encoding='utf-8').read()
@@ -25,7 +28,12 @@ char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map of
 int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to tranform integers back to characters
 ```
 
+char_to_int
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/db4f7e07-eb25-4242-afee-88113fd216c5)
+
 int_to_char
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d0fd86fb-1c5c-43f7-a7bc-354be8fe9705)
 
 
@@ -43,9 +51,15 @@ for i in range(0, n_chars - seq_length, 1): # prepare the dataset of input to ou
     dataY.append(char_to_int[seq_out])
 n_patterns = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
-X = X / float(n_vocab)
+X = X / float(n_vocab) # normalize the input between 0 to 1
 y = torch.tensor(dataY)
 ```
+
+Input data for LSTM are [Batch Size, Sequence Length, Input Dimension], with 143046 samples, 100 number of time steps that will be inputted into LSTM network, and in 1-dimensional space becaue we are dealing with text.
+
+For example: Your input sentence to LSTM network is = ["I hate to eat apples"], then every single token would be fed as input at each timestep. So the Sequence Length would total number of tokens in a sentence that is 5.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
 Step: Build our Language Model based on LSTM
 ```py
