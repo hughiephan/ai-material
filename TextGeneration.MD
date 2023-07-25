@@ -49,6 +49,15 @@ for i in range(0, n_chars - seq_length, 1): # prepare the dataset of input to ou
     seq_out = raw_text[i + seq_length]
     dataX.append([char_to_int[char] for char in seq_in])
     dataY.append(char_to_int[seq_out])
+```
+
+Output of seq_in and seq_out
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d26de4c5-e585-4e39-ab99-9e31c6b8a2a6)
+
+
+Step: Reshape in to LSTM Input Format
+```py
 n_patterns = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
 X = X / float(n_vocab) # normalize the input between 0 to 1
