@@ -17,11 +17,17 @@ raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
 ```
 
+
 Step: Map unique characters to integers
 ```py
 chars = sorted(list(set(raw_text)))
-char_to_int = dict((c, i) for i, c in enumerate(chars)) # create mapping of unique chars to integers
+char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map of unique characters to integers
+int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to tranform integers back to characters
 ```
+
+int_to_char
+![image](https://github.com/hughiephan/DPL/assets/16631121/d0fd86fb-1c5c-43f7-a7bc-354be8fe9705)
+
 
 Step: Prepare data for training 
 ```py
@@ -88,7 +94,7 @@ prompt = raw_text[start:start+seq_length]
 pattern = [char_to_int[c] for c in prompt]
 model.eval()
 print('Prompt: "%s"' % prompt)
-with torch.no_grad():
+with torch.no_grad(): # a sequence of 1,000 characters in length
     for i in range(1000):
         x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab)
         x = torch.tensor(x, dtype=torch.float32)
