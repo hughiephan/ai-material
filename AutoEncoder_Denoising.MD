@@ -66,6 +66,7 @@ Encoder downsamples the images from 28x28 to 7x7.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1f27edd0-b1f0-49b0-b8d9-37b6e12ea388)
 
 Decoder upsamples the images back from 7x7 to 28x28.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c373a000-4096-4a60-bde9-3d6047e34b3f)
 
 
