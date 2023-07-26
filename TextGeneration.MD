@@ -2,7 +2,7 @@
 
 Take a sequence of characters as input and the immediate next character as the target. As long as it can predict what is the next character given what are preceding, we can run the model in a loop to generate a long piece of text
 
-Step: Import Neural Network and necessary librarires
+##Step: Import Neural Network and necessary librarires
 ```py
 import numpy as np
 import torch
@@ -11,7 +11,7 @@ import torch.optim as optim
 import torch.utils.data as data
 ```
 
-Step: Load Dataset
+## Step: Load Dataset
 Download Alice in Wonderland Dataset from: https://www.kaggle.com/datasets/thala321/alice-in-wonderland
 
 ```py
@@ -21,7 +21,7 @@ raw_text = raw_text.lower()
 ```
 
 
-Step: Map unique characters to integers
+## Step: Map unique characters to integers
 ```py
 chars = sorted(list(set(raw_text)))
 char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map of unique characters to integers
@@ -37,7 +37,7 @@ int_to_char
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d0fd86fb-1c5c-43f7-a7bc-354be8fe9705)
 
 
-Step: Prepare data for training 
+## Step: Prepare data for training 
 
 Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then format both input and output characters as integers.
 
@@ -58,7 +58,7 @@ Output of seq_in and seq_out
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d26de4c5-e585-4e39-ab99-9e31c6b8a2a6)
 
-Step: Reshape in to LSTM Input Format
+## Step: Reshape in to LSTM Input Format
 ```py
 n_patterns = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
@@ -72,7 +72,7 @@ For example: Your input sentence to LSTM network is = ["I hate to eat apples"], 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
-Step: Build our Language Model based on LSTM
+## Step: Build our Language Model based on LSTM
 ```py
 class LanguageModel(nn.Module):
     def __init__(self):
@@ -87,7 +87,7 @@ class LanguageModel(nn.Module):
         return x
 ```
 
-Step: Start training
+## Step: Start training
 ```py
 model = LanguageModel()
 optimizer = optim.Adam(model.parameters())
@@ -110,7 +110,7 @@ for epoch in range(20):
         print("Epoch %d: Cross-entropy: %.4f" % (epoch, loss))
 ```
 
-Step: Make a prediction 
+## Step: Make a prediction 
 
 ```py
 start = np.random.randint(0, len(raw_text)-seq_length)
