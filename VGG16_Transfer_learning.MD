@@ -82,6 +82,7 @@ vgg16.summary()
 ```
 
 The total parameters are 14,714,688 but because we have already frozen them so they will not be updated in the training process
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3d0043ac-22ac-497e-ae3f-3813378c79c5)
 
 ## Step 7: New classifier
