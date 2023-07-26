@@ -104,6 +104,7 @@ model.summary()
 ```
 
 Total parameters change from 14,714,688 to 18,861,490. With the 4,146,802 trainable parameters come from our fully-connected layer
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/807ef1fb-0805-496f-aaef-0aba55627094)
 
 ## Step 8: Train our model
