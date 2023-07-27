@@ -5,7 +5,7 @@ A Web Chatbot to review IMDB Comments
 ## Prerequisites
 - Python Environment
 
-## Step: Build and train the model
+## Step 1: Build and train the model
 Train your model in a Notebook
 ```py
 import pickle
@@ -51,7 +51,7 @@ history = model.fit(padded, training_labels_final, epochs=5, validation_data = (
 model.save('model.h5')
 ```
 
-## Step: Save the model and Tokenizer
+## Step 2: Save the model and Tokenizer
 ```py
 model.save('model.h5')
 with open('tokenizer.pickle', 'wb') as handle:
@@ -60,7 +60,7 @@ with open('tokenizer.pickle', 'wb') as handle:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4cc75cb3-73e2-45d8-9071-30080241ba1e)
 
-## Step: 
+## Step 3: Coding 
 Create a new folder `ReviewBot` with the following files
 - app.py
 - index.html
@@ -233,7 +233,7 @@ Finally,  `ReviewBot` folder should looks like this
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e73c81f-7778-40a1-a470-fe83fd083ab8)
 
-## Step: Install ReviewBot
+## Step 4: Install ReviewBot
 Open a command line and run this command
 ```shell
 pip install -r requirements.txt
@@ -241,7 +241,7 @@ pip install -r requirements.txt
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/71430a8e-7d9a-4978-a78a-aea2df0b6cc0)
 
-## Step: Run ReviewBot
+## Step 5: Run ReviewBot
 To start ReviewBot, run this command
 ```shell
 flask run
