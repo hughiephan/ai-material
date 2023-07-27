@@ -111,7 +111,7 @@ for epoch in range(20):
 
 ## Step 8: Make a prediction 
 
-```py
+```
 start = np.random.randint(0, len(raw_text)-seq_length)
 prompt = raw_text[start:start+seq_length]
 pattern = [char_to_int[c] for c in prompt]
@@ -128,3 +128,11 @@ with torch.no_grad(): # a sequence of 1,000 characters in length
         pattern.append(index) # append the new character into the prompt for the next iteration
         pattern = pattern[1:]
 ```
+
+Prompt
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/97e254b7-88f9-4da9-8269-4c2068799fe4)
+
+Output
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/08a1da04-aa92-4896-8b0f-e91f8c6e5f17)
