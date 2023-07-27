@@ -7,7 +7,7 @@ A Web Chatbot to review IMDB Comments
 
 ## Step 1: Build and train the model
 Train your model in a Notebook
-```py
+```
 import pickle
 import warnings 
 warnings.filterwarnings('ignore')
@@ -52,7 +52,7 @@ model.save('model.h5')
 ```
 
 ## Step 2: Save the model and Tokenizer
-```py
+```
 model.save('model.h5')
 with open('tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
@@ -70,7 +70,7 @@ Create a new folder `ReviewBot` with the following files
 
 `app.py`
 
-```py
+```
 import pickle5 as pickle
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
@@ -235,7 +235,7 @@ Finally,  `ReviewBot` folder should looks like this
 
 ## Step 4: Install ReviewBot
 Open a command line and run this command
-```shell
+```
 pip install -r requirements.txt
 ```
 
@@ -243,7 +243,7 @@ pip install -r requirements.txt
 
 ## Step 5: Run ReviewBot
 To start ReviewBot, run this command
-```shell
+```
 flask run
 ```
 
