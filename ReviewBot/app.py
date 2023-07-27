@@ -1,4 +1,4 @@
-import pickle
+import pickle5 as pickle
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from tensorflow.keras.models import load_model

@@ -2,4 +2,4 @@ numpy
 tensorflow
 flask
 flask-cors
-pickle-mixin
+pickle5
