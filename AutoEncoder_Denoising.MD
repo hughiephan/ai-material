@@ -9,7 +9,7 @@ In the following section, you will create a noisy version of the Fashion MNIST d
 The architecture of a denoising autoencoder (DAE) is similar to that of a standard autoencoder. It consists of an encoder, which maps the input data to a lower-dimensional representation, or encoding, and a decoder, which maps the encoding back to the original data space. During training, the autoencoder is given a set of clean input examples `x_train / x_test` and the corresponding noisy versions of these examples `x_train_noisy / x_test_noisy`. The goal is to learn a function that maps the noisy input to the clean output using the encoder-decoder architecture.
 
 ## Step 1: Import TensorFlow and other libraries
-```py
+```
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras import layers, losses
@@ -20,7 +20,7 @@ from tensorflow.keras.models import Model
 ## Step 2: Train the basic autoencoder using the Fashion MNIST dataset. 
 Each image in this dataset is 28x28 pixels. `tf.newaxis` is similar to `expand_dims()` which adds a new axis.  `/ 255` to normalize the pixels into [0, 1] range
 
-```py
+```
 (x_train, _), (x_test, _) = fashion_mnist.load_data()
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
@@ -33,7 +33,7 @@ x_test = x_test[..., tf.newaxis]
 `tf.random.normal()` function is used to create a tf.Tensor with values sampled from a normal distribution (https://www.quora.com/What-is-the-normal-distribution-Could-you-explain-it-to-me-with-easy-language-and-example). The `clip_by_value()` in TensorFlow clips values of a tensor to a specified minimum and maximum value.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4f42e3b5-e774-49a2-bf69-e5de48917ccd)
 
-```py
+```
 noise_factor = 0.2
 x_train_noisy = x_train + noise_factor * tf.random.normal(shape=x_train.shape) 
 x_test_noisy = x_test + noise_factor * tf.random.normal(shape=x_test.shape) 
@@ -43,7 +43,7 @@ x_test_noisy = tf.clip_by_value(x_test_noisy, clip_value_min=0., clip_value_max=
 
 ## Step 4: Define a convolutional autoencoder
 Train a convolutional autoencoder using Conv2D layers in the encoder, and Conv2DTranspose layers in the decoder. `Conv2D` is mainly used when you want to detect features and `Conv2DTranspose` is used for constructing features (https://stackoverflow.com/questions/68976745/in-keras-what-is-the-difference-between-conv2dtranspose-and-conv2d)
-```py
+```
 class Denoise(Model):
   def __init__(self):
     super(Denoise, self).__init__()
@@ -71,7 +71,7 @@ Decoder upsamples the images back from 7x7 to 28x28.
 
 
 ## Step 5: Training
-```py
+```
 autoencoder = Denoise()
 autoencoder.compile(optimizer='adam', loss=losses.MeanSquaredError())
 autoencoder.fit(x_train_noisy, x_train,
@@ -85,7 +85,7 @@ Plotting both the noisy images and the denoised images produced by the autoencod
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8d6a8b83-d2b3-4cc8-83e2-08a9d757b433)
 
-```py
+```
 encoded_imgs = autoencoder.encoder(x_test_noisy).numpy()
 decoded_imgs = autoencoder.decoder(encoded_imgs).numpy()
 n = 10
