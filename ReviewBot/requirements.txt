@@ -1,5 +1,5 @@
-numpy
-tensorflow
+
+pickle-mixin
 flask
 flask-cors
-pickle5
+tensorflow
