@@ -133,6 +133,6 @@ Prompt
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/97e254b7-88f9-4da9-8269-4c2068799fe4)
 
-Output
+The output here sounds like a baby trying to talk. Adding more layers and hidden units would make the output more natural.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/08a1da04-aa92-4896-8b0f-e91f8c6e5f17)
