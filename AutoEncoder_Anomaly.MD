@@ -5,7 +5,7 @@ In this example, you will train an autoencoder to detect anomalies on the ECG500
 ![image](https://github.com/hughiephan/DPL/assets/16631121/97729dba-0a1a-482f-84d7-6e6c95d8ac01)
 
 ## Step 1: Import TensorFlow and other libraries
-```py
+```
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import pandas as pd
@@ -18,7 +18,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score
 
 ## Step 2: Download the dataset
 
-```py
+```
 dataframe = pd.read_csv('http://storage.googleapis.com/download.tensorflow.org/data/ecg.csv', header=None)
 raw_data = dataframe.values
 dataframe.head()
@@ -27,7 +27,7 @@ dataframe.head()
 ## Step 3: Pre-process the data
 `tf.reduce_min / tf.reduce_max` operations are to get the minimum and maximum value of a TensorFlow tensor. Then we normalize the data to [0,1] by dividing with `(max_val - min_val)`.It is similar to dividing by 255 for image processing). Then apply `tf.cast` to cast the tensor to float type.
 
-```py
+```
 labels = raw_data[:, -1] # Last element contains the labels
 data = raw_data[:, 0:-1] # Other data points are the ECG data
 train_data, test_data, train_labels, test_labels = train_test_split(
@@ -45,7 +45,7 @@ test_data = tf.cast(test_data, tf.float32)
 
 ## Step 4: Separate the normal rhythms from the abnormal rhythms.
 Train the autoencoder using only the normal rhythms, which are labeled in this dataset as 1
-```py
+```
 train_labels = train_labels.astype(bool)
 test_labels = test_labels.astype(bool)
 normal_train_data = train_data[train_labels]
@@ -63,7 +63,7 @@ Results of `train_labels` and `~train_labels`
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ba8a88cc-0a7d-4249-b1a0-742eac6ed05c)
 
 ## Step 5: Build the model
-```py
+```
 class AnomalyDetector(Model):
   def __init__(self):
     super(AnomalyDetector, self).__init__()
@@ -82,7 +82,7 @@ class AnomalyDetector(Model):
 ```
 
 ## Step 6: Training
-```py
+```
 autoencoder = AnomalyDetector()
 autoencoder.compile(optimizer='adam', loss='mae')
 history = autoencoder.fit(normal_train_data, normal_train_data, 
@@ -96,7 +96,7 @@ history = autoencoder.fit(normal_train_data, normal_train_data,
 Detect anomalies by calculating whether the reconstruction loss is greater than a fixed threshold. 
 In this tutorial, you will calculate the mean average error for normal examples from the training set, then classify future examples as anomalous if the reconstruction error is higher than one standard deviation from the training set (https://www.quora.com/What-is-meant-by-one-standard-deviation-away-from-the-mean). And choose a threshold value that is one standard deviation above the mean
 
-```py
+```
 reconstructions = autoencoder.predict(normal_train_data)
 train_loss = tf.keras.losses.mae(reconstructions, normal_train_data)
 threshold = np.mean(train_loss) + np.std(train_loss)
@@ -109,7 +109,7 @@ Example of one standard deviation away from the mean
 ## Step 8: Define prediction function
 Classify an ECG as an anomaly if the reconstruction error is greater than the threshold (one standard deviation) from the normal training examples. We use Mean Absolute Error `tf.keras.losses.mae` to calculate the difference between reconstruction and our input.
 
-```py
+```
 def predict(model, data, threshold):
   reconstructions = model(data)
   loss = tf.keras.losses.mae(reconstructions, data)
@@ -121,7 +121,7 @@ Example of `tf.math.less` function
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f4dbe95c-3402-4a68-b9ec-336afcdae61d)
 
 ## Step 9: Make prediction
-```py
+```
 predictions = predict(autoencoder, test_data, threshold)
 print("Accuracy = {}".format(accuracy_score(test_labels, predictions)))
 print("Precision = {}".format(precision_score(test_labels, predictions)))
