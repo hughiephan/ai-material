@@ -3,7 +3,8 @@
 A Web Chatbot to review IMDB Comments
 
 ## Prerequisites
-- Python Environment
+- Python3
+- Pip
 
 ## Step 1: Build and train the model
 Train your model in a Notebook
