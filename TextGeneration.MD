@@ -3,7 +3,7 @@
 Take a sequence of characters as input and the immediate next character as the target. As long as it can predict what is the next character given what are preceding, we can run the model in a loop to generate a long piece of text
 
 ## Step 1: Import Neural Network and necessary librarires
-```py
+```
 import numpy as np
 import torch
 import torch.nn as nn
@@ -14,14 +14,14 @@ import torch.utils.data as data
 ## Step 2: Load Dataset
 Download Alice in Wonderland Dataset from: https://www.kaggle.com/datasets/thala321/alice-in-wonderland
 
-```py
+```
 filename = "../input/alice-in-wonderland/wonderland.txt"
 raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
 ```
 
 ## Step 3: Map unique characters to integers
-```py
+```
 chars = sorted(list(set(raw_text)))
 char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map of unique characters to integers
 int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to tranform integers back to characters
@@ -40,7 +40,7 @@ int_to_char
 
 Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then format both input and output characters as integers.
 
-```py
+```
 n_chars = len(raw_text)
 n_vocab = len(chars)
 seq_length = 100
@@ -58,7 +58,7 @@ Output of seq_in and seq_out
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d26de4c5-e585-4e39-ab99-9e31c6b8a2a6)
 
 ## Step 5: Reshape in to LSTM Input Format
-```py
+```
 n_patterns = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
 X = X / float(n_vocab) # normalize the input between 0 to 1
@@ -72,7 +72,7 @@ For example: Your input sentence to LSTM network is = ["I hate to eat apples"], 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
 ## Step 6: Build our Language Model based on LSTM
-```py
+```
 class LanguageModel(nn.Module):
     def __init__(self):
         super().__init__()
@@ -87,7 +87,7 @@ class LanguageModel(nn.Module):
 ```
 
 ## Step 7: Start training
-```py
+```
 model = LanguageModel()
 optimizer = optim.Adam(model.parameters())
 loss_fn = nn.CrossEntropyLoss(reduction="sum")
