@@ -9,7 +9,7 @@ A Web Chatbot to review IMDB Comments
 ![ReviewBot](https://github.com/hughiephan/DPL/assets/16631121/68e7a8bf-5e7f-4ae2-b220-0444a92cbe72)
 
 ## Step 1: Build and train our model
-We use `tfds` to load imdb reviews and their sentiment labels (positive = 1 or negative = 0). Then apply `Tokenizer.fit_on_texts` to create the word index (e.x cat:0, dog: 1, coffee: 3,...). After that, we pad the sequence to be the same size 120. Then we train the embedding layer (vectorize) along with RNN layer and output a prediction for the review.
+We use `tfds` to load imdb reviews and their sentiment labels (positive = 1 or negative = 0). Then apply `Tokenizer.fit_on_texts` to create the word index (e.x 'cat':0, 'dog': 1, 'coffee': 2,...). After that, we pad the sequence to be the same size 120. Then we train the embedding layer (vectorize) along with RNN layer and output a prediction for the review.
 
 ```
 import pickle
@@ -55,7 +55,9 @@ history = model.fit(padded, training_labels_final, epochs=5, validation_data = (
 ```
 
 ## Step 2: Save the model and Tokenizer to local storage
-Keras saves models in .h5 format as it can easily store the weights and model configuration in a single file. We also use `pickle` library to save the word index (built based on the training dataset) to local storage, `tokenizer` is important for tranforming the user's input into sequence, which can then be fed into RNN model.
+Keras saves models in .h5 format as it can easily store the weights and model configuration in a single file. We also use `pickle` library to save the word index (built based on the training dataset) to local storage, `tokenizer` is important for tranforming the user's input into sequence, which can then be fed into RNN model. 
+
+If you use `Kaggle Notebook`, press on the Download button in the output section to download these 2 files to your computer.
 
 ```
 model.save('model.h5')
@@ -115,7 +117,8 @@ def predict():
         return "The review is negative."
 ```
 
-`requirements.txt`
+Add the following content to `requirements.txt` file. `pickle-mixin` provides a way to deserialize our `Tokenizer` and make it runnable in our backend. `flask` is our backend server, we use it along with `flask-cors` to allow Cross Origin Resource Sharing. When we work with API, we often need to have `flask-cors` enabled to let Frontend access the Backend.  
+
 ```
 pickle-mixin
 flask
@@ -140,7 +143,7 @@ Open a command line and run below command:
 flask run
 ```
 
-Now your backend server is running on `localhost:5000` and ready to give prediction. You can type `localhost:5000` on a web URL and see the following message `Backend is running`.
+Now your backend server is running on `localhost:5000` and ready to give prediction. You can type `localhost:5000` on a web URL and see the following message `Backend is running`. Finally, we need `tensorflow` because we built our model based `tensorflow` and we will need to use some of it's libraries like `load_model` and `pad_sequence`.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d05272bd-801a-4d58-8ae6-d164cd69864c)
 
@@ -270,7 +273,7 @@ Now your backend server is running on `localhost:5000` and ready to give predict
 ## Step 8: Start Frontend
 To start ReviewBot, double click on `index.html` and open it on any web browser.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/3b81ded8-fb31-43e9-8370-08047d334668)
+![image](https://github.com/hughiephan/DPL/assets/16631121/fb66d617-08d9-4f35-81ae-f26ebc436b92)
 
 # Debugging
 If issue happens, try the following solutions
