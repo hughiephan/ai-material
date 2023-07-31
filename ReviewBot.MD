@@ -3,8 +3,10 @@
 A Web Chatbot to review IMDB Comments
 
 ## Prerequisites
-- Python3
+- Python3 https://phoenixnap.com/kb/how-to-install-python-3-windows
 - Pip
+
+![ReviewBot](https://github.com/hughiephan/DPL/assets/16631121/68e7a8bf-5e7f-4ae2-b220-0444a92cbe72)
 
 ## Step 1: Build and train the model
 Train your model in a Notebook
@@ -54,6 +56,8 @@ model.save('model.h5')
 ```
 
 ## Step 2: Save the model and Tokenizer
+In our Notebook, we used `Tokenizer.fit_on_texts` to build a dictionary. In the training step, this dictionary is important to tranform the raw text to sequence so we can feed them into our RNN model. We also need this dictionary in our predicting step to tranform the user input into sequence. Without this dictionary, we cannot generate a sequence.
+
 ```
 model.save('model.h5')
 with open('tokenizer.pickle', 'wb') as handle:
