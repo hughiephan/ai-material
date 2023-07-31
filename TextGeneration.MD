@@ -138,7 +138,7 @@ Prompt
 
 The output here sounds like a baby trying to talk. Adding more layers and hidden units would make the output more natural.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/08a1da04-aa92-4896-8b0f-e91f8c6e5f17)
+![image](https://github.com/hughiephan/DPL/assets/16631121/de95b7f7-8602-4b10-9844-8e7f041f179b)
 
 ## Step 9: Deploy the model as Backend with gradio
 
