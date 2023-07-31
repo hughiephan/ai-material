@@ -112,21 +112,24 @@ for epoch in range(20):
 ## Step 8: Make a prediction 
 
 ```
+def predict(prompt):
+    pattern = [char_to_int[c] for c in prompt]
+    with torch.no_grad():
+        for i in range(1000):
+            x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab)
+            x = torch.tensor(x, dtype=torch.float32)
+            prediction = model(x)
+            index = int(prediction.argmax()) # convert logits into one character
+            result = int_to_char[index]
+            pattern.append(index) # append the new character into the prompt for the next iteration
+            pattern = pattern[1:]
+    return ''.join([int_to_char[i] for i in pattern])
+
 start = np.random.randint(0, len(raw_text)-seq_length)
 prompt = raw_text[start:start+seq_length]
-pattern = [char_to_int[c] for c in prompt]
 model.eval()
-print('Prompt: "%s"' % prompt)
-with torch.no_grad(): # a sequence of 1,000 characters in length
-    for i in range(1000):
-        x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab)
-        x = torch.tensor(x, dtype=torch.float32)
-        prediction = model(x)
-        index = int(prediction.argmax()) # convert logits into one character
-        result = int_to_char[index]
-        print(result, end="")
-        pattern.append(index) # append the new character into the prompt for the next iteration
-        pattern = pattern[1:]
+print("--prompt-- \n", prompt)
+print("--prediction-- \n", predict(prompt))
 ```
 
 Prompt
@@ -136,3 +139,14 @@ Prompt
 The output here sounds like a baby trying to talk. Adding more layers and hidden units would make the output more natural.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/08a1da04-aa92-4896-8b0f-e91f8c6e5f17)
+
+## Step 9: Deploy the model as Backend with gradio
+
+```
+def text_generation(prompt):
+    return predict(prompt)
+gr.Interface(fn=text_generation, inputs=["prompt"], outputs=["text"]).launch()
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d3bce2ea-fa3d-4ca1-ba9f-fd8e4ff3bbf8)
+
