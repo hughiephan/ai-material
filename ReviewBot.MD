@@ -8,8 +8,8 @@ A Web Chatbot to review IMDB Comments
 
 ![ReviewBot](https://github.com/hughiephan/DPL/assets/16631121/68e7a8bf-5e7f-4ae2-b220-0444a92cbe72)
 
-## Step 1: Build and train the model
-Train your model in a Notebook
+## Step 1: Build and train our model
+We use `tfds` to load imdb reviews and their sentiment labels (positive = 1 or negative = 0). Then apply `Tokenizer.fit_on_texts` to create the word index (e.x cat:0, dog: 1, coffee: 3,...). After that, we pad the sequence to be the same size 120. Then we train the embedding layer (vectorize) along with RNN layer and output a prediction for the review.
 
 ```
 import pickle
@@ -52,11 +52,10 @@ model = tf.keras.Sequential([
 model.summary()
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
-model.save('model.h5')
 ```
 
-## Step 2: Save the model and Tokenizer
-In our Notebook, we used `Tokenizer.fit_on_texts` to build a dictionary. In the training step, this dictionary is important to tranform the raw text to sequence so we can feed them into our RNN model. We also need this dictionary in our predicting step to tranform the user input into sequence. Without this dictionary, we cannot generate a sequence.
+## Step 2: Save the model and Tokenizer to local storage
+Keras saves models in .h5 format as it can easily store the weights and model configuration in a single file. We also use `pickle` library to save the word index (built based on the training dataset) to local storage, `tokenizer` is important for tranforming the user's input into sequence, which can then be fed into RNN model.
 
 ```
 model.save('model.h5')
@@ -66,18 +65,28 @@ with open('tokenizer.pickle', 'wb') as handle:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4cc75cb3-73e2-45d8-9071-30080241ba1e)
 
-## Step 3: Coding 
-Create a new folder `ReviewBot` with the following files
+## Step 3: Setup folder structure
+Create a new folder `ReviewBot` with these empty files:
 - app.py
 - index.html
 - requirements.txt
+
+Also, we need to add the model and tokenizer in the `ReviewBot` folder so our backend could access them:
 - model.h5 (downloaded from previous step)
 - tokenizer.pickle (downloaded from previous step)
+
+Finally, `ReviewBot` folder should look like this:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/4e73c81f-7778-40a1-a470-fe83fd083ab8)
+
+## Step 4: Code Backend
+
+Now we need to add the code to our backend `app.py`.
 
 `app.py`
 
 ```
-import pickle5 as pickle
+import pickle
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
@@ -92,7 +101,7 @@ with open('tokenizer.pickle', 'rb') as handle:
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Backend is running"
 
 @app.route('/predict', methods=['GET'])
 def predict():
@@ -105,6 +114,37 @@ def predict():
     else:
         return "The review is negative."
 ```
+
+`requirements.txt`
+```
+pickle-mixin
+flask
+flask-cors
+tensorflow
+```
+
+## Step 5: Install Backend
+
+Open command line, and run this command. The command will look at the `requirements.txt` and install the four libraries `pickle-mixin`, `flask`, `flask-cors`, `tensorflow`
+
+```
+pip install -r requirements.txt
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/71430a8e-7d9a-4978-a78a-aea2df0b6cc0)
+
+## Step 6: Start Backend
+
+Open a command line and run below command:
+```
+flask run
+```
+
+Now your backend server is running on `localhost:5000` and ready to give prediction. You can type `localhost:5000` on a web URL and see the following message `Backend is running`.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d05272bd-801a-4d58-8ae6-d164cd69864c)
+
+## Step 7: Code Frontend
 
 `index.html`
 
@@ -227,35 +267,8 @@ def predict():
 </html>
 ```
 
-`requirements.txt`
-```
-pickle-mixin
-flask
-flask-cors
-tensorflow
-```
-
-Finally,  `ReviewBot` folder should looks like this
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/4e73c81f-7778-40a1-a470-fe83fd083ab8)
-
-## Step 4: Install ReviewBot
-Open a command line and run this command
-```
-pip install -r requirements.txt
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/71430a8e-7d9a-4978-a78a-aea2df0b6cc0)
-
-## Step 5: Run ReviewBot
-To start ReviewBot, run this command
-```
-flask run
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/d05272bd-801a-4d58-8ae6-d164cd69864c)
-
-Then go to a web browswer (Chrome / Firefox /...) and type in `localhost:5000` in URL
+## Step 8: Start Frontend
+To start ReviewBot, double click on `index.html` and open it on any web browser.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3b81ded8-fb31-43e9-8370-08047d334668)
 
