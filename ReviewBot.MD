@@ -83,9 +83,7 @@ Finally, `ReviewBot` folder should look like this:
 
 ## Step 4: Code Backend
 
-Now we need to add the code to our backend `app.py`.
-
-`app.py`
+Now let's add the code to our backend `app.py` file. 
 
 ```
 import pickle
@@ -101,10 +99,12 @@ model = load_model('model.h5', compile=False)
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-@app.route('/')
-def index():
-    return "Backend is running"
+# When you go to `localhost:5000` using a web browswer, it will return the string `Backend is running`
+@app.route('/') 
+def index(): 
+    return "Backend is running"  
 
+# The Frontend will make API call to this `localhost:5000/predict?text=TheMovieIsTerrible`, and backend will return `The review is negative`
 @app.route('/predict', methods=['GET'])
 def predict():
     text = request.args.get('text', '')
