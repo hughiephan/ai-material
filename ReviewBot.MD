@@ -95,6 +95,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 app = Flask(__name__, template_folder='./')
 CORS(app)
 
+# Loading our model and tokenizer into our backend. Now our backend can use these to make prediction.
 model = load_model('model.h5', compile=False)
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
@@ -156,7 +157,7 @@ Add the following code to `index.html` file:
 ```html
 <html>
 
-<!-- This is our CSS -->
+<!-- This is our CSS. You can read more about CSS here: https://blog.hubspot.com/website/css-tutorial -->
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
     :root {
@@ -243,7 +244,7 @@ Add the following code to `index.html` file:
 <!-- This is our HTML content -->
 <body>
     <div class="container">
-    <div class="header">
+    <div class="header"> 
         <img src="https://cdn-icons-png.flaticon.com/512/2233/2233922.png" alt="" class="avatar">
         <h3>Chatbot for Reviewing IMDB Comments</h3>
     </div>
