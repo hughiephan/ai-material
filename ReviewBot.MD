@@ -100,10 +100,10 @@ model = load_model('model.h5', compile=False)
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-# When you go to localhost:5000 using a web browswer, it will return the string "Backend is running"
+# When you go to localhost:5000 using a web browswer, it will render index.html's content
 @app.route('/') 
 def index(): 
-    return "Backend is running"  
+    return render_template('index.html')
 
 # The Frontend will make API call to this localhost:5000/predict?text=TheMovieIsTerrible, and backend will return "The review is negative"
 @app.route('/predict', methods=['GET'])
@@ -144,7 +144,7 @@ Open a command line and run below command:
 flask run
 ```
 
-Now your backend server is running on `localhost:5000` and ready to give prediction. You can type `localhost:5000` on a web URL and see the following message `Backend is running`. Finally, we need `tensorflow` because we built our model based `tensorflow` and we will need to use some of it's libraries like `load_model` and `pad_sequence`.
+Now your backend server is running on `localhost:5000` and ready to give prediction. You can type `localhost:5000` on a web URL and see a blank page (After we add the frontend, we will see some content). Finally, we need `tensorflow` because we built our model based `tensorflow` and we will need to use some of it's libraries like `load_model` and `pad_sequence`.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d05272bd-801a-4d58-8ae6-d164cd69864c)
 
@@ -280,9 +280,12 @@ Add the following code to `index.html` file:
 ```
 
 ## Step 8: Start Frontend
-To start ReviewBot, double click on `index.html` and open it on any web browser.
+To start ReviewBot, double click on `index.html` or go to `localhost:5000` on any web browswer.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fb66d617-08d9-4f35-81ae-f26ebc436b92)
+
+## Step 9 (Optional): Deploy ReviewBot to Render.com
+https://dev.to/sm0ke/deploy-flask-to-render-5f39
 
 # Debugging
 If issue happens, try the following solutions
