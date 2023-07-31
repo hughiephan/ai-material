@@ -99,12 +99,12 @@ model = load_model('model.h5', compile=False)
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-# When you go to `localhost:5000` using a web browswer, it will return the string `Backend is running`
+# When you go to localhost:5000 using a web browswer, it will return the string "Backend is running"
 @app.route('/') 
 def index(): 
     return "Backend is running"  
 
-# The Frontend will make API call to this `localhost:5000/predict?text=TheMovieIsTerrible`, and backend will return `The review is negative`
+# The Frontend will make API call to this localhost:5000/predict?text=TheMovieIsTerrible, and backend will return "The review is negative"
 @app.route('/predict', methods=['GET'])
 def predict():
     text = request.args.get('text', '')
@@ -149,10 +149,14 @@ Now your backend server is running on `localhost:5000` and ready to give predict
 
 ## Step 7: Code Frontend
 
-`index.html`
+HTML is the language for documents to be displayed in a web browser. 
+
+Add the following code to `index.html` file:
 
 ```html
 <html>
+
+<!-- This is our CSS -->
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
     :root {
@@ -236,6 +240,7 @@ Now your backend server is running on `localhost:5000` and ready to give predict
     }
 </style>
 
+<!-- This is our HTML content -->
 <body>
     <div class="container">
     <div class="header">
@@ -247,16 +252,19 @@ Now your backend server is running on `localhost:5000` and ready to give predict
     </div>
 </body>
 
+<!-- This is our javascript, we use this to manipulate the HTML content -->
 <script>
-    const chat = document.getElementById("chat");
-    const reviewBtn = document.getElementById("reviewBtn");
-    const inputText = document.getElementById('inputText');
-    inputText.addEventListener('keypress', async (event) => {
-        if (event.key === 'Enter') {
-            const inputValue = inputText.value;
-            const data = 'http://localhost:5000/predict?text=' + encodeURIComponent(inputText.value)
-            result = await fetch(data).then(response => response.text())
-            const message = document.createElement("div");
+    const chat = document.getElementById("chat");  // Find the element with id = chat 
+    const reviewBtn = document.getElementById("reviewBtn"); // Find the element with id = reviewBtn 
+    const inputText = document.getElementById('inputText'); // Find the element with id = inputText 
+    inputText.addEventListener('keypress', async (event) => {   
+        if (event.key === 'Enter') {  // Run this action when user type something into inputText 
+            const inputValue = inputText.value;  // We get the text value typed by the user 
+            const data = 'http://localhost:5000/predict?text=' + encodeURIComponent(inputText.value) // And send the user text to our backend
+            result = await fetch(data).then(response => response.text()) // Let's wait for backend to return a response. The result will be 'The review is postive' or ' The review is negative'
+
+            // Now we will update what the user has typed, and the result from backend, and add it to the HTML body so the user can see both their text and review result.
+            const message = document.createElement("div");   
             const review = document.createElement("div");
             message.classList.add("message", "text");
             review.classList.add("message", "review");
