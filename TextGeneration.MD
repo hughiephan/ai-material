@@ -33,7 +33,7 @@ char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map un
 int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to transform integers back to characters. This is just reversing of char_to_int.
 ```
 
-chars
+chars (46)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/25d54010-ccc6-4e42-a2a6-669cfef57c5c)
 
