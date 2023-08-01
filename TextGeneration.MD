@@ -130,6 +130,7 @@ for epoch in range(10): # This will take a while
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+print("Finished training")
 ```
 
 ## Step 8: Make a prediction 
@@ -147,6 +148,10 @@ def predict(prompt):
             pattern = pattern[1:]
     return ''.join([int_to_char[i] for i in pattern]) # Convert all the integers into characters
 ```
+
+From our Neural Network, because we are outputting 46 nodes so we need to use argmax to find the highest number and use it as our prediction. For example, we choose index 1 because 2.6911 is the highest. After that we will look up what is 1 represent in word index using `int_to_char`. 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/34c59c6b-6e53-4d3b-8bc8-cc6872e59f5e)
 
 Prompt
 
