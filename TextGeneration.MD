@@ -52,12 +52,11 @@ Loop through all the text, and get a sequence of 100 words as input and the 101s
 ```
 n_chars = len(raw_text) # 143146 characters
 n_vocab = len(chars) # 46. Note that we are calculating the list `chars`, not the number `n_chars`
-seq_length = 100
 dataX = []
 dataY = []
-for i in range(0, n_chars - seq_length, 1):
-    seq_in = raw_text[i:i + seq_length]
-    seq_out = raw_text[i + seq_length]
+for i in range(0, n_chars - 100, 1):
+    seq_in = raw_text[i:i + 100] # This is like a sliding window, getting 100 characters at a time
+    seq_out = raw_text[i + 100]
     dataX.append([char_to_int[char] for char in seq_in])
     dataY.append(char_to_int[seq_out])
 ```
@@ -71,16 +70,23 @@ With their respective sequence
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d73ec2da-4d6c-40ef-ad99-176aa6581d67)
 
 ## Step 5: Reshape into LSTM Input Format
+
+In this tutorial, we will use our LSTM as our Language Model. But to use LSTM, we need to have these three values as input:
+- n_sequence: Number of samples in our Feature X
+- n_timestep: Length of a sample
+- n_feature: Number of features which describe our sample
+
+Accordingly, we will get:
+- n_sequence = 143146 - 100 samples = 143046 samples. This is because we use a sliding window of size 100.
+- n_timestep = 100 characters being processed at 100 timesteps.
+- n_feature = 1. Because we use 1-dimension vectors to represent our characters
+
 ```
-n_patterns = len(dataX)
-X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
+n_sequence = len(dataX)
+X = torch.tensor(dataX, dtype=torch.float32).reshape(n_sequence, 100, 1)
 X = X / float(n_vocab) # normalize the input between 0 to 1
 y = torch.tensor(dataY)
 ```
-
-Input data for LSTM are [Batch Size, Sequence Length, Input Dimension], with 143046 samples, 100 number of time steps that will be inputted into LSTM network, and in 1-dimensional space becaue we are dealing with text.
-
-For example: If your input sentence to the LSTM network is = ["I hate to eat apples"], then every single token would be fed as input at each timestep. So the Sequence Length would total number of tokens in a sentence that is 20.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
@@ -137,12 +143,6 @@ def predict(prompt):
             pattern.append(index) # append the new character into the prompt for the next iteration
             pattern = pattern[1:]
     return ''.join([int_to_char[i] for i in pattern])
-
-start = np.random.randint(0, len(raw_text)-seq_length)
-prompt = raw_text[start:start+seq_length]
-model.eval()
-print("--prompt-- \n", prompt)
-print("--prediction-- \n", predict(prompt))
 ```
 
 Prompt
@@ -156,6 +156,7 @@ The output here sounds like a baby trying to talk. Adding more layers and hidden
 ## Step 9: Deploy the model as Backend with gradio
 
 ```
+model.eval()
 def text_generation(prompt):
     return predict(prompt)
 gr.Interface(fn=text_generation, inputs=["prompt"], outputs=["text"]).launch()
