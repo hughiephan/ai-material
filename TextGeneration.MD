@@ -20,12 +20,22 @@ raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
 ```
 
+Output of raw_text[0:50]
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7a420ef1-3395-4fa7-bb81-2817161cbd52)
+
 ## Step 3: Map unique characters to integers
+`char_to_int` and `int_to_char` functions are our word index, we can use these functions to transform texts to sequences back and forth. A simpler approach is using a Tokenizer which will function the same way.
+
 ```
-chars = sorted(list(set(raw_text)))
-char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map of unique characters to integers
-int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to tranform integers back to characters
+chars = sorted(list(set(raw_text))) # Unique characters in the dataset
+char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map unique characters to integers. When we call enumerate function, we will get something like this [(0, 'A'), (1, 'B'), (2, 'C'), (3, 'D')]
+int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to transform integers back to characters. This is just reversing of char_to_int.
 ```
+
+chars
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/25d54010-ccc6-4e42-a2a6-669cfef57c5c)
 
 char_to_int
 
@@ -38,11 +48,11 @@ int_to_char
 
 ## Step 4: Prepare data for training 
 
-Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then format both input and output characters as integers.
+Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then we format both input and output characters into integers.
 
 ```
-n_chars = len(raw_text)
-n_vocab = len(chars)
+n_chars = len(raw_text) # 143146 characters
+n_vocab = len(chars) # 46. Note that we are calculating the list `chars`, not the number `n_chars`
 seq_length = 100
 dataX = []
 dataY = []
@@ -57,7 +67,11 @@ Output of seq_in and seq_out
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d26de4c5-e585-4e39-ab99-9e31c6b8a2a6)
 
-## Step 5: Reshape in to LSTM Input Format
+With their respective sequence 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d73ec2da-4d6c-40ef-ad99-176aa6581d67)
+
+## Step 5: Reshape into LSTM Input Format
 ```
 n_patterns = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_patterns, seq_length, 1) # reshape X to be [samples, time steps, features]
@@ -67,7 +81,7 @@ y = torch.tensor(dataY)
 
 Input data for LSTM are [Batch Size, Sequence Length, Input Dimension], with 143046 samples, 100 number of time steps that will be inputted into LSTM network, and in 1-dimensional space becaue we are dealing with text.
 
-For example: Your input sentence to LSTM network is = ["I hate to eat apples"], then every single token would be fed as input at each timestep. So the Sequence Length would total number of tokens in a sentence that is 5.
+For example: If your input sentence to the LSTM network is = ["I hate to eat apples"], then every single token would be fed as input at each timestep. So the Sequence Length would total number of tokens in a sentence that is 20.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
