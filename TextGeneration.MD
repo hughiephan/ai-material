@@ -2,6 +2,8 @@
 
 Take a sequence of characters as input and the immediate next character as the target. As long as it can predict what is the next character given what are preceding, we can run the model in a loop to generate a long piece of text
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/8c8dcba1-2d21-41eb-97c8-0ac7ec05c10f)
+
 ## Step 1: Import Neural Network and necessary librarires
 ```
 import numpy as np
