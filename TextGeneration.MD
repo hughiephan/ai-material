@@ -136,12 +136,12 @@ print("Finished training")
 ## Step 8: Make a prediction 
 
 Our loop will act like this:
-- i = 0: this is alice
-- i = 1: his is alice
-- i = 2: is is alice i
-- i = 3: s is alice in
-- i = 4: is alice in 
-- i = 5: s alice in w
+- i = 0: this is Alice
+- i = 1: his is Alice (output a blank space)
+- i = 2: is is Alice i
+- i = 3: s is Alice in
+- i = 4: is Alice in (output a blank space)
+- i = 5: s Alice in W
 
 ```
 def predict(prompt):
