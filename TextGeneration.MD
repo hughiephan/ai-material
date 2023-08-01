@@ -106,8 +106,9 @@ class LanguageModel(nn.Module):
         self.linear = nn.Linear(256, n_vocab)
     def forward(self, x):
         x, _ = self.lstm(x)
-        x = x[:, -1, :] # take only the last output
-        x = self.linear(self.dropout(x))
+        x = x[:, -1, :] # X is the output of LSTM, it will have this shape [batch_size, seq_len, hidden_size]. We only need to get the last value of the output sequence so we use -1.
+        x = self.dropout(x)
+        x = self.linear(x) # Predicting one of the 46 characters in the vocab
         return x
 ```
 
@@ -118,7 +119,7 @@ optimizer = optim.Adam(model.parameters())
 loss_fn = nn.CrossEntropyLoss()
 loader = data.DataLoader(data.TensorDataset(X, y), shuffle=True, batch_size=128)
 model.train()
-for epoch in range(1):
+for epoch in range(10): # This will take a while
     print("Running Epoch %d ..." % epoch)
     for X_batch, y_batch in loader:
         y_pred = model(X_batch)
@@ -135,12 +136,12 @@ def predict(prompt):
     pattern = [char_to_int[c] for c in prompt]
     with torch.no_grad():
         for i in range(1000):
-            x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab)
+            x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab) # Reshape and normalize
             x = torch.tensor(x, dtype=torch.float32)
             prediction = model(x)
-            index = int(prediction.argmax()) # convert logits into one character
-            result = int_to_char[index]
-            pattern.append(index) # append the new character into the prompt for the next iteration
+            index = int(prediction.argmax()) # Predict an integer
+            result = int_to_char[index] # Convert the integer into a character
+            pattern.append(index) # Append the new character into the prompt for the next iteration
             pattern = pattern[1:]
     return ''.join([int_to_char[i] for i in pattern])
 ```
@@ -153,7 +154,7 @@ The output here sounds like a baby trying to talk. Adding more layers and hidden
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/de95b7f7-8602-4b10-9844-8e7f041f179b)
 
-## Step 9: Deploy the model as Backend with gradio
+## Step 9: Deploy the model with gradio
 
 ```
 model.eval()
