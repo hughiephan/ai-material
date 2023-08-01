@@ -84,18 +84,22 @@ Accordingly, we will get:
 ```
 n_sequence = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_sequence, 100, 1)
-X = X / float(n_vocab) # normalize the input between 0 to 1
+X = X / float(n_vocab) # Normalize the input between 0 to 1
 y = torch.tensor(dataY)
 ```
+
+X.shape
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
 ## Step 6: Build our Language Model based on LSTM
+In LSTM `input_size` = `n_feature`, in our case it's 1 because we are dealing with 1-dimension vectors (tokenized characters) at each timestep. We need `batch_first=True` because our Input data from the previous step is in this format `(batch_size, seq_len, features)`. Then we just define the hyperparameters, 256 hidden units, and 1 LSTM layer.
+
 ```
 class LanguageModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.lstm = nn.LSTM(input_size=1, hidden_size=256, num_layers=1, batch_first=True)
+        self.lstm = nn.LSTM(input_size=1, hidden_size=256, num_layers=1, batch_first=True) 
         self.dropout = nn.Dropout(0.2)
         self.linear = nn.Linear(256, n_vocab)
     def forward(self, x):
