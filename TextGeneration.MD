@@ -152,8 +152,8 @@ def predict(prompt):
             x = torch.tensor(x, dtype=torch.float32)
             prediction = model(x)
             index = int(prediction.argmax()) # Predict an array of 46 integers
-            sequence.append(index) # Append the new character into the prompt for the next iteration
-            sequence = sequence[1:] 
+            sequence.append(index) # Append the predicted integer into the current sequence
+            sequence = sequence[1:] # Remove the first integer from the sequence 
     return ''.join([int_to_char[i] for i in pattern]) # Convert all the integers into characters
 ```
 
