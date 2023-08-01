@@ -95,6 +95,7 @@ X.shape
 ![image](https://github.com/hughiephan/DPL/assets/16631121/84703a36-b2c9-4b43-94d3-aa2e1f9297df)
 
 ## Step 6: Build our Language Model based on LSTM
+
 In LSTM `input_size` = `n_feature`, in our case it's 1 because we are dealing with 1-dimension vectors (tokenized characters) at each timestep. We need `batch_first=True` because our Input data from the previous step is in this format `(batch_size, seq_len, features)`. Then we just define the hyperparameters, 256 hidden units, and 1 LSTM layer.
 
 ```
@@ -111,6 +112,8 @@ class LanguageModel(nn.Module):
         x = self.linear(x) # Predicting one of the 46 characters in the vocab
         return x
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/0985737b-4c56-4c61-a66a-8c39b9334e92)
 
 ## Step 7: Start training
 ```
@@ -140,10 +143,9 @@ def predict(prompt):
             x = torch.tensor(x, dtype=torch.float32)
             prediction = model(x)
             index = int(prediction.argmax()) # Predict an integer
-            result = int_to_char[index] # Convert the integer into a character
             pattern.append(index) # Append the new character into the prompt for the next iteration
             pattern = pattern[1:]
-    return ''.join([int_to_char[i] for i in pattern])
+    return ''.join([int_to_char[i] for i in pattern]) # Convert all the integers into characters
 ```
 
 Prompt
@@ -157,7 +159,7 @@ The output here sounds like a baby trying to talk. Adding more layers and hidden
 ## Step 9: Deploy the model with gradio
 
 ```
-model.eval()
+model.eval() # Change to evaluation mode because we don't want Dropout Layer to automatically drop Neural Network nodes when we are making prediction
 def text_generation(prompt):
     return predict(prompt)
 gr.Interface(fn=text_generation, inputs=["prompt"], outputs=["text"]).launch()
