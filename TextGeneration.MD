@@ -161,14 +161,6 @@ From our Neural Network, because we are outputting 46 nodes so we need to use ar
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/34c59c6b-6e53-4d3b-8bc8-cc6872e59f5e)
 
-Prompt
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/97e254b7-88f9-4da9-8269-4c2068799fe4)
-
-The output here sounds like a baby trying to talk. Adding more layers and hidden units would make the output more natural.
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/de95b7f7-8602-4b10-9844-8e7f041f179b)
-
 ## Step 9: Deploy the model with gradio
 
 ```
@@ -179,4 +171,12 @@ gr.Interface(fn=text_generation, inputs=["prompt"], outputs=["text"]).launch()
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d3bce2ea-fa3d-4ca1-ba9f-fd8e4ff3bbf8)
+
+Prompt
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/97e254b7-88f9-4da9-8269-4c2068799fe4)
+
+The output here sounds like a baby trying to talk. Adding more layers and hidden units would make the output more natural.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/de95b7f7-8602-4b10-9844-8e7f041f179b)
 
