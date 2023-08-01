@@ -20,7 +20,7 @@ raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
 ```
 
-Output of raw_text[0:50]
+Output of raw_text [0:50]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7a420ef1-3395-4fa7-bb81-2817161cbd52)
 
