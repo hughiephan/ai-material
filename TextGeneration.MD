@@ -113,23 +113,17 @@ class LanguageModel(nn.Module):
 ```
 model = LanguageModel()
 optimizer = optim.Adam(model.parameters())
-loss_fn = nn.CrossEntropyLoss(reduction="sum")
+loss_fn = nn.CrossEntropyLoss()
 loader = data.DataLoader(data.TensorDataset(X, y), shuffle=True, batch_size=128)
-for epoch in range(20):
-    model.train()
+model.train()
+for epoch in range(1):
+    print("Running Epoch %d ..." % epoch)
     for X_batch, y_batch in loader:
         y_pred = model(X_batch)
         loss = loss_fn(y_pred, y_batch)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-    model.eval()
-    loss = 0
-    with torch.no_grad():
-        for X_batch, y_batch in loader:
-            y_pred = model(X_batch)
-            loss += loss_fn(y_pred, y_batch)
-        print("Epoch %d: Cross-entropy: %.4f" % (epoch, loss))
 ```
 
 ## Step 8: Make a prediction 
