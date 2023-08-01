@@ -108,7 +108,7 @@ def index():
 # The Frontend will make API call to this localhost:5000/predict?text=TheMovieIsTerrible, and backend will return "The review is negative"
 @app.route('/predict', methods=['GET'])
 def predict():
-    text = request.args.get('text', '')
+    text = request.args.get('text', '') # Todo: Add urlib to parse the encoded text https://www.urldecoder.io/python/ 
     sequence = tokenizer.texts_to_sequences([text])
     padded = pad_sequences(sequence, maxlen=120)
     prediction = model.predict(padded)
@@ -118,7 +118,7 @@ def predict():
         return "The review is negative."
 ```
 
-Add the following content to `requirements.txt` file. `pickle-mixin` provides a way to deserialize our `Tokenizer` and make it runnable in our backend. `flask` is our backend server, we use it along with `flask-cors` to allow Cross Origin Resource Sharing. When we work with API, we often need to have `flask-cors` enabled to let Frontend access the Backend.  
+Add the following content to `requirements.txt` file. `pickle-mixin` provides a way to deserialize our `Tokenizer` and make it runnable in our backend. `flask` is our backend server, we use it along with `flask-cors` to allow Cross Origin Resource Sharing. When we work with API, we often need to have `flask-cors` enabled to let Frontend access the Backend (https://pakstech.com/blog/cors-simply-explained/)
 
 ```
 pickle-mixin
@@ -292,4 +292,24 @@ If issue happens, try the following solutions
 ```
 Problem: Encountered error while trying to install package pickle-mixin. 
 Answer: Try pickle5
+```
+
+```
+Problem: UTF-8 Error with Keras
+Answer: Check if your Folder has special characters and remove them C:/Đại học/ReviewBot/
+```
+
+```
+Problem: Frontend cannot send request to Backend
+Answer: Check if your Backend is running in port 5000
+```
+
+```
+Problem: If you are running on MacOs
+Answer: Try changing the code in Frontend Javascript to 127.0.0.1:5000/predict
+```
+
+```
+Problem: Other problems with python environment (SQLAcademy, JWT,...)
+Answer: Try to install and run everything in a new conda environment https://www.machinelearningplus.com/deployment/conda-create-environment-and-everything-you-need-to-know-to-manage-conda-virtual-environment/
 ```
