@@ -33,7 +33,7 @@ char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map un
 int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to transform integers back to characters. This is just reversing of char_to_int.
 ```
 
-chars (46)
+chars (46 characters)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/25d54010-ccc6-4e42-a2a6-669cfef57c5c)
 
@@ -45,10 +45,9 @@ int_to_char
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d0fd86fb-1c5c-43f7-a7bc-354be8fe9705)
 
-
 ## Step 4: Prepare data for training 
 
-Loop through all the text, get a sequence out 100 words as input and the 101-th word as output. Then we format both input and output characters into integers.
+Loop through all the text, and get a sequence of 100 words as input and the 101st word as output. Then we format both input and output characters into integers.
 
 ```
 n_chars = len(raw_text) # 143146 characters
