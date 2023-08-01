@@ -135,17 +135,25 @@ print("Finished training")
 
 ## Step 8: Make a prediction 
 
+Our loop will act like this:
+- i = 0: this is alice
+- i = 1: his is alice
+- i = 2: is is alice i
+- i = 3: s is alice in
+- i = 4: is alice in 
+- i = 5: s alice in w
+
 ```
 def predict(prompt):
-    pattern = [char_to_int[c] for c in prompt]
+    sequence = [char_to_int[c] for c in prompt]
     with torch.no_grad():
         for i in range(1000):
-            x = np.reshape(pattern, (1, len(pattern), 1)) / float(n_vocab) # Reshape and normalize
+            x = np.reshape(sequence, (1, len(sequence), 1)) / float(n_vocab) # Reshape and normalize
             x = torch.tensor(x, dtype=torch.float32)
             prediction = model(x)
-            index = int(prediction.argmax()) # Predict an integer
-            pattern.append(index) # Append the new character into the prompt for the next iteration
-            pattern = pattern[1:]
+            index = int(prediction.argmax()) # Predict an array of 46 integers
+            sequence.append(index) # Append the new character into the prompt for the next iteration
+            sequence = sequence[1:] 
     return ''.join([int_to_char[i] for i in pattern]) # Convert all the integers into characters
 ```
 
