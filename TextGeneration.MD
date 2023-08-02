@@ -154,7 +154,7 @@ def predict(prompt):
             index = int(prediction.argmax()) # Predict an array of 46 integers
             sequence.append(index) # Append the predicted integer into the current sequence
             sequence = sequence[1:] # Remove the first integer from the sequence 
-    return ''.join([int_to_char[i] for i in pattern]) # Convert all the integers into characters
+    return ''.join([int_to_char[i] for i in sequence]) # Convert all the integers into characters
 ```
 
 From our Neural Network, because we are outputting 46 nodes so we need to use argmax to find the highest number and use it as our prediction. For example, we choose index 1 because 2.6911 is the highest. After that we will look up what is 1 represent in word index using `int_to_char`. 
