@@ -86,7 +86,7 @@ Accordingly, we will get:
 ```
 n_sequence = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_sequence, 100, 1)
-X = X / float(n_vocab) # Normalize the input between 0 to 1
+X = X / float(n_vocab) # Normalize the input
 y = torch.tensor(dataY)
 ```
 
