@@ -1,6 +1,6 @@
-# Spotify Genre Classification
+## Spotify Genre Classification
 
-## References
+### References
 - https://www.kaggle.com/code/muhammedtausif/top-songs-eda
 - https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify
 
