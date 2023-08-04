@@ -11,7 +11,7 @@ A Web Chatbot to review IMDB Comments
 ## Step 1: Build and train our model
 We use `tfds` to load imdb reviews and their sentiment labels (positive = 1 or negative = 0). Then apply `Tokenizer.fit_on_texts` to create the word index (e.x 'cat':0, 'dog': 1, 'coffee': 2,...). After that, we pad the sequence to be the same size 120. Then we train the embedding layer (vectorize) along with RNN layer and output a prediction for the review.
 
-```
+```python
 import pickle
 import warnings 
 warnings.filterwarnings('ignore')
@@ -59,7 +59,7 @@ Keras saves models in .h5 format as it can easily store the weights and model co
 
 If you use `Kaggle Notebook`, press on the Download button in the output section to download these 2 files to your computer.
 
-```
+```python
 model.save('model.h5')
 with open('tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
@@ -85,7 +85,7 @@ Finally, `ReviewBot` folder should look like this:
 
 Now let's add the code to our backend `app.py` file. 
 
-```
+```python
 import pickle
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
@@ -120,7 +120,7 @@ def predict():
 
 Add the following content to `requirements.txt` file. `pickle-mixin` provides a way to deserialize our `Tokenizer` and make it runnable in our backend. `flask` is our backend server, we use it along with `flask-cors` to allow Cross Origin Resource Sharing. When we work with API, we often need to have `flask-cors` enabled to let Frontend access the Backend (https://pakstech.com/blog/cors-simply-explained/)
 
-```
+```python
 pickle-mixin
 flask
 flask-cors
@@ -131,7 +131,7 @@ tensorflow
 
 Open command line, and run this command. The command will look at the `requirements.txt` and install the four libraries `pickle-mixin`, `flask`, `flask-cors`, `tensorflow`
 
-```
+```python
 pip install -r requirements.txt
 ```
 
@@ -140,7 +140,7 @@ pip install -r requirements.txt
 ## Step 6: Start Backend
 
 Open a command line and run below command:
-```
+```python
 flask run
 ```
 
@@ -289,27 +289,27 @@ https://dev.to/sm0ke/deploy-flask-to-render-5f39
 
 # Debugging
 If issue happens, try the following solutions
-```
+```python
 Problem: Encountered error while trying to install package pickle-mixin. 
 Answer: Try pickle5
 ```
 
-```
+```python
 Problem: UTF-8 Error with Keras
 Answer: Check if your Folder has special characters and remove them C:/Đại học/ReviewBot/
 ```
 
-```
+```python
 Problem: Frontend cannot send request to Backend
 Answer: Check if your Backend is running in port 5000
 ```
 
-```
+```python
 Problem: If you are running on MacOs
 Answer: Try changing the code in Frontend Javascript to 127.0.0.1:5000/predict
 ```
 
-```
+```python
 Problem: Other problems with python environment (SQLAcademy, JWT,...)
 Answer: Try to install and run everything in a new conda environment https://www.machinelearningplus.com/deployment/conda-create-environment-and-everything-you-need-to-know-to-manage-conda-virtual-environment/
 ```
