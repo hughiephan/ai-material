@@ -16,8 +16,6 @@ from tensorflow import keras
 warnings.simplefilter("ignore")
 ```
 
-<br/> 
-
 ### Step 2: Load Dataset
 ```python
 data = pd.read_csv("/kaggle/input/genres-v2-spotify/genres_v2.csv") # Download dataset from 
@@ -26,8 +24,6 @@ data
 You can use this dataset https://www.kaggle.com/datasets/thala321/genres-v2-spotify . Then we load the dataset using pandas read_csv, and the data set contains 42305 rows and 22 columns and consists of 18000+ tracks. 
 
 ![Screenshot_2023-03-01_at_9](https://github.com/hughiephan/DPL/assets/16631121/bc6618d7-bc0c-476b-a066-576c0a9f2e1a)
-
-<br/>
 
 ### Step 3: Exploring the Data
 ```python
