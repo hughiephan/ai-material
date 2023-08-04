@@ -13,7 +13,7 @@ Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dat
 ![image](https://github.com/hughiephan/DPL/assets/16631121/40eeb8d3-3b12-497c-8ba3-cb2b4e1ffc8d)
 
 ## Step 2: Import Libraries
-```
+```python
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import Input, Lambda, Dense, Flatten, Dropout
 from tensorflow.keras.models import Model, Sequential
@@ -22,7 +22,7 @@ from tensorflow.keras.applications.vgg16 import preprocess_input
 ```
 
 ## Step 3: Config variables
-```
+```python
 input_size = (128,128)
 input_shape = (128, 128, 3)
 base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
@@ -43,7 +43,7 @@ Data augmentation is a process of artificially increasing the amount of data by 
 
 For Validation and Test Set, we only apply normalization by dividing with 255 and get the pixel range from [0 ~ 1] 
 
-```
+```python
 train_gen = ImageDataGenerator(
     rescale=1./255, 
     zoom_range=0.1,
@@ -59,7 +59,7 @@ test_gen = ImageDataGenerator(rescale=1./255)
 ```
 
 ## Step 5: Apply Pre-processing & Augmentation 
-```
+```python
 train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_size,seed=42)
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
 test_data = test_gen.flow_from_directory(base_dir + 'Test',target_size=input_size,seed=42)
@@ -74,7 +74,7 @@ Use a Convolutional Neural Network model (VGG16) pre-trained on the ImageNet dat
 
 Loop through all the VGG16 layers and freeze those layer's weights using `layer.trainable = False`. With `include_top=False`, the model can be used for feature extraction, then we can stack any other model on top of it.
 
-```
+```python
 vgg16 = VGG16(input_shape=input_shape, weights='imagenet', include_top=False)
 for layer in vgg16.layers:
     layer.trainable = False
@@ -88,7 +88,7 @@ The total parameters are 14,714,688 but because we have already frozen them so t
 ## Step 7: New classifier
 Add our fully-connected layer after VGG16. These hyperparameters are chosen randomly, and by experimenting we should know what are the best hyperparameters for this classifier layer. Number `2` in the last layer is equal to the `with mask` and `without mask` label. Binary cross-entropy is used for the binary classification task (two target classes)
 
-```
+```python
 output = Flatten()(vgg16.output)
 output = Dense(500, activation='relu')(output)
 output = Dense(100, activation='relu')(output)
@@ -108,7 +108,7 @@ Total parameters change from 14,714,688 to 18,861,490. With the 4,146,802 traina
 ![image](https://github.com/hughiephan/DPL/assets/16631121/807ef1fb-0805-496f-aaef-0aba55627094)
 
 ## Step 8: Train our model
-```
+```python
 history = model.fit(train_data,
                     batch_size=32,
                     epochs=10,
