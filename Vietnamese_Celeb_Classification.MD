@@ -42,7 +42,7 @@ Image augmentation manipulations are forms of image preprocessing, but there is 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0eaef9df-3095-4e69-a1b1-000df6daec75)
 
 ## Step 6: Create new Notebook
-```
+```python
 !pip install roboflow
 import tensorflow as tf
 import numpy as np
@@ -58,7 +58,7 @@ dataset = project.version("ADD_PROJECT_VERSION").download("folder")
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5c8bbc57-f8be-4de2-95b1-3936d590e359)
 
-```
+```python
 image_size = (128, 128)
 input_shape = (128, 128, 3)
 batch_size = 32
@@ -121,7 +121,7 @@ You should test each pre-processing and augmentation method on this dataset to s
 ## Step 9: Update your Notebook with the new version and then train again to see if the new set of pre-processing and augmentation increase the accuracy or not.
 
 ## Step 10: Evaluate with Test Set
-```
+```python
 loss, accuracy = model.evaluate(test_data)
 print("Test Loss:", loss)
 print("Test Accuracy:", accuracy)
@@ -130,7 +130,7 @@ print("Test Accuracy:", accuracy)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
 
 ## Step 11: Make a prediction
-```
+```python
 test_images, test_classes = next(iter(test_data))
 random_index = np.random.randint(0, len(test_images))
 random_image = test_images[random_index]
