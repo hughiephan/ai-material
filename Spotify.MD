@@ -16,7 +16,7 @@ from tensorflow import keras
 warnings.simplefilter("ignore")
 ```
 
-\
+<br/>
 
 ### Step 2: Load Dataset
 ```python
@@ -27,7 +27,7 @@ You can use this dataset https://www.kaggle.com/datasets/thala321/genres-v2-spot
 
 ![Screenshot_2023-03-01_at_9](https://github.com/hughiephan/DPL/assets/16631121/bc6618d7-bc0c-476b-a066-576c0a9f2e1a)
 
-\
+<br/>
 
 ### Step 3: Exploring the Data
 ```python
