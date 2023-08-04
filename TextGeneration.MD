@@ -5,7 +5,7 @@ Take a sequence of characters as input and the immediate next character as the t
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8c8dcba1-2d21-41eb-97c8-0ac7ec05c10f)
 
 ## Step 1: Import Neural Network and necessary librarires
-```
+```python
 import numpy as np
 import torch
 import torch.nn as nn
@@ -16,7 +16,7 @@ import torch.utils.data as data
 ## Step 2: Load Dataset
 Download Alice in Wonderland Dataset from: https://www.kaggle.com/datasets/thala321/alice-in-wonderland
 
-```
+```python
 filename = "../input/alice-in-wonderland/wonderland.txt"
 raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
@@ -29,7 +29,7 @@ Output of raw_text [0:50]
 ## Step 3: Map unique characters to integers
 `char_to_int` and `int_to_char` functions are our word index, we can use these functions to transform texts to sequences back and forth. A simpler approach is using a Tokenizer which will function the same way.
 
-```
+```python
 chars = sorted(list(set(raw_text))) # Unique characters in the dataset
 char_to_int = dict((c, i) for i, c in enumerate(chars)) # A dictionary to map unique characters to integers. When we call enumerate function, we will get something like this [(0, 'A'), (1, 'B'), (2, 'C'), (3, 'D')]
 int_to_char = dict((i, c) for c, i in char_to_int.items()) # A dictionary to transform integers back to characters. This is just reversing of char_to_int.
@@ -51,7 +51,7 @@ int_to_char
 
 Loop through all the text, and get a sequence of 100 words as input and the 101st word as output. Then we format both input and output characters into integers.
 
-```
+```python
 n_chars = len(raw_text) # 143146 characters
 n_vocab = len(chars) # 46. Note that we are calculating the list `chars`, not the number `n_chars`
 dataX = []
@@ -83,7 +83,7 @@ Accordingly, we will get:
 - n_timestep = 100 characters being processed at 100 timesteps.
 - n_feature = 1. Because we use 1-dimension vectors to represent our characters
 
-```
+```python
 n_sequence = len(dataX)
 X = torch.tensor(dataX, dtype=torch.float32).reshape(n_sequence, 100, 1)
 X = X / float(n_vocab) # Normalize the input
@@ -98,7 +98,7 @@ X.shape
 
 In LSTM `input_size` = `n_feature`, in our case it's 1 because we are dealing with 1-dimension vectors (tokenized characters) at each timestep. We need `batch_first=True` because our Input data from the previous step is in this format `(batch_size, seq_len, features)`. Then we just define the hyperparameters, 256 hidden units, and 1 LSTM layer.
 
-```
+```python
 class LanguageModel(nn.Module):
     def __init__(self):
         super().__init__()
@@ -116,7 +116,7 @@ class LanguageModel(nn.Module):
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0985737b-4c56-4c61-a66a-8c39b9334e92)
 
 ## Step 7: Start training
-```
+```python
 model = LanguageModel()
 optimizer = optim.Adam(model.parameters())
 loss_fn = nn.CrossEntropyLoss()
@@ -163,7 +163,7 @@ From our Neural Network, because we are outputting 46 nodes so we need to use ar
 
 ## Step 9: Deploy the model with gradio
 
-```
+```python
 model.eval() # Change to evaluation mode because we don't want Dropout Layer to automatically drop Neural Network nodes when we are making prediction
 def text_generation(prompt):
     return predict(prompt)
