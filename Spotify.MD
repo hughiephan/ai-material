@@ -16,7 +16,7 @@ from tensorflow import keras
 warnings.simplefilter("ignore")
 ```
 
-<br/>
+<br/> 
 
 ### Step 2: Load Dataset
 ```python
