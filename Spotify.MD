@@ -5,7 +5,7 @@
 - https://www.kaggle.com/datasets/mrmorj/dataset-of-songs-in-spotify
 
 ## Step 1: Import necessary libraries
-```
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import warnings 
