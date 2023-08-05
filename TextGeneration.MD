@@ -143,7 +143,7 @@ Our loop will act like this:
 - i = 4: is Alice in (output a blank space)
 - i = 5: s Alice in W
 
-```
+```python
 def predict(prompt):
     sequence = [char_to_int[c] for c in prompt]
     with torch.no_grad():
