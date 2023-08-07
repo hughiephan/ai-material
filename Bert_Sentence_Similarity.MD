@@ -122,9 +122,8 @@ for query, query_embedding in zip(queries, query_embeddings):
     distances = scipy.spatial.distance.cdist([query_embedding], corpus, metric="cosine")[0]
     results = zip(range(len(distances)), distances)
     results = sorted(results, key=lambda x: x[1])
-    print("\n\n======================\n\n")
-    print("Query:", query)
-    print("\nTop 5 most similar sentences in corpus:")
+    print("\n Query:", query)
+    print("\n Top 5 most similar sentences in corpus:")
     for idx, distance in results[0:5]:
         print(sentences[idx].strip(), "(Score: %.4f)" % (distance / 2))
 ```
@@ -132,7 +131,6 @@ for query, query_embedding in zip(queries, query_embeddings):
 
 Output
 ```
-======================
 Query: 暴走したAI
 
 Top 5 most similar sentences in corpus:
@@ -141,5 +139,4 @@ Top 5 most similar sentences in corpus:
 武器を持つAI (Score: 0.1994)
 人工知能・AI (Score: 0.2130)
 画像認識をするAI (Score: 0.2306)
-...
 ```
