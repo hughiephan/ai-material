@@ -38,7 +38,7 @@ class SentenceBertJapanese:
         self.tokenizer = BertJapaneseTokenizer.from_pretrained(sonoisa/sentence-bert-base-ja-mean-tokens)
         self.model = BertModel.from_pretrained(sonoisa/sentence-bert-base-ja-mean-tokens)
         self.model.eval()
-    def _mean_pooling(self, model_output, attention_mask):
+    def _mean_pooling(self, token_embeddings, attention_mask):
         ....
     @torch.no_grad()
     def encode(self, sentences, batch_size=8):
@@ -61,8 +61,7 @@ We take BERT’s token embeddings output and the sentence’s attention_mask ten
 class SentenceBertJapanese:
     def __init__(self):
         ....
-    def _mean_pooling(self, model_output, attention_mask):
-        token_embeddings = model_output[0]
+    def _mean_pooling(self, token_embeddings, attention_mask):
         input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
         return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
     @torch.no_grad()
@@ -71,7 +70,7 @@ class SentenceBertJapanese:
 ```
 
 ## Step: Encode
-`Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token.
+`Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
 
@@ -79,7 +78,7 @@ class SentenceBertJapanese:
 class SentenceBertJapanese:
     def __init__(self):
         ....
-    def _mean_pooling(self, model_output, attention_mask):
+    def _mean_pooling(self, token_embeddings, attention_mask):
         ....
     @torch.no_grad()
     def encode(self, sentences, batch_size=8):
@@ -88,8 +87,8 @@ class SentenceBertJapanese:
         for batch_idx in iterator:
             batch = sentences[batch_idx:batch_idx + batch_size]
             encoded_input = self.tokenizer.batch_encode_plus(batch, padding="longest", truncation=True, return_tensors="pt")
-            model_output = self.model(**encoded_input)
-            sentence_embeddings = self._mean_pooling(model_output, encoded_input["attention_mask"])
+            token_embeds  = self.model(**encoded_input)[0] # process tokens through model and extract token embeddings
+            sentence_embeddings = self._mean_pooling(token_embeds , encoded_input["attention_mask"])
             all_embeddings.extend(sentence_embeddings)
         return torch.stack(all_embeddings)
 ```
