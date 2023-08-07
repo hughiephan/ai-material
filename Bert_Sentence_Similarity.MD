@@ -45,7 +45,7 @@ class SentenceBertJapanese:
 ## Step: Mean Pooling
 ```python
 class SentenceBertJapanese:
-    def __init__(self, model_name_or_path):
+    def __init__(self):
         ....
     def _mean_pooling(self, model_output, attention_mask):
         token_embeddings = model_output[0]
@@ -60,7 +60,7 @@ class SentenceBertJapanese:
 `Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings.
 ```python
 class SentenceBertJapanese:
-    def __init__(self, model_name_or_path, device=None):
+    def __init__(self):
         ....
     def _mean_pooling(self, model_output, attention_mask):
         ....
