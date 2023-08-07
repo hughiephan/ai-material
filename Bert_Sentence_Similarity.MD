@@ -12,6 +12,10 @@ To Sentence Embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6b24747d-aca8-4b14-baf3-8c0d72829940)
 
+Calculate the Cosine similarity between two sentence embeddings
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ef5e8991-0924-4ed0-905a-5e3997ca82c1)
+
 
 ## Step 1
 Transformers library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). 
