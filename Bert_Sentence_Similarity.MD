@@ -66,9 +66,10 @@ We first resize the attention_mask to align to the higher 768-dimensionality of 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
 
-We then apply this resized mask input_mask_expanded to those token embeddings to exclude padding tokens from the mean pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings. Then takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512*768) to (1*768) (BERT has a max length limit of 512 tokens)
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
+
+We then apply this resized mask input_mask_expanded to those token embeddings to exclude padding tokens from the mean pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings. Then takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512x768) to (1x768) (BERT has a max length limit of 512 tokens)
+
 
 ```python
 class SentenceBertJapanese:
