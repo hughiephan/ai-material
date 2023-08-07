@@ -8,13 +8,9 @@ Bert and GPT are both Transformer models. Bert is an encoder-only Transformer an
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d2312e5c-0c57-4c91-a15d-5f469442d1ac)
 
-Attention Mask in Bert and GPT. In both BERT and GPT, the attention mask is a binary matrix with the same shape as the input sequence. Each element of the attention mask can take two values: 0 or 1. A value of 1 indicates that the corresponding position in the input sequence is an actual token, while a value of 0 indicates that the position is a padding token. During training, the attention mask is used to guide the model's attention mechanism, making it focus only on the relevant tokens and ignore the padding tokens.
+BERT based model takes a sentence as input and masks 15% of the words from a sentence and by running the sentence with masked words through the model, it predicts the asked words and context behind the words
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d040e961-b568-468b-9071-3aae4c00ba43)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
 
 ## Objective
 
@@ -69,6 +65,10 @@ class SentenceBertJapanese:
 We want to create a mask with the same shape as token_embeddings but contains only the attention mask value (0 or 1). We can use this mask to set the embeddings of padding tokens to zero during the mean-pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings. `attention_mask` is a binary tensor of shape (batch_size, sequence_length), where batch_size is the number of sentences in the batch, and sequence_length is the maximum length of sentences after padding. When we use unsqueeze(-1) on attention_mask, it will add a new dimension to the last axis, resulting in a tensor of shape (batch_size, sequence_length, 1). Then broadcasts the tensor with shape (batch_size, sequence_length, 1) to the shape of token_embeddings, which is (batch_size, sequence_length, embedding_dim).
 
 BERT has a max length limit of tokens = 512. We take BERT’s token embedding output and the sentence’s attention_mask tensor. We then resize the attention_mask to align to the higher 768-dimensionality of the token embeddings. We apply this resized mask in_mask to those token embeddings to exclude padding tokens from the mean pooling operation. Our mean pooling takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512*768) to (1*768)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
 
 ```python
 class SentenceBertJapanese:
