@@ -31,14 +31,10 @@ from transformers import BertJapaneseTokenizer, BertModel
 ## Step
 ```python
 class SentenceBertJapanese:
-    def __init__(self, model_name_or_path, device=None):
+    def __init__(self, model_name_or_path):
         self.tokenizer = BertJapaneseTokenizer.from_pretrained(model_name_or_path)
         self.model = BertModel.from_pretrained(model_name_or_path)
         self.model.eval()
-        if device is None:
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.device = torch.device(device)
-        self.model.to(device)
     def _mean_pooling(self, model_output, attention_mask):
         ....
     @torch.no_grad()
@@ -49,7 +45,7 @@ class SentenceBertJapanese:
 ## Step: Continue to define our SentenceBert
 ```python
 class SentenceBertJapanese:
-    def __init__(self, model_name_or_path, device=None):
+    def __init__(self, model_name_or_path):
         ....
     def _mean_pooling(self, model_output, attention_mask):
         token_embeddings = model_output[0]
