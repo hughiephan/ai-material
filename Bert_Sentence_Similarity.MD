@@ -22,9 +22,7 @@ import scipy.spatial
 from transformers import BertJapaneseTokenizer, BertModel
 ```
 
-`_mean_pooling` is a helper function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
 ## Step: Init Sentence Bert
 ```python 
@@ -42,6 +40,9 @@ class SentenceBertJapanese:
 
 ## Step: Mean Pooling
 
+`_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
 ```python
 class SentenceBertJapanese:
