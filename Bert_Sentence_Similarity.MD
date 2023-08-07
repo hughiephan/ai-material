@@ -39,24 +39,24 @@ class SentenceBertJapanese:
             device = "cuda" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(device)
         self.model.to(device)
-   def _mean_pooling(self, model_output, attention_mask):
-        ...
+    ....
 ```
 
 ## Step: Continue to define our SentenceBert
 ```python
-        ....
+class SentenceBertJapanese:
+    ....
     def _mean_pooling(self, model_output, attention_mask):
         token_embeddings = model_output[0]
         input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
         return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
-   @torch.no_grad()
-   def encode(self, sentences, batch_size=8):
-        ....
+    ....
 ```
 
 ## Step:
 ```python
+class SentenceBertJapanese:
+    ....
     @torch.no_grad()
     def encode(self, sentences, batch_size=8):
         all_embeddings = []
