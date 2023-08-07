@@ -1,18 +1,18 @@
 # How to find similar sentences using Sentence Bert Japanese
 
-Demonstrates how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity.
+This tutorial will demonstrate how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity.
 
 ## Objective
 
-From Token Embeddings
+Objective 1: Get Token Embeddings from BERT
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fd65f24c-0443-4c20-aeab-7b67997a9c44)
 
-To Sentence Embeddings
+Objective 2: Transform Token Embeddings into Sentence Embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6b24747d-aca8-4b14-baf3-8c0d72829940)
 
-Calculate the Cosine similarity between two sentence embeddings
+Objective 3: Calculate the Cosine similarity between Sentence Embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef5e8991-0924-4ed0-905a-5e3997ca82c1)
 
