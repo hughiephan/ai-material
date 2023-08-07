@@ -4,6 +4,8 @@ Demonstrates how to use Sentence-BERT for encoding Japanese sentences into embed
 
 Sentence-BERT is a variant of BERT that has been fine-tuned to produce sentence embeddings. 
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/5bd89e08-0e35-4825-9e3e-24833cd42313)
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a92de1fa-a508-41b4-b1ac-4d095c95df44)
 
 
