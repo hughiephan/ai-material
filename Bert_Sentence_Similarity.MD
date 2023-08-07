@@ -43,7 +43,7 @@ class SentenceBertJapanese:
     def _mean_pooling(self, token_embeddings, attention_mask):
         ....
     @torch.no_grad()
-    def encode(self, sentences, batch_size=8):
+    def encode(self, sentences, batch_size=10):
         ....
 ```
 
@@ -71,7 +71,7 @@ class SentenceBertJapanese:
         input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
         return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
     @torch.no_grad()
-    def encode(self, sentences, batch_size=8):
+    def encode(self, sentences, batch_size=10):
         ....
 ```
 
