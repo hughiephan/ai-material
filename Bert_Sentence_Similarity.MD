@@ -95,7 +95,8 @@ class SentenceBertJapanese:
         for batch_idx in iterator:
             batch = sentences[batch_idx : batch_idx + batch_size]
             encoded_input = self.tokenizer.batch_encode_plus(batch, padding="longest", truncation=True, return_tensors="pt")
-            token_embeds  = self.model(**encoded_input)[0] # Extract token embeddings
+            last_hidden_states  = self.model(**encoded_input)
+            token_embeds = last_hidden_states[0] # Extract token embeddings
             sentence_embeddings = self._mean_pooling(token_embeds , encoded_input["attention_mask"]) # Apply mean pooling to get the sentence embeddings
             all_embeddings.extend(sentence_embeddings) 
         return torch.stack(all_embeddings)
