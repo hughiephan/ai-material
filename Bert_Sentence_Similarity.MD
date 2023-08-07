@@ -12,6 +12,10 @@ Attention Mask in Bert and GPT. In both BERT and GPT, the attention mask is a bi
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d040e961-b568-468b-9071-3aae4c00ba43)
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
+
 ## Objective
 
 Objective 1: Get Token Embeddings from BERT
