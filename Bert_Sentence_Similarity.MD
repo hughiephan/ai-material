@@ -14,7 +14,7 @@ Then we use `scipy.spatial` to calculate the cosine distances between vectors an
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/714f3f61-e76e-42d4-91e9-c508d91485bb)
 
-```
+```python
 import warnings
 warnings.filterwarnings("ignore")
 import torch
