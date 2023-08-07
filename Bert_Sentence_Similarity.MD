@@ -4,7 +4,7 @@ This tutorial will demonstrate how to use Sentence-BERT for encoding Japanese se
 
 ## Prerequisites knowledge
 
-Bert and GPT are both from Transformer. Bert is an encoder-only Transformer and GPT is a decoder-only Transformer
+Bert and GPT are both Transformer models. Bert is an encoder-only Transformer and GPT is a decoder-only Transformer
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ec42e661-1ed0-4f24-adad-66e4f6664ed5)
 
