@@ -44,6 +44,8 @@ class SentenceBertJapanese:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
+We want to create a mask with the same shape as token_embeddings but contains only the attention mask value (0 or 1). We can use this mask to set the embeddings of padding tokens to zero during the mean-pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings.
+
 ```python
 class SentenceBertJapanese:
     def __init__(self):
