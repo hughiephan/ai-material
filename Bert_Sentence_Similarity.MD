@@ -80,6 +80,7 @@ class SentenceBertJapanese:
 ## Step: Encode
 `Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/26f75e97-9e4f-4035-9ba0-37ba29c4c31a)
 
 ```python
 class SentenceBertJapanese:
