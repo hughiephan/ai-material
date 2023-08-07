@@ -74,10 +74,9 @@ class SentenceBertJapanese:
         iterator = range(0, len(sentences), batch_size)
         for batch_idx in iterator:
             batch = sentences[batch_idx:batch_idx + batch_size]
-            encoded_input = self.tokenizer.batch_encode_plus(batch, padding="longest", 
-                                           truncation=True, return_tensors="pt").to(self.device)
+            encoded_input = self.tokenizer.batch_encode_plus(batch, padding="longest", truncation=True, return_tensors="pt")
             model_output = self.model(**encoded_input)
-            sentence_embeddings = self._mean_pooling(model_output, encoded_input["attention_mask"]).to('cpu')
+            sentence_embeddings = self._mean_pooling(model_output, encoded_input["attention_mask"])
             all_embeddings.extend(sentence_embeddings)
         return torch.stack(all_embeddings)
 ```
