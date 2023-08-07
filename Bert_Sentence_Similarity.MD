@@ -8,6 +8,7 @@ Sentence-BERT is a variant of BERT that has been fine-tuned to produce sentence 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a92de1fa-a508-41b4-b1ac-4d095c95df44)
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/6b24747d-aca8-4b14-baf3-8c0d72829940)
 
 
 ## Step 1
@@ -45,10 +46,6 @@ class SentenceBertJapanese:
 `_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
 
 BERT has a max length limit of tokens = 512
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/9f09ad3f-a110-4454-9d16-d2fbce650731)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/6b24747d-aca8-4b14-baf3-8c0d72829940)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
