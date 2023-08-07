@@ -8,10 +8,6 @@ Bert and GPT are both Transformer models. Bert is an encoder-only Transformer an
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d2312e5c-0c57-4c91-a15d-5f469442d1ac)
 
-BERT based model takes a sentence as input and masks 15% of the words from a sentence and by running the sentence with masked words through the model, it predicts the asked words and context behind the words
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/d040e961-b568-468b-9071-3aae4c00ba43)
-
 ## Objective
 
 Objective 1: Get Token Embeddings from BERT
