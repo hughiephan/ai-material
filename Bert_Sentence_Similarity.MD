@@ -102,7 +102,7 @@ class SentenceBertJapanese:
 ```
 
 ## Step: Encode sentences
-The sentences list contains five Japanese sentences. An instance of SentenceBertJapanese is created with the pre-trained model "sonoisa/sentence-bert-base-ja-mean-tokens". The encode method is called to obtain the sentence embeddings for the given sentences.
+The sentences list contains five Japanese sentences. The encode method is called to obtain the sentence embeddings for the given sentences.
 ```python
 model = SentenceBertJapanese()
 sentences = ["お辞儀をしている男性会社員", "笑い袋", "テクニカルエバンジェリスト（女性）", "戦うAI", "笑う男性（5段階）"]
