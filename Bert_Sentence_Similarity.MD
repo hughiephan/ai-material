@@ -46,7 +46,7 @@ class SentenceBertJapanese:
         ....
 ```
 
-## Step: Mean Pooling
+## Step 3: Mean Pooling
 
 `_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token like in Bert. `mean_pooling` token embeddings to create sentence embeddings
 
@@ -68,7 +68,7 @@ class SentenceBertJapanese:
         ....
 ```
 
-## Step: Encode
+## Step 4: Encode
 Takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. `batch_size=10` means that we will process 10 sentences at a time.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0435d688-b39f-4523-90e6-65fd60f1fea2)
@@ -93,7 +93,7 @@ class SentenceBertJapanese:
         return torch.stack(all_embeddings)
 ```
 
-## Step: Encode corpus
+## Step 5: Encode corpus
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/902dac23-99db-4f4e-84bd-0cc685b40c69)
 
@@ -104,7 +104,7 @@ sentences = ["お辞儀をしている男性会社員", "笑い袋", "テクニ�
 corpus = model.encode(sentences)
 ```
 
-## Step: Encode queries
+## Step 6: Encode queries
 
 The queries list contains the Japanese sentence that is used as our query. The `model.encode` is called to obtain the embeddings for the queries.
 ```python
@@ -112,7 +112,7 @@ queries = ['暴走したAI']
 query_embeddings = model.encode(queries).numpy()
 ```
 
-## Step: Find similar sentences
+## Step 7: Find similar sentences
 For each query, cosine distances are computed between its embedding and the embeddings of all the sentences in the corpus. The results are sorted based on similarity (lower cosine distance means more similarity). The top 5 most similar sentences are printed for each query along with their similarity score.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6d7c71e6-20ce-4f18-9bab-9dfbad29fa34)
