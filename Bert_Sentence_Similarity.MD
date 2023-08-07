@@ -32,7 +32,7 @@ from transformers import BertJapaneseTokenizer, BertModel
 ```python 
 class SentenceBertJapanese:
     def __init__(self):
-        self.tokenizer = BertJapaneseTokenizer.from_pretrained(model_name_or_path)
+        self.tokenizer = BertJapaneseTokenizer.from_pretrained(sonoisa/sentence-bert-base-ja-mean-tokens)
         self.model = BertModel.from_pretrained(sonoisa/sentence-bert-base-ja-mean-tokens)
         self.model.eval()
     def _mean_pooling(self, model_output, attention_mask):
