@@ -100,7 +100,10 @@ class SentenceBertJapanese:
         return torch.stack(all_embeddings)
 ```
 
-## Step: Encode sentences
+## Step: Encode corpus
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/902dac23-99db-4f4e-84bd-0cc685b40c69)
+
 The sentences list contains five Japanese sentences. The encode method is called to obtain the sentence embeddings for the given sentences.
 ```python
 model = SentenceBertJapanese()
@@ -112,7 +115,7 @@ corpus = model.encode(sentences)
 
 The queries list contains four Japanese sentences that are used as queries. The encode method is called to obtain the embeddings for the queries.
 ```python
-queries = ['暴走したAI', '暴走した人工知能', 'いらすとやさんに感謝', 'つづく']
+queries = ['暴走したAI']
 query_embeddings = model.encode(queries).numpy()
 ```
 
