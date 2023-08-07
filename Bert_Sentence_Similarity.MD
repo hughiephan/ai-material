@@ -81,7 +81,6 @@ class SentenceBertJapanese:
 `Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
 
 
-
 ```python
 class SentenceBertJapanese:
     def __init__(self):
@@ -112,7 +111,7 @@ corpus = model.encode(sentences)
 ## Step: Encode queries
 
 The queries list contains four Japanese sentences that are used as queries. The encode method is called to obtain the embeddings for the queries.
-```
+```python
 queries = ['暴走したAI', '暴走した人工知能', 'いらすとやさんに感謝', 'つづく']
 query_embeddings = model.encode(queries).numpy()
 ```
