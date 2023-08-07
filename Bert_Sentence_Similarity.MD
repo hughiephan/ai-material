@@ -16,13 +16,13 @@ Calculate the Cosine similarity between two sentence embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef5e8991-0924-4ed0-905a-5e3997ca82c1)
 
-## Step 1: Import libraries
-Transformers library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). 
-Then we use `scipy.spatial` to calculate the cosine distances between vectors and find related sentences. Cosine similarity is a metric used to determine how similar the documents (other similarity measuring techniques are Euclidean distance or Manhattan distance)
+## Step 1: Import & Install libraries
+`fugashi` is a Python library used for Japanese morphological analysis, commonly known as tokenization or word segmentation. It is often used in natural language processing (NLP) tasks involving Japanese text, such as part-of-speech tagging, text processing, and language analysis. `Transformers` library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). Then we use `scipy.spatial` to calculate the cosine distances between vectors and find related sentences. Cosine similarity is a metric used to determine how similar the documents (other similarity measuring techniques are Euclidean distance or Manhattan distance)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/714f3f61-e76e-42d4-91e9-c508d91485bb)
 
 ```python
+!pip install -q fugashi
 import warnings
 warnings.filterwarnings("ignore")
 import torch
