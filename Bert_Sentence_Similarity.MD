@@ -88,15 +88,15 @@ class SentenceBertJapanese:
     def _mean_pooling(self, token_embeddings, attention_mask):
         ....
     @torch.no_grad()
-    def encode(self, sentences, batch_size=8):
+    def encode(self, sentences, batch_size=10): # Process 10 sentences at a time
         all_embeddings = []
         iterator = range(0, len(sentences), batch_size)
         for batch_idx in iterator:
-            batch = sentences[batch_idx:batch_idx + batch_size]
+            batch = sentences[batch_idx : batch_idx + batch_size]
             encoded_input = self.tokenizer.batch_encode_plus(batch, padding="longest", truncation=True, return_tensors="pt")
-            token_embeds  = self.model(**encoded_input)[0] # process tokens through model and extract token embeddings
-            sentence_embeddings = self._mean_pooling(token_embeds , encoded_input["attention_mask"])
-            all_embeddings.extend(sentence_embeddings)
+            token_embeds  = self.model(**encoded_input)[0] # Extract token embeddings
+            sentence_embeddings = self._mean_pooling(token_embeds , encoded_input["attention_mask"]) # Apply mean pooling to get the sentence embeddings
+            all_embeddings.extend(sentence_embeddings) 
         return torch.stack(all_embeddings)
 ```
 
