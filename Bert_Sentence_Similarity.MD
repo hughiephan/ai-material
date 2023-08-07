@@ -113,7 +113,7 @@ corpus = model.encode(sentences)
 
 ## Step: Encode queries
 
-The queries list contains four Japanese sentences that are used as queries. The encode method is called to obtain the embeddings for the queries.
+The queries list contains the Japanese sentence that is used as our query. The `model.encode` is called to obtain the embeddings for the queries.
 ```python
 queries = ['暴走したAI']
 query_embeddings = model.encode(queries).numpy()
