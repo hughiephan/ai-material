@@ -17,7 +17,7 @@ Calculate the Cosine similarity between two sentence embeddings
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef5e8991-0924-4ed0-905a-5e3997ca82c1)
 
 
-## Step 1
+## Step 1: Import libraries
 Transformers library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). 
 Then we use `scipy.spatial` to calculate the cosine distances between vectors and find related sentences. Cosine similarity is a metric used to determine how similar the documents (other similarity measuring techniques are Euclidean distance or Manhattan distance)
 
@@ -31,9 +31,9 @@ import scipy.spatial
 from transformers import BertJapaneseTokenizer, BertModel
 ```
 
+## Step 2: Init Bert Japanese
+Load the pre-trained Japanese model and tokenizer, which has been fine-tuned for sentence-level embeddings with mean pooling on Japanese text. In this tutorial, we only learn how to run Sentence Bert without further training or fine-tuning, so let's set our model to evaluate mode.
 
-
-## Step: Init Sentence Bert
 ```python 
 class SentenceBertJapanese:
     def __init__(self):
