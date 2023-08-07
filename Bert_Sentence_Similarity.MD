@@ -1,5 +1,7 @@
 # Sentence Similarity with Sentence Bert Japanese
 
+Demonstrates how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity.
+
 Sentence-BERT is a variant of BERT that has been fine-tuned to produce sentence embeddings. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a92de1fa-a508-41b4-b1ac-4d095c95df44)
@@ -28,12 +30,12 @@ from transformers import BertJapaneseTokenizer, BertModel
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
-## Step
-```python
+## Step: Init Sentence Bert
+```python 
 class SentenceBertJapanese:
-    def __init__(self, model_name_or_path):
+    def __init__(self):
         self.tokenizer = BertJapaneseTokenizer.from_pretrained(model_name_or_path)
-        self.model = BertModel.from_pretrained(model_name_or_path)
+        self.model = BertModel.from_pretrained(sonoisa/sentence-bert-base-ja-mean-tokens)
         self.model.eval()
     def _mean_pooling(self, model_output, attention_mask):
         ....
@@ -42,7 +44,7 @@ class SentenceBertJapanese:
         ....
 ```
 
-## Step: Continue to define our SentenceBert
+## Step: Mean Pooling
 ```python
 class SentenceBertJapanese:
     def __init__(self, model_name_or_path):
@@ -56,7 +58,8 @@ class SentenceBertJapanese:
         ....
 ```
 
-## Step:
+## Step: Encode
+`Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings.
 ```python
 class SentenceBertJapanese:
     def __init__(self, model_name_or_path, device=None):
@@ -77,19 +80,27 @@ class SentenceBertJapanese:
         return torch.stack(all_embeddings)
 ```
 
-## Step: Setup our model
+## Step: Encode sentences
+The sentences list contains five Japanese sentences. An instance of SentenceBertJapanese is created with the pre-trained model "sonoisa/sentence-bert-base-ja-mean-tokens". The encode method is called to obtain the sentence embeddings for the given sentences.
 ```python
+model = SentenceBertJapanese()
 sentences = ["お辞儀をしている男性会社員", "笑い袋", "テクニカルエバンジェリスト（女性）", "戦うAI", "笑う男性（5段階）"]
-model = SentenceBertJapanese("sonoisa/sentence-bert-base-ja-mean-tokens")
-sentence_vectors = model.encode(sentences)
+corpus = model.encode(sentences)
+```
+
+## Step: Encode queries
+
+The queries list contains four Japanese sentences that are used as queries. The encode method is called to obtain the embeddings for the queries.
+```
 queries = ['暴走したAI', '暴走した人工知能', 'いらすとやさんに感謝', 'つづく']
 query_embeddings = model.encode(queries).numpy()
 ```
 
-## Step: Find the similar sentences
+## Step: Find similar sentences
+For each query, cosine distances are computed between its embedding and the embeddings of all the sentences in the corpus. The results are sorted based on similarity (lower cosine distance means more similarity). The top 5 most similar sentences are printed for each query along with their similarity score.
 ```python
 for query, query_embedding in zip(queries, query_embeddings):
-    distances = scipy.spatial.distance.cdist([query_embedding], sentence_vectors, metric="cosine")[0]
+    distances = scipy.spatial.distance.cdist([query_embedding], corpus, metric="cosine")[0]
     results = zip(range(len(distances)), distances)
     results = sorted(results, key=lambda x: x[1])
     print("\n\n======================\n\n")
@@ -111,4 +122,5 @@ Top 5 most similar sentences in corpus:
 武器を持つAI (Score: 0.1994)
 人工知能・AI (Score: 0.2130)
 画像認識をするAI (Score: 0.2306)
+...
 ```
