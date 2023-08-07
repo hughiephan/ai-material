@@ -2,6 +2,16 @@
 
 This tutorial will demonstrate how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity.
 
+## Prerequisites knowledge
+
+Attention Mask in Bert and GPT. In both BERT and GPT, the attention mask is a binary matrix with the same shape as the input sequence. Each element of the attention mask can take two values: 0 or 1. A value of 1 indicates that the corresponding position in the input sequence is an actual token, while a value of 0 indicates that the position is a padding token. During training, the attention mask is used to guide the model's attention mechanism, making it focus only on the relevant tokens and ignore the padding tokens. This helps improve the efficiency of the model and ensures that the presence of padding tokens does not affect the model's performance
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d040e961-b568-468b-9071-3aae4c00ba43)
+
+Bert and GPT are both from Transformer. Bert is an encoder-only Transformer and GPT is a decoder-only Transformer
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ec42e661-1ed0-4f24-adad-66e4f6664ed5)
+
 ## Objective
 
 Objective 1: Get Token Embeddings from BERT
