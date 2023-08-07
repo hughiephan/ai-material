@@ -48,7 +48,7 @@ class SentenceBertJapanese:
 
 ## Step: Mean Pooling
 
-`_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
+`_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token like in Bert. `mean_pooling` token embeddings to create sentence embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
 
@@ -69,7 +69,7 @@ class SentenceBertJapanese:
 ```
 
 ## Step: Encode
-`Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
+Takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. `batch_size=10` means that we will process 10 sentences at a time.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0435d688-b39f-4523-90e6-65fd60f1fea2)
 
@@ -80,7 +80,7 @@ class SentenceBertJapanese:
     def _mean_pooling(self, token_embeddings, attention_mask):
         ....
     @torch.no_grad()
-    def encode(self, sentences, batch_size=10): # Process 10 sentences at a time
+    def encode(self, sentences, batch_size=10): 
         all_embeddings = []
         iterator = range(0, len(sentences), batch_size)
         for batch_idx in iterator:
