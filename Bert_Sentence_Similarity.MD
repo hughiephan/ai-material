@@ -16,7 +16,6 @@ Calculate the Cosine similarity between two sentence embeddings
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef5e8991-0924-4ed0-905a-5e3997ca82c1)
 
-
 ## Step 1: Import libraries
 Transformers library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). 
 Then we use `scipy.spatial` to calculate the cosine distances between vectors and find related sentences. Cosine similarity is a metric used to determine how similar the documents (other similarity measuring techniques are Euclidean distance or Manhattan distance)
@@ -51,17 +50,11 @@ class SentenceBertJapanese:
 
 `_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
 
-BERT has a max length limit of tokens = 512
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
+![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
 
 We want to create a mask with the same shape as token_embeddings but contains only the attention mask value (0 or 1). We can use this mask to set the embeddings of padding tokens to zero during the mean-pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings. `attention_mask` is a binary tensor of shape (batch_size, sequence_length), where batch_size is the number of sentences in the batch, and sequence_length is the maximum length of sentences after padding. When we use unsqueeze(-1) on attention_mask, it will add a new dimension to the last axis, resulting in a tensor of shape (batch_size, sequence_length, 1). Then broadcasts the tensor with shape (batch_size, sequence_length, 1) to the shape of token_embeddings, which is (batch_size, sequence_length, embedding_dim).
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
-
-We take BERT’s token embeddings output and the sentence’s attention_mask tensor. We then resize the attention_mask to align to the higher 768-dimensionality of the token embeddings. We apply this resized mask in_mask to those token embeddings to exclude padding tokens from the mean pooling operation. Our mean pooling takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512*768) to (1*768)
-
-
+BERT has a max length limit of tokens = 512. We take BERT’s token embedding output and the sentence’s attention_mask tensor. We then resize the attention_mask to align to the higher 768-dimensionality of the token embeddings. We apply this resized mask in_mask to those token embeddings to exclude padding tokens from the mean pooling operation. Our mean pooling takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512*768) to (1*768)
 
 ```python
 class SentenceBertJapanese:
@@ -75,12 +68,10 @@ class SentenceBertJapanese:
         ....
 ```
 
-
-
 ## Step: Encode
 `Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/26f75e97-9e4f-4035-9ba0-37ba29c4c31a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/0435d688-b39f-4523-90e6-65fd60f1fea2)
 
 ```python
 class SentenceBertJapanese:
