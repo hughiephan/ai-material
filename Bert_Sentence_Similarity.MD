@@ -42,6 +42,12 @@ class SentenceBertJapanese:
 
 `_mean_pooling` is our function to perform mean pooling over the token embeddings based on the attention mask. Mean pooling is used to obtain a single vector representation for the whole sentence.
 
+BERT has a max length limit of tokens = 512
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/9f09ad3f-a110-4454-9d16-d2fbce650731)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6b24747d-aca8-4b14-baf3-8c0d72829940)
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/45f9e2e1-2993-492d-9f89-733539533bb2)
 
 We want to create a mask with the same shape as token_embeddings but contains only the attention mask value (0 or 1). We can use this mask to set the embeddings of padding tokens to zero during the mean-pooling operation, ensuring that padding tokens do not contribute to the final sentence embeddings. `attention_mask` is a binary tensor of shape (batch_size, sequence_length), where batch_size is the number of sentences in the batch, and sequence_length is the maximum length of sentences after padding. When we use unsqueeze(-1) on attention_mask, it will add a new dimension to the last axis, resulting in a tensor of shape (batch_size, sequence_length, 1). Then broadcasts the tensor with shape (batch_size, sequence_length, 1) to the shape of token_embeddings, which is (batch_size, sequence_length, embedding_dim).
