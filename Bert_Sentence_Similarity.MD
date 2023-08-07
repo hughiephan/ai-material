@@ -59,6 +59,8 @@ We want to create a mask with the same shape as token_embeddings but contains on
 
 We take BERT’s token embeddings output and the sentence’s attention_mask tensor. We then resize the attention_mask to align to the higher 768-dimensionality of the token embeddings. We apply this resized mask in_mask to those token embeddings to exclude padding tokens from the mean pooling operation. Our mean pooling takes the average activation of values across each dimension to produce a single value. This brings our tensor sizes from (512*768) to (1*768)
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
+
 ```python
 class SentenceBertJapanese:
     def __init__(self):
@@ -71,10 +73,12 @@ class SentenceBertJapanese:
         ....
 ```
 
+
+
 ## Step: Encode
 `Encode` method takes a list of sentences, converts them to embeddings using mean pooling, and returns a tensor containing all the sentence embeddings. In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token. `mean_pooling` token embeddings to create sentence embeddings
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
+
 
 ```python
 class SentenceBertJapanese:
