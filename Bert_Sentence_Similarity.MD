@@ -6,7 +6,7 @@ This tutorial will demonstrate how to use Sentence-BERT for encoding Japanese se
 
 Bert and GPT are both Transformer models. Bert is an encoder-only Transformer and GPT is a decoder-only Transformer
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/ec42e661-1ed0-4f24-adad-66e4f6664ed5)
+![image](https://github.com/hughiephan/DPL/assets/16631121/d2312e5c-0c57-4c91-a15d-5f469442d1ac)
 
 Attention Mask in Bert and GPT. In both BERT and GPT, the attention mask is a binary matrix with the same shape as the input sequence. Each element of the attention mask can take two values: 0 or 1. A value of 1 indicates that the corresponding position in the input sequence is an actual token, while a value of 0 indicates that the position is a padding token. During training, the attention mask is used to guide the model's attention mechanism, making it focus only on the relevant tokens and ignore the padding tokens. This helps improve the efficiency of the model and ensures that the presence of padding tokens does not affect the model's performance
 
