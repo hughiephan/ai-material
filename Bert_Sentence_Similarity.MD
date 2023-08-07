@@ -1,6 +1,6 @@
-# Sentence Similarity with Sentence Bert Japanese
+# How to use Sentence Similarity with Sentence Bert Japanese
 
-Demonstrates how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity. Sentence-BERT is a variant of BERT that has been fine-tuned to produce sentence embeddings. 
+Demonstrates how to use Sentence-BERT for encoding Japanese sentences into embeddings and how to find the most similar sentences in a given corpus based on cosine similarity.
 
 ## Objective
 
