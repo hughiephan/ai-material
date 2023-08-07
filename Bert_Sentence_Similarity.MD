@@ -95,10 +95,10 @@ query_embeddings = model.encode(queries).numpy()
 ```
 
 ## Step: Find similar sentences
+For each query, cosine distances are computed between its embedding and the embeddings of all the sentences in the corpus. The results are sorted based on similarity (lower cosine distance means more similarity). The top 5 most similar sentences are printed for each query along with their similarity score.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6d7c71e6-20ce-4f18-9bab-9dfbad29fa34)
 
-For each query, cosine distances are computed between its embedding and the embeddings of all the sentences in the corpus. The results are sorted based on similarity (lower cosine distance means more similarity). The top 5 most similar sentences are printed for each query along with their similarity score.
 ```python
 for query, query_embedding in zip(queries, query_embeddings):
     distances = scipy.spatial.distance.cdist([query_embedding], corpus, metric="cosine")[0]
