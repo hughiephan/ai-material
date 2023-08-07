@@ -6,9 +6,7 @@ Sentence-BERT is a variant of BERT that has been fine-tuned to produce sentence 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a92de1fa-a508-41b4-b1ac-4d095c95df44)
 
-In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
 
 ## Step 1
 Transformers library is used to load the pre-trained BERT model and tokenizer for the Japanese Language (You can also use it for English or Vietnamese Bert). 
@@ -43,6 +41,11 @@ class SentenceBertJapanese:
 ```
 
 ## Step: Mean Pooling
+
+In Sentence-BERT, there is only one embedding for the entire sequence rather than one embedding per token.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/87de6fcc-7b0f-4b4b-8123-f927e915660f)
+
 ```python
 class SentenceBertJapanese:
     def __init__(self):
