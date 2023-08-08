@@ -1,6 +1,10 @@
-# Word Prediction with BERT
+# Next Word Prediction using Bert - Masked Language Model
 
 ## Prerequisites Knowledge
+
+BERT has a unique training approach, masked-language modeling (MLM) which mask 15% of tokens during model pre-training
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/3b9bd2c8-4229-4f7c-b3d6-82e4cc9253b2)
 
 Token Type Id is useful in task like Question Answering to separate then answer and question:
 
