@@ -44,18 +44,18 @@ Takes a text input and returns the top 5 predicted words for a masked token with
 def getPredictions(text, tokenizer=tokenizer, model=model):
     tokenized_inputs = tokenizer(text, return_tensors="tf")
     outputs = model(tokenized_inputs["input_ids"]) # Input IDs will be used for prediction
-    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Returns the indices of the top 5 elements with the highest logits (model scores) 
+    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Returns the indices of the top 5 elements with the highest logits. Read more here https://www.tensorflow.org/api_docs/python/tf/math/top_k
     decoded_output = tokenizer.batch_decode(top_5) # Decodes the top 5 predicted word indices back into their original word 
     mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1] # Encodes the special [MASK] token. [1:-1] is used to remove the special tokens' padding
-    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token in the tokenized input with [0][0] is used to extract the first occurrence of the mask token's index
-    decoded_output_words = decoded_output[mask_index]
+    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token
+    decoded_output_words = decoded_output[mask_index] # Get the possible words in place of [Mask] 
     print("Input: ", text)
     print("Possible words: ", decoded_output_words)
     print("\n")
 ```
 
 ```text
-Input: The dog ate the [MASK] 
+Input: The dog ate the [MASK]  <------- mask_index will return 5
 Before Input to model: [CLS] The dog ate the [MASK] [SEP] <----- 7 Tokens
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
