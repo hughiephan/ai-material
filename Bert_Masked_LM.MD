@@ -4,7 +4,7 @@
 
 Token Type Id is useful in task like Question Answering to separate then answer and question:
 
-```html
+```text
 Input: [CLS] HuggingFace is based in NYC [SEP] Where is HuggingFace based? [SEP]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
@@ -35,7 +35,7 @@ Each token embedding will have the size of 28996
 
 Input -> Tokenized_inputs
 
-```python
+```text
 Input: The dog ate the [MASK] 
 Input IDs: [ 101, 1109, 3676, 8756, 1103,  103,  102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
@@ -46,7 +46,7 @@ Attention Mask: [1, 1, 1, 1, 1, 1, 1]
 
 Input and Output
 
-```python
+```text
 Input:  The dog ate the [MASK]
 outputs.logits.shape: (1, 7, 28996)
 ```
