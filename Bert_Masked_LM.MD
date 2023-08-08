@@ -37,6 +37,20 @@ model = TFBertForMaskedLM.from_pretrained('bert-base-cased')
 
 ## Step 3: Define the predictions
 
+```python
+def getPredictions(text, tokenizer=tokenizer, model=model):
+    tokenized_inputs = tokenizer(text, return_tensors="tf")
+    outputs = model(tokenized_inputs["input_ids"])
+    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy()
+    decoded_output = tokenizer.batch_decode(top_5)
+    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1]
+    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0]
+    decoded_output_words = decoded_output[mask_index]
+    print("Input: ", text)
+    print("Possible words: ", decoded_output_words)
+    print("\n")
+```
+
 For `[CLS] The dog ate the [MASK] [SEP]`, we will have 7 tokens.
 Each token embedding will have the size of 28996 
 
@@ -54,20 +68,6 @@ Input and Output
 ```text
 Input:  The dog ate the [MASK]
 outputs.logits.shape: (1, 7, 28996)
-```
-
-```python
-def getPredictions(text, tokenizer=tokenizer, model=model):
-    tokenized_inputs = tokenizer(text, return_tensors="tf")
-    outputs = model(tokenized_inputs["input_ids"])
-    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy()
-    decoded_output = tokenizer.batch_decode(top_5)
-    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1]
-    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0]
-    decoded_output_words = decoded_output[mask_index]
-    print("Input: ", text)
-    print("Possible words: ", decoded_output_words)
-    print("\n")
 ```
 
 ## Step 4: Run predictions
