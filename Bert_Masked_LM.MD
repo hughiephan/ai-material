@@ -40,11 +40,12 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
     print("\n")
 ```
 
+Output Logits = `(1, 7, 28996)` is equivalent to (`batch_size` = 1 because we input 1 sentence, `num_tokens`: 7 because we have 7 tokens in the sentence, `vocab_size` = 28996 because we have 28996 words for each token). But we only want the top 5 possible words for each tokens, so we filter the top 5 words using `math.top_k(outputs.logits, 5)`. After that we will get `top_5.shape` = (7, 5) equivalent to (7 positions in the sentence, 5 possible words for each position)
+
 ```text
 Input: The dog ate the [MASK]  
 Before Input to model: [CLS] The dog ate the [MASK] [SEP] # Total 7 Tokens, and the postion of [MASK] here is 5.
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
-Shape of top_5 words for each token: (7, 5) equivalent to (7 positions in the sentence, 5 possible words for each position)
 Decoded Output: [
     '., " the )',                 # Possible words for [CLS]
     '. " the, ;',                 # Possible words for The
