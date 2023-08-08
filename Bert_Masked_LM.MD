@@ -51,23 +51,13 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
     print("\n")
 ```
 
-For `[CLS] The dog ate the [MASK] [SEP]`, we will have 7 tokens.
-Each token embedding will have the size of 28996 
-
-Input -> Tokenized_inputs
-
 ```text
 Input: The dog ate the [MASK] 
-Input IDs: [ 101, 1109, 3676, 8756, 1103,  103,  102]
+Before Input to model: [CLS] The dog ate the [MASK] [SEP]
+Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
-```
-
-Input and Output
-
-```text
-Input:  The dog ate the [MASK]
-outputs.logits.shape: (1, 7, 28996)
+Shape of Outputs Logits: (1, 7, 28996)
 ```
 
 ## Step 4: Run predictions
