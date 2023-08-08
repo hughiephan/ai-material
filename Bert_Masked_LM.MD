@@ -46,8 +46,8 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
     outputs = model(tokenized_inputs["input_ids"]) # Input IDs will be used for prediction
     top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Returns the indices of the top 5 elements with the highest logits (model scores) 
     decoded_output = tokenizer.batch_decode(top_5) # Decodes the top 5 predicted word indices back into their original word 
-    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1]
-    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token in the tokenized input with `[0][0]` is used to extract the first occurrence of the mask token's index
+    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1] # Encodes the special [MASK] token. [1:-1] is used to remove the special tokens' padding
+    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token in the tokenized input with [0][0] is used to extract the first occurrence of the mask token's index
     decoded_output_words = decoded_output[mask_index]
     print("Input: ", text)
     print("Possible words: ", decoded_output_words)
