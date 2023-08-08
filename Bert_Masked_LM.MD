@@ -56,11 +56,11 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
 
 ```text
 Input: The dog ate the [MASK] 
-Before Input to model: [CLS] The dog ate the [MASK] [SEP]
+Before Input to model: [CLS] The dog ate the [MASK] [SEP] <----- 7 Tokens
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
-Shape of Outputs Logits: (1, 7, 28996)
+Shape of Outputs Logits: (1, 7, 28996) equivalent to (batch_size = 1 sentence, num_tokens = 7 tokens, vocabulary_size = Possible Words in the corpus) 
 ```
 
 ## Step 4: Run predictions
