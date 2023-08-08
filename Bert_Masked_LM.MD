@@ -15,7 +15,7 @@ Input: [CLS] HuggingFace is based in NYC [SEP] Where is HuggingFace based? [SEP]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
-Attention mask is a binary tensor indicating the position of the padded indices so that the model does not attend to them
+`Attention mask` is a binary tensor indicating the position of the padded indices so that the model does not attend to them
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
 
