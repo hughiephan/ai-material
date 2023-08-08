@@ -8,19 +8,6 @@ BERT has a unique training approach, masked-language modeling (MLM) which mask 1
 
 There are a total of three special token types in BERT: "[CLS]", "[SEP]", and "[MASK]". `[CLS]` token stands for "classification" and is used at the beginning of a sentence or input sequence. It is used in various tasks like sentence classification and question answering to represent the entire input sequence. `[SEP]` token is used to separate two different sentences or segments within a single input sequence. It helps BERT to distinguish between different parts of the input during the pre-training and fine-tuning process. `[MASK]` token is used during the pre-training phase in the Masked Language Model (MLM) objective. It masks random tokens in the input, and BERT learns to predict those masked tokens based on the surrounding context.
 
-`Token Type Id` will be useful in task like Question Answering to separate then answer and question:
-
-```text
-Input: [CLS] HuggingFace is based in NYC [SEP] Where is HuggingFace based? [SEP]
-Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-```
-
-`Attention mask` is a binary tensor indicating the position of the padded indices so that the model does not attend to them
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
-
 ## Step 1: Import libraries
 ```python
 import numpy as np
@@ -44,10 +31,9 @@ Takes a text input and returns the top 5 predicted words for a masked token with
 def getPredictions(text, tokenizer=tokenizer, model=model):
     tokenized_inputs = tokenizer(text, return_tensors="tf")
     outputs = model(tokenized_inputs["input_ids"]) # Input IDs will be used for prediction
-    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Returns the indices of the top 5 elements with the highest logits. Read more here https://www.tensorflow.org/api_docs/python/tf/math/top_k
-    decoded_output = tokenizer.batch_decode(top_5) # Decodes the top 5 predicted word indices back into their original word 
-    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1] # tokenizer.mask_token will return [MASK] Encodes the special [MASK] token. [1:-1] is used to remove the special tokens padding 101 and 102 from [101, 103, 102]. Finally we will get 103.
-    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token where it is == 103
+    top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Get 5 highest logits for each tokens
+    decoded_output = tokenizer.batch_decode(top_5) # Transform the top 5 higest logists into words 
+    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==103)[0][0] # Finds the index of the masked token
     decoded_output_words = decoded_output[mask_index] # Get the possible words for the [Mask] 
     print("Input: ", text)
     print("Possible words: ", decoded_output_words)
@@ -55,11 +41,9 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
 ```
 
 ```text
-Input: The dog ate the [MASK]  # mask_index will point to position 5
-Before Input to model: [CLS] The dog ate the [MASK] [SEP] # 7 Tokens
+Input: The dog ate the [MASK]  
+Before Input to model: [CLS] The dog ate the [MASK] [SEP] # Total 7 Tokens, and the postion of [MASK] here is 5.
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
-Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
-Attention Mask: [1, 1, 1, 1, 1, 1, 1]
 Shape of top_5 words for each token: (7, 5) equivalent to (7 positions in the sentence, 5 possible words for each position)
 Decoded Output: [
     '., " the )',                 # Possible words for [CLS]
