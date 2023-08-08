@@ -55,8 +55,8 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
 ```
 
 ```text
-Input: The dog ate the [MASK]  <------- mask_index will point to position 5
-Before Input to model: [CLS] The dog ate the [MASK] [SEP] <----- 7 Tokens
+Input: The dog ate the [MASK]  # mask_index will point to position 5
+Before Input to model: [CLS] The dog ate the [MASK] [SEP] # 7 Tokens
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
