@@ -36,6 +36,7 @@ model = TFBertForMaskedLM.from_pretrained('bert-base-cased')
 ```
 
 ## Step 3: Define the predictions
+Takes a text input and returns the top 5 predicted words for a masked token within the text.
 
 ```python
 def getPredictions(text, tokenizer=tokenizer, model=model):
