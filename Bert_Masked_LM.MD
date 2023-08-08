@@ -30,6 +30,8 @@ from transformers import BertTokenizer, TFBertForMaskedLM
 
 ## Step 2: Load Bert Model
 
+In bert-base-cased, "Apple" and "apple" are treated as two different words
+
 ```python
 tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
 model = TFBertForMaskedLM.from_pretrained('bert-base-cased')
