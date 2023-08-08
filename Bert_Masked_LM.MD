@@ -21,20 +21,21 @@ Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
 
-## Step: Import libraries
+## Step 1: Import libraries
 ```python
 import numpy as np
 import tensorflow as tf
 from transformers import BertTokenizer, TFBertForMaskedLM
 ```
 
-## Step: Load Bert Model
+## Step 2: Load Bert Model
+
 ```python
 tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
 model = TFBertForMaskedLM.from_pretrained('bert-base-cased')
 ```
 
-## Step: Run our model
+## Step 3: Define the predictions
 
 For `[CLS] The dog ate the [MASK] [SEP]`, we will have 7 tokens.
 Each token embedding will have the size of 28996 
@@ -47,8 +48,6 @@ Input IDs: [ 101, 1109, 3676, 8756, 1103,  103,  102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
 ```
-
-
 
 Input and Output
 
@@ -71,7 +70,7 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
     print("\n")
 ```
 
-## Step: Run predictions
+## Step 4: Run predictions
 ```python
 getPredictions("The dog ate the [MASK]")
 getPredictions("The dog ate the [MASK].")
