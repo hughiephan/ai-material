@@ -46,9 +46,9 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
     outputs = model(tokenized_inputs["input_ids"]) # Input IDs will be used for prediction
     top_5 = tf.math.top_k(outputs.logits, 5).indices[0].numpy() # Returns the indices of the top 5 elements with the highest logits. Read more here https://www.tensorflow.org/api_docs/python/tf/math/top_k
     decoded_output = tokenizer.batch_decode(top_5) # Decodes the top 5 predicted word indices back into their original word 
-    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1] # Encodes the special [MASK] token. [1:-1] is used to remove the special tokens' padding
-    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token
-    decoded_output_words = decoded_output[mask_index] # Get the possible words in place of [Mask] 
+    mask_token = tokenizer.encode(tokenizer.mask_token)[1:-1] # tokenizer.mask_token will return [MASK] Encodes the special [MASK] token. [1:-1] is used to remove the special tokens padding 101 and 102 from [101, 103, 102]. Finally we will get 103.
+    mask_index = np.where(tokenized_inputs["input_ids"].numpy()[0]==mask_token)[0][0] # Finds the index of the masked token where it is == 103
+    decoded_output_words = decoded_output[mask_index] # Get the possible words for the [Mask] 
     print("Input: ", text)
     print("Possible words: ", decoded_output_words)
     print("\n")
