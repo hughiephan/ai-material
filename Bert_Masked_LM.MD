@@ -4,7 +4,7 @@
 
 Token Type Id is useful in task like Question Answering to separate then answer and question:
 
-```python
+```html
 Input: [CLS] HuggingFace is based in NYC [SEP] Where is HuggingFace based? [SEP]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
