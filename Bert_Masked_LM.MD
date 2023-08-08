@@ -1,5 +1,19 @@
 # Word Prediction with BERT
 
+## Prerequisites Knowledge
+
+Token Type Id is useful in task like Question Answering to separate then answer and question:
+
+```python
+Input: [CLS] HuggingFace is based in NYC [SEP] Where is HuggingFace based? [SEP]
+Token Type IDs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+```
+
+Attention mask is a binary tensor indicating the position of the padded indices so that the model does not attend to them
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/937e4f2d-101d-4a11-80df-d2f1163973cd)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8df94107-ab6b-48ed-a851-ff9232070627)
 
 ## Step: Import libraries
 ```python
@@ -27,6 +41,8 @@ Input IDs: [ 101, 1109, 3676, 8756, 1103,  103,  102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
 ```
+
+
 
 Input and Output
 
