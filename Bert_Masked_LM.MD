@@ -55,12 +55,21 @@ def getPredictions(text, tokenizer=tokenizer, model=model):
 ```
 
 ```text
-Input: The dog ate the [MASK]  <------- mask_index will return 5
+Input: The dog ate the [MASK]  <------- mask_index will point to position 5
 Before Input to model: [CLS] The dog ate the [MASK] [SEP] <----- 7 Tokens
 Input IDs: [ 101, 1109, 3676, 8756, 1103, 103, 102]
 Token Type IDs: [0, 0, 0, 0, 0, 0, 0]
 Attention Mask: [1, 1, 1, 1, 1, 1, 1]
-Shape of Outputs Logits: (1, 7, 28996) equivalent to (batch_size = 1 sentence, num_tokens = 7 tokens, vocabulary_size = Possible Words in the corpus) 
+Shape of top_5 words for each token: (7, 5) equivalent to (7 positions in the sentence, 5 possible words for each position)
+Decoded Output: [
+    '., " the )',                 # Possible words for [CLS]
+    '. " the, ;',                 # Possible words for The
+    'dog dogs Dog man cat',       # Possible words for dog
+    'ate eats chewed eat took',   # Possible words for ate
+    'the it that her his',        # Possible words for the
+    '.! ;?...',                   # Possible words for [MASK]. Our mask_index (5) will point here
+    '.? ; ",'                     # Possible words for [SEP]
+]
 ```
 
 ## Step 4: Run predictions
