@@ -2,6 +2,10 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
+# Prerequisites
+
+You should run this on Google Colab Notebook or Local Jupyter
+
 ## Step: Install Libraries
 
 ```python
