@@ -75,7 +75,7 @@ for _ in range(100):
 or Render at timesteps:
 ```python
 obs = env.reset()
-for i in range(120):
+for i in range(100):
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
     env.render()
