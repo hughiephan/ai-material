@@ -58,7 +58,7 @@ model.learn(total_timesteps=100)
 obs = env.reset()
 img = plt.imshow(env.render('rgb_array'))
 for _ in range(100):
-    img.set_data(env.render('rgb_array')) # just update the data
+    img.set_data(env.render('rgb_array'))
     display.display(plt.gcf())
     display.clear_output(wait=True)
     action, _states = model.predict(obs)
