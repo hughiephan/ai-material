@@ -58,8 +58,9 @@ model.learn(total_timesteps=100)
 ## Step: Render
 ```python
 obs = env.reset()
-img = plt.imshow(env.render('rgb_array'))
 for _ in range(100):
+    img = plt.imshow(env.render('rgb_array'))
+    plt.show()
     img.set_data(env.render('rgb_array'))
     display.display(plt.gcf())
     display.clear_output(wait=True)
