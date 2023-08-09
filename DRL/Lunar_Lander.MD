@@ -56,6 +56,9 @@ model.learn(total_timesteps=100)
 ```
 
 ## Step: Render
+
+Render a video
+
 ```python
 obs = env.reset()
 for _ in range(100):
@@ -67,4 +70,18 @@ for _ in range(100):
     action, _states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
     env.render()
+```
+
+or Render at timesteps:
+```python
+obs = env.reset()
+for i in range(120):
+    action, _states = model.predict(obs)
+    obs, rewards, done, info = env.step(action)
+    env.render()
+    if (i % 20 == 0): 
+      print("At timestep ", i)
+      img = plt.imshow(env.render('rgb_array'))
+      plt.show()
+      img.set_data(env.render('rgb_array'))
 ```
