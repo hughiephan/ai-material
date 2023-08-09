@@ -10,7 +10,7 @@ You should run this on Google Colab Notebook or Local Jupyter
 
 ## Step 1: Install Libraries
 
-```python
+```shell
 !apt install swig cmake xvfb
 !sudo apt-get update && apt-get install -y python3-opengl
 !pip3 install pyvirtualdisplay stable-baselines3==2.0.0a5 gymnasium[box2d]==0.28.1
