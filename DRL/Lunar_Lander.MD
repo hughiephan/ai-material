@@ -1,43 +1,31 @@
 # Deep Reinforcement Learning with Lunar Lander
 
-## Step:
+## Step: Install Libraries
 
 ```python
-!apt install swig cmake
-!pip install -r https://raw.githubusercontent.com/huggingface/deep-rl-class/main/notebooks/unit1/requirements-unit1.txt
-!sudo apt-get update
-!sudo apt-get install -y python3-opengl
-!apt install ffmpeg
-!apt install xvfb
-!pip3 install pyvirtualdisplay
+!apt install swig cmake xvfb
+!sudo apt-get update && apt-get install -y python3-opengl
+!pip3 install pyvirtualdisplay stable-baselines3==2.0.0a5 gymnasium[box2d]==0.28.1
+```
 
-# !apt-get install python-opengl -y
-# !apt install xvfb -y
-# !pip install pyvirtualdisplay
-!pip install piglet
-# from pyvirtualdisplay import Display
+## Step: Import Libraries
 
-import gym
-from IPython import display
-import matplotlib.pyplot as plt
-%matplotlib inline
-
+```python
 import os
-import gymnasium
+import gymnasium as gym
+import matplotlib.pyplot as plt
+from IPython import display
 from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.monitor import Monitor
 from pyvirtualdisplay import Display
-import gymnasium as gym
-# os.kill(os.getpid(), 9)
+%matplotlib inline
 ```
 
-## Step:
+## Step: Training
 
 ```python
-virtual_display = Display(visible=0, size=(1400, 900))
-virtual_display.start()
 env = gym.make("LunarLander-v2")
 observation, info = env.reset()
 for _ in range(20):
@@ -45,8 +33,8 @@ for _ in range(20):
   observation, reward, terminated, truncated, info = env.step(action)
   if terminated or truncated:
       observation, info = env.reset()
-env.close()
 
+env.close()
 env = gym.make("LunarLander-v2")
 env.reset()
 env = make_vec_env('LunarLander-v2', n_envs=1)
@@ -65,7 +53,7 @@ model = PPO(
 model.learn(total_timesteps=100)
 ```
 
-## Step:
+## Step: Render
 ```python
 obs = env.reset()
 img = plt.imshow(env.render('rgb_array'))
