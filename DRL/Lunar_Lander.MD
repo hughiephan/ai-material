@@ -92,3 +92,7 @@ for i in range(100):
       plt.show()
       img.set_data(env.render('rgb_array'))
 ```
+
+
+# References
+- Deep RL Course from Hugging Face (Unit 1)
