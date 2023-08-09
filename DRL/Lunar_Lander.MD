@@ -1,12 +1,12 @@
 # Deep Reinforcement Learning with Lunar Lander
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
-
 Deep Reinforcement Learning with Gym's Lunar Lander involves training a neural network to navigate a lunar lander environment through trial and error. By using a combination of reward-based learning and deep neural networks, the agent learns optimal strategies for landing the lunar module on a designated landing pad while managing fuel consumption and avoiding crashes.
 
-# Prerequisites
+# Prerequisites Knowledge
 
 You should run this on Google Colab Notebook or Local Jupyter
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
 ## Step 1: Install Libraries
 
