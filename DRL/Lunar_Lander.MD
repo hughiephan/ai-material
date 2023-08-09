@@ -2,11 +2,13 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
+Deep Reinforcement Learning with Gym's Lunar Lander involves training a neural network to navigate a lunar lander environment through trial and error. By using a combination of reward-based learning and deep neural networks, the agent learns optimal strategies for landing the lunar module on a designated landing pad while managing fuel consumption and avoiding crashes.
+
 # Prerequisites
 
 You should run this on Google Colab Notebook or Local Jupyter
 
-## Step: Install Libraries
+## Step 1: Install Libraries
 
 ```python
 !apt install swig cmake xvfb
@@ -14,7 +16,7 @@ You should run this on Google Colab Notebook or Local Jupyter
 !pip3 install pyvirtualdisplay stable-baselines3==2.0.0a5 gymnasium[box2d]==0.28.1
 ```
 
-## Step: Import Libraries
+## Step 2: Import Libraries
 
 ```python
 import os
@@ -29,7 +31,7 @@ from pyvirtualdisplay import Display
 %matplotlib inline
 ```
 
-## Step: Training
+## Step 3: Training
 
 ```python
 env = gym.make("LunarLander-v2")
@@ -59,7 +61,7 @@ model = PPO(
 model.learn(total_timesteps=100)
 ```
 
-## Step: Render
+## Step 4: Render agent actions
 
 Render a video
 
@@ -76,7 +78,8 @@ for _ in range(100):
     env.render()
 ```
 
-or Render at timesteps:
+or render by timesteps
+
 ```python
 obs = env.reset()
 for i in range(100):
