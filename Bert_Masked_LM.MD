@@ -6,7 +6,7 @@ BERT has a unique training approach, masked-language modeling (MLM) which mask 1
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3b9bd2c8-4229-4f7c-b3d6-82e4cc9253b2)
 
-There are a total of three special token types in BERT: "[CLS]", "[SEP]", and "[MASK]". `[CLS]` token stands for "classification" and is used at the beginning of a sentence or input sequence. It is used in various tasks like sentence classification and question answering to represent the entire input sequence. `[SEP]` token is used to separate two different sentences or segments within a single input sequence. It helps BERT to distinguish between different parts of the input during the pre-training and fine-tuning process. `[MASK]` token is used during the pre-training phase in the Masked Language Model (MLM) objective. It masks random tokens in the input, and BERT learns to predict those masked tokens based on the surrounding context.
+There are a total of three special token types in BERT: `[CLS]`, `[SEP]`, and `[MASK]`. `[CLS]` token stands for "classification" and is used at the beginning of a sentence or input sequence. It is used in various tasks like sentence classification and question answering to represent the entire input sequence. `[SEP]` token is used to separate two different sentences or segments within a single input sequence. It helps BERT to distinguish between different parts of the input during the pre-training and fine-tuning process. `[MASK]` token is used during the pre-training phase in the Masked Language Model (MLM) objective. It masks random tokens in the input, and BERT learns to predict those masked tokens based on the surrounding context.
 
 ## Step 1: Import libraries
 ```python
