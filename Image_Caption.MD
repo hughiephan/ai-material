@@ -24,11 +24,16 @@ from textwrap import wrap
 
 
 
-## Step:
+## Step: Data Path
 ```python
 image_path = '../input/flickr8k/Images'
 data = pd.read_csv("../input/flickr8k/captions.txt")
+```
 
+## Step: Pre-process Image
+Format text data and and startseq and endseq to sentence. That tranform captions into a list. 
+
+```python
 def text_preprocessing(data):
     data['caption'] = data['caption'].apply(lambda x: x.lower())
     data['caption'] = data['caption'].apply(lambda x: x.replace("[^A-Za-z]",""))
@@ -36,12 +41,7 @@ def text_preprocessing(data):
     data['caption'] = data['caption'].apply(lambda x: " ".join([word for word in x.split() if len(word)>1]))
     data['caption'] = "startseq "+data['caption']+" endseq"
     return data
-```
 
-## Step: Pre-process Caption
-Format text data and and startseq and endseq to sentence. That tranform captions into a list. 
-
-```python
 data = text_preprocessing(data)
 captions = data['caption'].tolist()
 tokenizer = Tokenizer()
