@@ -71,7 +71,7 @@ test.reset_index(inplace=True,drop=True)
 ```
 ## Step: Load only the Feature Extraction Model of DenseNet
 
-Removing the last Dense Preidctions layer.
+Removing the last Dense Preidctions layer. `layers[-1]` means getting everything from the last, `layers[-2]` will get everything from the second last.
 
 ```python
 model = DenseNet201()
@@ -85,7 +85,6 @@ fe = Model(inputs=model.input, outputs=model.layers[-2].output)
 ```python
 img_size = 224
 features = {}
-loaded_images = 0
 
 for image in tqdm(train['image'].unique().tolist()):
     img = load_img(os.path.join(image_path,image),target_size=(img_size,img_size))
