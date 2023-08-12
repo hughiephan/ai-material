@@ -71,10 +71,14 @@ test.reset_index(inplace=True,drop=True)
 ```
 ## Step: Load only the Feature Extraction Model of DenseNet
 
+Removing the last Dense Preidctions layer.
+
 ```python
 model = DenseNet201()
 fe = Model(inputs=model.input, outputs=model.layers[-2].output)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/575a894f-6789-479a-a66c-59ed4718fcf7)
 
 ## Step: Extract Image Features
 
