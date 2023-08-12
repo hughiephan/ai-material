@@ -30,7 +30,7 @@ image_path = '../input/flickr8k/Images'
 data = pd.read_csv("../input/flickr8k/captions.txt")
 ```
 
-## Step: Pre-process Image
+## Step: Pre-process Caption
 Format text data and and startseq and endseq to sentence. That tranform captions into a list. 
 
 ```python
