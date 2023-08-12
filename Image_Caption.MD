@@ -69,12 +69,16 @@ test = data[data['image'].isin(val_images)]
 train.reset_index(inplace=True,drop=True)
 test.reset_index(inplace=True,drop=True)
 ```
-
-## Step: Extract Image Features
+## Step: Load only the Feature Extraction Model of DenseNet
 
 ```python
 model = DenseNet201()
 fe = Model(inputs=model.input, outputs=model.layers[-2].output)
+```
+
+## Step: Extract Image Features
+
+```python
 img_size = 224
 features = {}
 loaded_images = 0
