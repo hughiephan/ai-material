@@ -141,6 +141,7 @@ Link: https://www.kaggle.com/code/thala321/dpl-report-generative-ai
 
 21-8
 Tutorial: Deep Reinforcement Learning https://hughiephan.co/#/tutorial/10
+
 ------
 
 Student Score: https://docs.google.com/spreadsheets/d/16x_iuSoFPlHErF9KRljUCTcDEKGL09nbc1KrN87qLR8/edit?usp=sharing
