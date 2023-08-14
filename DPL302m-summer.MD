@@ -15,22 +15,27 @@ Code:
 https://www.kaggle.com/code/thala321/logistic-regression-dpl302m
 https://www.kaggle.com/code/thala321/1-2-1-activation-functions/notebook
 Topics' QA: https://docs.google.com/document/d/1vOEixp6gP04asrQxdIGppkJTtCs2hX2QrhCDxHKufyc/edit?usp=sharing (Thầy đã cộng điểm cho một số câu hỏi hay vào ngày 14/5)
+
 15-5
 1.3 Forward Propagation (Weight and Bias)
 Slide: https://www.canva.com/design/DAFibcFMpXQ/qjE-dZ62lOb3jnfhF1JrJw/edit
 Code:https://www.kaggle.com/thala321/dpl-302m-1-3-using-the-weights-and-biases
 Topics' QA: https://docs.google.com/document/d/1vOEixp6gP04asrQxdIGppkJTtCs2hX2QrhCDxHKufyc/edit?usp=sharing
+
 18-5
 1.4 Backward Propagation (Gradient Descent, Loss Function)
 Slide: https://www.canva.com/design/DAFi21MaX20/2rsUFgDpj-px2Kt4lbolwg/edit
 Code: https://www.kaggle.com/code/thala321/dpl-302m-1-4-gradient-descent-loss-function
+
 22-5
 Lab 1: Building Basic Neural Network
 Code: https://www.kaggle.com/thala321/dpl302m-lab-1-basic-neural-network
+
 25-5
 2.1 Regularization
 Slide: https://www.canva.com/design/DAFju1iruAs/MaSeP79mx5TEIJtQKAdydQ/edit
 Group 4: 10 Sequence Modeling: Recurrent and Recursive Nets
+
 29-5
 YOLO v8 Object Detection
 API: https://huggingface.co/spaces/kadirnar/yolov8
@@ -39,11 +44,13 @@ Google Colab: https://colab.research.google.com/
 Ultra Analytics GitHub: https://github.com/ultralytics/ultralytics
 Yolo V8 Pre-trained model: https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt
 Human Detection Dataset: https://drive.google.com/u/0/uc?id=1--0QuKMwj31K-CSvD8oq5fceFweiFPuN&export=download
+
 1-6
 2.2 Optimizer
 Slide: https://www.canva.com/design/DAFj6W7dKB4/0r9v79mVmL1GCx1zdv6u-Q/edit
 Code: https://www.kaggle.com/thala321/dpl-302m-2-2-batch-stochastic-mini-batch-gd
 Group 14: 20 Deep Generative Models
+
 5-6
 Spotify Genres Classification
 Tutorial: https://github.com/hughiephan/DPL/blob/main/Spotify.MD
@@ -51,6 +58,7 @@ Dataset: https://www.kaggle.com/datasets/thala321/genres-v2-spotify
 Reference:
 https://stackoverflow.com/questions/47312219/what-is-the-definition-of-a-non-trainable-parameter
 Handle Outlier data: https://www.kaggle.com/questions-and-answers/178601
+
 8-6
 2.3 Hyper-parameter tuning
 Slide: https://www.canva.com/design/DAFkrJQh0qo/YI-F3pcknDvawii76kezbg/edit
@@ -58,20 +66,25 @@ Code:
 https://www.kaggle.com/code/thala321/dpl-2-3-bayes-optimization-in-3d
 https://www.kaggle.com/code/thala321/dpl-2-3-bayes-optimization-in-2d
 Group 7: 13 Linear Factor Models
+
 12-6
 Image Pre-processing (for Vietnamese Celeb Classification)
 Tutorial: https://github.com/hughiephan/DPL/blob/main/Vietnamese_Celeb_Classification.MD
 Dataset: https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
+
 15-6
 Speaker: https://www.nhk.or.jp/kanazawa-blog/100/478702.html
+
 19-6
 3. Error Analysis
 Slide: https://www.canva.com/design/DAFlsepPKFc/o0ZzmKCPNrr9t4PK8sF6HQ/edit
 Code: https://www.kaggle.com/thala321/dpl-3-explain-cnn-with-shap
 Group 5: 11 Practical Methodology
+
 22-6
 Lab 2: Hyperparameter Tuning
 Code: https://www.kaggle.com/thala321/dpl302m-lab2-hyperparameter-tuning
+
 26-6
 Project 1: Guide - Image Classification with Neural Network
 Competition Invitation Link: https://www.kaggle.com/t/50df0e83d9a24f77918adfc331b86f1b
@@ -81,6 +94,7 @@ Slide: https://www.canva.com/design/DAFmQXehgKY/sPvOc8N1GS9fjGPzNBMc-A/edit
 Code ANN: https://www.kaggle.com/thala321/dpl-4-1-ann-on-fashion-mnist
 Code CNN: https://www.kaggle.com/thala321/dpl-4-1-cnn-on-cifar10
 Group 9: 15 Representation Learning
+
 29-6
 Transfer Learning
 VGG16 + custom Fully-connected Layer
@@ -90,24 +104,29 @@ MobileNet + SVM
 Tutorial: https://github.com/hughiephan/DPL/blob/main/MobileNet_SVM_Transfer_learning.MD
 Dataset: https://www.kaggle.com/datasets/alxmamaev/flowers-recognition
 ....
+
 7-8
 Coursera Quiz
+
 8-8
 Tutorial: How to find similar sentences using Sentence Bert Japanese
 Link: https://hughiephan.co/#/tutorial/9
 Group 13: 19 Approximate Inference
 Presentation about Ceramics Inpainting (Pham Phu Ngoc Trai)
 Demo: https://drive.google.com/file/d/1q-hUheVJaUr9XM36CpTDgaBV17CUT2rF/view
+
 9-8
 5.4 Transformer Network
 Slide: https://hughiephan.co/#/lesson/10
 Tutorial: Next Word Prediction using Bert - Masked Language Model https://hughiephan.co/#/tutorial/8
+
 14-8
 Lab 4
 Link: https://www.kaggle.com/code/thala321/dpl-lab-4-nlp-with-neural-networks
 Project 1: Submission Day
 Invitation Link: https://www.kaggle.com/t/50df0e83d9a24f77918adfc331b86f1b
 Submission: https://www.kaggle.com/code/thala321/dpl-project-1-example-submission
+
 15-8
 Project 2: Submission Day
 Invitation Link: https://www.kaggle.com/t/c6875cc491594652bc3670410f535869
@@ -115,9 +134,11 @@ Submission: https://www.kaggle.com/code/thala321/dpl-project-2-example-submissio
 Project 3: Submission Day
 Invitation Link: https://www.kaggle.com/t/9c999cdea5104986b7e44740eea72c65
 Submission: https://www.kaggle.com/code/thala321/dpl-project-3-example-submission
+
 16-8
 Report: Submission Day
 Link: https://www.kaggle.com/code/thala321/dpl-report-generative-ai
+
 21-8
 Tutorial: Deep Reinforcement Learning https://hughiephan.co/#/tutorial/10
 ------
