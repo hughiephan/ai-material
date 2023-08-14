@@ -142,12 +142,19 @@ Link: https://www.kaggle.com/code/thala321/dpl-report-generative-ai
 21-8
 Tutorial: Deep Reinforcement Learning https://hughiephan.co/#/tutorial/10
 ------
+
 Student Score: https://docs.google.com/spreadsheets/d/16x_iuSoFPlHErF9KRljUCTcDEKGL09nbc1KrN87qLR8/edit?usp=sharing
+
 Group Presentation: 10%
+
 4 labs: 20%
+
 3 projects: 30%
+
 Report: 10%
+
 Final Exam: 30%
+
 Guideline: https://hughiephan.co/#/course
 ------
 Attendance: Write your name and student number from 7 to 9:15 in #attendance channel. Then I will update the info in https://fap.fpt.edu.vn/
