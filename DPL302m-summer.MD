@@ -1,4 +1,5 @@
 Class Schedule
+
 8-5
 1.1. Introduction to deep learning
 Slide: https://www.canva.com/design/DAFh1jD1Ajs/etuBiZfj8x3EZbUNwK6Qng/edit
@@ -6,6 +7,7 @@ KWL: https://docs.google.com/document/d/1STFTnoHfQIeZXtNdh3_QEGjeeb-VuBfBX54nNsb
 Group Register: https://docs.google.com/spreadsheets/d/10ElHsSOM7VQGqINoyS6LgLz2gvn6ypCWBRkqZm2w8k4/edit?usp=sharing (follow the official link below)
 Official Group Info: https://docs.google.com/spreadsheets/d/13_48QlHZfsAsnUTFiIm5DtMaHB92S9d0QN4tSU3uak0/edit?usp=sharing
 Monitor: Trần Xuân Thành - SE160972
+
 11-5
 1.2 Non-linearity (Activation Function)
 Slide: https://www.canva.com/design/DAFh9Y2ynco/UiXsm7eILSSqXEqaGoW8Yw/edit
