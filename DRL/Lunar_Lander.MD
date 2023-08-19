@@ -8,12 +8,19 @@ You should run this on Google Colab Notebook or Local Jupyter
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
+## Reinforcement Learning
+![image](https://github.com/hughiephan/DPL/assets/16631121/3d929e8a-5baa-4a24-9faf-296fa45db9b5)
+
+There are 5 elements – Agent, Environment, Action, Observation, Reward. The idea behind Reinforcement Learning is that an agent (an AI) will learn from the environment by interacting with it (through trial and error) and receiving rewards (negative or positive) as feedback for performing actions.
+
 ## Step 1: Install Libraries
+
+Gymnasium is a maintained fork of OpenAI's Gym library for training RL agents.
 
 ```shell
 !apt install swig cmake xvfb
 !sudo apt-get update && apt-get install -y python3-opengl
-!pip3 install pyvirtualdisplay stable-baselines3==2.0.0a5 gymnasium[box2d]==0.28.1
+!pip3 install stable-baselines3==2.0.0a5 gymnasium[box2d]==0.28.1
 ```
 
 ## Step 2: Import Libraries
@@ -27,7 +34,6 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.monitor import Monitor
-from pyvirtualdisplay import Display
 %matplotlib inline
 ```
 
@@ -96,3 +102,4 @@ for i in range(100):
 
 # References
 - Deep RL Course from Hugging Face (Unit 1)
+- Gymnasium Documentation
