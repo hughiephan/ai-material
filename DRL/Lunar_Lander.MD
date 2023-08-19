@@ -15,7 +15,7 @@ There are 5 elements – Agent, Environment, Action, Observation, Reward. The id
 
 ## Step 1: Install Libraries
 
-Gymnasium is a maintained fork of OpenAI's Gym library for training RL agents.
+`Gymnasium` is a toolkit for training RL agents and `stable-baselines3` is a set of reinforcement learning algorithms
 
 ```shell
 !apt install swig cmake xvfb
@@ -24,6 +24,8 @@ Gymnasium is a maintained fork of OpenAI's Gym library for training RL agents.
 ```
 
 ## Step 2: Import Libraries
+
+Proximal Policy Optimization (PPO) is a reinforcement learning algorithm that iteratively updates an agent's policy by optimizing a surrogate objective function while enforcing a constraint to ensure the policy updates are not too drastic. This is achieved by enforcing a "proximal" constraint on policy updates, ensuring that the new policy doesn't deviate too far from the old policy.
 
 ```python
 import os
@@ -40,17 +42,6 @@ from stable_baselines3.common.monitor import Monitor
 ## Step 3: Training
 
 ```python
-env = gym.make("LunarLander-v2")
-observation, info = env.reset()
-for _ in range(20):
-  action = env.action_space.sample()
-  observation, reward, terminated, truncated, info = env.step(action)
-  if terminated or truncated:
-      observation, info = env.reset()
-
-env.close()
-env = gym.make("LunarLander-v2")
-env.reset()
 env = make_vec_env('LunarLander-v2', n_envs=1)
 
 model = PPO(
