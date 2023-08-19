@@ -8,10 +8,15 @@ You should run this on Google Colab Notebook or Local Jupyter
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
-## Reinforcement Learning
-![image](https://github.com/hughiephan/DPL/assets/16631121/3d929e8a-5baa-4a24-9faf-296fa45db9b5)
+## Lunar Lander v2
 
-There are 5 elements – Agent, Environment, Action, Observation, Reward. The idea behind Reinforcement Learning is that an agent (an AI) will learn from the environment by interacting with it (through trial and error) and receiving rewards (negative or positive) as feedback for performing actions.
+![image](https://github.com/hughiephan/DPL/assets/16631121/3e0fefce-385a-4490-8bac-ee36f7712cd4)
+
+There are four discrete `Actions` available: do nothing, fire left orientation engine, fire main engine, fire right orientation engine.
+
+The `Observation` is an 8-dimensional vector: the coordinates of the lander in x & y, its linear velocities in x & y, its angle, its angular velocity, and two booleans that represent whether each leg is in contact with the ground or not.
+
+The `Reward` for moving from the top of the screen to the landing pad and coming to rest is about 100-140 points. If the lander moves away from the landing pad, it loses reward. If the lander crashes, it receives an additional -100 points. If it comes to rest, it receives an additional +100 points. Each leg with ground contact is +10 points. Firing the main engine is -0.3 points each frame. Firing the side engine is -0.03 points each frame. Solved is 200 points.
 
 ## Step 1: Install Libraries
 
