@@ -54,9 +54,6 @@ model = PPO(
     n_steps = 1024,
     batch_size = 64,
     n_epochs = 4,
-    gamma = 0.999,
-    gae_lambda = 0.98,
-    ent_coef = 0.01,
     verbose=1)
 
 model.learn(total_timesteps=100)
