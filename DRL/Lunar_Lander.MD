@@ -8,7 +8,9 @@ You should run this on Google Colab Notebook or Local Jupyter
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/012cf7da-9497-43f0-a01a-3ba550d61e19)
 
-## Lunar Lander v2
+## What is Lunar Lander v2
+
+Lunar Lander v2 is a toy game based around physics control from gymnasium library
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3e0fefce-385a-4490-8bac-ee36f7712cd4)
 
