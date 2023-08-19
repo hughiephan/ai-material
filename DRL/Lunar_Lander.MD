@@ -32,7 +32,9 @@ The `Reward` for moving from the top of the screen to the landing pad and coming
 
 ## Step 2: Import Libraries
 
-Proximal Policy Optimization (PPO) is a reinforcement learning algorithm that iteratively updates an agent's policy by optimizing a surrogate objective function while enforcing a constraint to ensure the policy updates are not too drastic. This is achieved by enforcing a "proximal" constraint on policy updates, ensuring that the new policy doesn't deviate too far from the old policy.
+Proximal Policy Optimization (PPO) is a reinforcement learning algorithm that iteratively updates an agent's policy by optimizing a surrogate objective function while enforcing a constraint to ensure the policy updates are not too drastic. This is achieved by enforcing a "proximal" constraint on policy updates, ensuring that the new policy doesn't deviate too far from the old policy. 
+
+PPO is a type of actor-critic algorithm, which means that it has two components: an actor and a critic. The actor is responsible for deciding which actions to take, while the critic is responsible for evaluating the actions taken by the actor.
 
 ```python
 import os
@@ -48,9 +50,9 @@ from stable_baselines3.common.monitor import Monitor
 
 ## Step 3: Training
 
-MlpPolicy implements actor critic, using a MLP
+MlpPolicy implements actor critic with a MLP
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/cf664a4e-5d7f-4af7-9968-db25fa282ae4)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ddce1891-347c-4f87-8ace-13dd91f8259d)
 
 ```python
 env = make_vec_env('LunarLander-v2', n_envs=1)
