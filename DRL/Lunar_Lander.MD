@@ -20,6 +20,8 @@ The `Observation` is an 8-dimensional vector: the coordinates of the lander in x
 
 The `Reward` for moving from the top of the screen to the landing pad and coming to rest is about 100-140 points. If the lander moves away from the landing pad, it loses reward. If the lander crashes, it receives an additional -100 points. If it comes to rest, it receives an additional +100 points. Each leg with ground contact is +10 points. Firing the main engine is -0.3 points each frame. Firing the side engine is -0.03 points each frame. Solved is 200 points.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/e82a7e5e-7a25-4421-90f5-06ce57ee22db)
+
 ## Step 1: Install Libraries
 
 `Gymnasium` is a toolkit for training RL agents and `stable-baselines3` is a set of reinforcement learning algorithms
