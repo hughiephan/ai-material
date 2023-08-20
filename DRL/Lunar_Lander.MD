@@ -20,12 +20,7 @@ The `Observation` is an 8-dimensional vector: the coordinates of the lander in x
 
 The `Reward` for moving from the top of the screen to the landing pad and coming to rest is about 100-140 points. If the lander moves away from the landing pad, it loses reward. If the lander crashes, it receives an additional -100 points. If it comes to rest, it receives an additional +100 points. Each leg with ground contact is +10 points. Firing the main engine is -0.3 points each frame. Firing the side engine is -0.03 points each frame. Solved is 200 points.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/34341b8b-5bbf-48ae-8aac-737637ec4ab0)
-
-If you want to implement the above code from scratch, it would be like:
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/31ff549d-4faf-4bcf-ad27-f78ede296f7f)
-
+![image](https://github.com/hughiephan/DPL/assets/16631121/08af2261-ce41-41d3-b7d5-68c9a0b6029f)
 
 ## Step 1: Install Libraries
 
