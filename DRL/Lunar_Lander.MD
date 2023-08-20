@@ -54,10 +54,6 @@ from stable_baselines3.common.monitor import Monitor
 
 MlpPolicy implements actor critic with a MLP
 
-model.policy
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/1d890c9a-54a4-422e-b0cb-0cfb4dd786c5)
-
 ```python
 env = make_vec_env('LunarLander-v2', n_envs=1)
 
@@ -71,6 +67,10 @@ model = PPO(
 
 model.learn(total_timesteps=100)
 ```
+
+model.policy
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/1d890c9a-54a4-422e-b0cb-0cfb4dd786c5)
 
 If you want to train more agents, you can change the number of `n_envs`
 
