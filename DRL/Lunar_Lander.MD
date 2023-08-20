@@ -52,7 +52,7 @@ from stable_baselines3.common.monitor import Monitor
 
 ## Step 3: Training
 
-MlpPolicy implements actor critic with a MLP
+MlpPolicy implements actor critic using a Multilayer Perceptron (2 layers of 64)
 
 ```python
 env = make_vec_env('LunarLander-v2', n_envs=1)
