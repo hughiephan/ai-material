@@ -20,6 +20,8 @@ The `Observation` is an 8-dimensional vector: the coordinates of the lander in x
 
 The `Reward` for moving from the top of the screen to the landing pad and coming to rest is about 100-140 points. If the lander moves away from the landing pad, it loses reward. If the lander crashes, it receives an additional -100 points. If it comes to rest, it receives an additional +100 points. Each leg with ground contact is +10 points. Firing the main engine is -0.3 points each frame. Firing the side engine is -0.03 points each frame. Solved is 200 points.
 
+The actor is responsible for deciding which actions to take, while the critic is responsible for evaluating the actions taken by the actor.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/08af2261-ce41-41d3-b7d5-68c9a0b6029f)
 
 ## Step 1: Install Libraries
@@ -34,9 +36,7 @@ The `Reward` for moving from the top of the screen to the landing pad and coming
 
 ## Step 2: Import Libraries
 
-Proximal Policy Optimization (PPO) is a reinforcement learning algorithm that iteratively updates an agent's policy by optimizing a surrogate objective function while enforcing a constraint to ensure the policy updates are not too drastic. This is achieved by enforcing a "proximal" constraint on policy updates, ensuring that the new policy doesn't deviate too far from the old policy. 
-
-PPO is a type of actor-critic algorithm, which means that it has two components: an actor and a critic. The actor is responsible for deciding which actions to take, while the critic is responsible for evaluating the actions taken by the actor.
+Proximal Policy Optimization (PPO) is a reinforcement learning algorithm (actor-critic type) that enforces a "proximal" constraint on policy updates to avoid too large policy updates.
 
 ```python
 import os
