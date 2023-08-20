@@ -54,7 +54,7 @@ from stable_baselines3.common.monitor import Monitor
 
 MlpPolicy implements actor critic with a MLP
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/ddce1891-347c-4f87-8ace-13dd91f8259d)
+![image](https://github.com/hughiephan/DPL/assets/16631121/1d890c9a-54a4-422e-b0cb-0cfb4dd786c5)
 
 ```python
 env = make_vec_env('LunarLander-v2', n_envs=1)
