@@ -111,6 +111,6 @@ for i in range(100):
 
 
 # References
-- Deep RL Course from Hugging Face (Unit 1)
+- - Deep RL Course from Hugging Face (Unit 1)
 - Gymnasium Documentation
 - https://stackoverflow.com/questions/56700948/understanding-the-total-timesteps-parameter-in-stable-baselines-models
