@@ -66,7 +66,7 @@ model = PPO(
 model.learn(total_timesteps=1000)
 ```
 
-MlpPolicy implements actor critic using a Multilayer Perceptron (2 layers of 64)
+`MlpPolicy` implements actor critic using a Multilayer Perceptron (2 layers of 64)
 
 print(model.policy)
 
