@@ -54,6 +54,8 @@ from stable_baselines3.common.monitor import Monitor
 
 MlpPolicy implements actor critic with a MLP
 
+model.policy
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1d890c9a-54a4-422e-b0cb-0cfb4dd786c5)
 
 ```python
@@ -87,7 +89,7 @@ for _ in range(100):
     img.set_data(env.render('rgb_array'))
     display.display(plt.gcf())
     display.clear_output(wait=True)
-    action, _states = model.predict(obs)
+    action, states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
     env.render()
 ```
@@ -97,7 +99,7 @@ or render by timesteps
 ```python
 obs = env.reset()
 for i in range(100):
-    action, _states = model.predict(obs)
+    action, states = model.predict(obs)
     obs, rewards, done, info = env.step(action)
     env.render()
     if (i % 20 == 0): 
