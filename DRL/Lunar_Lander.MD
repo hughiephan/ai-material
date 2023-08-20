@@ -52,7 +52,7 @@ from stable_baselines3.common.monitor import Monitor
 
 ## Step 3: Training
 
-MlpPolicy implements actor critic using a Multilayer Perceptron (2 layers of 64)
+`total_timesteps` is the number of steps in total the agent will do for 1 environment. So in our case, the agent will only see the first 1000 frames. With `n_steps` set to 100, it means that the model will do 1000 / 10 = 10 updates to the policy during training. 
 
 ```python
 env = make_vec_env('LunarLander-v2', n_envs=1)
@@ -60,15 +60,15 @@ env = make_vec_env('LunarLander-v2', n_envs=1)
 model = PPO(
     policy = 'MlpPolicy',
     env = env,
-    n_steps = 1024,
-    batch_size = 64,
-    n_epochs = 4,
-    verbose=1)
+    n_steps = 100,
+    verbose = 1)
 
-model.learn(total_timesteps=100)
+model.learn(total_timesteps=1000)
 ```
 
-model.policy
+MlpPolicy implements actor critic using a Multilayer Perceptron (2 layers of 64)
+
+print(model.policy)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1d890c9a-54a4-422e-b0cb-0cfb4dd786c5)
 
