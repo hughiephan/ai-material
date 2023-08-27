@@ -21,13 +21,13 @@ fit <- rpart(Price ~ Rooms + Bathroom + Landsize + BuildingArea + YearBuilt + La
 ```
 
 ## Step: Show the predictions
-```
+```R
 plot(fit, uniform=TRUE)
 text(fit, cex=.6)
 ```
 
 ## Step: Make prediction
-```
+```R
 print("Our prediction")
 predict(fit, melbourne_data[1,])
 print("Actual Price")
