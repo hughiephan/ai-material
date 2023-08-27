@@ -34,9 +34,7 @@ print("Actual Price")
 melbourne_data[1,]$Price
 ```
 
-melbourne_data[1,]
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/b8a7aadb-88cd-4fae-9ff4-5bba2d7bbab7)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ea1c695c-97aa-490a-a6dc-0b53bec05079)
 
 ## References
 - Kaggle Notebook by Rachel Tatman (Welcome to Data Science in R)
