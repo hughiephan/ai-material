@@ -1,4 +1,4 @@
-# Melbourne Housing Snapshot
+# Predict Melbourne House Price
 
 ## Dataset
 https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot
