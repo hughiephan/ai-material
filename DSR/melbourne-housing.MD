@@ -26,6 +26,17 @@ plot(fit, uniform=TRUE)
 text(fit, cex=.6)
 ```
 
+## Step: Make prediction
+```
+print("Our prediction")
+predict(fit, head(melbourne_data, n=1))
+print("Actual Price")
+head(melbourne_data$Price, n=1)
+```
+
+head(melbourne_data, n=1)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/b8a7aadb-88cd-4fae-9ff4-5bba2d7bbab7)
 
 ## References
 - Kaggle Notebook by Rachel Tatman (Welcome to Data Science in R)
