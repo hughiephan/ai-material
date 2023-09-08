@@ -80,7 +80,7 @@ report = classification_report(actual_sentiments, predicted_sentiments)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b02997bc-f23f-4654-9418-c0043d6f4a85)
 
 ## References
-- Medium Blog by Lukman Aliyu (Unveiling Sentiments in IMDb Movie Reviews with NLTK’s SentimentIntensityAnalyzer)
+- Medium Blog by Lukman Aliyu (Unveiling Sentiments in IMDb Movie Reviews...)
 - https://www.analyticsvidhya.com/blog/2022/10/sentiment-analysis-using-vader
 - https://www.nltk.org/howto/sentiment.html
 - https://github.com/cjhutto/vaderSentiment
