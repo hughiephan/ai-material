@@ -1,6 +1,6 @@
 # Sentiment Analysis with NLTK
 
-## Step: Import NLTK library and Dataset
+## Step: Import NLTK library, dataset and lexicon
 ```python
 import nltk
 nltk.download("movie_reviews")
