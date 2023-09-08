@@ -5,6 +5,7 @@
 import nltk
 nltk.download("movie_reviews")
 nltk.download("vader_lexicon")
+from nltk.corpus import movie_reviews
 ```
 
 The movie_reviews dataset have 2000 text files, each of them is a review of a movie.
@@ -19,13 +20,14 @@ In the `vader_lexicon` we have the sentiment ratings from 10 independent human r
 ```python
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
-from nltk.corpus import movie_reviews
 from sklearn.metrics import classification_report
 ```
 
-SentimentIntensityAnalyzer (Vader) is an NLTK module for sentiment analysis using rule-based approach (another name is Lexicon-based approach). The words will be labeled as positive, negative or neutral with a compound score.
+SentimentIntensityAnalyzer (Vader) is an NLTK module for sentiment analysis using rule-based approach (another name is Lexicon-based approach). The words will be labeled as positive, negative or neutral with a compound score. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/29bda251-7dbf-4666-b204-c60384ba2305)
+
+And `classification_report` from sklearn.metrics will used to measure the quality of predictions from our SentimentIntensityAnalyzer.
 
 ## Step: Pre-process Dataset
 ```python
@@ -36,6 +38,8 @@ for category in movie_reviews.categories():
         sentiment = 'positive' if category == 'pos' else 'negative'
         reviews.append((review, sentiment))
 ```
+
+There are two categories `movie_reviews.categories()`: pos for postive, and neg for negative. We loop through every review and transform them in two a tuple of review and sentiment.
 
 ## Step: Make a prediction on a review
 ```python
