@@ -1,5 +1,9 @@
 # Sentiment Analysis with NLTK
 
+Sentiment analysis is the process of analyzing digital text to determine if the emotional tone of the message is positive, negative, or neutral.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/4dcc8a2e-f1d5-4174-8631-4067328feafd)
+
 ## Step 1: Import NLTK library, dataset and lexicon
 ```python
 import nltk
