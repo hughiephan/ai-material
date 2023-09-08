@@ -23,11 +23,11 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from sklearn.metrics import classification_report
 ```
 
-SentimentIntensityAnalyzer (Vader) is an NLTK module for sentiment analysis using rule-based approach (another name is Lexicon-based approach). The words will be labeled as positive, negative or neutral with a compound score. 
+`SentimentIntensityAnalyzer` (Vader) is an NLTK module for sentiment analysis using rule-based approach (another name is Lexicon-based approach). The words will be labeled as positive, negative or neutral with a compound score. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/29bda251-7dbf-4666-b204-c60384ba2305)
 
-And `classification_report` from sklearn.metrics will used to measure the quality of predictions from our SentimentIntensityAnalyzer.
+And `classification_report` from `sklearn.metrics` will used to measure the quality of predictions from our SentimentIntensityAnalyzer.
 
 ## Step: Pre-process Dataset
 ```python
