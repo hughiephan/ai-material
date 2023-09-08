@@ -41,7 +41,7 @@ for category in movie_reviews.categories():
 
 There are two categories `pos` for postive, and `neg` for negative. We loop through every review in both the postive and negative categories, and transform them in two a tuple of review and sentiment.
 
-## Step: Make a prediction on a review
+## Step: Make a prediction on one review
 ```python
 sia = SentimentIntensityAnalyzer()
 sia.polarity_scores("This movie was amazing! I loved every minute of it.")
@@ -49,7 +49,11 @@ sia.polarity_scores("This movie was amazing! I loved every minute of it.")
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9f1f075f-2284-4e84-a179-9a93b4c17578)
 
-## Step: Make prediction on all review dataset
+## Step: Make predictions on all reviews
+The compound_score sum up the sentiment scores of each word in the sentence.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6d7022c1-3c01-404b-94fd-10cd0505f3be)
+
 ```python
 sentiments = []
 for review, sentiment in reviews:
@@ -62,12 +66,15 @@ for review, sentiment in reviews:
     else:
         predicted_sentiment = "neutral"
     sentiments.append((review, sentiment, predicted_sentiment))
+```
+
+## Step: Check the report of SentimentIntensityAnalyzer on all reviews
+```python
 df = pd.DataFrame(sentiments, columns=['Review', 'Actual Sentiment', 'Predicted Sentiment'])
 filtered_df = df[df['Predicted Sentiment'] != 'neutral']
 actual_sentiments = filtered_df['Actual Sentiment'].tolist()
 predicted_sentiments = filtered_df['Predicted Sentiment'].tolist()
 report = classification_report(actual_sentiments, predicted_sentiments)
-print(report)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b02997bc-f23f-4654-9418-c0043d6f4a85)
@@ -76,3 +83,4 @@ print(report)
 - Medium Blog by Lukman Aliyu (Unveiling Sentiments in IMDb Movie Reviews with NLTK’s SentimentIntensityAnalyzer)
 - https://www.analyticsvidhya.com/blog/2022/10/sentiment-analysis-using-vader
 - https://www.nltk.org/howto/sentiment.html
+- https://github.com/cjhutto/vaderSentiment
