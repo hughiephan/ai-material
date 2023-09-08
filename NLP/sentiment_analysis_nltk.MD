@@ -39,7 +39,7 @@ for category in movie_reviews.categories():
         reviews.append((review, sentiment))
 ```
 
-There are two categories `movie_reviews.categories()`: pos for postive, and neg for negative. We loop through every review and transform them in two a tuple of review and sentiment.
+There are two categories `pos` for postive, and `neg` for negative. We loop through every review in both the postive and negative categories, and transform them in two a tuple of review and sentiment.
 
 ## Step: Make a prediction on a review
 ```python
