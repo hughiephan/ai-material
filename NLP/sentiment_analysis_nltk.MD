@@ -9,7 +9,7 @@ from nltk.corpus import movie_reviews
 from sklearn.metrics import classification_report
 ```
 
-SentimentIntensityAnalyzer (Vader) is an NLTK module in which the terms are generally labeled as either positive or negative.
+SentimentIntensityAnalyzer (Vader) is an NLTK module for sentiment analysis using rule-based approach (another name is Lexicon-based approach). The words will be labeled as positive, negative or neutral.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/29bda251-7dbf-4666-b204-c60384ba2305)
 
@@ -18,10 +18,7 @@ SentimentIntensityAnalyzer (Vader) is an NLTK module in which the terms are gene
 nltk.download("movie_reviews")
 nltk.download("vader_lexicon")
 ```
-
-Sentiment ratings from 10 independent human raters, with `–4` Extremely Negative" to `4` Extremely Positive and `0` for Neutral. If the standard deviation exceed 2.5 means that the word is highly disagree by the 10 human raters.
-
-For example, the word "beautiful" is postive with 2.9, and "castatrophic" is negative with -2.2
+Creating sentiment lexicon is a labor intensive and sometimes error prone process, so we want to use the existing vader lexicon. In the `vader_lexicon` we have the sentiment ratings from 10 independent human raters, with `–4` Extremely Negative" to `4` Extremely Positive and `0` for Neutral. If the standard deviation exceed 2.5 means that the word is highly disagree by the 10 human raters. For example, the word "beautiful" is postive with 2.9, and "castatrophic" is negative with -2.2
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4494fb77-8dad-4642-951f-774469ae37dd)
 
