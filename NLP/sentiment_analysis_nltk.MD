@@ -9,10 +9,24 @@ from nltk.corpus import movie_reviews
 from sklearn.metrics import classification_report
 ```
 
-## Step: Import and pre-process data
+SentimentIntensityAnalyzer (Vader) is an NLTK module in which the terms are generally labeled as either positive or negative.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/29bda251-7dbf-4666-b204-c60384ba2305)
+
+## Step: Import lexicon
 ```python
 nltk.download("movie_reviews")
 nltk.download("vader_lexicon")
+```
+
+Sentiment ratings from 10 independent human raters, with `–4` Extremely Negative" to `4` Extremely Positive and `0` for Neutral. If the standard deviation exceed 2.5 means that the word is highly disagree by the 10 human raters.
+
+For example, the word "beautiful" is postive with 2.9, and "castatrophic" is negative with -2.2
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/4494fb77-8dad-4642-951f-774469ae37dd)
+
+## Step: Pre-process Dataset
+```python
 reviews = []
 for category in movie_reviews.categories():
     for fileid in movie_reviews.fileids(category):
@@ -54,3 +68,5 @@ print(report)
 
 ## References
 - Medium Blog by Lukman Aliyu (Unveiling Sentiments in IMDb Movie Reviews with NLTK’s SentimentIntensityAnalyzer)
+- https://www.analyticsvidhya.com/blog/2022/10/sentiment-analysis-using-vader
+- https://www.nltk.org/howto/sentiment.html
