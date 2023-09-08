@@ -12,7 +12,7 @@ The movie_reviews dataset have 2000 text files, each of them is a review of a mo
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e8486247-fe86-495b-a158-80fa01ac8df8)
 
-In the `vader_lexicon` we have the sentiment ratings from 10 independent human raters, with `–4` Extremely Negative" to `4` Extremely Positive and `0` for Neutral. If the standard deviation exceed 2.5 means that the word is highly disagree by the 10 human raters. For example, the word "beautiful" is postive with 2.9, and "castatrophic" is negative with -2.2
+In the `vader_lexicon` we have the sentiment ratings from 10 independent human raters, with [–4] Extremely Negative to [4] Extremely Positive and [0] for Neutral. If the standard deviation exceed 2.5 means that the word is highly disagree between the 10 human raters. For example, the word "beautiful" is postive with 2.9, and "castatrophic" is negative with -2.2
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4494fb77-8dad-4642-951f-774469ae37dd)
 
