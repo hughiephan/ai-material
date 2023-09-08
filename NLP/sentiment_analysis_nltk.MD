@@ -1,6 +1,6 @@
 # Sentiment Analysis with NLTK
 
-## Step: Import NLTK library, dataset and lexicon
+## Step 1: Import NLTK library, dataset and lexicon
 ```python
 import nltk
 nltk.download("movie_reviews")
@@ -16,7 +16,7 @@ In the `vader_lexicon` we have the sentiment ratings from 10 independent human r
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4494fb77-8dad-4642-951f-774469ae37dd)
 
-## Step: Import other libraries
+## Step 2: Import other libraries
 ```python
 import pandas as pd
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -29,7 +29,7 @@ from sklearn.metrics import classification_report
 
 And `classification_report` from `sklearn.metrics` will used to measure the quality of predictions from our SentimentIntensityAnalyzer.
 
-## Step: Pre-process Dataset
+## Step 3: Pre-process Dataset
 ```python
 reviews = []
 for category in movie_reviews.categories():
@@ -41,7 +41,7 @@ for category in movie_reviews.categories():
 
 There are two categories `pos` for postive, and `neg` for negative. We loop through every review in both the postive and negative categories, and transform them in two a tuple of review and sentiment.
 
-## Step: Make a prediction on one review
+## Step 4: Make a prediction on one review
 ```python
 sia = SentimentIntensityAnalyzer()
 sia.polarity_scores("This movie was amazing! I loved every minute of it.")
@@ -49,7 +49,7 @@ sia.polarity_scores("This movie was amazing! I loved every minute of it.")
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9f1f075f-2284-4e84-a179-9a93b4c17578)
 
-## Step: Make predictions on all reviews
+## Step 5: Make predictions on all reviews
 The compound_score sum up the sentiment scores of each word in the sentence.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6d7022c1-3c01-404b-94fd-10cd0505f3be)
@@ -68,7 +68,7 @@ for review, sentiment in reviews:
     sentiments.append((review, sentiment, predicted_sentiment))
 ```
 
-## Step: Check the report of SentimentIntensityAnalyzer on all reviews
+## Step 6: Check the report of SentimentIntensityAnalyzer on all reviews
 ```python
 df = pd.DataFrame(sentiments, columns=['Review', 'Actual Sentiment', 'Predicted Sentiment'])
 filtered_df = df[df['Predicted Sentiment'] != 'neutral']
