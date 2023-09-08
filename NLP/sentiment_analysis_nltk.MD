@@ -9,7 +9,7 @@ nltk.download("vader_lexicon")
 
 The movie_reviews dataset have 2000 text files, each of them is a review of a movie.
 
-reviews[7]
+An example review
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e8486247-fe86-495b-a158-80fa01ac8df8)
 
