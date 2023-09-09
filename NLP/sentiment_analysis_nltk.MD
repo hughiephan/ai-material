@@ -56,8 +56,6 @@ sia.polarity_scores("This movie was amazing! I loved every minute of it.")
 ## Step 5: Make predictions on all reviews
 The compound_score sum up the sentiment scores of each word in the sentence.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/6d7022c1-3c01-404b-94fd-10cd0505f3be)
-
 ```python
 sentiments = []
 for review, sentiment in reviews:
