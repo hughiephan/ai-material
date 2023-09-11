@@ -81,7 +81,7 @@ report = classification_report(actual_sentiments, predicted_sentiments)
 print(report)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b02997bc-f23f-4654-9418-c0043d6f4a85)
+![image](https://github.com/hughiephan/DPL/assets/16631121/22f001cb-8bc7-4660-a735-0ef31bae6c12)
 
 ## References
 - Medium Blog by Lukman Aliyu (Unveiling Sentiments in IMDb Movie Reviews...)
