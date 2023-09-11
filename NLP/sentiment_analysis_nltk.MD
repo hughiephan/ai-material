@@ -70,13 +70,15 @@ for review, sentiment in reviews:
     sentiments.append((review, sentiment, predicted_sentiment))
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/8e3d86bc-1841-4da1-b580-f113e296fecc)
+
 ## Step 6: Check the report of SentimentIntensityAnalyzer on all reviews
 ```python
 df = pd.DataFrame(sentiments, columns=['Review', 'Actual Sentiment', 'Predicted Sentiment'])
-filtered_df = df[df['Predicted Sentiment'] != 'neutral']
-actual_sentiments = filtered_df['Actual Sentiment'].tolist()
-predicted_sentiments = filtered_df['Predicted Sentiment'].tolist()
+actual_sentiments = df['Actual Sentiment'].tolist()
+predicted_sentiments = df['Predicted Sentiment'].tolist()
 report = classification_report(actual_sentiments, predicted_sentiments)
+print(report)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b02997bc-f23f-4654-9418-c0043d6f4a85)
