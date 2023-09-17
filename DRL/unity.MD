@@ -10,7 +10,9 @@ pip install importlib-metadata==4.4
 ```
 
 ## Step: Install Unity
-Install Unity 2021. Then download the source zip file from https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release . Open command prompt to that directory and run
+Install Unity 2021 and download the source zip file from https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release . 
+
+## Step: Training
 ```
 mlagents-learn config/ppo/3DBall.yaml --run-id=first3DBallRun
 ```
