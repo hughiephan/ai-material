@@ -1,5 +1,6 @@
 
-## Step: Install libraries
+## Step: Install Python
+Install Python 3.7.x (it won't work with 3.8, 3.9 and 3.10)
 
 ```python
 pip3 install torch
@@ -8,8 +9,8 @@ pip install six
 pip install importlib-metadata==4.4
 ```
 
-## Step: Download and install ml-agents examples
-Download the source zip file from https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release . Open command prompt to that directory and run
+## Step: Install Unity
+Install Unity 2021. Then download the source zip file from https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release . Open command prompt to that directory and run
 ```
 mlagents-learn config/ppo/3DBall.yaml --run-id=first3DBallRun
 ```
