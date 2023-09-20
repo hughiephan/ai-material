@@ -57,9 +57,7 @@ def calculate_similarity(row):
 df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/6946790f-2f93-44c9-873a-72ce172c943c)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/019d9a1e-bb95-4422-a98e-3af75358387e)
+![image](https://github.com/hughiephan/DPL/assets/16631121/426679d0-d3c6-4e8f-8d0a-34fdc6c8dc4a)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8b7a8ec5-b282-45b8-86f1-ceeb1e6a82c8)
 
