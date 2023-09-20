@@ -1,5 +1,7 @@
 # Sentence Similarities with NLTK and Wordnet
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/4cf5b187-77d1-4aba-a4f9-62992442f357)
+
 ## Step: Import NLTK library, Wordnet Dataset
 ```python
 import pandas as pd
@@ -17,14 +19,9 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
 
-## Step: Import other libraries
-```python
-import pandas as pd
-from nltk.sentiment import SentimentIntensityAnalyzer
-from sklearn.metrics import classification_report
-```
+![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
-## Step: Calculate the simlarities between questions
+## Step: Calculate the similarities between questions
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:100]
@@ -52,7 +49,7 @@ def calculate_similarity(row):
 df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
 
-## Step: Show model's accuracy
+## Step: Show the model's accuracy
 ```python
 true_labels = df_train["is_duplicate"]
 predicted_labels = df_train["prediction"]
@@ -62,3 +59,5 @@ print(report)
 
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
+- Caldarola, Enrico G. & Picariello, Antonio & Rinaldi, Antonio. (2016). WordNet Exploration and Visualization in Neo4J. A Tag Cloud-Based Approach.
+
