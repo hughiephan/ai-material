@@ -9,8 +9,7 @@ For the questions “What is the most populous state in the USA?” and “Which
 import pandas as pd
 import nltk
 nltk.download('wordnet')
-nltk.download('stopwords')
-from nltk.corpus import wordnet, stopwords
+from nltk.corpus import wordnet
 from sklearn.metrics import classification_report
 ```
 
