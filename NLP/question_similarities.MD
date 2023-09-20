@@ -19,7 +19,6 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 ```python
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
-![image](https://github.com/hughiephan/DPL/assets/16631121/4cf5b187-77d1-4aba-a4f9-62992442f357)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
