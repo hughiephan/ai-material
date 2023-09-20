@@ -56,13 +56,15 @@ df_train["prediction"] = df_train.apply(predict, axis=1)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/62ee4001-52e4-4e77-921d-3553cf214a78)
 
-## Step: Show the model's accuracy
+## Step 5: Show the model's accuracy
 ```python
 true_labels = df_train["is_duplicate"]
 predicted_labels = df_train["prediction"]
 report = classification_report(true_labels, predicted_labels)
 print(report)
 ```
+
+## Step 6: 
 
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
