@@ -34,6 +34,10 @@ df_train = df_train[0:100]
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
 
 ## Step: Predict 
+We are using synset to predict
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8b7a8ec5-b282-45b8-86f1-ceeb1e6a82c8)
+
 ```python
 def calculate_similarity(row):
     terms1 = [i for i in row["question1"].lower().split()]
@@ -58,8 +62,6 @@ df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/426679d0-d3c6-4e8f-8d0a-34fdc6c8dc4a)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/8b7a8ec5-b282-45b8-86f1-ceeb1e6a82c8)
 
 ## Step: Show the model's accuracy
 ```python
