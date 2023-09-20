@@ -6,8 +6,10 @@ For the questions “What is the most populous state in the USA?” and “Which
 
 ## Step 1: Import libraries
 ```python
+!pip install gradio
 import pandas as pd
 import nltk
+import gradio as gr
 nltk.download('wordnet')
 from nltk.corpus import wordnet
 from sklearn.metrics import classification_report
@@ -64,7 +66,33 @@ report = classification_report(true_labels, predicted_labels)
 print(report)
 ```
 
-## Step 6: 
+## Step 6: Build an Interface
+```python
+def predict(question1, question2):
+    total_similarity = 0.0
+    count = 0.0
+    for word1 in question1:
+        for word2 in question2:
+            synset1 = wordnet.synsets(word1)
+            synset2 = wordnet.synsets(word2)
+            if synset1 and synset2:
+                similarity_score = synset1[0].wup_similarity(synset2[0])
+                if similarity_score:
+                    total_similarity += similarity_score
+                    count += 1
+    average_similarity = total_similarity / (count + 0.0001)
+    return 'Questions are similiar' if average_similarity > 0.4 else 'Questions are duplicated'
+
+iface = gr.Interface(
+    fn=predict,
+    inputs=["text", "text"],
+    outputs=["text", "number"],
+    title="Check questions similar or duplicated",
+    description="Enter two questions",
+)
+
+iface.launch()
+```
 
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
