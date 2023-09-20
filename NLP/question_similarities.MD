@@ -28,7 +28,7 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset. Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
-df_train = df_train[0:101]
+df_train = df_train[0:100]
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
@@ -66,7 +66,9 @@ report = classification_report(true_labels, predicted_labels)
 print(report)
 ```
 
-## Step 6: Build an Interface
+## Step 6: Build a Demo
+Re-write our predict function a bit to accept two questions as input
+
 ```python
 def predict(question1, question2):
     total_similarity = 0.0
@@ -83,15 +85,14 @@ def predict(question1, question2):
     average_similarity = total_similarity / (count + 0.0001)
     return 'Questions are different' if average_similarity > 0.4 else 'Questions are duplicated'
 
-iface = gr.Interface(
+demo = gr.Interface(
     fn=predict,
     inputs=["text", "text"],
-    outputs=["text", "number"],
-    title="Check if questions different or duplicated",
-    description="Enter two questions",
+    outputs=["text"],
+    title="Check questions different or duplicated",
 )
 
-iface.launch()
+demo.queue().launch(share=True)
 ```
 
 ## References
