@@ -1,6 +1,6 @@
-# Sentence Similarities with NLTK and Wordnet
+# Question Similarities with NLTK and Wordnet
 
-For the queries “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as duplicates.
+For the questions “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as duplicates.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7102673c-3e1f-41dc-a7d1-b0f4f7d29b58)
 
