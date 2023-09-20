@@ -34,18 +34,18 @@ df_train = df_train[0:100]
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
 
 ## Step: Predict 
-We are using synset to predict
+We are using Synset to predict
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8b7a8ec5-b282-45b8-86f1-ceeb1e6a82c8)
 
 ```python
 def calculate_similarity(row):
-    terms1 = [i for i in row["question1"].lower().split()]
-    terms2 = [i for i in row["question2"].lower().split()]
+    q1 = [i for i in row["question1"].lower().split()]
+    q2 = [i for i in row["question2"].lower().split()]
     total_similarity = 0.0
-    count = 0
-    for word1 in terms1:
-        for word2 in terms2:
+    count = 0.0
+    for word1 in q1:
+        for word2 in q2:
             synset1 = wordnet.synsets(word1)
             synset2 = wordnet.synsets(word2)
             if synset1 and synset2:
@@ -53,11 +53,8 @@ def calculate_similarity(row):
                 if similarity:
                     total_similarity += similarity
                     count += 1
-    average_similarity = total_similarity / count if count > 0 else 0.0
-    if average_similarity > 0.4:
-        return 0
-    else:
-        return 1
+    average_similarity = total_similarity / (count + 0.0001)
+    return 0 if average_similarity > 0.4 else 1
 df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
 
