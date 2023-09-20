@@ -61,7 +61,7 @@ def calculate_similarity(row):
 df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/426679d0-d3c6-4e8f-8d0a-34fdc6c8dc4a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/62ee4001-52e4-4e77-921d-3553cf214a78)
 
 ## Step: Show the model's accuracy
 ```python
