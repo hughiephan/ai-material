@@ -34,11 +34,10 @@ df_train = df_train[0:100]
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
 
 ## Step: Predict 
-```
+```python
 def calculate_similarity(row):
-    stop = set(stopwords.words('english'))
-    terms1 = [i for i in row["question1"].lower().split() if i not in stop]
-    terms2 = [i for i in row["question2"].lower().split() if i not in stop]
+    terms1 = [i for i in row["question1"].lower().split()]
+    terms2 = [i for i in row["question2"].lower().split()]
     total_similarity = 0.0
     count = 0
     for word1 in terms1:
@@ -57,6 +56,12 @@ def calculate_similarity(row):
         return 1
 df_train["prediction"] = df_train.apply(calculate_similarity, axis=1)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6946790f-2f93-44c9-873a-72ce172c943c)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/019d9a1e-bb95-4422-a98e-3af75358387e)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8b7a8ec5-b282-45b8-86f1-ceeb1e6a82c8)
 
 ## Step: Show the model's accuracy
 ```python
