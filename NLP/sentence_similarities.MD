@@ -1,4 +1,4 @@
-# Sentence Simlarities with NLTK and Wordnet
+# Sentence Similarities with NLTK and Wordnet
 
 ## Step: Import NLTK library, Wordnet Dataset
 ```python
@@ -11,6 +11,8 @@ from sklearn.metrics import classification_report
 ```
 
 ## Step: Unzip wordnet
+If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/wordnet not found` because the `nltk.download` command downloaded the corpora successfully but could not unzip it. So let's run the command below to unzip:
+
 ```python
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
