@@ -23,10 +23,10 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
 ## Step: Calculate the similarities between questions
-We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset
+We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset . Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
-df_train = df_train[0:100]
+df_train = df_train[0:101]
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
