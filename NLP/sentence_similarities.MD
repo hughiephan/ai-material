@@ -1,6 +1,8 @@
 # Sentence Similarities with NLTK and Wordnet
 
+For the queries “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as duplicates.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/7102673c-3e1f-41dc-a7d1-b0f4f7d29b58)
 
 ## Step: Import NLTK library, Wordnet Dataset
 ```python
@@ -67,4 +69,4 @@ print(report)
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
 - Caldarola, Enrico G. & Picariello, Antonio & Rinaldi, Antonio. (2016). WordNet Exploration and Visualization in Neo4J. A Tag Cloud-Based Approach.
-
+- Blogs RStudio (Classifying Duplicate Questions from Quora with Keras)
