@@ -66,6 +66,8 @@ report = classification_report(true_labels, predicted_labels)
 print(report)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/588ed513-ea67-465e-ad05-c3a2a286ece6)
+
 ## Step 6: Build a Demo
 Re-write our predict function a bit to accept two questions as input
 
