@@ -1,6 +1,6 @@
 # Sentence Similarities with NLTK and Wordnet
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/4cf5b187-77d1-4aba-a4f9-62992442f357)
+
 
 ## Step: Import NLTK library, Wordnet Dataset
 ```python
@@ -18,14 +18,21 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 ```python
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
+![image](https://github.com/hughiephan/DPL/assets/16631121/4cf5b187-77d1-4aba-a4f9-62992442f357)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
 ## Step: Calculate the similarities between questions
+We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:100]
+```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
+
+## Step: Predict 
+```
 def calculate_similarity(row):
     stop = set(stopwords.words('english'))
     terms1 = [i for i in row["question1"].lower().split() if i not in stop]
