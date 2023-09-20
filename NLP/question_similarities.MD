@@ -2,7 +2,7 @@
 
 For the questions “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as duplicates.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/7102673c-3e1f-41dc-a7d1-b0f4f7d29b58)
+![image](https://github.com/hughiephan/DPL/assets/16631121/b42f6acd-4969-4d51-b62f-f50ffe710b0f)
 
 ## Step 1: Import libraries
 ```python
@@ -25,7 +25,7 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
 ## Step 3: Import Dataset
-We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset . Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
+We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset. Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:101]
@@ -81,13 +81,13 @@ def predict(question1, question2):
                     total_similarity += similarity_score
                     count += 1
     average_similarity = total_similarity / (count + 0.0001)
-    return 'Questions are similiar' if average_similarity > 0.4 else 'Questions are duplicated'
+    return 'Questions are different' if average_similarity > 0.4 else 'Questions are duplicated'
 
 iface = gr.Interface(
     fn=predict,
     inputs=["text", "text"],
     outputs=["text", "number"],
-    title="Check questions similar or duplicated",
+    title="Check if questions different or duplicated",
     description="Enter two questions",
 )
 
