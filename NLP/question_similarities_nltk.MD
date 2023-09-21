@@ -77,6 +77,7 @@ print(report)
 ```
 
 Accuracy is 36% from 100 question pairs
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/588ed513-ea67-465e-ad05-c3a2a286ece6)
 
 ## Step 6: Build a Demo
@@ -109,6 +110,7 @@ demo.queue().launch(share=True)
 ```
 
 Interface of our demo
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
 
 ## Exercise
