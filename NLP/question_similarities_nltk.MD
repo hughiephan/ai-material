@@ -123,7 +123,7 @@ Interface of our demo
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
 
 ## Exercise
-Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`
+Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`?
 ```python
 for syn in wordnet.synsets("hello"):
 	for l in syn.lemmas():
