@@ -56,6 +56,7 @@ def predict(row):
 df_train["prediction"] = df_train.apply(predict, axis=1)
 ```
 
+Visualization of our simple approach
 ![image](https://github.com/hughiephan/DPL/assets/16631121/62ee4001-52e4-4e77-921d-3553cf214a78)
 
 ## Step 5: Show the model's accuracy
@@ -67,6 +68,7 @@ report = classification_report(true_labels, predicted_labels)
 print(report)
 ```
 
+Accuracy is 36% from 100 question pairs
 ![image](https://github.com/hughiephan/DPL/assets/16631121/588ed513-ea67-465e-ad05-c3a2a286ece6)
 
 ## Step 6: Build a Demo
@@ -98,10 +100,11 @@ demo = gr.Interface(
 demo.queue().launch(share=True)
 ```
 
+Interface of our demo
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
 
 ## Exercise
-1. Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`
+Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`
 ```python
 for syn in wordnet.synsets("hello"):
 	for l in syn.lemmas():
@@ -112,7 +115,7 @@ print(set(synonyms))
 print(set(antonyms))
 ```
 
-2. Apply pre_process techniques (stopwords, remove special characters,...)
+Apply pre_process techniques (stopwords, remove special characters,...)
 ```python
 from nltk.corpus import stopwords
 stop = set(stopwords.words('english'))
