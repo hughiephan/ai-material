@@ -135,3 +135,4 @@ def pre_process(sentence):
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
 - Caldarola, Enrico G. & Picariello, Antonio & Rinaldi, Antonio. (2016). WordNet Exploration and Visualization in Neo4J. A Tag Cloud-Based Approach.
 - Blogs RStudio (Classifying Duplicate Questions from Quora with Keras)
+- Kavita Ganesan (Demystifying Nouns in Wordnet)
