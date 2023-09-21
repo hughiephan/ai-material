@@ -71,7 +71,7 @@ Here is the formula for Wu-Palmer Similarity
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ab5ceed1-189b-48d4-a8da-193a791c40b3)
 
-For example, `LCS(Boat, Car)` is `Vehicle`, with a depth of 1 (calculated from the root of the tree). Then we have `depth(Boat)` is 2, and `depth(Car)` is 3. Substitute all into Wu-Palmer formula, we will finally get the Wu-Palmer Similarity score 
+For example, `LCS(Boat, Car)` is `Vehicle`, with a depth of 1 (calculated from the root of the tree). Then we have `depth(Boat)` is 2, and `depth(Car)` is 3. Substitute all into the Wu-Palmer formula, we will finally get the Wu-Palmer Similarity score 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f86afa60-711c-418d-b23b-1d7e90d937d3)
 
@@ -147,5 +147,6 @@ def pre_process(sentence):
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
 - Caldarola, Enrico G. & Picariello, Antonio & Rinaldi, Antonio. (2016). WordNet Exploration and Visualization in Neo4J. A Tag Cloud-Based Approach.
 - Blogs RStudio (Classifying Duplicate Questions from Quora with Keras)
-- https://stackoverflow.com/questions/18629469/what-is-least-common-subsumer-and-how-to-compute-it
 - Kavita Ganesan (Demystifying Nouns in Wordnet)
+- https://stackoverflow.com/questions/18629469/what-is-least-common-subsumer-and-how-to-compute-it
+- https://www.geeksforgeeks.org/nlp-wupalmer-wordnet-similarity/
