@@ -39,6 +39,8 @@ df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:100]
 ```
 
+List of several question pairs in our dataset
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
 
 ## Step 4: Predict 
