@@ -22,7 +22,17 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
 
+Example of Wordnet Corpus for the word `temperature`
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
+
+Example of hypernym:
+Arm is a kind of Limb, Leg is a kind of Limb. So in this case Arm and Leg are the `hyponyms` and Limb is the `hypernym`
+
+Example of antonym (opposite words):
+Hot is the `antonym` of Cold
+
+Example of synonym (similar words):
+Cold is the `synonym` of Icy
 
 ## Step 3: Import Dataset
 We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset. Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
