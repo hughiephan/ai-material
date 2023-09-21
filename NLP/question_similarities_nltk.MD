@@ -23,7 +23,8 @@ If you work with Wordnet in a Notebook, sometimes it prompts `Resource corpora/w
 !unzip -o /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 ```
 
-Visualization of Wordnet Corpus for the word `temperature`
+Visualization of Wordnet Corpus for the word `temperature`:
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e0ddbe09-f4e3-4116-9563-25926ee4411d)
 
 Example of hypernym: `Arm` is a kind of `Limb`, `Leg` is a kind of `Limb`. So in this case `Arm` and `Leg` are the hyponyms and `Limb` is the hypernym
@@ -39,7 +40,7 @@ df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:100]
 ```
 
-List of several question pairs in our dataset
+List of several question pairs in our dataset:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/503d7e27-6b41-452b-87aa-6f0efd631e5d)
 
@@ -66,10 +67,11 @@ def predict(row):
 df_train["prediction"] = df_train.apply(predict, axis=1)
 ```
 
-Visualization of our simple approach
+Visualization of our simple approach:
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/62ee4001-52e4-4e77-921d-3553cf214a78)
 
-Here is the formula for Wu-Palmer Similarity
+Here is the formula for Wu-Palmer Similarity:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ab5ceed1-189b-48d4-a8da-193a791c40b3)
 
@@ -120,7 +122,7 @@ demo = gr.Interface(
 demo.queue().launch(share=True)
 ```
 
-Interface of our demo
+Interface of our demo:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
 
