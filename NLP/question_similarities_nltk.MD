@@ -97,6 +97,8 @@ demo = gr.Interface(
 demo.queue().launch(share=True)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
+
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
 - Caldarola, Enrico G. & Picariello, Antonio & Rinaldi, Antonio. (2016). WordNet Exploration and Visualization in Neo4J. A Tag Cloud-Based Approach.
