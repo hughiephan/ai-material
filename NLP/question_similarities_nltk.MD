@@ -59,6 +59,7 @@ df_train["prediction"] = df_train.apply(predict, axis=1)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/62ee4001-52e4-4e77-921d-3553cf214a78)
 
 ## Step 5: Show the model's accuracy
+
 ```python
 true_labels = df_train["is_duplicate"]
 predicted_labels = df_train["prediction"]
@@ -95,6 +96,27 @@ demo = gr.Interface(
 )
 
 demo.queue().launch(share=True)
+```
+
+## Exercise
+1. Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`
+```python
+for syn in wordnet.synsets("hello"):
+	for l in syn.lemmas():
+		synonyms.append(l.name())
+		if l.antonyms():
+            antonyms.append(l.antonyms()[0].name())
+print(set(synonyms))
+print(set(antonyms))
+```
+
+2. Apply pre_process techniques (stopwords, remove special characters,...)
+```python
+from nltk.corpus import stopwords
+stop = set(stopwords.words('english'))
+sentence = 'What is the most populous state in the USA?'
+def pre_process(sentence):
+    return [i for i in sentence.lower().split() if i not in stop]
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
