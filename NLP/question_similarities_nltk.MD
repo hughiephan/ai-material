@@ -1,6 +1,6 @@
 # Question Similarities with NLTK and Wordnet
 
-For the questions “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as `duplicates`.
+For the questions “What is the most populous state in the USA?” and “Which state in the United States has the most people?”, their intents are identical so we want to mark them as `duplicated`.
 
 But for the questions below, question 1 mentions a particular country India while question 2 asks a more general question. So we want to mark these as `different`. 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b42f6acd-4969-4d51-b62f-f50ffe710b0f)
