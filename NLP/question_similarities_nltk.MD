@@ -98,6 +98,8 @@ demo = gr.Interface(
 demo.queue().launch(share=True)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
+
 ## Exercise
 1. Our simple approach accuracy is low. Can we improve the accuracy using `synonyms` and `antonyms`
 ```python
@@ -118,8 +120,6 @@ sentence = 'What is the most populous state in the USA?'
 def pre_process(sentence):
     return [i for i in sentence.lower().split() if i not in stop]
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/a49e680e-5d3b-4212-8866-e816f8cb2e86)
 
 ## References
 - Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
