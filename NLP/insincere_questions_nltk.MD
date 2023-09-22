@@ -43,7 +43,7 @@ nltk.classify.accuracy(classifier, feature_set)
 ```python
 def predict(text):
     feature = {word: (word in word_tokenize(pre_process(text))) for word in all_words}
-    return 'Sincere Question' if classifier.classify(feature) == '0' else 'Insincere Question'
+    return 'Sincere question' if classifier.classify(feature) == 0 else 'Insincere question'
     
 predict("How did Quebec nationalists see their province as a nation in the 1960s?")
 ```
@@ -61,4 +61,4 @@ demo.queue().launch(share=True)
 ```
 
 ## References
-- Kaggle Notebook from SHUBH24 (Wordnet Similarity Matrix)
+- https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
