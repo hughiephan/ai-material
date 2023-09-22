@@ -1,5 +1,7 @@
 # Classifying Insincere Questions with NLTK
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/9e311b08-1e5e-47dd-bc76-ec471c36d6c8)
+
 ## Step 1: Import libraries
 ```python
 import numpy as np 
@@ -9,7 +11,6 @@ import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize 
 from nltk.classify import NaiveBayesClassifier
-from nltk.tokenize import word_tokenize 
 ```
 
 ## Step 2: Import dataset
