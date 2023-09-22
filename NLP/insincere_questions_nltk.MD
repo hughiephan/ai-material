@@ -4,10 +4,12 @@
 
 ## Step 1: Import libraries
 ```python
+!pip install gradio
 import numpy as np 
 import pandas as pd 
 import nltk
 import string
+import gradio as gr
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize 
 from nltk.classify import NaiveBayesClassifier
