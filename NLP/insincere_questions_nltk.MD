@@ -61,5 +61,9 @@ demo = gr.Interface(
 demo.queue().launch(share=True)
 ```
 
+Interface of our demo:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/34f56380-3a73-4071-86be-c478ab3fcc0a)
+
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
