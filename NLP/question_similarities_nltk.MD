@@ -93,7 +93,7 @@ Accuracy is 36% from 100 question pairs
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/588ed513-ea67-465e-ad05-c3a2a286ece6)
 
-## Step 6: Build a Demo
+## Step 6: Predict
 Re-write our predict function a bit to accept two questions as input
 
 ```python
@@ -112,6 +112,11 @@ def predict(question1, question2):
     average_similarity = total_similarity / (count + 0.0001)
     return 'Questions are different' if average_similarity > 0.4 else 'Questions are duplicated'
 
+predict('What is the step by step guide to invest in share market in India?', 'What is the step by step guide to invest in share market?')
+```
+
+## Step 7: Build a Demo
+```python
 demo = gr.Interface(
     fn=predict,
     inputs=["text", "text"],
@@ -142,7 +147,7 @@ Apply pre_process techniques (stopwords, remove special characters,...)
 ```python
 from nltk.corpus import stopwords
 stop = set(stopwords.words('english'))
-sentence = 'What is the most populous state in the USA?'
+sentence = 'What is the step by step guide to invest in share market in India?'
 def pre_process(sentence):
     return [i for i in sentence.lower().split() if i not in stop]
 ```
