@@ -50,7 +50,7 @@ NaiveBayesClassifier does not accept raw text `quebec nationalists see province 
 `all_words` is our dictionary that contains all the words from the training dataset. So to achieve our desired `feature_set`, we just need to check which word in question_text row exists in the dictionary and set that to True.
 
 ```python
-all_words = set(word.lower() for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
+all_words = set(word for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
 feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in all_words}, row['target']) for i, row in train.iterrows()]
 
 classifier = NaiveBayesClassifier.train(feature_set)
