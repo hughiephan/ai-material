@@ -1,6 +1,6 @@
 # Karate Club Recommendation with Graph Neural Network
 
-## Step: Import libraries
+## Step 1: Import libraries
 ```python
 !pip install torch_geometric
 import torch
@@ -12,7 +12,7 @@ from torch_geometric.datasets import KarateClub
 %matplotlib inline
 ```
 
-## Step: Import data
+## Step 2: Import data
 ```python
 dataset = KarateClub()
 data = dataset[0]
@@ -20,7 +20,7 @@ data = dataset[0]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8a68ffc1-6ce7-461a-8551-401e13395153)
 
-## Step: Define the model
+## Step 3: Define the model
 ```python
 class GCN(torch.nn.Module):
     def __init__(self):
@@ -41,7 +41,7 @@ class GCN(torch.nn.Module):
         return out, h
 ```
 
-## Step: Setup training
+## Step 4: Setup training
 ```python
 model = GCN()
 criterion = torch.nn.CrossEntropyLoss()
@@ -56,7 +56,7 @@ def train(data):
     return loss, h
 ```
 
-## Step: Train and Visualize
+## Step 5: Train and Visualize
 ```python
 for epoch in range(61):
     loss, h = train(data)
