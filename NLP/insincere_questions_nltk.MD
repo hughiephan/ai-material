@@ -16,27 +16,14 @@ from nltk.classify import NaiveBayesClassifier
 ```
 
 ## Step 2: Import dataset
-Our dataset is from the Quora Kaggle competition, where we have to develop models that identify and flag insincere questions https://www.kaggle.com/competitions/quora-insincere-questions-classification
+Our dataset is from the Quora Kaggle competition, where we have to develop models that identify and flag insincere questions https://www.kaggle.com/competitions/quora-insincere-questions-classification . We limit to 100 first rows to make our Notebook run faster.
 ```python
 train = pd.read_csv("/kaggle/input/quora-insincere-questions-classification/train.csv")
 train = train[0:100]
 ```
 
 ## Step 3: Pre-process
-```python
-eng_stopwords = set(stopwords.words("english"))
-def pre_process(text):
-    text = " ".join(i for i in text.lower().split()) # Lower Text
-    text = text.translate(str.maketrans('', '', string.punctuation)) # Remove punctuation
-    text = " ".join([w for w in str(text).lower().split() if not w in eng_stopwords]) # Remove stopwords in the text
-    return text
-
-train['question_text'] = train['question_text'].apply(pre_process)
-all_words = set(word.lower() for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
-feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in all_words}, row['target']) for i, row in train.iterrows()]
-```
-
-Here is what happen in our pre-proceing steps:
+Define the pre-process with 3 functions: Lower Text, Remove Punctuation, Remove Stopwords, and then run `apply(pre_process)` to apply pre-processing to all our data rows. Here is what happen in our pre-proceing steps:
 ```
 How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
 how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
@@ -44,9 +31,22 @@ how did quebec nationalists see their province as a nation in the 1960s # Remove
 quebec nationalists see province nation 1960s # Removed English stopwords
 ```
 
+```python
+eng_stopwords = set(stopwords.words("english"))
+def pre_process(text):
+    text = " ".join(i for i in text.lower().split()) # Lower Text
+    text = text.translate(str.maketrans('', '', string.punctuation)) # Remove punctuation
+    text = " ".join([w for w in str(text).lower().split() if not w in eng_stopwords]) # Remove stopwords
+    return text
+
+train['question_text'] = train['question_text'].apply(pre_process)
+```
 
 ## Step 4: Train
 ```python
+all_words = set(word.lower() for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
+feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in all_words}, row['target']) for i, row in train.iterrows()]
+
 classifier = NaiveBayesClassifier.train(feature_set)
 nltk.classify.accuracy(classifier, feature_set)
 ```
@@ -75,6 +75,12 @@ demo.queue().launch(share=True)
 Interface of our demo:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/34f56380-3a73-4071-86be-c478ab3fcc0a)
+
+## Exercise
+Run prediction on Test Dataset to see how well our model can generalize:
+```
+test = pd.read_csv("/kaggle/input/quora-insincere-questions-classification/test.csv")
+```
 
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
