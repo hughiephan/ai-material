@@ -38,10 +38,10 @@ train['question_text'] = train['question_text'].apply(pre_process)
 
 Here is what happen in our pre-proceing steps:
 ```
-- How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
-- how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
-- how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
-- quebec nationalists see province nation 1960s # Removed English stopwords
+How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
+1. how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
+2. how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
+3. quebec nationalists see province nation 1960s # Removed English stopwords
 ```
 
 ## Step 4: Transform into NaiveBayesClassifier format
