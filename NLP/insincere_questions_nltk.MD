@@ -58,18 +58,25 @@ Output of our dictionary `all_words`, built from the training dataset:
 ```
 
 ## Step 5: Train
+Use the command `NaiveBayesClassifier.train` to train our model on the `feature_set`, and call `nltk.classify.accuracy` to evaluate our classifier. The accuracy is 98% on the training dataset.
+
 ```python
 classifier = NaiveBayesClassifier.train(feature_set)
 nltk.classify.accuracy(classifier, feature_set)
 ```
 
-## Step 5: Make a prediction
+## Step 6: Make a prediction
 ```python
 def predict(text):
     feature = {word: (word in word_tokenize(pre_process(text))) for word in all_words}
     return 'Sincere question' if classifier.classify(feature) == 0 else 'Insincere question'
     
 predict("How did Quebec nationalists see their province as a nation in the 1960s?")
+```
+
+Output:
+```
+Sincere Question
 ```
 
 ## Step 6: Build a demo
