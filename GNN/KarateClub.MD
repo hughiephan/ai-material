@@ -1,4 +1,4 @@
-# Graph Neural Network with PyG
+# Karate Club Recommendation with Graph Neural Network
 
 ## Step: Import libraries
 ```python
