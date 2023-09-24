@@ -26,7 +26,7 @@ train = train[0:100]
 ```python
 eng_stopwords = set(stopwords.words("english"))
 def pre_process(text):
-    text = " ".join(word_tokenize(str(text))) # Tokenize
+    text = " ".join(i for i in text.lower().split()) # Lower Text
     text = text.translate(str.maketrans('', '', string.punctuation)) # Remove punctuation
     text = " ".join([w for w in str(text).lower().split() if not w in eng_stopwords]) # Remove stopwords in the text
     return text
@@ -35,6 +35,15 @@ train['question_text'] = train['question_text'].apply(pre_process)
 all_words = set(word.lower() for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
 feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in all_words}, row['target']) for i, row in train.iterrows()]
 ```
+
+Here is what happen in our pre-proceing steps:
+```
+How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
+how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
+how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
+quebec nationalists see province nation 1960s # Removed English stopwords
+```
+
 
 ## Step 4: Train
 ```python
