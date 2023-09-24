@@ -37,11 +37,11 @@ train['question_text'] = train['question_text'].apply(pre_process)
 ```
 
 Here is what happen in our pre-proceing steps:
-```python
-How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
-how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
-how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
-quebec nationalists see province nation 1960s # Removed English stopwords
+```
+- How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
+- how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
+- how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
+- quebec nationalists see province nation 1960s # Removed English stopwords
 ```
 
 ## Step 4: Transform into NaiveBayesClassifier format
@@ -53,7 +53,7 @@ feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in
 ```
 
 Output of our dictionary `all_words`, built from the training dataset:
-```python
+```
 {'nationalists', 'people', 'quebec', 'province', 'dog', 'shop', 'encourage', 'adopted', 'adopt', 'see', '1960s', 'would', 'nation',...}
 ```
 
