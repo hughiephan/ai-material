@@ -30,7 +30,7 @@ eng_stopwords = set(stopwords.words("english"))
 def pre_process(text):
     text = " ".join(i for i in text.lower().split()) # Lower Text
     text = text.translate(str.maketrans('', '', string.punctuation)) # Remove punctuation
-    text = " ".join([w for w in str(text).lower().split() if not w in eng_stopwords]) # Remove stopwords
+    text = " ".join([w for w in str(text).split() if not w in eng_stopwords]) # Remove stopwords
     return text
 
 train['question_text'] = train['question_text'].apply(pre_process)
