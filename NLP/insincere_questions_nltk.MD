@@ -44,15 +44,21 @@ how did quebec nationalists see their province as a nation in the 1960s # Remove
 quebec nationalists see province nation 1960s # Removed English stopwords
 ```
 
-## Step 4: Train
+## Step 4: Transform into NaiveBayesClassifier format
 NaiveBayesClassifier does not accept raw text `quebec nationalists see province nation 1960s` as input. So we need to convert all question_text into this form: `[({'nationalists': True, 'people': False, 'quebec': True, 'province': True, 'see': True, '1960s': True, 'nation': True}, 0)]`. `True` flag is for words that exist in question_text, and `False` is for words that are not. `0` is for Sincere Question, and `1` is for Insincere Question. 
-
-`all_words` is our dictionary that contains all the words from the training dataset. So to achieve our desired `feature_set`, we just need to check which word in question_text row exists in the dictionary and set that to True.
 
 ```python
 all_words = set(word for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
 feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in all_words}, row['target']) for i, row in train.iterrows()]
+```
 
+Output of our dictionary `all_words`, built from the training dataset:
+```
+{'nationalists', 'people', 'quebec', 'province', 'dog', 'shop', 'encourage', 'adopted', 'adopt', 'see', '1960s', 'would', 'nation',...}
+```
+
+## Step 5: Train
+```python
 classifier = NaiveBayesClassifier.train(feature_set)
 nltk.classify.accuracy(classifier, feature_set)
 ```
