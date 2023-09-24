@@ -23,12 +23,7 @@ train = train[0:100]
 ```
 
 ## Step 3: Pre-process
-Define the pre-process with 3 functions: Lower Text, Remove Punctuation, Remove Stopwords, and then run `apply(pre_process)` to apply pre-processing to all our data rows. Here is what happen in our pre-proceing steps:
-```
-How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
-how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
-how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
-quebec nationalists see province nation 1960s # Removed English stopwords
+Define the pre-process with 3 functions: Lower Text, Remove Punctuation, Remove Stopwords, and then run `apply(pre_process)` to apply pre-processing to all our data rows. 
 ```
 
 ```python
@@ -41,6 +36,13 @@ def pre_process(text):
 
 train['question_text'] = train['question_text'].apply(pre_process)
 ```
+
+Here is what happen in our pre-proceing steps:
+```
+How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
+how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
+how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
+quebec nationalists see province nation 1960s # Removed English stopwords
 
 ## Step 4: Train
 NaiveBayesClassifier does not accept raw text `quebec nationalists see province nation 1960s` as input. So we need to convert all question_text into this form: `[({'nationalists': True, 'people': False, 'quebec': True, 'province': True, 'see': True, '1960s': True, 'nation': True}, 0)]`. `True` flag is for words that exist in question_text, and `False` is for words that are not. `0` is for Sincere Question, and `1` is for Insincere Question. `all_words` is our dictionary that contains all the words from the training dataset. So to achieve our desired `feature_set`, we just need to check which word in question_text row exists in the dictionary and set that to True.
