@@ -83,7 +83,7 @@ Interface of our demo:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/34f56380-3a73-4071-86be-c478ab3fcc0a)
 
 ## Exercise
-Run prediction on Test Dataset to see how well our model can generalize:
+Run prediction on Test Dataset using our already trained classifier to see how well the model can generalize:
 ```
 test = pd.read_csv("/kaggle/input/quora-insincere-questions-classification/test.csv")
 ```
