@@ -37,7 +37,7 @@ train['question_text'] = train['question_text'].apply(pre_process)
 ```
 
 Here is what happen in our pre-proceing steps:
-```
+```python
 How did Quebec nationalists see their province as a nation in the 1960s? # Original Text
 how did quebec nationalists see their province as a nation in the 1960s? # Lowered text
 how did quebec nationalists see their province as a nation in the 1960s # Removed punctuation
@@ -53,7 +53,7 @@ feature_set = [({word: (word in word_tokenize(row['question_text'])) for word in
 ```
 
 Output of our dictionary `all_words`, built from the training dataset:
-```
+```python
 {'nationalists', 'people', 'quebec', 'province', 'dog', 'shop', 'encourage', 'adopted', 'adopt', 'see', '1960s', 'would', 'nation',...}
 ```
 
@@ -74,11 +74,6 @@ def predict(text):
 predict("How did Quebec nationalists see their province as a nation in the 1960s?")
 ```
 
-Output:
-```
-Sincere Question
-```
-
 ## Step 6: Build a demo
 ```python
 demo = gr.Interface(
@@ -97,7 +92,7 @@ Interface of our demo:
 
 ## Exercise
 Run prediction on Test Dataset using our already trained classifier to see how well the model can generalize:
-```
+```python
 test = pd.read_csv("/kaggle/input/quora-insincere-questions-classification/test.csv")
 ```
 
