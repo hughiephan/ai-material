@@ -45,7 +45,7 @@ Here is what happen in our pre-proceing steps:
 ```
 
 ## Step 4: Transform into NaiveBayesClassifier format
-NaiveBayesClassifier does not accept raw text `quebec nationalists see province nation 1960s` as input. So we need to convert all question_text into this form: `[({'nationalists': True, 'people': False, 'quebec': True, 'province': True, 'see': True, '1960s': True, 'nation': True}, 0)]`. `True` flag is for words that exist in question_text, and `False` is for words that are not. `0` is for Sincere Question, and `1` is for Insincere Question. 
+NaiveBayesClassifier does not accept raw text `quebec nationalists see province nation 1960s` as input. So we need to convert all question_text into this form: `[({'nationalists': True, 'people': False, 'quebec': True, 'province': True, 'see': True, '1960s': True, 'nation': True}, 0)]`. True flag is for words that exist in question_text, and False is for words that are not. 0 is for Sincere Question, and 1 is for Insincere Question. 
 
 ```python
 all_words = set(word for i, row in train.iterrows() for word in word_tokenize(row['question_text']))
