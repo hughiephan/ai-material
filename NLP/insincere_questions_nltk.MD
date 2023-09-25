@@ -78,7 +78,7 @@ def predict(text):
 predict("How did Quebec nationalists see their province as a nation in the 1960s?")
 ```
 
-## Step 6: Build a demo
+## Step 7: Build a demo
 ```python
 demo = gr.Interface(
     fn=predict,
