@@ -75,7 +75,7 @@ Here is the formula for Wu-Palmer Similarity:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ab5ceed1-189b-48d4-a8da-193a791c40b3)
 
-For example, `LCS(Boat, Car)` is `Vehicle`, with a depth of 1 (calculated from the root of the tree). Then we have `depth(Boat)` is 2, and `depth(Car)` is 3. Substitute all into the Wu-Palmer formula, we will finally get the Wu-Palmer Similarity score 
+For example, the Least Common Subsumer `LCS(Boat, Car)` is `Vehicle`, with a depth of 1 (calculated from the tree's root). Then we have `depth(Boat)` is 2, and `depth(Car)` is 3. Substitute all into the Wu-Palmer formula, we will finally get the Wu-Palmer Similarity score 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f86afa60-711c-418d-b23b-1d7e90d937d3)
 
