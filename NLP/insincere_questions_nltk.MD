@@ -22,6 +22,8 @@ train = pd.read_csv("/kaggle/input/quora-insincere-questions-classification/trai
 train = train[0:100]
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/b0840dcf-36cb-4402-b2a3-3d2daf24093f)
+
 ## Step 3: Pre-process
 Define the pre-process with 3 functions: Lower Text, Remove Punctuation, Remove Stopwords, and then run `apply(pre_process)` to apply pre-processing to all our data rows. Stopwords are words that are so widely used that they carry very little useful information, so we want to remove them. 
 
