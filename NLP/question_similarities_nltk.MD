@@ -8,9 +8,9 @@ But for the questions below, question 1 mentions a particular country India whil
 ## Step 1: Import libraries
 ```python
 !pip install gradio
+import gradio as gr
 import pandas as pd
 import nltk
-import gradio as gr
 nltk.download('wordnet')
 from nltk.corpus import wordnet
 from sklearn.metrics import classification_report
@@ -34,7 +34,7 @@ Example of antonym (opposite words): `Hot` is the antonym of `Cold`
 Example of synonym (similar words): `Cold` is the synonym of `Icy`
 
 ## Step 3: Import Dataset
-We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset. Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
+We will be using the Quora Question-Pairs Dataset to identify duplicate questions https://www.kaggle.com/datasets/quora/question-pairs-dataset . Our simple algorithm (based on NLTK and Wordnet) will classify if the question pairs are duplicated on a small portion (100 question pairs x 2 = 200 questions) to speed up prediction time as it is costly to run.
 ```python
 df_train = pd.read_csv('/kaggle/input/question-pairs-dataset/questions.csv')
 df_train = df_train[0:100]
