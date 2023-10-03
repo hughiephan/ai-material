@@ -50,5 +50,10 @@ Visualize ne_chunk:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
+## Optional
+```python
+!pip install svgling
+```
+
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
