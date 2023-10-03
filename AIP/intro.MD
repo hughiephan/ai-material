@@ -43,3 +43,6 @@ domain = Domain("my_domain",
 
 print(domain_to_string(domain))
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/9a3ac7fa-079f-4560-9156-d1c4eeba83c7)
+
