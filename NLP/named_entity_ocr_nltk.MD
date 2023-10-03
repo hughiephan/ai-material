@@ -37,6 +37,9 @@ for nltk_result in nltk_results:
         print (nltk_result.label(), ':', name)
 ```
 
+After Part-of-speech tagged:
+![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
 ## References
