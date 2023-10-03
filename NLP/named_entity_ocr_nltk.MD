@@ -45,6 +45,9 @@ for nltk_result in nltk_results:
 After Part-of-speech tagged:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
+Visualize ne_chunk:
+![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
 ## References
