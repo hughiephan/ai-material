@@ -2,10 +2,15 @@
 
 ## Step 1: Import libraries
 ```python
+!apt-get install tesseract-ocr
 import pytesseract
 import requests
 import io
 import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
 from PIL import Image
