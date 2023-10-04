@@ -14,7 +14,20 @@ from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
 ```
 
-## Step 2: Move Action
+## Step: Predicates
+```python
+predicates = [
+    Predicate("ROOM", x),
+    Predicate("BALL", x),
+    Predicate("GRIPPER", x),
+    Predicate("at-robby", x),
+    Predicate("at-robby", x, y),
+    Predicate("free", x),
+    Predicate("carry", x, y),
+]
+```
+
+## Step: Move Action
 ```python
 move = Action(
     "move",
@@ -54,6 +67,7 @@ requirements = [Requirements.TYPING]
 domain = Domain("ball_domain",
                 requirements=requirements,
                 types={"type_1": None},
+                predicates=predicates,
                 actions=[move,grip])
 print(domain_to_string(domain))
 ```
