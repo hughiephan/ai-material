@@ -27,16 +27,12 @@ response = requests.get('https://www.beginner-bookkeeping.com/images/Word_Receip
 img = Image.open(io.BytesIO(response.content))
 ```
 
-Output of `img`:
-
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
 ## Step 3: OCR process
 ```python
 text = pytesseract.image_to_string(img)
 ```
-
-Output of `text`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
@@ -46,8 +42,6 @@ tagged = pos_tag(word_tokenize(text))
 ```
 
 POS Tagging (Parts of Speech Tagging) is a process to mark up the words in text format for a particular part of a speech based on its definition and context. NLTK `pos_tag` is implemented using PerceptronTagger which uses the averaged, structured perceptron algorithm, you can read more about it here: https://explosion.ai/blog/part-of-speech-pos-tagger-in-python
-
-Output of `tagged`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
@@ -67,8 +61,6 @@ chunks = ne_chunk(tagged)
 
 Chunking in NLP is a process to take small pieces of information and group them into large units, `ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
 
-Output of the tree `chunks`:
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
 Example of a Tree from NLTK, you can read more here https://www.nltk.org/howto/tree.html :
@@ -84,8 +76,6 @@ for chunk in chunks:
             name += chunk_leaf[0] + ' '
         print(chunk.label(), ':', name)
 ```
-
-Prediction result:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
@@ -115,8 +105,6 @@ demo = gr.Interface(
 
 demo.queue().launch(share=True, debug=True)
 ```
-
-Interface of our demo:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/147c5546-b4a9-483f-9224-053dc0d2baa5)
 
