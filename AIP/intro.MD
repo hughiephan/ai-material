@@ -1,6 +1,6 @@
 # Introduction to AI Planning
 
-## Step: 
+## Step: Import libraries
 ```python
 !pip install git+https://github.com/AI-Planning/pddl.git
 from pddl.logic import Predicate, constants, variables
