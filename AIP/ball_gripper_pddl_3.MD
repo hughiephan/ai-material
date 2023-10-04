@@ -109,7 +109,7 @@ pickup = Action(
                & Predicate("at-robby", y)
                & Predicate("free", z),
     effect=Predicate("carry", z, x) 
-        & ~Predicate("at-robby", x, y)
+        & ~Predicate("at-ball", x, y)
         & ~Predicate("free", z),
 )
 ```
