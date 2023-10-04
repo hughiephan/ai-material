@@ -67,6 +67,16 @@ init = [
 ]
 ```
 
+## Step: Goal
+```python
+goal = [
+    Predicate("at-ball", ball1, roomb),
+    Predicate("at-ball", ball2, roomb),
+    Predicate("at-ball", ball3, roomb),
+    Predicate("at-ball", ball4, roomb),
+]
+```
+
 ## Step: Move Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
@@ -102,10 +112,14 @@ grip = Action(
 )
 ```
 
-## Step: Ball domain
+## Step: Requirement
 ```python
 requirements = [Requirements.TYPING]
-domain = Domain("ball_domain",
+```
+
+## Step: Ball domain
+```python
+domain = Domain("ball_gripper_domain",
                 requirements=requirements,
                 types={"type_1": None},
                 predicates=predicates,
@@ -118,14 +132,17 @@ print(domain_to_string(domain))
 ## Step: Ball problem
 ```python
 problem = Problem(
-    "problem-1",
+    "ball_gripper_domain_problem",
     domain=domain,
     requirements=requirements,
-    objects=objects
+    objects=objects,
+    init=init,
+    goal=goal,
 )
 print(problem_to_string(problem))
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/c37e1ef5-6f92-4820-8665-95e62e00bd0d)
 
 ## References
 - https://github.com/AI-Planning/pddl
