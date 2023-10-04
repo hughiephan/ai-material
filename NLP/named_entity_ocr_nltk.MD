@@ -20,8 +20,6 @@ from nltk.tree import Tree
 from PIL import Image
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/0f742c2e-a746-4362-a0df-8cb36dd1ccc6)
-
 ## Step 2: Import Image
 ```python
 def load_img(url):
@@ -74,6 +72,7 @@ def predict(img):
 
 ## Step 6: Make prediction
 ```python
+img = 
 predict(img)
 ```
 
