@@ -1,4 +1,4 @@
-# Build Ball Gripper with PDDL 3.1 Lirabry
+# Ball Gripper with PDDL 3.1 Lirabry
 
 There is a robot that can move between two rooms and pick up or drop balls with either of
 his two arms. Initially, all balls and the robot are in the first room. We want the balls to be in
@@ -135,7 +135,7 @@ drop = Action(
 requirements = [Requirements.TYPING]
 ```
 
-## Step: Ball domain
+## Step: Ball gripper domain
 ```python
 domain = Domain("ball_gripper_domain",
                 requirements=requirements,
@@ -145,12 +145,12 @@ domain = Domain("ball_gripper_domain",
 print(domain_to_string(domain))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/723ca674-28c7-4609-bedc-97001bcaeb2d)
+![image](https://github.com/hughiephan/DPL/assets/16631121/51ba941c-4f8e-44eb-9deb-3889fb5810bd)
 
-## Step: Ball problem
+## Step: Ball gripper problem
 ```python
 problem = Problem(
-    "ball_gripper_domain_problem",
+    "ball_gripper_problem",
     domain=domain,
     requirements=requirements,
     objects=objects,
@@ -160,7 +160,7 @@ problem = Problem(
 print(problem_to_string(problem))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/c37e1ef5-6f92-4820-8665-95e62e00bd0d)
+![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
 
 ## References
 - https://github.com/AI-Planning/pddl
