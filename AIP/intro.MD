@@ -22,6 +22,13 @@ Predicates are properties of objects that we are interested in; can be true or f
 p1 = Predicate("p1", x, y, z)
 p2 = Predicate("p2", x, y)
 ```
+
+Our predicates:
+- Is x = `p1`? 
+- Is x = `p2`? 
+- Is x of `type_1` ? 
+- Is y of `type_1` ? 
+- Is z of `type_1` ?
  
 ## Step: Actions
 ```python
@@ -44,10 +51,6 @@ domain = Domain("my_domain",
                 actions=[a1])
 print(domain_to_string(domain))
 ```
-
-Is x a `p1`? Is x of `type_1` ? Is z of `type_1`
-
-Is x a `p2`? Is y of `type_1` ? 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a3ac7fa-079f-4560-9156-d1c4eeba83c7)
 
