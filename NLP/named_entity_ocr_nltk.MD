@@ -46,6 +46,8 @@ tagged = pos_tag(word_tokenize(text))
 chunks = ne_chunk(tagged)
 ```
 
+`ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
+
 Output of `tagged`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
@@ -59,7 +61,7 @@ List of 35 POS Tags https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunk
 - `VBN` is Verb, Past Participle. Examples: Taken, Given, Gone
 - `VBD` is Verb, Past Tense. Examples: Jumped, Ate, Played 
 
-Output of `chunks`:
+Output of the tree `chunks`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
