@@ -7,6 +7,7 @@
 !apt-get install tesseract-ocr
 !pip install pytesseract
 !pip install gradio
+!pip install svgling
 import pytesseract
 import requests
 import io
@@ -22,46 +23,55 @@ from PIL import Image
 
 ## Step 2: Import Image
 ```python
-def load_img(url):
-    response = requests.get(url)
-    img = Image.open(io.BytesIO(response.content))
+response = requests.get('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
+img = Image.open(io.BytesIO(response.content))
 ```
 
-Output of `load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')`:
+Output of `img`:
 
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
-## Step 3: OCR process
+## Step 3: OCR Process
 ```python
-def ocr(img):
-    return pytesseract.image_to_string(img)
+text = pytesseract.image_to_string(img)
 ```
 
-Output of `ocr` function:
+Output of `text`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
-## Step 4:
+## Step 4: Named Entity Tagging
 ```python
-def named_entity_chunk(text):
-    tagged = pos_tag(word_tokenize(text))
-    chunks = ne_chunk(tagged)
-    return chunks
+tagged = pos_tag(word_tokenize(text))
+chunks = ne_chunk(tagged)
 ```
 
-Output of `pos_tag(word_tokenize(text)`:
+Output of `tagged`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
-Output of `ne_chunk(tagged)`:
+Output of `chunks`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
-## Step 5: Put everything together
+## Step 5: Results
+```python
+for chunk in chunks:
+    name = ''
+    if type(chunk) == Tree:
+        for chunk_leaf in chunk.leaves():
+            name += chunk_leaf[0] + ' '
+        print(chunk.label(), ':', name)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
+
+## Step 6: Put everything together
 ```python
 def predict(img):
-    text = load_img(img)
-    chunks = ocr(text)
+    text = pytesseract.image_to_string(img)
+    tagged = pos_tag(word_tokenize(sent))
+    chunks = ne_chunk(tagged)
     result = []
     for chunk in chunks:
         name = ''
@@ -71,14 +81,6 @@ def predict(img):
             result.append([chunk.label(), name])
     return result
 ```
-
-## Step 6: Make prediction
-```python
-img = load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
-predict(img)
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
 ## Step 7: Build demo
 ```python
@@ -93,11 +95,6 @@ demo.queue().launch(share=True, debug=True)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/147c5546-b4a9-483f-9224-053dc0d2baa5)
-
-## Optional
-```python
-!pip install svgling
-```
 
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
