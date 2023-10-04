@@ -56,11 +56,6 @@ print(domain_to_string(domain))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a3ac7fa-079f-4560-9156-d1c4eeba83c7)
 
-Format of Domain:
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/67cdde16-1c8f-4c68-9817-8edb5570f6a9)
-
-
 ## References
 - https://github.com/AI-Planning/pddl
 - https://www.cs.toronto.edu/~sheila/2542/s14/A1/introtopddl2.pdf
