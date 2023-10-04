@@ -17,7 +17,7 @@ from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
 ```
 
-## Step: Objects
+## Step 2: Objects
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
 
@@ -30,7 +30,7 @@ objects = [
 ]
 ```
 
-## Step: Predicates
+## Step 3: Predicates
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af7f54d8-64ef-4d83-a197-4ad1b1db63c5)
 
@@ -46,7 +46,7 @@ predicates = [
 ]
 ```
 
-## Step: Initial State
+## Step 4: Initial State
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6fd7aa56-2651-496b-b0bb-0bf24a97865d)
 
 ```python
@@ -69,7 +69,7 @@ init = [
 ]
 ```
 
-## Step: Goal specification
+## Step 5: Goal specification
 ```python
 goal = [
     Predicate("at-ball", ball1, roomb),
@@ -79,7 +79,7 @@ goal = [
 ]
 ```
 
-## Step: Move Action
+## Step 6: Move Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
 
@@ -95,7 +95,7 @@ move = Action(
 )
 ```
 
-## Step: Pickup Action
+## Step 7: Pickup Action
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ed7adf6b-a649-472b-b444-87ec3246731f)
 
 ```python
@@ -114,7 +114,7 @@ pickup = Action(
 )
 ```
 
-## Step: Drop Action
+## Step 8: Drop Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/21989be2-981a-4579-8307-1c2e5662ae59)
 
@@ -133,12 +133,12 @@ drop = Action(
 )
 ```
 
-## Step: Requirement
+## Step 9: Requirement
 ```python
 requirements = [Requirements.TYPING]
 ```
 
-## Step: Ball gripper domain
+## Step 10: Ball gripper domain
 ```python
 domain = Domain("ball_gripper_domain",
                 requirements=requirements,
@@ -150,7 +150,7 @@ print(domain_to_string(domain))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/51ba941c-4f8e-44eb-9deb-3889fb5810bd)
 
-## Step: Ball gripper problem
+## Step 11: Ball gripper problem
 ```python
 problem = Problem(
     "ball_gripper_problem",
