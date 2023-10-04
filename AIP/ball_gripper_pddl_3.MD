@@ -115,6 +115,9 @@ pickup = Action(
 ```
 
 ## Step: Drop Action
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/21989be2-981a-4579-8307-1c2e5662ae59)
+
 ```python
 drop = Action(
     "drop",
