@@ -21,7 +21,7 @@ from nltk.tree import Tree
 from PIL import Image
 ```
 
-## Step 2: Import Image
+## Step 2: Import image
 ```python
 response = requests.get('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
 img = Image.open(io.BytesIO(response.content))
@@ -31,7 +31,7 @@ Output of `img`:
 
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
-## Step 3: OCR Process
+## Step 3: OCR process
 ```python
 text = pytesseract.image_to_string(img)
 ```
@@ -40,7 +40,7 @@ Output of `text`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
-## Step 4: Named Entity Tagging
+## Step 4: Named-entity tagging
 ```python
 tagged = pos_tag(word_tokenize(text))
 chunks = ne_chunk(tagged)
@@ -54,7 +54,7 @@ Output of `chunks`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
-## Step 5: Results
+## Step 5: Result
 ```python
 for chunk in chunks:
     name = ''
@@ -64,11 +64,11 @@ for chunk in chunks:
         print(chunk.label(), ':', name)
 ```
 
-Results:
+Prediction result:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
-## Step 6: Put everything together
+## Step 6: Build demo
 ```python
 def predict(img):
     text = pytesseract.image_to_string(img)
@@ -82,10 +82,7 @@ def predict(img):
                 name += chunk_leaf[0] + ' '
             result.append([chunk.label(), name])
     return result
-```
 
-## Step 7: Build demo
-```python
 demo = gr.Interface(
     fn=predict,
     inputs=gr.inputs.Image(type="pil"),
