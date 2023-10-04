@@ -166,5 +166,5 @@ print(problem_to_string(problem))
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
 
 ## References
-- https://github.com/AI-Planning/pddl
-- https://www.cs.toronto.edu/~sheila/2542/s14/A1/introtopddl2.pdf
+- PDDL Python Library from AI-Planning 
+- Malte Helmert from Computer Science Unversity of Toronto (An Introduction to PDDL)
