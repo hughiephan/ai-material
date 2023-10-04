@@ -165,6 +165,11 @@ print(problem_to_string(problem))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
 
+## Step 12: Solve
+Try to solve with https://editor.planning.domains
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/64dd5a2f-8e06-41ce-91ef-578c8c18bbe6)
+
 ## References
 - PDDL Python Library from AI-Planning 
 - Malte Helmert from Computer Science Unversity of Toronto (An Introduction to PDDL)
