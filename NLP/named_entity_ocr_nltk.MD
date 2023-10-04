@@ -37,11 +37,12 @@ text = pytesseract.image_to_string(img)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
 ## Step 4: Named-entity tagging
+
+POS Tagging (Parts of Speech Tagging) is a process to mark up the words in text format for a particular part of a speech based on its definition and context. NLTK `pos_tag` is implemented using PerceptronTagger which uses the averaged, structured perceptron algorithm, you can read more about it here: https://explosion.ai/blog/part-of-speech-pos-tagger-in-python
+
 ```python
 tagged = pos_tag(word_tokenize(text))
 ```
-
-POS Tagging (Parts of Speech Tagging) is a process to mark up the words in text format for a particular part of a speech based on its definition and context. NLTK `pos_tag` is implemented using PerceptronTagger which uses the averaged, structured perceptron algorithm, you can read more about it here: https://explosion.ai/blog/part-of-speech-pos-tagger-in-python
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
@@ -54,12 +55,13 @@ List of 35 POS Tags https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunk
 - `VBN` is Verb, Past Participle. Examples: Taken, Given, Gone
 - `VBD` is Verb, Past Tense. Examples: Jumped, Ate, Played 
 
-## Step 4: Chunking
+## Step 5: Chunking
+
+Chunking in NLP is a process to take small pieces of information and group them into large units, `ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
+
 ```python
 chunks = ne_chunk(tagged)
 ```
-
-Chunking in NLP is a process to take small pieces of information and group them into large units, `ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
@@ -67,7 +69,7 @@ Example of a Tree from NLTK, you can read more here https://www.nltk.org/howto/t
 
 ![Untitled](https://github.com/hughiephan/DPL/assets/16631121/6bf09d37-a42b-4787-a056-865664979db3)
 
-## Step 5: Result
+## Step 6: Result
 ```python
 for chunk in chunks:
     name = ''
@@ -79,7 +81,7 @@ for chunk in chunks:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
-## Step 6: Build demo
+## Step 7: Build demo
 If you want to build an interface with Gradio, it works best on Jupyter or Google Colab Notebook. Kaggle Notebook often gets timed out when running Gradio.
 
 ```python
@@ -100,7 +102,7 @@ demo = gr.Interface(
     fn=predict,
     inputs=gr.inputs.Image(type="pil"),
     outputs=["text"],
-    title="Named Entity Recognition with Pytesseract OCR and ",
+    title="Named Entity Recognition with Pytesseract OCR and NLTK",
 )
 
 demo.queue().launch(share=True, debug=True)
