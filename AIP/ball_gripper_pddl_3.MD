@@ -95,12 +95,12 @@ move = Action(
 )
 ```
 
-## Step: Grip Action
+## Step: Pickup Action
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ed7adf6b-a649-472b-b444-87ec3246731f)
 
 ```python
-grip = Action(
-    "grip",
+pickup = Action(
+    "pickup",
     parameters=[x, y, z],
     precondition=Predicate("BALL", x) 
                & Predicate("ROOM", y) 
@@ -111,6 +111,22 @@ grip = Action(
     effect=Predicate("carry", z, x) 
         & ~Predicate("at-robby", x, y)
         & ~Predicate("free", z),
+)
+```
+
+## Step: Drop Action
+```python
+drop = Action(
+    "drop",
+    parameters=[x, y, z],
+    precondition=Predicate("BALL", x)
+               & Predicate("ROOM", y) 
+               & Predicate("GRIPPER", z)
+               & Predicate("carry", z, x)
+               & Predicate("at-robby", y),
+    effect=Predicate("at-ball", x, y) 
+        & Predicate("free", z)
+        & ~Predicate("carry", z, x),
 )
 ```
 
@@ -125,7 +141,7 @@ domain = Domain("ball_gripper_domain",
                 requirements=requirements,
                 types={"type_1": None},
                 predicates=predicates,
-                actions=[move,grip])
+                actions=[move,pickup,drop])
 print(domain_to_string(domain))
 ```
 
