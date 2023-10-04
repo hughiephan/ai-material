@@ -108,3 +108,4 @@ demo.queue().launch(share=True, debug=True)
 
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
+- https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunking-with-nltk
