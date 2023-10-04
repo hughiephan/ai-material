@@ -50,6 +50,15 @@ Output of `tagged`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
+List of 35 POS Tags https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunking-with-nltk, here's a few examples:
+- `NN` is Noun, Singular. Examples: School, Table, Pen
+- `NNP` is Proper Noun, Singular. Example: Monday, Chicago, Mark
+- `CD` is Cardinal Digit. Example: One, Two, Three, Forty
+- `IN` is Subordinating Conjunction or Preposition. Examples: Over, Behind, Into
+- `JJ` is Adjective. Examples: Beautiful, Slow, New
+- `VBN` is Verb, Past Participle. Examples: Taken, Given, Gone
+- `VBD` is Verb, Past Tense. Examples: Jumped, Ate, Played 
+
 Output of `chunks`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
