@@ -1,8 +1,12 @@
 # Named Entity Recognition with Pytesseract OCR and NLTK NER
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/c38d4f8d-3a9c-423d-a05c-a4b82c4dec12)
+
 ## Step 1: Import libraries
 ```python
 !apt-get install tesseract-ocr
+!pip install pytesseract
+!pip install gradio
 import pytesseract
 import requests
 import io
@@ -16,25 +20,33 @@ from nltk.tree import Tree
 from PIL import Image
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/0f742c2e-a746-4362-a0df-8cb36dd1ccc6)
+
 ## Step 2: Import Image
 ```python
-response = requests.get('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
-img = Image.open(io.BytesIO(response.content))
+def load_img(url):
+    response = requests.get(url)
+    img = Image.open(io.BytesIO(response.content))
+
+img = load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
 ```
 
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
 ## Step 3: OCR process
 ```python
-sent = pytesseract.image_to_string(img)
+def ocr(img):
+    return pytesseract.image_to_string(img)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
 ## Step 4:
 ```python
-tagged = pos_tag(word_tokenize(sent))
-chunks = ne_chunk(tagged)
+def named_entity_chunk:
+    tagged = pos_tag(word_tokenize(sent))
+    chunks = ne_chunk(tagged)
+    return chunks
 ```
 
 Part-of-speech Tagged:
@@ -45,17 +57,41 @@ Named Entity Chunk:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
-## Step 5: NER process
+## Step 5: Put everything together
 ```python
-
-for chunk in chunks:
-    if type(chunk) == Tree:
+def predict(img):
+    text = load_img(img)
+    chunks = ocr(text)
+    result = []
+    for chunk in chunks:
         name = ''
-        for chunk_leaf in chunk.leaves():
-            name += chunk_leaf[0] + ' '
-        print (chunk.label(), ':', name)
+        if type(chunk) == Tree:
+            for chunk_leaf in chunk.leaves():
+                name += chunk_leaf[0] + ' '
+            result.append([chunk.label(), name])
+    return result
 ```
+
+## Step 6: Make prediction
+```python
+predict(img)
+```
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
+
+## Step 7: Build demo
+```python
+demo = gr.Interface(
+    fn=predict,
+    inputs=gr.inputs.Image(type="pil"),
+    outputs=["text"],
+    title="Named Entity Recognition with Pytesseract OCR and ",
+)
+
+demo.queue().launch(share=True, debug=True)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/147c5546-b4a9-483f-9224-053dc0d2baa5)
 
 ## Optional
 ```python
