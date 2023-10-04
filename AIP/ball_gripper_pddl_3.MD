@@ -31,6 +31,19 @@ predicates = [
 ]
 ```
 
+## Step: Objects
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
+
+```python
+rooma, roomb, ball1, ball2, ball3, ball4, left, right = constants("rooma roomb ball1 ball2 ball3 ball4 left right")
+objects = [
+    rooma, roomb,
+    ball1, ball2, ball3, ball4,
+    left, right,
+]
+```
+
 ## Step: Move Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
@@ -66,8 +79,7 @@ grip = Action(
 )
 ```
 
-## Step: Our domain
-
+## Step: Ball domain
 ```python
 requirements = [Requirements.TYPING]
 domain = Domain("ball_domain",
@@ -76,6 +88,17 @@ domain = Domain("ball_domain",
                 predicates=predicates,
                 actions=[move,grip])
 print(domain_to_string(domain))
+```
+
+## Step: Ball problem
+```python
+problem = Problem(
+    "problem-1",
+    domain=domain,
+    requirements=requirements,
+    objects=objects
+)
+print(problem_to_string(problem))
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/723ca674-28c7-4609-bedc-97001bcaeb2d)
