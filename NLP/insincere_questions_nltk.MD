@@ -79,6 +79,8 @@ predict("How did Quebec nationalists see their province as a nation in the 1960s
 ```
 
 ## Step 7: Build a demo
+If you want to build an interface with Gradio, it works best on Jupyter or Google Colab Notebook. Kaggle Notebook often gets timed out when running Gradio.
+
 ```python
 demo = gr.Interface(
     fn=predict,
