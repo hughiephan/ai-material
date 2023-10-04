@@ -4,6 +4,8 @@ There is a robot that can move between two rooms and pick up or drop balls with 
 his two arms. Initially, all balls and the robot are in the first room. We want the balls to be in
 the second room.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/db79dd5d-ff74-4c28-a222-174f23fd0a50)
+
 ## Step 1: Import libraries
 
 ```python
@@ -13,6 +15,19 @@ from pddl.core import Domain, Problem
 from pddl.action import Action
 from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
+```
+
+## Step: Objects
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
+
+```python
+rooma, roomb, ball1, ball2, ball3, ball4, left, right = constants("rooma roomb ball1 ball2 ball3 ball4 left right")
+objects = [
+    rooma, roomb,
+    ball1, ball2, ball3, ball4,
+    left, right,
+]
 ```
 
 ## Step: Predicates
@@ -31,20 +46,7 @@ predicates = [
 ]
 ```
 
-## Step: Objects
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
-
-```python
-rooma, roomb, ball1, ball2, ball3, ball4, left, right = constants("rooma roomb ball1 ball2 ball3 ball4 left right")
-objects = [
-    rooma, roomb,
-    ball1, ball2, ball3, ball4,
-    left, right,
-]
-```
-
-## Step: Init
+## Step: Initial State
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6fd7aa56-2651-496b-b0bb-0bf24a97865d)
 
 ```python
@@ -67,7 +69,7 @@ init = [
 ]
 ```
 
-## Step: Goal
+## Step: Goal specification
 ```python
 goal = [
     Predicate("at-ball", ball1, roomb),
