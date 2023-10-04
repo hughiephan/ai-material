@@ -45,6 +45,10 @@ domain = Domain("my_domain",
 print(domain_to_string(domain))
 ```
 
+Is x a `p1`? Is x of `type_1` ? Is z of `type_1`
+
+Is x a `p2`? Is y of `type_1` ? 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a3ac7fa-079f-4560-9156-d1c4eeba83c7)
 
 Format of Domain:
