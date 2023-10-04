@@ -25,35 +25,33 @@ from PIL import Image
 def load_img(url):
     response = requests.get(url)
     img = Image.open(io.BytesIO(response.content))
-
-img = load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
 ```
 
+Output of `load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')`:
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
 ## Step 3: OCR process
 ```python
 def ocr(img):
     return pytesseract.image_to_string(img)
-
-ocr(img)
 ```
 
+Output of `ocr` function:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
 ## Step 4:
 ```python
-def named_entity_chunk:
-    tagged = pos_tag(word_tokenize(sent))
+def named_entity_chunk(text):
+    tagged = pos_tag(word_tokenize(text))
     chunks = ne_chunk(tagged)
     return chunks
 ```
 
-Part-of-speech Tagged:
+Output of `pos_tag(word_tokenize(text)`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c15286e9-2218-4bbe-9475-d477cc94cabd)
 
-Named Entity Chunk:
+Output of `ne_chunk(tagged)`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
@@ -74,7 +72,7 @@ def predict(img):
 
 ## Step 6: Make prediction
 ```python
-img = 
+img = load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')
 predict(img)
 ```
 
