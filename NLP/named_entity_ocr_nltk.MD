@@ -116,6 +116,8 @@ demo = gr.Interface(
 demo.queue().launch(share=True, debug=True)
 ```
 
+Interface of our demo:
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/147c5546-b4a9-483f-9224-053dc0d2baa5)
 
 ## References
