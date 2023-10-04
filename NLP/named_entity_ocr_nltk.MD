@@ -43,10 +43,9 @@ Output of `text`:
 ## Step 4: Named-entity tagging
 ```python
 tagged = pos_tag(word_tokenize(text))
-chunks = ne_chunk(tagged)
 ```
 
-`ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
+POS Tagging (Parts of Speech Tagging) is a process to mark up the words in text format for a particular part of a speech based on its definition and context. NLTK `pos_tag` is implemented using PerceptronTagger which uses the averaged, structured perceptron algorithm, you can read more about it here: https://explosion.ai/blog/part-of-speech-pos-tagger-in-python
 
 Output of `tagged`:
 
@@ -60,6 +59,13 @@ List of 35 POS Tags https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunk
 - `JJ` is Adjective. Examples: Beautiful, Slow, New
 - `VBN` is Verb, Past Participle. Examples: Taken, Given, Gone
 - `VBD` is Verb, Past Tense. Examples: Jumped, Ate, Played 
+
+## Step 4: Chunking
+```python
+chunks = ne_chunk(tagged)
+```
+
+Chunking in NLP is a process to take small pieces of information and group them into large units, `ne_chunk()` function takes a list of POS-tagged tokens and returns a tree of named entities
 
 Output of the tree `chunks`:
 
@@ -116,3 +122,5 @@ demo.queue().launch(share=True, debug=True)
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
 - https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunking-with-nltk
 - https://www.nltk.org/howto/tree.html
+- https://stackoverflow.com/questions/32016545/how-does-nltk-pos-tag-work
+- https://explosion.ai/blog/part-of-speech-pos-tagger-in-python
