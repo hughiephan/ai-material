@@ -58,7 +58,7 @@ domain = Domain("ball_domain",
 print(domain_to_string(domain))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/9db4c287-08fc-46d3-aa8f-cab489ea00e6)
+![image](https://github.com/hughiephan/DPL/assets/16631121/723ca674-28c7-4609-bedc-97001bcaeb2d)
 
 ## References
 - https://github.com/AI-Planning/pddl
