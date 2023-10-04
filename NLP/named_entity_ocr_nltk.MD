@@ -69,6 +69,8 @@ Prediction result:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/390f5831-94b6-43ad-baba-24f95aa2b4d4)
 
 ## Step 6: Build demo
+If you want to build an interface with Gradio, it works best on Jupyter or Google Colab Notebook. Kaggle Notebook often gets timed out when running Gradio.
+
 ```python
 def predict(img):
     text = pytesseract.image_to_string(img)
