@@ -28,6 +28,7 @@ def load_img(url):
 ```
 
 Output of `load_img('https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg')`:
+
 ![image](https://www.beginner-bookkeeping.com/images/Word_Receipt_Example.jpg)
 
 ## Step 3: OCR process
@@ -37,6 +38,7 @@ def ocr(img):
 ```
 
 Output of `ocr` function:
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87894933-7f89-4691-b30f-831278e0bff6)
 
 ## Step 4:
