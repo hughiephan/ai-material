@@ -17,7 +17,12 @@ from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
 ```
 
-## Step 2: Objects
+## Step 2: Variables
+```python
+x, y, z = variables("x y z")
+```
+
+## Step 3: Objects
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
 
@@ -30,7 +35,7 @@ objects = [
 ]
 ```
 
-## Step 3: Predicates
+## Step 4: Predicates
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af7f54d8-64ef-4d83-a197-4ad1b1db63c5)
 
@@ -46,7 +51,7 @@ predicates = [
 ]
 ```
 
-## Step 4: Initial State
+## Step 5: Initial State
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6fd7aa56-2651-496b-b0bb-0bf24a97865d)
 
 ```python
@@ -69,7 +74,7 @@ init = [
 ]
 ```
 
-## Step 5: Goal specification
+## Step 6: Goal specification
 ```python
 goal = [
     Predicate("at-ball", ball1, roomb),
@@ -79,7 +84,7 @@ goal = [
 ]
 ```
 
-## Step 6: Move Action
+## Step 7: Move Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
 
@@ -95,7 +100,7 @@ move = Action(
 )
 ```
 
-## Step 7: Pickup Action
+## Step 8: Pickup Action
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ed7adf6b-a649-472b-b444-87ec3246731f)
 
 ```python
@@ -114,7 +119,7 @@ pickup = Action(
 )
 ```
 
-## Step 8: Drop Action
+## Step 9: Drop Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/21989be2-981a-4579-8307-1c2e5662ae59)
 
@@ -133,12 +138,12 @@ drop = Action(
 )
 ```
 
-## Step 9: Requirement
+## Step 10: Requirement
 ```python
 requirements = [Requirements.TYPING]
 ```
 
-## Step 10: Ball gripper domain
+## Step 11: Ball gripper domain
 ```python
 domain = Domain("ball_gripper_domain",
                 requirements=requirements,
@@ -150,7 +155,7 @@ print(domain_to_string(domain))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/51ba941c-4f8e-44eb-9deb-3889fb5810bd)
 
-## Step 11: Ball gripper problem
+## Step 12: Ball gripper problem
 ```python
 problem = Problem(
     "ball_gripper_problem",
@@ -165,7 +170,7 @@ print(problem_to_string(problem))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
 
-## Step 12: Solve
+## Step 13: Solve
 Try to solve with https://editor.planning.domains
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/64dd5a2f-8e06-41ce-91ef-578c8c18bbe6)
