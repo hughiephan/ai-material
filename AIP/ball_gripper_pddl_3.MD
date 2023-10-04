@@ -5,6 +5,7 @@ his two arms. Initially, all balls and the robot are in the first room. We want 
 the second room.
 
 ## Step 1: Import libraries
+
 ```python
 !pip install git+https://github.com/AI-Planning/pddl.git
 from pddl.logic import Predicate, constants, variables
@@ -15,6 +16,9 @@ from pddl.requirements import Requirements
 ```
 
 ## Step: Predicates
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/af7f54d8-64ef-4d83-a197-4ad1b1db63c5)
+
 ```python
 predicates = [
     Predicate("ROOM", x),
@@ -28,6 +32,9 @@ predicates = [
 ```
 
 ## Step: Move Action
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
+
 ```python
 move = Action(
     "move",
@@ -39,9 +46,10 @@ move = Action(
         & ~Predicate("at-robby", x)
 )
 ```
-![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
 
 ## Step: Grip Action
+![image](https://github.com/hughiephan/DPL/assets/16631121/ed7adf6b-a649-472b-b444-87ec3246731f)
+
 ```python
 grip = Action(
     "grip",
@@ -58,10 +66,8 @@ grip = Action(
 )
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/ed7adf6b-a649-472b-b444-87ec3246731f)
-
-
 ## Step: Our domain
+
 ```python
 requirements = [Requirements.TYPING]
 domain = Domain("ball_domain",
