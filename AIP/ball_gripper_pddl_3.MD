@@ -44,6 +44,29 @@ objects = [
 ]
 ```
 
+## Step: Init
+![image](https://github.com/hughiephan/DPL/assets/16631121/6fd7aa56-2651-496b-b0bb-0bf24a97865d)
+
+```python
+init = [
+    Predicate("ROOM", rooma),
+    Predicate("ROOM", roomb),
+    Predicate("BALL", ball1),
+    Predicate("BALL", ball2),
+    Predicate("BALL", ball3),
+    Predicate("BALL", ball4),
+    Predicate("GRIPPER", left),
+    Predicate("GRIPPER", right),
+    Predicate("free", left),
+    Predicate("free", right),
+    Predicate("at-robby", rooma),
+    Predicate("at-ball", ball1, rooma),
+    Predicate("at-ball", ball2, rooma),
+    Predicate("at-ball", ball3, rooma),
+    Predicate("at-ball", ball4, rooma),
+]
+```
+
 ## Step: Move Action
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dffa40b4-e037-4d69-bf48-098c3567b11e)
