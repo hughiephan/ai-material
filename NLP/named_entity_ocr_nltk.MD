@@ -1,4 +1,4 @@
-# Named Entity Recognition with Pytesseract OCR and NLTK
+# Named Entity Recognition with Pytesseract OCR & NLTK
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c38d4f8d-3a9c-423d-a05c-a4b82c4dec12)
 
