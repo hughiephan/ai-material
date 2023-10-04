@@ -117,6 +117,8 @@ predict('What is the step by step guide to invest in share market in India?', 'W
 ```
 
 ## Step 7: Build a Demo
+If you want to build an interface with Gradio, it works best on Jupyter or Google Colab Notebook. Kaggle Notebook often gets timed out when running Gradio.
+
 ```python
 demo = gr.Interface(
     fn=predict,
