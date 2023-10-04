@@ -72,7 +72,7 @@ Prediction result:
 ```python
 def predict(img):
     text = pytesseract.image_to_string(img)
-    tagged = pos_tag(word_tokenize(sent))
+    tagged = pos_tag(word_tokenize(text))
     chunks = ne_chunk(tagged)
     result = []
     for chunk in chunks:
