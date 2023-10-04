@@ -40,7 +40,7 @@ predicates = [
     Predicate("BALL", x),
     Predicate("GRIPPER", x),
     Predicate("at-robby", x),
-    Predicate("at-robby", x, y),
+    Predicate("at-ball", x, y),
     Predicate("free", x),
     Predicate("carry", x, y),
 ]
