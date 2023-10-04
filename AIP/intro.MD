@@ -1,4 +1,4 @@
-# Introduction to AI Planning
+# Parsing with PDDL 3.1 Lirabry
 
 ## Step: Import libraries
 ```python
