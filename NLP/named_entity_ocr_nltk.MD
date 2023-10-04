@@ -63,6 +63,10 @@ Output of `chunks`:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a228482a-4208-4926-b97e-850a35e663df)
 
+Example of a Tree from NLTK, you can read more here https://www.nltk.org/howto/tree.html :
+
+![Untitled](https://github.com/hughiephan/DPL/assets/16631121/6bf09d37-a42b-4787-a056-865664979db3)
+
 ## Step 5: Result
 ```python
 for chunk in chunks:
@@ -109,3 +113,4 @@ demo.queue().launch(share=True, debug=True)
 ## References
 - https://stackoverflow.com/questions/20827741/nltk-naivebayesclassifier-training-for-sentiment-analysis
 - https://www.h2kinfosys.com/blog/part-of-speech-tagging-chunking-with-nltk
+- https://www.nltk.org/howto/tree.html
