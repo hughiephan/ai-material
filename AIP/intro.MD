@@ -39,6 +39,7 @@ a1 = Action(
     effect=p2(y, z)
 )
 ```
+Description: Our agent can do action-1. Precondition: p1(x, y, z) is true and p2(y,z) is not true. Effect: p2(y, z) becomes true and everything else doesn't change
 
 ## Step: Domain
 ```python
