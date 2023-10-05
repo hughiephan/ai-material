@@ -19,8 +19,10 @@ a, b, c = constants("a b c")
 ## Step 3: Predicates
 Predicates are properties of objects that we are interested in; can be true or false.
 ```python
-p1 = Predicate("p1", x, y, z)
-p2 = Predicate("p2", x, y)
+predicates = [
+    Predicate("p1", x, y, z),
+    Predicate("p2", x, y),
+]
 ```
 
 Our predicates:
@@ -76,6 +78,7 @@ problem = Problem(
     init=[p1(a, b, c), ~p2(b, c)],
     goal=p2(b, c)
 )
+print(problem_to_string(problem))
 ```
 
 Output of `problem_to_string(problem)`:
