@@ -53,11 +53,11 @@ domain = Domain("my_domain",
 print(domain_to_string(domain))
 ```
 
-Output of `domain_to_string(domain)`:
+Output of `domain_to_string(domain)`, but before we input this into solver, remove `(:types)` the line
 ```
 (define (domain my_domain)
     (:requirements :typing)
-    (:types)
+    (:types)     <----------- 
     (:constants a b c)
     (:predicates (p1 ?x ?y ?z)  (p2 ?x ?y))
     (:action action-1
