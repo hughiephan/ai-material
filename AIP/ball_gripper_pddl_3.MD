@@ -147,7 +147,29 @@ domain = Domain("ball_gripper_domain",
 print(domain_to_string(domain))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/51ba941c-4f8e-44eb-9deb-3889fb5810bd)
+Output of domain_to_string(domain), but before inputting into solver, we need to remove the line with `(:types)` because PDDL 3.1 Library does not support empty types.
+```
+(define (domain ball_gripper_domain)
+    (:types)    <------- Remove this before input into planner
+    (:constants ball1 ball2 ball3 ball4 left right rooma roomb)
+    (:predicates (BALL ?x)  (GRIPPER ?x)  (ROOM ?x)  (at-ball ?x ?y)  (at-robby ?x)  (carry ?x ?y)  (free ?x))
+    (:action drop
+        :parameters (?x ?y ?z)
+        :precondition (and (BALL ?x) (ROOM ?y) (GRIPPER ?z) (carry ?z ?x) (at-robby ?y))
+        :effect (and (at-ball ?x ?y) (free ?z) (not (carry ?z ?x)))
+    )
+     (:action move
+        :parameters (?x ?y)
+        :precondition (and (ROOM ?x) (ROOM ?y) (at-robby ?x))
+        :effect (and (at-robby ?y) (not (at-robby ?x)))
+    )
+     (:action pickup
+        :parameters (?x ?y ?z)
+        :precondition (and (BALL ?x) (ROOM ?y) (GRIPPER ?x) (at-ball ?x ?y) (at-robby ?y) (free ?z))
+        :effect (and (carry ?z ?x) (not (at-ball ?x ?y)) (not (free ?z)))
+    )
+)
+```
 
 ## Step 11: Ball gripper problem
 ```python
@@ -162,13 +184,29 @@ problem = Problem(
 print(problem_to_string(problem))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
+We need to make some adjustment to the problem `:goal`, because the PDDL 3.1 Library does not support multiple goals yet. Replace the first line with second line.
+```
+(:goal [Predicate(at-ball, ball1, roomb), Predicate(at-ball, ball2, roomb), Predicate(at-ball, ball3, roomb), Predicate(at-ball, ball4, roomb)])  
+
+(:goal (and (at-ball ball1 roomb) (at-ball ball2 roomb) (at-ball ball3 roomb) (at-ball ball4 roomb)))
+```
+
+Here is the final definition of our problem:
+```
+(define (problem ball_gripper_problem)
+    (:domain ball_gripper_domain)
+    (:objects ball1 ball2 ball3 ball4 left right rooma roomb)
+    (:init (BALL ball1) (BALL ball2) (BALL ball3) (BALL ball4) (GRIPPER left) (GRIPPER right) (ROOM rooma) (ROOM roomb) (at-ball ball1 rooma) (at-ball ball2 rooma) (at-ball ball3 rooma) (at-ball ball4 rooma) (at-robby rooma) (free left) (free right))
+    (:goal (and (at-ball ball1 roomb) (at-ball ball2 roomb) (at-ball ball3 roomb) (at-ball ball4 roomb)))
+)
+```
 
 ## Step 12: Solve
-Try to solve with https://editor.planning.domains
+Try to solve with https://editor.planning.domains . But the planner proved that it's impossible to reach the goal. "Simplified" means it didn't even need to search.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/64dd5a2f-8e06-41ce-91ef-578c8c18bbe6)
 
 ## References
 - PDDL Python Library from AI-Planning 
 - Malte Helmert from Computer Science Unversity of Toronto (An Introduction to PDDL)
+- https://stackoverflow.com/questions/74158344/exploration-program-goal-returning-as-false-not-sure-what-to-do-next
