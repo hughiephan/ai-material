@@ -143,6 +143,7 @@ drop = Action(
 domain = Domain("ball_gripper_domain",
                 requirements='',
                 predicates=predicates,
+                constants=objects,
                 actions=[move,pickup,drop])
 print(domain_to_string(domain))
 ```
@@ -184,11 +185,11 @@ problem = Problem(
 print(problem_to_string(problem))
 ```
 
-We need to make some adjustment to the problem `:goal`, because the PDDL 3.1 Library does not support multiple goals yet. Replace the first line with second line.
+We need to make some adjustment to the `:goal` of output problem, because the PDDL 3.1 Library does not support multiple goals yet. So, we have to replace the first line with second line.
 ```
-(:goal [Predicate(at-ball, ball1, roomb), Predicate(at-ball, ball2, roomb), Predicate(at-ball, ball3, roomb), Predicate(at-ball, ball4, roomb)])  
+(:goal [Predicate(at-ball, ball1, roomb), Predicate(at-ball, ball2, roomb), Predicate(at-ball, ball3, roomb), Predicate(at-ball, ball4, roomb)])       <--------- Replace this line...
 
-(:goal (and (at-ball ball1 roomb) (at-ball ball2 roomb) (at-ball ball3 roomb) (at-ball ball4 roomb)))
+(:goal (and (at-ball ball1 roomb) (at-ball ball2 roomb) (at-ball ball3 roomb) (at-ball ball4 roomb)))        <----- ...with this line.
 ```
 
 Here is the final definition of our problem:
