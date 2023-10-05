@@ -44,9 +44,8 @@ a1 = Action(
 
 ## Step: Domain
 ```python
-requirements = [Requirements.TYPING]
 domain = Domain("my_domain",
-                requirements=requirements,
+                requirements='',
                 constants=[a, b, c],
                 predicates=[p1, p2],
                 actions=[a1])
@@ -56,8 +55,7 @@ print(domain_to_string(domain))
 Output of `domain_to_string(domain)`, but before we input this into solver, remove `(:types)` the line
 ```
 (define (domain my_domain)
-    (:requirements :typing)
-    (:types)     <----------- 
+    (:types)    <------ Remove this before inputting into a planner.
     (:constants a b c)
     (:predicates (p1 ?x ?y ?z)  (p2 ?x ?y))
     (:action action-1
@@ -73,19 +71,17 @@ Output of `domain_to_string(domain)`, but before we input this into solver, remo
 problem = Problem(
     "problem-1",
     domain=domain,
-    requirements=requirements,
+    requirements='',
     objects=[a, b, c],
     init=[p1(a, b, c), ~p2(b, c)],
     goal=p2(b, c)
 )
-print(problem_to_string(problem))
 ```
 
 Output of `problem_to_string(problem)`:
 ```
 (define (problem problem-1)
     (:domain my_domain)
-    (:requirements :typing)
     (:objects a b c)
     (:init (not (p2 b c)) (p1 a b c))
     (:goal (p2 b c))
