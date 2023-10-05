@@ -10,13 +10,17 @@ from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
 ```
 
-## Step 2: Variables and constants
+## Step 2: Variables
 ```python
 x, y, z = variables("x y z")
+```
+
+## Step 3: Objects and constants
+```python
 a, b, c = constants("a b c")
 ```
 
-## Step 3: Predicates
+## Step 4: Predicates
 Predicates are properties of objects that we are interested in; can be true or false.
 ```python
 predicates = [
@@ -32,7 +36,7 @@ Our predicates:
 - Is y of `type_1` ? 
 - Is z of `type_1` ?
  
-## Step 4: Actions
+## Step 5: Actions
 Description: Our agent can do action-1. Precondition: p1(x, y, z) is true and p2(y,z) is not true. Effect: p2(y, z) becomes true and everything else doesn't change
 
 ```python
@@ -44,19 +48,19 @@ a1 = Action(
 )
 ```
 
-## Step 5: Domain
+## Step 6: Domain
 ```python
-domain = Domain("my_domain",
+domain = Domain("domain_1",
                 requirements='',
                 constants=[a, b, c],
-                predicates=[p1, p2],
+                predicates=predicates,
                 actions=[a1])
 print(domain_to_string(domain))
 ```
 
 Output of `domain_to_string(domain)`, but before we input this into solver, remove `(:types)` the line
 ```
-(define (domain my_domain)
+(define (domain domain_1)
     (:types)    <------ Remove this before inputting into a planner.
     (:constants a b c)
     (:predicates (p1 ?x ?y ?z)  (p2 ?x ?y))
@@ -68,30 +72,30 @@ Output of `domain_to_string(domain)`, but before we input this into solver, remo
 )
 ```
 
-## Step 6: Problem
+## Step 7: Problem
 ```python
 problem = Problem(
-    "problem-1",
+    "problem_1",
     domain=domain,
     requirements='',
     objects=[a, b, c],
-    init=[p1(a, b, c), ~p2(b, c)],
-    goal=p2(b, c)
+    init=[Predicate("p1", a, b, c), ~Predicate("p2", b, c)],
+    goal=Predicate("p2", b, c)
 )
 print(problem_to_string(problem))
 ```
 
 Output of `problem_to_string(problem)`:
 ```
-(define (problem problem-1)
-    (:domain my_domain)
+(define (problem problem_1)
+    (:domain domain_1)
     (:objects a b c)
     (:init (not (p2 b c)) (p1 a b c))
     (:goal (p2 b c))
 )
 ```
 
-## Step 7: Planning
+## Step 8: Planning
 Solve with https://editor.planning.domains
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/df1fa996-89b7-4063-a4f2-459fc9557fe9)
