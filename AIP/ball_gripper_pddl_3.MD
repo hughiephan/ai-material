@@ -138,7 +138,7 @@ drop = Action(
 )
 ```
 
-## Step 11: Ball gripper domain
+## Step 10: Ball gripper domain
 ```python
 domain = Domain("ball_gripper_domain",
                 requirements='',
@@ -149,7 +149,7 @@ print(domain_to_string(domain))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/51ba941c-4f8e-44eb-9deb-3889fb5810bd)
 
-## Step 12: Ball gripper problem
+## Step 11: Ball gripper problem
 ```python
 problem = Problem(
     "ball_gripper_problem",
@@ -164,7 +164,7 @@ print(problem_to_string(problem))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f8da2d5b-09ac-49d3-aafe-4719fa74ffe6)
 
-## Step 13: Solve
+## Step 12: Solve
 Try to solve with https://editor.planning.domains
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/64dd5a2f-8e06-41ce-91ef-578c8c18bbe6)
