@@ -12,8 +12,8 @@ from pddl.requirements import Requirements
 
 ## Step: Variables and constants
 ```python
-x, y, z = variables("x y z", types=["type_1"])
-a, b, c = constants("a b c", type_="type_1")
+x, y, z = variables("x y z")
+a, b, c = constants("a b c")
 ```
 
 ## Step: Predicates
@@ -44,10 +44,9 @@ a1 = Action(
 
 ## Step: Domain
 ```python
-requirements = [Requirements.STRIPS, Requirements.TYPING]
+requirements = [Requirements.TYPING]
 domain = Domain("my_domain",
                 requirements=requirements,
-                types={"type_1": None},
                 constants=[a, b, c],
                 predicates=[p1, p2],
                 actions=[a1])
@@ -57,12 +56,12 @@ print(domain_to_string(domain))
 Output of `domain_to_string(domain)`:
 ```
 (define (domain my_domain)
-    (:requirements :strips :typing)
-    (:types type_1)
-    (:constants a b c - type_1)
-    (:predicates (p1 ?x - type_1 ?y - type_1 ?z - type_1)  (p2 ?x - type_1 ?y - type_1))
+    (:requirements :typing)
+    (:types)
+    (:constants a b c)
+    (:predicates (p1 ?x ?y ?z)  (p2 ?x ?y))
     (:action action-1
-        :parameters (?x - type_1 ?y - type_1 ?z - type_1)
+        :parameters (?x ?y ?z)
         :precondition (and (p1 ?x ?y ?z) (not (p2 ?y ?z)))
         :effect (p2 ?y ?z)
     )
@@ -86,8 +85,8 @@ Output of `problem_to_string(problem)`:
 ```
 (define (problem problem-1)
     (:domain my_domain)
-    (:requirements :strips :typing)
-    (:objects a b c - type_1)
+    (:requirements :typing)
+    (:objects a b c)
     (:init (not (p2 b c)) (p1 a b c))
     (:goal (p2 b c))
 )
