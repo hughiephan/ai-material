@@ -1,6 +1,6 @@
-# Build PDDL Domain and Problem with PDDL 3.1 Lirabry
+# Solve problem with PDDL Editor and PDDL 3.1 Library
 
-## Step: Import libraries
+## Step 1: Import libraries
 ```python
 !pip install git+https://github.com/AI-Planning/pddl.git
 from pddl.logic import Predicate, constants, variables
@@ -10,13 +10,13 @@ from pddl.formatter import domain_to_string, problem_to_string
 from pddl.requirements import Requirements
 ```
 
-## Step: Variables and constants
+## Step 2: Variables and constants
 ```python
 x, y, z = variables("x y z")
 a, b, c = constants("a b c")
 ```
 
-## Step: Predicates
+## Step 3: Predicates
 Predicates are properties of objects that we are interested in; can be true or false.
 ```python
 p1 = Predicate("p1", x, y, z)
@@ -30,7 +30,7 @@ Our predicates:
 - Is y of `type_1` ? 
 - Is z of `type_1` ?
  
-## Step: Actions
+## Step 4: Actions
 Description: Our agent can do action-1. Precondition: p1(x, y, z) is true and p2(y,z) is not true. Effect: p2(y, z) becomes true and everything else doesn't change
 
 ```python
@@ -42,7 +42,7 @@ a1 = Action(
 )
 ```
 
-## Step: Domain
+## Step 5: Domain
 ```python
 domain = Domain("my_domain",
                 requirements='',
@@ -66,7 +66,7 @@ Output of `domain_to_string(domain)`, but before we input this into solver, remo
 )
 ```
 
-## Step: Problem
+## Step 6: Problem
 ```python
 problem = Problem(
     "problem-1",
@@ -88,7 +88,7 @@ Output of `problem_to_string(problem)`:
 )
 ```
 
-## Step: Planning
+## Step 7: Planning
 Solve with https://editor.planning.domains
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/df1fa996-89b7-4063-a4f2-459fc9557fe9)
