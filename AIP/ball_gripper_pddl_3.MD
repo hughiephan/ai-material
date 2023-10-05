@@ -22,17 +22,12 @@ from pddl.requirements import Requirements
 x, y, z = variables("x y z")
 ```
 
-## Step 3: Objects
+## Step 3: Objects and constants
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/16b95955-88ed-46c8-b79d-ec4903076a50)
 
 ```python
 rooma, roomb, ball1, ball2, ball3, ball4, left, right = constants("rooma roomb ball1 ball2 ball3 ball4 left right")
-objects = [
-    rooma, roomb,
-    ball1, ball2, ball3, ball4,
-    left, right,
-]
 ```
 
 ## Step 4: Predicates
@@ -143,7 +138,7 @@ drop = Action(
 domain = Domain("ball_gripper_domain",
                 requirements='',
                 predicates=predicates,
-                constants=objects,
+                constants=[rooma, roomb, ball1, ball2, ball3, ball4, left, right],
                 actions=[move,pickup,drop])
 print(domain_to_string(domain))
 ```
@@ -178,7 +173,7 @@ problem = Problem(
     "ball_gripper_problem",
     domain=domain,
     requirements='',
-    objects=objects,
+    objects=[rooma, roomb, ball1, ball2, ball3, ball4, left, right],
     init=init,
     goal=goal,
 )
