@@ -138,16 +138,10 @@ drop = Action(
 )
 ```
 
-## Step 10: Requirement
-```python
-requirements = [Requirements.TYPING]
-```
-
 ## Step 11: Ball gripper domain
 ```python
 domain = Domain("ball_gripper_domain",
-                requirements=requirements,
-                types={"type_1": None},
+                requirements='',
                 predicates=predicates,
                 actions=[move,pickup,drop])
 print(domain_to_string(domain))
@@ -160,7 +154,7 @@ print(domain_to_string(domain))
 problem = Problem(
     "ball_gripper_problem",
     domain=domain,
-    requirements=requirements,
+    requirements='',
     objects=objects,
     init=init,
     goal=goal,
