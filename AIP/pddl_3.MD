@@ -43,8 +43,8 @@ Description: Our agent can do action-1. Precondition: p1(x, y, z) is true and p2
 a1 = Action(
     "action-1",
     parameters=[x, y, z],
-    precondition=p1(x, y, z) & ~p2(y, z),
-    effect=p2(y, z)
+    precondition=Predicate("p1", x, y, z) & ~Predicate("p2", y, z),
+    effect=Predicate("p2", y, z)
 )
 ```
 
