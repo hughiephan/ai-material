@@ -77,8 +77,13 @@ cityShip(x,y,z):
       t3.3: unload,
 ```
 
-## Context Free Language
+## Problem
 
+## Solution / Plan
+
+## Executable Task Network
+
+## Task Insertion
 
 ## References
 - ...
