@@ -18,7 +18,7 @@ decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task networ
 
 Example: 
 ```
-cityShip(x,y,z):  <---- 
+cityShip(x,y,z):  
   compound_task_name: ship(x,y,z)
   task_network: 
     cityShip(x,y,z), 
