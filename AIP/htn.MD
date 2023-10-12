@@ -2,7 +2,7 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0638e801-18b9-48be-bc57-21c83fce09db)
 
-## Task Network Definition
+## Task Network
 
 $$
 tn=(T, \prec, \alpha)
