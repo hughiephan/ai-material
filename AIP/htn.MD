@@ -1,6 +1,6 @@
 # HTN
 
-## Step:
+## Task Network Definition
 
 $$
 \(tn=(T, \prec, \alpha)\)
