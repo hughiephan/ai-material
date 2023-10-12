@@ -1,5 +1,7 @@
 # HTN
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/0638e801-18b9-48be-bc57-21c83fce09db)
+
 ## Task Network Definition
 
 $$
@@ -8,12 +10,22 @@ $$
 
 Function alpha to map task id to task name
 
-Atask network $tn$ consists of a set of constraints $\prec$
+A task network $tn$ consists of a set of constraints $\prec$
 
+```
+task_network: 
+  tasks: 
+    cityShip(x,y,z), 
+    load,
+    drive,
+    unload,
+  precondition: 
+    isSafe(x),
+    hasGas(y),
+  
+```
 
 ## Method
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/91d734a2-18a2-4db5-9a9e-bff02fc2f361)
 
 Method $m = (n, tn_m)$ maps a compound task name n to a task network tn
 
