@@ -53,10 +53,28 @@ Example:
 cityShip(x,y,z):  
   compound_task_name: ship(x,y,z)
   task_network: 
-    cityShip(x,y,z), 
-    load,
-    drive,
-    unload,
+    tasks: 
+      t1, 
+      t1.1,
+      t1.2,
+      t1.3,
+    precondition: 
+      isSafe,
+      hasGas,
+    alpha:
+      t0: ship,
+      t1: cityShip,
+      t2: airShip,
+      t3: cityShip,
+      t1.1: load,
+      t1.2: drive,
+      t1.3: unload,
+      t2.1: load,
+      t2.2: fly,
+      t2.3: unload,
+      t3.1: load,
+      t3.2: drive,
+      t3.3: unload,
 ```
 
 ## Context Free Language
