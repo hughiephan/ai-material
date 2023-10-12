@@ -8,10 +8,12 @@ $$
 tn=(T, \prec, \alpha)
 $$
 
-Function alpha to map task id to task name
+A task network $tn$ consists of:
+- $T$: a finite and non-empty set of tasks
+- $\prec$: a set of constraints/preconditions
+- $\alpha$: a function to map task id to task name
 
-A task network $tn$ consists of a set of constraints $\prec$
-
+Example: 
 ```
 task_network: 
   tasks: 
