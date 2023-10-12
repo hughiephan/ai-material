@@ -13,6 +13,8 @@ A task network $tn$ consists of:
 - $\prec$: a set of constraints/preconditions
 - $\alpha$: a function to map task id to task name
 
+We need task ID because when we do recursive, the task name will be duplicated so we need the unique IDs for tasks.
+
 Example: 
 ```
 task_network: 
