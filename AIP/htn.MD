@@ -8,7 +8,7 @@ $$
 
 Function alpha to map task id to task name
 
-## Method for decomposition
+## Method
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/91d734a2-18a2-4db5-9a9e-bff02fc2f361)
 
