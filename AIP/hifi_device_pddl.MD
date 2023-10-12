@@ -16,6 +16,10 @@ cable, cableporta, cableportb, device, deviceport = constants("cable cableporta 
 x, y, z, w = variables("x y z w")
 
 predicates = [
+    Predicate("CABLE", x),
+    Predicate("CABLEPORT", x),
+    Predicate("DEVICE", x),
+    Predicate("DEVICEPORT", x),
     Predicate("free", x),
     Predicate("connected", x, y),
     Predicate("compatible", x, y),
@@ -34,13 +38,17 @@ init = [
 
 plugIn = Action(
     "plugIn",
-    parameters=[x, y],
-    precondition=Predicate("free", x) 
-               & Predicate("free", y)
-               & Predicate("compatible", x, y),
-    effect=Predicate("connected", x, y) 
-        & ~Predicate("free", x)
-        & ~Predicate("free", y),
+    parameters=[x, y, z, w],
+    precondition= Predicate("CABLE", x) 
+               & Predicate("CABLEPORT", y)
+               & Predicate("DEVICE", z) 
+               & Predicate("DEVICEPORT", w)
+               & Predicate("free", y) 
+               & Predicate("free", w)
+               & Predicate("compatible", y, w),
+    effect=Predicate("connected", y, w) 
+        & ~Predicate("free", y)
+        & ~Predicate("free", w),
 )
 
 domain = Domain("hifi_devices_domain",
