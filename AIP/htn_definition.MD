@@ -161,7 +161,7 @@ Example:
 - Set of facts: $F = \{x, \neg{x}\, y, \neg{y}, z, \neg{z}\}$
 - Set of primitive task names: $N_P = \{load, fly, drive, unload\}$
 - Set of compound task names: $N_P = \{ship, cityShip, airShip\}$
-- Set of 
+- Map actions to primitive task names: $\{(a1, load), (a2, fly), (a3, unload), (a4, load), (a5, drive), (a6, unload), (a7, load), (a8, drive), (a9, unload)\}@
 
 ## Problem
 3-tuple:  $(D, s_I, tn_I)$
