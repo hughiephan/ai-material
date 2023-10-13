@@ -105,8 +105,6 @@ task_network_initial:
 
 ## Method
 
-Method 4
-
 $$
 m = (n, tn_m)
 $$ 
