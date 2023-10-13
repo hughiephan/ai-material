@@ -51,22 +51,19 @@ task_network:
 
 ## Isomorphic
 
-For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
+Two task networks are isomorphic if they describe the same arrangement of task names despite using different identifiers. For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
 $$
 tn \cong \acute{tn}
 $$
 
-If any only if there exists a bijection $\sigma:T \rightarrow \acute{T}$
+If any only if there exists a bijection $\sigma:T \rightarrow \acute{T}$.
+W
+ith $t,\acute{t} in T$, it holds that $(t,\acute{t}) in \prec$ if and only if
 
-Same arrangement of task names (task ID can be different)
-
-Isomorphic of two task networks:
-
-Explanation:
+Explanation
+- 
 - Like Graph or Tree, there are a few applications when we are able compare two task networks. For example, if two task networks are isomorphic, it's going to be useful for predicting, prunning, detecting loop,...
-
-- Have the same attributes and order.
 
 Example: Two isomorphic task networks with the same task name `cityShip`
 ```
