@@ -1,5 +1,8 @@
 # Formal Definition of Hierarchical Task Network
 
+Consider an example in the logistics domain, suppose every task has only one method, and a decomposition tree is shown below. The initial task ship(pkg1, whA, shopB) is to ship a package from city A
+to city B and it has a method: to ship the package from the warehouse to the airport by truck, from city A to city B by plane and from the airport to the shop by truck. 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/39c3a93c-f814-42f2-9db0-8276a8f67d79)
 
 ## Task Network
@@ -151,7 +154,7 @@ task_network_2:
 
 
 ## Domain
-Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [2] where the problem and domain definitions are separated nicely.
+Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
 $$
 D = (F, N_P, N_C, \delta, M)
@@ -280,10 +283,13 @@ Solution
 
 ## Task Insertion
 
+In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/044ece9d-afa7-4bd4-ab5d-9fc809270e18)
 
 ## References
-- [1] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
-- [2] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
+- [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
+- [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
+- [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 
 
