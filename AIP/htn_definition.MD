@@ -2,7 +2,7 @@
 
 ## Decomposition Tree
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b6bd2d17-b45d-488a-93a2-4043aef444cd)
+![image](https://github.com/hughiephan/DPL/assets/16631121/39c3a93c-f814-42f2-9db0-8276a8f67d79)
 
 ## Task Network
 
