@@ -54,9 +54,7 @@ task_network:
 
 
 $$
-
 tn \cong \acute{tn}
-
 $$
 
 Isomorphic of two task networks:
