@@ -116,7 +116,7 @@ Method maps a compound task name to a task network.
 Method will decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task network $tn_2$  by replacing task t, written $tn_1 \xrightarrow[t,m]{} tn_2$, 
 
 Example: 
-We have a method for mapping a compound task name `ship(x,y,z`) to `task_network_1`
+We have a method for mapping a compound task name `ship(x,y,z)` to `task_network_1`
 ```
 method:
   compound_task_name: ship(x,y,z)
@@ -159,8 +159,13 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 - $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings (assign actions to primitive task names)
 
-- $M \subseteq C \times TN_{C\bigcup{O}}$: a finite set of decomposition methods
+- $M \subseteq C \times TN_{C\cup{O}}$: a finite set of decomposition methods
 
+$F = {x, 
+Example:
+```
+4
+```
 
 ## Problem
 3-tuple:  $(D, s_I, tn_I)$
