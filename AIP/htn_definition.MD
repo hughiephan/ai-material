@@ -85,6 +85,10 @@ cityShip(x,y,z):
 
 ## Problem
 
+### Classical Problem
+
+### HTN Problem
+
 ## Solution / Plan
 
 ## Executable Task Network
