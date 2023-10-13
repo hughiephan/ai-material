@@ -16,7 +16,7 @@ $$
 
 A task network $tn$ consists of:
 - $T$: a finite and non-empty set of tasks
-- $\prec$: a strict partial order on $T$(irreflexive, asymetric, and transitive). We can just call it as a set of ordering constraints/preconditions.
+- $\prec$: a strict partial order on $T$(irreflexive, asymetric, and transitive). We can just call it as a set of ordering constraints.
 - $\alpha$: a function to map task id to task name 
 
 Explanation:
