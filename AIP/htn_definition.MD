@@ -65,7 +65,7 @@ Explanation:
 
 - Have the same attributes and order.
 
-Example: Two isomorphic 
+Example: Two isomorphic task networks with the same task name `cityShip`
 ```
 task_network_1: 
   tasks: 
