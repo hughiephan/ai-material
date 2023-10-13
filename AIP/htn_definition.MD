@@ -85,9 +85,15 @@ cityShip(x,y,z):
 
 ## Problem
 
-### Classical Problem
+3-tuple:  $(D, s_I, tn_I)$
 
-### HTN Problem
+- $D$, HTN Domain
+
+- $s_I \in s^F$, initial state
+
+- $tn_I$, initial task network
+
+## Problem
 
 ## Solution / Plan
 
