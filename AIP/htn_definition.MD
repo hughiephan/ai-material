@@ -89,6 +89,8 @@ task_network_2:
 ```
 
 ## Initial Task Network
+![image](https://github.com/hughiephan/DPL/assets/16631121/37337703-dd25-4b60-a756-7117996b1879)
+
 $$
 tn_I := ({t_I}, \emptyset, {(t_I , n_I )})
 $$
