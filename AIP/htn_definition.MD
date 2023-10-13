@@ -145,7 +145,20 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 - $tn_I$: initial task network
 
-With $tn_I := ({t_I }, \emptyset, {(t_I , c_I )})$
+With $tn_I := ({t_I}, \emptyset, {(t_I , n_I )})$
+
+The initial task network which consists of the initial task $t_I$ mapping to the initial task name $n_I$
+
+
+Example: We create the initial task network with task ids, and alpha to map the task with task names. The precondition is an empty set.
+
+```
+task_network_initial: 
+  tasks: 
+    t0
+  alpha:
+    t0: ship
+```
 
 ## Solution / Plan
 
