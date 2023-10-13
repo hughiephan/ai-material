@@ -1,6 +1,6 @@
 # Formal Definition of Hierarchical Task Network
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/0638e801-18b9-48be-bc57-21c83fce09db)
+![image](https://github.com/hughiephan/DPL/assets/16631121/639dc0bc-e1e5-4fde-ba81-7d9d207dcba2)
 
 ## Task Network
 
