@@ -154,13 +154,14 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 - $F$: finite set of facts 
 - $N_P$: finite set of primitive task names with $N_P \cap N_C = \emptyset$
 - $N_C$: finite set of compound task names
-- $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings (assign actions to primitive task names)
+- $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings. It will assign actions to primitive task names.
 - $M \subseteq C \times TN_{C\cup{O}}$: a finite set of decomposition methods
 
 Example:
 - Set of facts: $F = \{x, \neg{x}\, y, \neg{y}, z, \neg{z}\}$
 - Set of primitive task names: $N_P = \{load, fly, drive, unload\}$
 - Set of compound task names: $N_P = \{ship, cityShip, airShip\}$
+- Set of 
 
 ## Problem
 3-tuple:  $(D, s_I, tn_I)$
