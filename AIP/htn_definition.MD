@@ -31,9 +31,8 @@ task_network:
     t1.1,
     t1.2,
     t1.3,
-  precondition: 
-    isSafe,
-    hasGas,
+  precondition:
+    hasFuel,
   alpha:
     t0: ship,
     t1: cityShip,
@@ -57,12 +56,37 @@ $$
 tn \cong \acute{tn}
 $$
 
+Same arrangement of task names (task ID can be different)
+
 Isomorphic of two task networks:
 
 Explanation:
-- Like Graph or Tree, there are a few applications when we are able compare two task networks. For example, if two task networks are isomorphic / identical, it's going to be useful for predicting, prunning, detecting loop,...
+- Like Graph or Tree, there are a few applications when we are able compare two task networks. For example, if two task networks are isomorphic, it's going to be useful for predicting, prunning, detecting loop,...
 
 - Have the same attributes and order.
+
+Example: Two isomorphic 
+```
+task_network_1: 
+  tasks: 
+    t0, 
+    t1,
+  precondition: 
+    hasFuel,
+  alpha:
+    t0: ship,
+    t1: cityShip,
+
+task_network_2: 
+  tasks: 
+    t0,
+    t3,
+  precondition: 
+    hasFuel,
+  alpha:
+    t0: ship,
+    t3: cityShip,
+```
 
 ## Method
 
@@ -81,8 +105,7 @@ cityShip(x,y,z):
       t1.2,
       t1.3,
     precondition: 
-      isSafe,
-      hasGas,
+      hasFuel,
     alpha:
       t0: ship,
       t1: cityShip,
