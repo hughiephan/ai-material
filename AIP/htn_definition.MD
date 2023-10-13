@@ -6,6 +6,8 @@
 
 ## Task Network
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/6212ed64-25a8-4828-a175-9d772dc1bf05)
+
 $$
 tn=(T, \prec, \alpha)
 $$
