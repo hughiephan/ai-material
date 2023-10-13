@@ -125,9 +125,10 @@ cityShip(x,y,z):
 ```
 
 ## Domain
+Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al[2] where the problem and domain definitions are separated nicely.
+
 
 ## Problem
-
 3-tuple:  $(D, s_I, tn_I)$
 
 - $D$: HTN Domain
@@ -144,4 +145,7 @@ cityShip(x,y,z):
 ## Task Insertion
 
 ## References
-- ...
+- [1] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
+- [2] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
+
+
