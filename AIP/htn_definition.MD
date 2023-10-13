@@ -1,7 +1,5 @@
 # Formal Definition of Hierarchical Task Network
 
-## Decomposition Tree
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/39c3a93c-f814-42f2-9db0-8276a8f67d79)
 
 ## Task Network
