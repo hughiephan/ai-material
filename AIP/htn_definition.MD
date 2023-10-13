@@ -153,6 +153,9 @@ task_network_2:
 
 
 ## Domain
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/002058af-ca17-4a0b-88e2-872dbe42ce9d)
+
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
 $$
