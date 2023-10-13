@@ -51,7 +51,7 @@ task_network:
 
 ## Isomorphic
 
-$tn=(T, \prec, \alpha)$ and $acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$
+For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
 $$
 tn \cong \acute{tn}
