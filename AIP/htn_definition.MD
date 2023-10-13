@@ -153,7 +153,7 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 - $F$: finite set of facts / proposition symbol
 
-- $N_P$: finite set of primitive task names with $N_P \bigcap N_C = \emptyset$
+- $N_P$: finite set of primitive task names with $N_P \cap N_C = \emptyset$
 
 - $N_C$: finite set of compound task names
 
