@@ -157,7 +157,7 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 - $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings. It will assign actions to primitive task names.
 - $M \subseteq C \times TN_{C\cup{O}}$: a finite set of decomposition methods
 
-Explanation: Delta $\delta$ function has the same purpose of Alpha $\alpha$ function, mapping unique IDs to task names because there can be duplicate task names. But the different is that $\delta$ only works with primitive task names, while $\alpha$ works will both primitive and compound task names.
+Explanation: Delta $\delta$ function has the same purpose of Alpha $\alpha$ function, mapping unique IDs to task names because there can be duplicate task names. But the different is that $\delta$ only works with primitive task names, while $\alpha$ works will both primitive and compound task names. Maybe this has the purpose of helping us get the ordered combination of primitive tasks as plan. Final solution cannot contain compound task names, so Delta $delta$ help us tracked primitive tasks.
 
 Example:
 - Set of facts: $F$ = { $x, \neg{x}, y, \neg{y}, z, \neg{z}$ }
