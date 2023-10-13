@@ -161,11 +161,9 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 - $M \subseteq C \times TN_{C\cup{O}}$: a finite set of decomposition methods
 
-$F = {x, 
-Example:
-```
-4
-```
+ 
+Example of Facts:
+$F = {x, \neg{x},$
 
 ## Problem
 3-tuple:  $(D, s_I, tn_I)$
