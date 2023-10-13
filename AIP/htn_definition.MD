@@ -125,7 +125,7 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 5-tuple Domain $D = F, N_P, N_C, \delta, M$ 
 
-- $F$: finite set of facts
+- $F$: finite set of facts / proposition symbol
 
 - $N_P$: finite set of primitive task names with $N_P \bigcap N_C = \emptyset$
 
@@ -145,6 +145,7 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 
 - $tn_I$: initial task network
 
+With $tn_I := ({t_I }, \emptyset, {(t_I , c_I )})$
 
 ## Solution / Plan
 
