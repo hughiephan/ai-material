@@ -65,7 +65,7 @@ Explanation
 - Like Graph or Tree, there are a few applications when we are able compare two task networks. For example, if two task networks are isomorphic, it's going to be useful for predicting, prunning, detecting loop,...
 - We pick $t$ and $\acute{t} \in T$ and with a relation $\prec$ between the two $t$ and $\acute{t}$. If we want the isomorphic to holds, there are two importang things:
   - Exists a relation $\acute{\prec}$ for the bijected $t$ and $\acute{t}$ in the new region
-  - Mapping $alpha$ help us get the task names, and the two task names in two region need to be equal.
+  - Mapping $\alpha$ help us get the task names, and the two task names in two region need to be equal.
 
 Example: Two isomorphic task networks with the same task name `cityShip`
 ```
