@@ -121,19 +121,19 @@ cityShip(x,y,z):
 ```
 
 ## Domain
-Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al[2] where the problem and domain definitions are separated nicely.
+Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [2] where the problem and domain definitions are separated nicely.
 
 5-tuple Domain $D = F, N_P, N_C, \delta, M$ 
 
-- $F$, finite set of facts
+- $F$: finite set of facts
 
-- $N_P$, finite set of primitive task names
+- $N_P$: finite set of primitive task names with N_P \(\bigcap\) N_C = \(\emptyset\)
 
-- $N_C$, finite set of compound task names
+- $N_C$: finite set of compound task names
 
 - $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings (assign actions to primitive task names)
 
-- $M$ decomposition methods
+- $M \subseteq C \times TN_{C\bigcup{O}}$: a finite set of decomposition methods
 
 
 ## Problem
