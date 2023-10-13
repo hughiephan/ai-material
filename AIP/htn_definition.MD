@@ -149,7 +149,9 @@ task_network_2:
 ## Domain
 Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [2] where the problem and domain definitions are separated nicely.
 
-5-tuple Domain $D = F, N_P, N_C, \delta, M$ 
+$$
+D = (F, N_P, N_C, \delta, M)
+$$ 
 
 - $F$: finite set of facts 
 - $N_P$: finite set of primitive task names with $N_P \cap N_C = \emptyset$
@@ -169,9 +171,9 @@ Example:
 Above example (written in different form):
 ```
 domain:
-  fact: $x, \neg{x}, y, \neg{y}, z, \neg{z}$
-  primitive_task_name: load, fly, drive, unload
-  compound_task_name: ship, cityShip, airShip
+  fact: x, not(x), y, not(y), z, not(z),
+  primitive_task_name: load, fly, drive, unload,
+  compound_task_name: ship, cityShip, airShip,
   delta: 
     a1: load, 
     a2: fly, 
@@ -181,7 +183,7 @@ domain:
     a6: unload, 
     a7: load, 
     a8: drive, 
-    a9: unload
+    a9: unload,
   method: [
     compound_task_name: ship(x,y,z)
     task_network_1: 
@@ -203,17 +205,62 @@ domain:
         t1.2: drive,
         t1.3: unload,
   ]
-    
 ```
 
 ## Problem
-3-tuple:  $(D, s_I, tn_I)$
+$$
+P = (D, s_I, tn_I)
+$$ 
 
 - $D$: HTN Domain
-
 - $s_I \in s^F$: initial state
-
 - $tn_I$: initial task network
+
+Example:
+```
+problem:
+  initial_state: x, y, z
+  task_network_initial: 
+    tasks: 
+      t0
+    alpha:
+      t0: ship
+  domain:
+    fact: x, not(x), y, not(y), z, not(z),
+    primitive_task_name: load, fly, drive, unload,
+    compound_task_name: ship, cityShip, airShip,
+    delta: 
+      a1: load, 
+      a2: fly, 
+      a3: unload,
+      a4: load, 
+      a5: drive, 
+      a6: unload, 
+      a7: load, 
+      a8: drive, 
+      a9: unload,
+    method: [
+      compound_task_name: ship(x,y,z)
+      task_network_1: 
+        tasks: 
+          t0, 
+        precondition: 
+          hasFuel,
+        alpha:
+          t0: ship,
+     
+      compound_task_name: cityShip(x,y,z)
+      task_network_2: 
+        tasks: 
+          t1, 
+        precondition: 
+          hasFuel,
+        alpha:
+          t1.1: load,
+          t1.2: drive,
+          t1.3: unload,
+    ]
+```
 
 ## Solution / Plan
 
