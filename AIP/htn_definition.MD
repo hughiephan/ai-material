@@ -50,6 +50,22 @@ task_network:
     t3.3: unload,
 ```
 
+## Isomorphic
+
+
+$$
+
+tn \cong \acute{tn}
+
+$$
+
+Isomorphic of two task networks:
+
+Explanation:
+- Like Graph or Tree, there are a few applications when we are able compare two task networks. For example, if two task networks are isomorphic / identical, it's going to be useful for predicting, prunning, detecting loop,...
+
+- Have the same attributes and order.
+
 ## Method
 
 Method $m = (n, tn_m)$ maps a compound task name n to a task network tn
