@@ -164,6 +164,46 @@ Example:
 - With Delta $\delta$ function, we have a set of actions to primitive task names: {(a1, load), (a2, fly), (a3, unload), (a4, load), (a5, drive), (a6, unload), (a7, load), (a8, drive), (a9, unload)}
 - With $M$ function, we have a set of decomposition methods: {(ship(x,y,z), $tn_1$), ....}
 
+Above example (written in different form):
+```
+domain:
+  fact: $x, \neg{x}, y, \neg{y}, z, \neg{z}$
+  primitive_task_name: load, fly, drive, unload
+  compound_task_name: ship, cityShip, airShip
+  delta: 
+    a1: load, 
+    a2: fly, 
+    a3: unload,
+    a4: load, 
+    a5: drive, 
+    a6: unload, 
+    a7: load, 
+    a8: drive, 
+    a9: unload
+  method: [
+    compound_task_name: ship(x,y,z)
+    task_network_1: 
+      tasks: 
+        t0, 
+      precondition: 
+        hasFuel,
+      alpha:
+        t0: ship,
+   
+    compound_task_name: cityShip(x,y,z)
+    task_network_2: 
+      tasks: 
+        t1, 
+      precondition: 
+        hasFuel,
+      alpha:
+        t1.1: load,
+        t1.2: drive,
+        t1.3: unload,
+  ]
+    
+```
+
 ## Problem
 3-tuple:  $(D, s_I, tn_I)$
 
