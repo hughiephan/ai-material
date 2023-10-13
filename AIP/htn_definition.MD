@@ -268,9 +268,15 @@ problem:
     ]
 ```
 
-## Solution / Plan
+## Solution
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/23f66b59-a236-42b7-a8d2-6a6451e97546)
+Possible route
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/fb0e7e61-ea45-4693-a96d-34fbaf96fbfd)
+
+Solution
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ed189763-02d3-44b4-8317-deae27019a0c)
 
 ## Executable Task Network
 
