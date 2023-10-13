@@ -57,6 +57,8 @@ $$
 tn \cong \acute{tn}
 $$
 
+If any only if there exists a bijection $\sigma:T \rightarrow \acute{T}$
+
 Same arrangement of task names (task ID can be different)
 
 Isomorphic of two task networks:
