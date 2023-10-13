@@ -1,4 +1,4 @@
-4# Formal Definition of Hierarchical Task Network
+# Formal Definition of Hierarchical Task Network
 
 ## Decomposition Tree
 
