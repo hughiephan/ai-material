@@ -86,6 +86,23 @@ task_network_2:
     t3: cityShip,
 ```
 
+## Initial Task Network
+$$
+tn_I := ({t_I}, \emptyset, {(t_I , n_I )})
+$$
+
+The initial task network which consists of the initial task $t_I$ mapping to the initial task name $n_I$. Precondition is an empty set.
+
+Example: We create the initial task network with no precondition, task ids, and alpha function to map the task with task names.
+
+```
+task_network_initial: 
+  tasks: 
+    t0
+  alpha:
+    t0: ship
+```
+
 ## Method
 
 Method $m = (n, tn_m)$ maps a compound task name n to a task network tn
@@ -144,21 +161,6 @@ Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain togeth
 - $s_I \in s^F$: initial state
 
 - $tn_I$: initial task network
-
-With $tn_I := ({t_I}, \emptyset, {(t_I , n_I )})$
-
-The initial task network which consists of the initial task $t_I$ mapping to the initial task name $n_I$
-
-
-Example: We create the initial task network with task ids, and alpha to map the task with task names. The precondition is an empty set.
-
-```
-task_network_initial: 
-  tasks: 
-    t0
-  alpha:
-    t0: ship
-```
 
 ## Solution / Plan
 
