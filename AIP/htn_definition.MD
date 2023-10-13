@@ -281,9 +281,9 @@ Solution
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ed189763-02d3-44b4-8317-deae27019a0c)
 
-Example
+Example:
 
-Plan $sigma_1$ =〈load;drive;unload;load;fly;unload;load;drive;unload〉
+Plan $\sigma_1$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
 ## Executable Task Network
 
