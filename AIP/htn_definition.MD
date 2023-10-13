@@ -1,7 +1,7 @@
 # Formal Definition of Hierarchical Task Network
 
-Consider an example in the logistics domain, suppose every task has only one method, and a decomposition tree is shown below. The initial task ship(pkg1, whA, shopB) is to ship a package from city A
-to city B and it has a method: to ship the package from the warehouse to the airport by truck, from city A to city B by plane and from the airport to the shop by truck. 
+Consider an example in the logistics domain, suppose every task has only one method, and a decomposition tree is shown below. The initial task `ship(pkg1, whA, shopB)` is to ship a package from city A
+to city B and it has a method: to ship the package from the warehouse to the airport by truck, from city A to city B by plane, and from the airport to the shop by truck. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/39c3a93c-f814-42f2-9db0-8276a8f67d79)
 
