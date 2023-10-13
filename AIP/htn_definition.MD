@@ -276,6 +276,8 @@ problem:
 
 ## Task Insertion
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/044ece9d-afa7-4bd4-ab5d-9fc809270e18)
+
 ## References
 - [1] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [2] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
