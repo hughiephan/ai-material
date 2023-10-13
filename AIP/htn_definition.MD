@@ -105,37 +105,48 @@ task_network_initial:
 
 ## Method
 
-Method $m = (n, tn_m)$ maps a compound task name n to a task network tn
+Method 4
 
-decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task network $tn_2$  by replacing task t, written $tn_1 \xrightarrow[t,m]{} tn_2$, 
+$$
+m = (n, tn_m)
+$$ 
+
+Method maps a compound task name to a task network. 
+- $n$: compound task name 
+- $tn_m$: task network
+
+Method will decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task network $tn_2$  by replacing task t, written $tn_1 \xrightarrow[t,m]{} tn_2$, 
 
 Example: 
+We have a method for mapping a compound task name `ship(x,y,z`) to `task_network_1`
 ```
-cityShip(x,y,z):  
+method:
   compound_task_name: ship(x,y,z)
-  task_network: 
+  task_network_1: 
     tasks: 
-      t1, 
-      t1.1,
-      t1.2,
-      t1.3,
+      t0, 
     precondition: 
       hasFuel,
     alpha:
-      t0: ship,
-      t1: cityShip,
-      t2: airShip,
-      t3: cityShip,
-      t1.1: load,
-      t1.2: drive,
-      t1.3: unload,
-      t2.1: load,
-      t2.2: fly,
-      t2.3: unload,
-      t3.1: load,
-      t3.2: drive,
-      t3.3: unload,
+      t0: ship
 ```
+
+Then we can decompose the task network `task_network_1` into `task_network_2`:
+
+```
+task_network_2: 
+  tasks: 
+    t1,
+    t2,
+    t3,
+  precondition: 
+    hasFuel,
+  alpha:
+    t1: cityShip,
+    t2: airShip,
+    t3: cityShip,
+```
+
 
 ## Domain
 Thomas Geier and Pascal Bercher [1] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [2] where the problem and domain definitions are separated nicely.
