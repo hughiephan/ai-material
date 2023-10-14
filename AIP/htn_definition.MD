@@ -378,12 +378,12 @@ P_c = (L, A, s_0, g, \delta)
 $$
 
 - L is set of propositional environment facts
-- \( s_0 \subseteq L \) is initial state
-- \( g \subseteq L \) gives the goal definition
+- $s_0 \subseteq L$ is initial state
+- $g \subseteq L$ gives the goal definition
 - A is set of action names
-- \( \delta = (prec, add, del) \) contains functions. Functions map action name to subset of environment facts : \( A -> 2^L \)
+- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $A -> 2^L$
 - State is set of facts
-- Action a is applicable in state s, with relation \( \tau = A \times 2^L \), \( \tau(a,s) \iff prec(a) \subseteq s \)
-- When applicable, state transition function: \( \gamma : A \times 2^L \rightarrow 2^L \), \( \gamma(a,s) = (s \ del(a)) \bigcup add(a) \) , 
-- Sequence of actions \( <a_0,a_1...a_l> \) with \( a_i \in A \) is applicable in a state \( s_0\) if and only if \( a_i \) is applicable in \( s_i \), with \( s_i \) is defined as \( \gamma(a_{i-1},s_{i-1})\) for \( i > 0 \). State \( s_{l+1}\) results from application.
-- Solution is a sequence \( <a_0,a_1...a_l> \) that is applicable in \( s_0 \) that results in state \( s_{l+1} \), with \( s_{l+1} \supseteq g \)
+- Action a is applicable in state s, with relation $\tau = A \times 2^L \), \( \tau(a,s) \iff prec(a) \subseteq s$
+- When applicable, state transition function: $\gamma : A \times 2^L \rightarrow 2^L$, $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
+- Sequence of actions $<a_0,a_1...a_l>$ with $a_i \in A$ is applicable in a state $s_0$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
+- Solution is a sequence $<a_0,a_1...a_l>$ that is applicable in $s_0$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
