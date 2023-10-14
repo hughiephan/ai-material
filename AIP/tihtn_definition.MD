@@ -369,10 +369,12 @@ To be written (Section 3 of paper On the Decidability of HTN Planning with Task 
 Here are the concepts I could not fully grasp about HTN yet:
 - What is State and Fact?
 - CFG Proof?
-- What is $\epsilon$? (This appear in the CFG Proof)
 - Propositional Symbols?
 - Why $s \in 2^L$?
 - Sequence of state and sequence of tasks?
+
+## Note
+- $\epsilon$ is an empty sequence
 
 ## Classical Problem
 $$
