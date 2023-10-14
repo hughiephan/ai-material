@@ -287,6 +287,8 @@ Plan $\sigma_1$ =ã€ˆload, drive, unload, load, fly, unload, load, drive, unloadã
 
 ## Executable Task Network
 
+To be written
+
 ## Task Insertion
 
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
