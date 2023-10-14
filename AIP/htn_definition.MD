@@ -306,6 +306,44 @@ With:
 Explanation:
 - First of all, the new task to be inserted should not already exist in $tn_1$. The new task network $tn_2$ is an expansion of the previous tasks in $tn_1$ with our new task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us map the tasks.
 
+Example:
+```
+task_to_be_inserted:
+  
+
+
+task_network: 
+  tasks: 
+    t0,
+    t1, 
+    t2,
+    t3,
+    t1.1,
+    t1.2,
+    t1.3,
+    t2.1,
+    t2.2,
+    t2.3,
+    t3.1,
+    t3.2,
+    t3.3,
+  precondition:
+    hasFuel,
+  alpha:
+    t0: ship,
+    t1: cityShip,
+    t2: airShip,
+    t3: cityShip,
+    t1.1: load,
+    t1.2: drive,
+    t1.3: unload,
+    t2.1: load,
+    t2.2: fly,
+    t2.3: unload,
+    t3.1: load,
+    t3.2: drive,
+    t3.3: unload,
+```
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
