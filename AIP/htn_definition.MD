@@ -273,6 +273,21 @@ problem:
     ]
 ```
 
+## Executable Task Network
+
+$tn=(T, \prec, \alpha)$ is executable in state $s \in 2^L$
+
+If and only if:
+- It is primitive
+- Exist a linearization of tasks t1,...,tn compatible with $\prec$ and sequence states $s_0,...s_n$ such that $s_0 = s$
+
+Explantion:
+- This definition is important because we don't want to create an task network that can not be run. The solution will be based on this.
+- Executable Task Network should only consists of primitive tasks.
+- I think linearization means that we want to have a definite route from task t1 to task tn. We don't want it to loop.
+
+Example: To be written
+
 ## Solution
 
 Possible route
@@ -285,9 +300,6 @@ Solution
 
 Plan $\sigma_1$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
-## Executable Task Network
-
-To be written
 
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
@@ -348,4 +360,11 @@ task_network_2:
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 
-
+## Questions
+Here are the concepts I could not fully grasp yet:
+- What is State and Fact?
+- CFG Proof?
+- What is $\epsilon$? (This appear in the CFG Proof)
+- Propositional Symbols?
+- Why $s \in 2^L$?
+- Sequence of state and sequence of tasks?
