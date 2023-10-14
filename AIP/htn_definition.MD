@@ -360,11 +360,10 @@ task_network_2:
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 
+# Extra
 
-# Extra Part
-
-## Questions related to HTN
-Here are the concepts I could not fully grasp yet:
+## Questions
+Here are the concepts I could not fully grasp about HTN yet:
 - What is State and Fact?
 - CFG Proof?
 - What is $\epsilon$? (This appear in the CFG Proof)
