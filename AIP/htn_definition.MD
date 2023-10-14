@@ -360,7 +360,10 @@ task_network_2:
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 
-## Questions
+
+# Extra Part
+
+## Questions related to HTN
 Here are the concepts I could not fully grasp yet:
 - What is State and Fact?
 - CFG Proof?
@@ -368,3 +371,19 @@ Here are the concepts I could not fully grasp yet:
 - Propositional Symbols?
 - Why $s \in 2^L$?
 - Sequence of state and sequence of tasks?
+
+## Classical Problem
+$$
+P_c = (L, A, s_0, g, \delta)
+$$
+
+- L is set of propositional environment facts
+- \( s_0 \subseteq L \) is initial state
+- \( g \subseteq L \) gives the goal definition
+- A is set of action names
+- \( \delta = (prec, add, del) \) contains functions. Functions map action name to subset of environment facts : \( A -> 2^L \)
+- State is set of facts
+- Action a is applicable in state s, with relation \( \tau = A \times 2^L \), \( \tau(a,s) \iff prec(a) \subseteq s \)
+- When applicable, state transition function: \( \gamma : A \times 2^L \rightarrow 2^L \), \( \gamma(a,s) = (s \ del(a)) \bigcup add(a) \) , 
+- Sequence of actions \( <a_0,a_1...a_l> \) with \( a_i \in A \) is applicable in a state \( s_0\) if and only if \( a_i \) is applicable in \( s_i \), with \( s_i \) is defined as \( \gamma(a_{i-1},s_{i-1})\) for \( i > 0 \). State \( s_{l+1}\) results from application.
+- Solution is a sequence \( <a_0,a_1...a_l> \) that is applicable in \( s_0 \) that results in state \( s_{l+1} \), with \( s_{l+1} \supseteq g \)
