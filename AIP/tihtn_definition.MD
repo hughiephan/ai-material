@@ -362,6 +362,9 @@ task_network_2:
 
 # Extra
 
+## Formal Grammar (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
+To be written
+
 ## Questions
 Here are the concepts I could not fully grasp about HTN yet:
 - What is State and Fact?
