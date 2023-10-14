@@ -295,13 +295,16 @@ In case the plane is not in the airport of city A, the air transportation task a
 ![image](https://github.com/hughiephan/DPL/assets/16631121/044ece9d-afa7-4bd4-ab5d-9fc809270e18)
 
 $$
-tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,o)\}) for t \notin T_1 
+tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,o)\})  
 $$
 
-Given:
-- a task network $tn_1 =  (T_1, \prec_1, \alpha_1)$ 
-- a primitive task name $o$
+With:
+- $tn_1 =  (T_1, \prec_1, \alpha_1)$: a task network  
+- $o$: a primitive task name 
+- $t \notin T_1$
 
+Explanation:
+- First of all, the new task to be inserted should not already exist in $tn_1$. The new task network $tn_2$ is an expansion of the previous tasks in $tn_1$ with our new task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us map the tasks.
 
 
 ## References
