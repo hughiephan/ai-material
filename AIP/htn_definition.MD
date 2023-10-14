@@ -1,4 +1,4 @@
-# Formal Definition of Hierarchical Task Network
+# Formal Definition of Hierarchical Task Network with Task Insertion (TIHTN)
 
 Considering the logistics domain example from Xiao et al [1], we have made a few modifications for an easier explanation of the HTN Definition. Suppose every task has only one method, the initial task `ship(pkg1, whA, shopB)` is to ship a package from city A to city B and it has a method: to ship the package from the warehouse to the airport by truck, from city A to city B by plane, and from the airport to the shop by truck. 
 
