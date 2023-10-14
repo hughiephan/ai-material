@@ -304,15 +304,11 @@ With:
 - $t \notin T_1$
 
 Explanation:
-- First of all, the new task to be inserted should not already exist in $tn_1$. The new task network $tn_2$ is an expansion of the previous tasks in $tn_1$ with our new task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us map the tasks.
+- First of all, the new task to be inserted should not already exist in $tn_1$ and it can only be primitive task. The new task network $tn_2$ will be an expansion of the previous tasks in $tn_1$ with our new primitive task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us generate a task id for the new inserted task.
 
-Example:
+Example: Inserting a new primitive task name `fly`
 ```
-task_to_be_inserted:
-  
-
-
-task_network: 
+task_network_2: 
   tasks: 
     t0,
     t1, 
@@ -327,6 +323,7 @@ task_network:
     t3.1,
     t3.2,
     t3.3,
+    t4           <-------- New Task ID 
   precondition:
     hasFuel,
   alpha:
@@ -343,6 +340,7 @@ task_network:
     t3.1: load,
     t3.2: drive,
     t3.3: unload,
+    t4: fly,           <--------- Map the task ID with the new primitive task name
 ```
 
 ## References
