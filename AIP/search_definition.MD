@@ -32,7 +32,7 @@ tn1:
 
 ## Task Network 2:
 
-From the Initial Task Network, instead of decomposing Task Network 1, we choose another path and start by decomposing Task Network 2.
+From the Initial Task Network, instead of decomposing Task Network 1 like the previous step, we choose another path and start by decomposing Task Network 2.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/08d95363-504d-4848-aee0-7fa43e5a4a8c)
 
