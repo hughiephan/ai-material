@@ -78,7 +78,7 @@ tn1.2:
 
 ## Task Network 2.1:
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/7f2dd2eb-3b25-4f07-ad62-eaae1807ca6b)
+![image](https://github.com/hughiephan/DPL/assets/16631121/73f9e317-08d0-4695-9f25-86ce8c977c0b)
 
 ```
 tn2.1:
