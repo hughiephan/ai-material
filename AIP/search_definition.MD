@@ -43,6 +43,7 @@ A search node is a tuple that includes the
 - elements of the problem definition that change during search
 
 Explanation:
+- Add first, add a search node into the fringe.
 - Test if the popped node is the solution
 
 ## Solution Criteria
