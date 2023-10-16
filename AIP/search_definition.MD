@@ -17,6 +17,9 @@ The node will be a solution if and only if:
 - Task network is empty $T = \emptyset$
 - State is goal state $s \supseteq g$
 
+With:
+- $\pi$: generated plan
+
 # Algorithm 1
 
 
