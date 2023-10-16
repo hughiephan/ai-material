@@ -34,6 +34,7 @@ tn1:
 tn2: 
   precondition: <t2.1, t2.2, t2.3, t2.4>
   alpha:
+    t1: deliver
     t2.1: get-to,
     t2.2: pick-up,
     t2.3: get-to,
