@@ -155,12 +155,35 @@ tn2.2.1.2:
 Goal: <no-op>
 ```
 
-## Task Network 2.2.1.2.2.2:
+## Task Network 2.2.1.2.1:
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/61e3ce33-6158-429d-802a-b00cfe46f947)
+![image](https://github.com/hughiephan/DPL/assets/16631121/8d168e76-e292-4e98-a8bd-04922a1056ab)
 
 ```
-tn2.2.1.2:
+tn2.2.1.2.1:
+  precondition: 
+    <t1.1.1, t1.2, t1.3, t1.4>,
+    <t2.2, t2.3, t2.4>,
+  alpha:
+    t1.1.1: no-op,
+    t1.2: pick-up,
+    t1.3: get-to,
+    t1.4: drop,
+    t2.2: pick-up,
+    t2.3: get-to,
+    t2.4: drop
+```
+
+```
+Goal: <no-op>
+```
+
+## Task Network 2.2.1.2.1.2:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/936d8b88-843b-497a-91c6-0dfbb35bfb3f)
+
+```
+tn2.2.1.2.1.2:
   precondition: 
     <t1.2, t1.3, t1.4>,
     <t2.2, t2.3, t2.4>,
