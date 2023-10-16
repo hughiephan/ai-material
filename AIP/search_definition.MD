@@ -44,6 +44,7 @@ A search node is a tuple that includes the
 
 Explanation:
 - Add first, add a search node into the fringe.
+- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
 - Test if the popped node is the solution
 
 ## Solution Criteria
@@ -56,10 +57,13 @@ The task network $tn$ is a solution if and only if:
 - $\forall(t) \in T: \alpha(t) \in A$: all task names are primitive
 - Sequence of task ??
 
+## References
+- 
 
 ## Extra
 # Questions
 - {prec, add, del}: $A \rightarrow 2^L$ ?
 - State transition function $\gamma: A \times 2^L \rightarrow 2^L$ ?
-- Application of method ?
-- Applicable action ?
+- Application of method?
+- Applicable action?
+
