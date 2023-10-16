@@ -3,7 +3,7 @@
 # Algorithm
 
 ## Step 1: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/50e81161-6ec8-4a32-8625-f3ef0dbc3324)
+![image](https://github.com/hughiephan/DPL/assets/16631121/04850b77-ad42-44f6-b5c4-c1f38ff84b01)
 
 ```
 tnI: 
