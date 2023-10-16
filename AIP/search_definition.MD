@@ -7,7 +7,7 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
-while $fringe \neq \emptyset$ do
+  while $fringe \neq \emptyset$ do
 
 
 
