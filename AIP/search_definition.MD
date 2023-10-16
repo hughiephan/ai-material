@@ -15,7 +15,7 @@ tnI:
 
 ## Task Network 1: 
 
-Decomposing Task Network 1 into 4 sub-tasks (get-to, pick-up, get-to, drop)
+Decomposing Task Network 1 into 4 sub-tasks (get-to, pick-up, get-to, drop). Now the tasks are broken 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6a26cf81-1c6a-4751-8905-f42021c186c8)
 
@@ -204,6 +204,11 @@ tn2.2.1.2.1.2:
 
 ```
 Goal: <no-op, no-op>
+```
+
+## Task Network n:
+```
+Goal π = <no-op(), no-op(), pick-up(T1, A, P1), drive(T1, A, B), pick-up(T2, C, P2), drive(T2, C, D), drop(T2, D, P2), drop(T1, B, P1)>
 ```
 
 # Some description
