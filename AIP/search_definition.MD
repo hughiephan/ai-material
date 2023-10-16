@@ -45,7 +45,7 @@ tn2:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e64bd14b-2458-4692-a4ad-90d30b979857)
 
 ```
-tn3: 
+tn1.1: 
   precondition: <t1.1.1, t1.2, t1.3, t1.4>
   alpha:
     t1.1.1: no-op,
@@ -57,7 +57,7 @@ tn3:
 
 ## Step 5:
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8d1a93ec-31d0-4180-811a-bd00286d1d72)
+![image](https://github.com/hughiephan/DPL/assets/16631121/24454efd-c8aa-486d-b8aa-276d56ecf94d)
 
 ```
 tn1.2:
