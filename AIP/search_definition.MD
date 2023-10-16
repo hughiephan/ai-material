@@ -14,7 +14,7 @@ tnI:
 ```
 
 ## Step 2: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/adb6113b-6353-46f7-bde6-edd8412b4d7f)
+![image](https://github.com/hughiephan/DPL/assets/16631121/0e2580b9-7c37-4cc7-8df4-bd519481fbf4)
 
 ```
 tn1: 
