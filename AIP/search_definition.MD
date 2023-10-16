@@ -4,14 +4,9 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 # Algorithm 1
 
-$
-\begin{algorithm}
-fringe \gets { \{(s_0, tn_I, \epsilon) \} } \;
-\While{$fringe \neq \emptyset$} {
-    \Return $unsolvable$
-}
-\end{algorithm}
-$
+
+$fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
+while $fringe \neq \emptyset$
 
 
 
