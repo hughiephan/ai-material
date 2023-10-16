@@ -37,6 +37,11 @@ Fringe consists of:
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
 
+A search node is a tuple that includes the 
+- current state
+- task network
+- elements of the problem definition that change during search
+
 Explanation:
 - Test if the popped node is the solution
 
