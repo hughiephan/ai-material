@@ -51,7 +51,7 @@ tn1.1:
     t1.1.1: no-op,
     t1.2: pick-up,
     t1.3: get-to,
-    t1.4: drop
+    t1.4: drop,
     t2: deliver
 ```
 
