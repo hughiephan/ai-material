@@ -35,7 +35,7 @@ With:
 - $\epsilon$: an empty sequence
 
 Explanation:
-- Test if the pop node is the solution
+- Test if the popped node is the solution
 
 ## Extra
 # Questions
