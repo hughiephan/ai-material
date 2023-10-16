@@ -2,6 +2,7 @@
 
 # Algorithm
 
+## Step 1: 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/50e81161-6ec8-4a32-8625-f3ef0dbc3324)
 
 ```
@@ -15,6 +16,7 @@ tI:
     t2: deliver
 ```
 
+## Step 2: 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/540a90de-d78f-4cf3-ac6b-7d0e336968a8)
 
 ```
