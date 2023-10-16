@@ -7,8 +7,9 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
-&nbsp;&nbsp;  While $fringe \neq \emptyset$ Do
+While $fringe \neq \emptyset$ Do
 
+&nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
 
 
 
