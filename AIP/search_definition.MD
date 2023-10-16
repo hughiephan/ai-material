@@ -3,7 +3,10 @@
 In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. 
 
 # Unconstrained Task
-A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t},t) in \prec)$
+A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
+
+Explanation: 
+- Meaning that there is no precondition between that task and another task.
 
 # Algorithm 1
 
