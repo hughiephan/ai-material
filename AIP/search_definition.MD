@@ -6,7 +6,7 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 $
 \begin{algorithm}
-$fringe \gets { \{(s_0, tn_I, \epsilon) \} } $\;
+fringe \gets { \{(s_0, tn_I, \epsilon) \} } \;
 \While{$fringe \neq \emptyset$} {
     $ n \xleftarrow{} fringe.pop() $\;
     \If{$n.isgoal$} { \Return $n$ }
