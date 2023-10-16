@@ -53,5 +53,6 @@ The task network $tn$ is a solution if and only if:
 
 ## Extra
 # Questions
-- {prec, add, del}: $A \rightarrow 2^L$ 
-- State transition function $\gamma: A \times 2^L \rightarrow 2^L$
+- {prec, add, del}: $A \rightarrow 2^L$ ?
+- State transition function $\gamma: A \times 2^L \rightarrow 2^L$ ?
+- Application of method ?
