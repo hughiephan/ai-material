@@ -111,6 +111,26 @@ tn2.2:
     t2.4: drop
 ```
 
+## Task Network 2.2.1:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/8ac61206-2dcb-4965-bfce-684cc3d7f2cc)
+
+```
+tn2.2.1:
+  precondition: 
+    <t1.1, t1.2, t1.3, t1.4>,
+    <t2.1.1, t2.2, t2.3, t2.4>,
+  alpha:
+    t1.1: get-to,
+    t1.2: pick-up,
+    t1.3: get-to,
+    t1.4: drop,
+    t2.1.1: no-op,
+    t2.2: pick-up,
+    t2.3: get-to,
+    t2.4: drop
+```
+
 ## Task Network 2.2.1.2:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f614ee93-9d30-4838-ac9c-f1f7559f0c12)
