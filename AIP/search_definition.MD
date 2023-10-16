@@ -1,6 +1,6 @@
 # Progression Search Formal Definition
 
-In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. 
+In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. This approach combines task decomposition with state-based goals.
 
 # Unconstrained Task
 A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
@@ -39,6 +39,17 @@ With:
 
 Explanation:
 - Test if the popped node is the solution
+
+## Solution Criteria
+$$
+tn = (T, \prec, \alpha)
+$$
+
+The task network $tn$ is a solution if and only if:
+- $tn_I \rightarrow{*} tn$: can be reached by decomposing the initial task network
+- $\forall{t} \in T: \alpha(t) \in A: all task names are primitive
+- Sequence of task ??
+
 
 ## Extra
 # Questions
