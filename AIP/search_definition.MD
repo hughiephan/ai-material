@@ -25,8 +25,10 @@ tn1:
     t1.3: get-to,
     t1.4: drop,
     t2: deliver
+```
 
 ## Step 3:
+![image](https://github.com/hughiephan/DPL/assets/16631121/044045ee-af5d-4d18-9c34-e3f334872749)
 
 ```
 tn2: 
