@@ -2,7 +2,7 @@
 
 # Algorithm
 
-## Step 1: 
+## Task Network Initial: 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ce5c1460-e72e-4d8c-860d-db57be4c479c)
 
 ```
@@ -13,7 +13,7 @@ tnI:
     t2: deliver
 ```
 
-## Step 2: 
+## Task Network 1: 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6a26cf81-1c6a-4751-8905-f42021c186c8)
 
 ```
@@ -27,7 +27,7 @@ tn1:
     t2: deliver
 ```
 
-## Step 3:
+## Task Network 2:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/08d95363-504d-4848-aee0-7fa43e5a4a8c)
 
 ```
@@ -41,8 +41,8 @@ tn2:
     t2.4: drop
 ```
 
-## Step 4: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/e64bd14b-2458-4692-a4ad-90d30b979857)
+## Task Network 1.1: 
+![image](https://github.com/hughiephan/DPL/assets/16631121/53c733af-c4cd-4026-b611-5019d43e5ec1)
 
 ```
 tn1.1: 
@@ -55,7 +55,7 @@ tn1.1:
     t2: deliver
 ```
 
-## Step 5:
+## Task Network 1.2:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/24454efd-c8aa-486d-b8aa-276d56ecf94d)
 
