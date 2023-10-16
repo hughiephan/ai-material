@@ -6,10 +6,7 @@
 ![image](https://github.com/hughiephan/DPL/assets/16631121/50e81161-6ec8-4a32-8625-f3ef0dbc3324)
 
 ```
-tI: 
-  tasks: 
-    t1, 
-    t2,
+tnI: 
   precondition: <>
   alpha:
     t1: deliver,
@@ -17,34 +14,42 @@ tI:
 ```
 
 ## Step 2: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/540a90de-d78f-4cf3-ac6b-7d0e336968a8)
+![image](https://github.com/hughiephan/DPL/assets/16631121/adb6113b-6353-46f7-bde6-edd8412b4d7f)
 
 ```
-t1: 
-  tasks: 
-    t1.1,
-    t1.2,
-    t1.3,
-    t1.4
+tn1: 
   precondition: <t1.1, t1.2, t1.3, t1.4>
   alpha:
     t1.1: get-to,
     t1.2: pick-up,
     t1.3: get-to,
-    t1.4: drop
+    t1.4: drop,
+    t2: deliver
 
-t2: 
-  tasks: 
-    t2.1,
-    t2.2,
-    t2.3,
-    t2.4
+## Step 3:
+
+```
+tn2: 
   precondition: <t2.1, t2.2, t2.3, t2.4>
   alpha:
     t2.1: get-to,
     t2.2: pick-up,
     t2.3: get-to,
     t2.4: drop
+```
+
+## Step 4: 
+![image](https://github.com/hughiephan/DPL/assets/16631121/e64bd14b-2458-4692-a4ad-90d30b979857)
+
+```
+tn3: 
+  precondition: <t1.1.1, t1.2, t1.3, t1.4>
+  alpha:
+    t1.1.1: no-op,
+    t1.2: pick-up,
+    t1.3: get-to,
+    t1.4: drop
+    t2: deliver
 ```
 
 # Some description
