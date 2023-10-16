@@ -18,6 +18,10 @@ While $fringe \neq \emptyset$ Do
 &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
 
 
+With:
+- $s_0$: initial state
+- $tn_I$: initial task network
+- $\epsilon$: an empty sequence
 
 ## Extra
 # Questions
