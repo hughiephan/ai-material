@@ -132,6 +132,9 @@ tn2.2.1:
     t2.4: drop
 ```
 
+
+## Skipping a few steps
+
 ## Task Network 2.2.1.2:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f614ee93-9d30-4838-ac9c-f1f7559f0c12)
@@ -155,6 +158,8 @@ tn2.2.1.2:
 Goal: <no-op>
 ```
 
+## Skipping a few steps
+
 ## Task Network 2.2.1.2.1:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/8d168e76-e292-4e98-a8bd-04922a1056ab)
@@ -177,6 +182,8 @@ tn2.2.1.2.1:
 ```
 Goal: <no-op>
 ```
+
+## Skipping a few steps
 
 ## Task Network 2.2.1.2.1.2:
 
