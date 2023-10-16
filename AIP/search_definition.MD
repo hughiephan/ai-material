@@ -75,6 +75,23 @@ tn1.2:
     t2.4: drop
 ```
 
+## Task Network 2.1:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7f2dd2eb-3b25-4f07-ad62-eaae1807ca6b)
+
+```
+tn2.1:
+  precondition: 
+    <t2.1.1, t2.2, t2.3, t2.4>,
+  alpha:
+    t1: deliver,
+    t2.1.1: no-op,
+    t2.2: pick-up,
+    t2.3: get-to,
+    t2.4: drop
+```
+
+
 # Some description
 
 In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. This approach combines task decomposition with state-based goals.
