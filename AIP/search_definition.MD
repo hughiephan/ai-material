@@ -15,7 +15,7 @@ $4
 
 The node will be a solution if and only if:
 - Task network is empty $T = \emptyset$
-- State is goal state (s \supseteq g)
+- State is goal state $s \supseteq g$
 
 # Algorithm 1
 
