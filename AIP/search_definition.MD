@@ -16,12 +16,16 @@ $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 While $fringe \neq \emptyset$ Do
 
 &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
+&nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
 
 With:
 - $s_0$: initial state
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
+
+Explanation:
+- Test if the pop node is the solution
 
 ## Extra
 # Questions
