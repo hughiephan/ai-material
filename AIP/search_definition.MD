@@ -14,6 +14,9 @@ tnI:
 ```
 
 ## Task Network 1: 
+
+Decomposing task network 1
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6a26cf81-1c6a-4751-8905-f42021c186c8)
 
 ```
