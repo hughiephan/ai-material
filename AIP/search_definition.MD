@@ -4,6 +4,7 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 # Algorithm 1
 
+$
 \begin{algorithm}
 $fringe \gets { \{(s_0, tn_I, \epsilon) \} } $\;
 \While{$fringe \neq \emptyset$} {
@@ -26,6 +27,7 @@ $fringe \gets { \{(s_0, tn_I, \epsilon) \} } $\;
     \Return $unsolvable$
 }
 \end{algorithm}
+$
 
 
 
