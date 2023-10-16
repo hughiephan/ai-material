@@ -11,7 +11,7 @@ Explanation:
 # Solution
 $$
 n = (s, (T, \prec, \alpha), \pi)
-$4
+$$
 
 The node will be a solution if and only if:
 - Task network is empty $T = \emptyset$
