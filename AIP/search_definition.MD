@@ -67,4 +67,5 @@ The task network $tn$ is a solution if and only if:
 - Application of method?
 - Applicable action?
 - Useful for calculating heuristics?
+- What is special about "progression"?
 
