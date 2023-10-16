@@ -25,6 +25,7 @@ $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 While $fringe \neq \emptyset$ Do
 
 &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
+
 &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
 
