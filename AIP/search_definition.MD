@@ -32,7 +32,7 @@ While $fringe \neq \emptyset$ Do
 &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
 
-With:
+Fringe consists of:
 - $s_0$: initial state
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
