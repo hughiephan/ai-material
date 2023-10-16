@@ -3,7 +3,7 @@
 # Algorithm
 
 ## Step 1: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/04850b77-ad42-44f6-b5c4-c1f38ff84b01)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ce5c1460-e72e-4d8c-860d-db57be4c479c)
 
 ```
 tnI: 
@@ -14,7 +14,7 @@ tnI:
 ```
 
 ## Step 2: 
-![image](https://github.com/hughiephan/DPL/assets/16631121/0e2580b9-7c37-4cc7-8df4-bd519481fbf4)
+![image](https://github.com/hughiephan/DPL/assets/16631121/6a26cf81-1c6a-4751-8905-f42021c186c8)
 
 ```
 tn1: 
@@ -28,7 +28,7 @@ tn1:
 ```
 
 ## Step 3:
-![image](https://github.com/hughiephan/DPL/assets/16631121/044045ee-af5d-4d18-9c34-e3f334872749)
+![image](https://github.com/hughiephan/DPL/assets/16631121/08d95363-504d-4848-aee0-7fa43e5a4a8c)
 
 ```
 tn2: 
