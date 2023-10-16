@@ -46,7 +46,7 @@ tn = (T, \prec, \alpha)
 $$
 
 The task network $tn$ is a solution if and only if:
-- $tn_I \rightarrow{*} tn$: can be reached by decomposing the initial task network
+- $tn_I \xrightarrow{*} tn$: can be reached by decomposing the initial task network
 - $\forall(t) \in T: \alpha(t) \in A$: all task names are primitive
 - Sequence of task ??
 
