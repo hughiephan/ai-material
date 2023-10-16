@@ -66,4 +66,5 @@ The task network $tn$ is a solution if and only if:
 - State transition function $\gamma: A \times 2^L \rightarrow 2^L$ ?
 - Application of method?
 - Applicable action?
+- Useful for calculating heuristics?
 
