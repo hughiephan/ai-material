@@ -8,6 +8,15 @@ A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and onl
 Explanation: 
 - Meaning that there is no precondition between that task and another task.
 
+# Solution
+$$
+n = (s, (T, \prec, \alpha), \pi)
+$4
+
+The node will be a solution if and only if:
+- Task network is empty $T = \emptyset$
+- State is goal state (s \supseteq g)
+
 # Algorithm 1
 
 
