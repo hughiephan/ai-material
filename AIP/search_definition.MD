@@ -1,5 +1,52 @@
 # Progression Search Formal Definition
 
+# Algorithm
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/50e81161-6ec8-4a32-8625-f3ef0dbc3324)
+
+```
+tI: 
+  tasks: 
+    t1, 
+    t2,
+  precondition: <>
+  alpha:
+    t1: deliver,
+    t2: deliver
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/540a90de-d78f-4cf3-ac6b-7d0e336968a8)
+
+```
+t1: 
+  tasks: 
+    t1.1,
+    t1.2,
+    t1.3,
+    t1.4
+  precondition: <t1.1, t1.2, t1.3, t1.4>
+  alpha:
+    t1.1: get-to,
+    t1.2: pick-up,
+    t1.3: get-to,
+    t1.4: drop
+
+t2: 
+  tasks: 
+    t2.1,
+    t2.2,
+    t2.3,
+    t2.4
+  precondition: <t2.1, t2.2, t2.3, t2.4>
+  alpha:
+    t2.1: get-to,
+    t2.2: pick-up,
+    t2.3: get-to,
+    t2.4: drop
+```
+
+# Some description
+
 In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. This approach combines task decomposition with state-based goals.
 
 # Unconstrained Task
@@ -21,7 +68,6 @@ With:
 - $\pi$: generated plan
 
 # Algorithm 1
-
 
 $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
