@@ -32,6 +32,17 @@ While $fringe \neq \emptyset$ Do
 
 &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
+&nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
+
+&nbsp;&nbsp; For $t \in U $ do
+
+&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
+
+&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ ringe.add(\acute{n})$
 
 Fringe consists of:
 - $s_0$: initial state
