@@ -58,9 +58,10 @@ With:
 
 ---
 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
-Fringe consists of:
+In line 1, the fringe consists of:
 - $s_0$: initial state
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
