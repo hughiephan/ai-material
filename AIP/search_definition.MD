@@ -44,6 +44,16 @@ While $fringe \neq \emptyset$ Do
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
+&nbsp;&nbsp;&nbsp;&nbsp; else
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For $m \in t.methods$ do
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.decompose(t,m)$
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ fringe.add(\acute{n})$
+
+Return $unsolvable$
+
 Fringe consists of:
 - $s_0$: initial state
 - $tn_I$: initial task network
