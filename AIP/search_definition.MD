@@ -58,10 +58,10 @@ With:
 
 ---
 
+## Line 1
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
-## Line 1
 The fringe consists of:
 - $s_0$: initial state
 - $tn_I$: initial task network
