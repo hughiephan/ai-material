@@ -22,7 +22,9 @@ The node will be a solution if and only if:
 With:
 - $\pi$: generated plan
 
-# Algorithm 1
+# Standard Progression Search Algorithm
+
+---
 
 $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
@@ -53,6 +55,9 @@ While $fringe \neq \emptyset$ Do
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ fringe.add(\acute{n})$
 
 Return $unsolvable$
+
+---
+
 
 Fringe consists of:
 - $s_0$: initial state
