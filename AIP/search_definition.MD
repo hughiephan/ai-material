@@ -26,38 +26,39 @@ With:
 
 ---
 
-$fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
+1. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
-While $fringe \neq \emptyset$ Do
+2. While $fringe \neq \emptyset$ Do
 
-&nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
+3. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
 
-&nbsp;&nbsp; If $n.isgoal$ then return $n$ 
+4. &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
-&nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
+5. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
 
-&nbsp;&nbsp; For $t \in U$ do
+6. &nbsp;&nbsp; For $t \in U$ do
 
-&nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
+7. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
+10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
-&nbsp;&nbsp;&nbsp;&nbsp; else
+11. &nbsp;&nbsp;&nbsp;&nbsp; else
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For $m \in t.methods$ do
+12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For $m \in t.methods$ do
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.decompose(t,m)$
+13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.decompose(t,m)$
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ fringe.add(\acute{n})$
+14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
-Return $unsolvable$
+15. Return $unsolvable$
 
 ---
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
 Fringe consists of:
 - $s_0$: initial state
