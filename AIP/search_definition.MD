@@ -36,7 +36,7 @@ While $fringe \neq \emptyset$ Do
 
 &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
 
-&nbsp;&nbsp; For $t \in U $ do
+&nbsp;&nbsp; For $t \in U$ do
 
 &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
 
