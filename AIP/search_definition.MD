@@ -26,23 +26,23 @@ With:
 
 ---
 
-1. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
+01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
-2. While $fringe \neq \emptyset$ Do
+02. While $fringe \neq \emptyset$ Do
 
-3. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
+03. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
 
-4. &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
+04. &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
 
-5. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
+05. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
 
-6. &nbsp;&nbsp; For $t \in U$ do
+06. &nbsp;&nbsp; For $t \in U$ do
 
-7. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
+07. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
 
-8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
+08. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
 
-9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
+09. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
 
 10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
