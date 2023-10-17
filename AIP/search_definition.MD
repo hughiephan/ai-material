@@ -61,10 +61,20 @@ With:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
-In line 1, the fringe consists of:
+## Line 1
+The fringe consists of:
 - $s_0$: initial state
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
+
+Example:
+```
+tnI: 
+  precondition: <>
+  alpha:
+    t1: deliver(P1,B),
+    t2: deliver(P2,D)
+```
 
 A search node is a tuple that includes the 
 - current state
