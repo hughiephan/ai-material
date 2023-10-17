@@ -67,13 +67,19 @@ The fringe consists of:
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
 
+In Fringe search, the fringe is like the frontier.
+
 Example:
 ```
-tnI: 
-  precondition: <>
-  alpha:
-    t1: deliver(P1,B),
-    t2: deliver(P2,D)
+fringe:
+  state: s0
+  task_network:
+    tnI: 
+      precondition: <>
+      alpha:
+        t1: deliver(P1,B),
+        t2: deliver(P2,D)
+  element: ??
 ```
 
 A search node is a tuple that includes the 
