@@ -105,13 +105,17 @@ Explanation:
 
 ## Progression
 
+Given:
+- a search node $n = (s, T, \prec, \alpha, \pi)$
+- $t \in T$: unconstrained task
+- $\acute{n}$: search node from progressing $t$
+
 $$
 \acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
 $$ 
 
-- $n = (s, T, \prec, \alpha, \pi)$ : a search node
-- $t \in T$: unconstrained task
-- $\acute{n}$: search node from progressing $t$
+With:
+- $\acute{s} = \sigmma ( \alpha(t), s ) 
 - $\acute{T} = T$ \ { $t$ }
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 - $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
@@ -119,6 +123,7 @@ $$
 
 
 Explanation:
+- Transition function gamma $\gamma$ to transform the task names and state to a new state.
 - List of new tasks should remove the unconstrained task we just processed.
 - The new precondition remove the precondition relationship between the unconstrained task 
 - The $\alpha$ mapping of the unconstrained task will be removed also.
