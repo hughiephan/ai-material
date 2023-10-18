@@ -108,9 +108,12 @@ $$
 - $n = (s, T, \prec, \alpha, \pi)$ : a search node
 - $t \in T$: unconstrained task
 - $\acute{n}$: search node from progressing $t$
+- $\acute{T} = T \ \{t\}$
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 
+
 Explanation:
+- List of new tasks should remove the unconstrained task we just processed.
 - The new precondition remove the precondition relationship between the unconstrained task 
 
 ## Solution Criteria
