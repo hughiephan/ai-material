@@ -91,7 +91,7 @@ task_network_initial:
 
 ## Method
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/120643f8-8577-4371-9c66-a45984e7d86a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/8e75f66b-69d3-47b5-9aa9-5bbd487b5df9)
 
 $$
 m = (n, tn_m)
