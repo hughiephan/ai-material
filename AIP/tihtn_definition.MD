@@ -29,12 +29,12 @@ tn1:
   alpha:
     t1: cityShip(pkg1, whA, airpA),
     t2: airShip(pkg1, airpA, airpB),
-    t3: cityShip(pkg1, airpB, shopB),
+    t3: cityShip(pkg1, airpB, shopB)
 ```
 
 ## Isomorphic
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/f3db05d6-28f3-4872-b892-a61968da4874)
+![image](https://github.com/hughiephan/DPL/assets/16631121/c4694874-55b6-4b5b-bba8-91beb735f1cd)
 
 Two task networks are isomorphic if they describe the same arrangement of task names despite using different identifiers. For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
