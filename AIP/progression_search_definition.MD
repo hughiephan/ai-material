@@ -4,7 +4,6 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 # Unconstrained Task
 
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdea9ce9-4384-4960-917f-b5c853cefed6)
 
 A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
@@ -13,6 +12,9 @@ Explanation:
 - Unconstrained tasks are tasks that have no predecessors in the network.
 
 # Solution
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7beba7fa-94be-4a83-8581-be407f55b1cc)
+
 $$
 n = (s, (T, \prec, \alpha), \pi)
 $$
@@ -23,6 +25,10 @@ The node will be a solution if and only if:
 
 With:
 - $\pi$: generated plan
+
+Explanation:
+- When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
+
 
 # Standard Progression Search Algorithm
 
