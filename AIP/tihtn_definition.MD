@@ -6,7 +6,7 @@ Considering the logistics domain example from Xiao et al [1], we have made a few
 
 ## Task Network
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b91f9149-e77b-4fc9-bb7c-c1b210daaa4f)
+![image](https://github.com/hughiephan/DPL/assets/16631121/62de35bb-7bcb-45dd-982c-9f91e1af9ae2)
 
 $$
 tn=(T, \prec, \alpha)
