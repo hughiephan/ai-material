@@ -115,7 +115,7 @@ $$
 - $\acute{T} = T$ \ { $t$ }
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 - $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
-- $\acute{\pi} = \pi o \alpha(t)$
+- $\acute{\pi} = \pi \cdot \alpha(t)$
 
 
 Explanation:
