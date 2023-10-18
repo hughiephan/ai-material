@@ -83,7 +83,7 @@ fringe:
       alpha:
         t1: deliver(P1,B),
         t2: deliver(P2,D)
-  element: ??
+  pi: <>
 ```
 
 ## Search Node 
