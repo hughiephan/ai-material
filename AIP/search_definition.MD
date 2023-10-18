@@ -105,14 +105,14 @@ Explanation:
 
 ## Progression
 
+$$
+\acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
+$$ 
+
 Given:
 - a search node $n = (s, T, \prec, \alpha, \pi)$
 - $t \in T$: unconstrained task
 - $\acute{n}$: search node from progressing $t$
-
-$$
-\acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
-$$ 
 
 With:
 - $\acute{s} = \sigmma ( \alpha(t), s ) 
@@ -120,7 +120,6 @@ With:
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 - $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
 - $\acute{\pi} = \pi \cdot \alpha(t)$
-
 
 Explanation:
 - Transition function gamma $\gamma$ to transform the task names and state to a new state.
