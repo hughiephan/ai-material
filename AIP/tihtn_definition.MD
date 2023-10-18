@@ -89,7 +89,7 @@ tnI:
 
 ## Method
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8e75f66b-69d3-47b5-9aa9-5bbd487b5df9)
+![image](https://github.com/hughiephan/DPL/assets/16631121/c5cad797-9d31-4eca-8f70-838ccfaf6fed)
 
 $$
 m = (n, tn_m)
