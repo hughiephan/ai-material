@@ -190,7 +190,7 @@ P = (D, s_I, tn_I)
 $$ 
 
 - $D$: HTN Domain
-- $s_I \in s^F$: initial state
+- $s_I$: initial state
 - $tn_I$: initial task network
 
 Example:
