@@ -103,14 +103,13 @@ The task network $tn$ is a solution if and only if:
 - Sequence of task ??
 
 ## References
-- 
+- Höller, Daniel & Bercher, Pascal & Behnke, Gregor & Biundo, Susanne. (2020). HTN Planning as Heuristic Progression Search. Journal of Artificial Intelligence Research. 67. 835-880. 10.1613/jair.1.11282. 
 
-## Extra
-# Questions
+# Extra
+## Questions
 - {prec, add, del}: $A \rightarrow 2^L$ ?
 - State transition function $\gamma: A \times 2^L \rightarrow 2^L$ ?
 - Application of method?
 - Applicable action?
 - Useful for calculating heuristics?
 - What is special about "progression"?
-
