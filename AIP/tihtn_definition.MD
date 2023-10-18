@@ -101,9 +101,7 @@ Method maps a compound task name to a task network.
 
 Method will decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task network $tn_2$  by replacing task t, written $tn_1 \xrightarrow[t,m]{} tn_2$, 
 
-Example: 
-
-Define `m-cityShip` method for mapping the compound task name `cityShip(pkg1, whA, airpA)` to Task Network `tn1`
+Example: `m-cityShip` method is used for mapping the compound task name `cityShip(pkg1, whA, airpA)` to Task Network `tn1`
 ```
 m-cityShip:
   compound_task_name: cityShip(pkg1, whA, airpA)
