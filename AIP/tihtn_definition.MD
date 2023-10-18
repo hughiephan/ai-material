@@ -24,8 +24,7 @@ Explanation:
 Example: 
 ```
 tn1: 
-  precondition:
-    <t1, t2, t3>
+  precondition: <t1, t2, t3>
   alpha:
     t1: cityShip(pkg1, whA, airpA),
     t2: airShip(pkg1, airpA, airpB),
