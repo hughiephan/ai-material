@@ -6,7 +6,7 @@ Considering the logistics domain example from Xiao et al [1], we have made a few
 
 ## Task Network
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/62de35bb-7bcb-45dd-982c-9f91e1af9ae2)
+![image](https://github.com/hughiephan/DPL/assets/16631121/899accea-ba2a-4d6c-9c32-f87c7563f2e7)
 
 $$
 tn=(T, \prec, \alpha)
@@ -23,28 +23,13 @@ Explanation:
 
 Example: 
 ```
-task_network: 
-  tasks: 
-    t1, 
-    t1.1,
-    t1.2,
-    t1.3,
+tn1: 
   precondition:
-    hasFuel,
+    <t1, t2, t3>
   alpha:
-    t0: ship,
-    t1: cityShip,
-    t2: airShip,
-    t3: cityShip,
-    t1.1: load,
-    t1.2: drive,
-    t1.3: unload,
-    t2.1: load,
-    t2.2: fly,
-    t2.3: unload,
-    t3.1: load,
-    t3.2: drive,
-    t3.3: unload,
+    t1: cityShip(pkg1, whA, airpA),
+    t2: airShip(pkg1, airpA, airpB),
+    t3: cityShip(pkg1, airpB, shopB),
 ```
 
 ## Isomorphic
