@@ -63,7 +63,8 @@ To determine whether an action is applicable in a given state, the planner check
 For unconstrained action, there is:
 - No possible modification when it is not applicable
 - Exactly one modfiication when it is applicable
-- With: modification means progressing the action and updating the state
+
+With `modification` means progressing the action and updating the state
 
 ## Fringe
 
