@@ -28,6 +28,7 @@ With:
 
 Explanation:
 - When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
+- Even though not mention but I think we need a Goal Test to determines whether a given state is a goal state.
 
 
 # Standard Progression Search Algorithm
