@@ -116,7 +116,7 @@ $$
 Explanation:
 - List of new tasks should remove the unconstrained task we just processed.
 - The new precondition remove the precondition relationship between the unconstrained task 
-- The $alpha$ mapping of the unconstrained task will be removed also.
+- The $\alpha$ mapping of the unconstrained task will be removed also.
 
 ## Solution Criteria
 $$
