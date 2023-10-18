@@ -33,7 +33,7 @@ tn1:
 
 ## Isomorphic
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/764ca367-5f11-4fae-9205-7061236173de)
+![image](https://github.com/hughiephan/DPL/assets/16631121/c93e7a22-4eab-460b-8e9f-b7b0deabf508)
 
 Two task networks are isomorphic if they describe the same arrangement of task names despite using different identifiers. For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
@@ -61,11 +61,11 @@ tn2:
     t1.3: unload
 
 tn3: 
-  precondition: <t2.1, t2.2, t2.3>
+  precondition: <t3.1, t3.2, t3.3>
   alpha:
-    t2.1: load,
-    t2.2: drive,
-    t2.3: unload
+    t3.1: load,
+    t3.2: drive,
+    t3.3: unload
 ```
 
 ## Initial Task Network
