@@ -34,7 +34,7 @@ tn1:
 
 ## Isomorphic
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/c4694874-55b6-4b5b-bba8-91beb735f1cd)
+![image](https://github.com/hughiephan/DPL/assets/16631121/764ca367-5f11-4fae-9205-7061236173de)
 
 Two task networks are isomorphic if they describe the same arrangement of task names despite using different identifiers. For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
@@ -52,27 +52,21 @@ Explanation
   - Exists a relation $\acute{\prec}$ for the bijected $t$ and $\acute{t}$ in the new region
   - Mapping $\alpha$ help us get the task names, and the two task names in two region need to be equal.
 
-Example: Two isomorphic task networks with the same task name `cityShip`
+Example: Two isomorphic task networks with the same task names `load`, `drive`, and `unload`
 ```
-task_network_1: 
-  tasks: 
-    t0, 
-    t1,
-  precondition: 
-    hasFuel,
+tn2: 
+  precondition: <t1.1, t1.2, t1.3>
   alpha:
-    t0: ship,
-    t1: cityShip,
+    t1.1: load,
+    t1.2: drive,
+    t1.3: unload
 
-task_network_2: 
-  tasks: 
-    t0,
-    t3,
-  precondition: 
-    hasFuel,
+tn3: 
+  precondition: <t2.1, t2.2, t2.3>
   alpha:
-    t0: ship,
-    t3: cityShip,
+    t2.1: load,
+    t2.2: drive,
+    t2.3: unload
 ```
 
 ## Initial Task Network
