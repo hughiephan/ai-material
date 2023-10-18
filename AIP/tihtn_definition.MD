@@ -261,7 +261,7 @@ Plan $\sigma_1$ =ã€ˆload, drive, unload, load, fly, unload, load, drive, unloadã
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b9807dbb-ab23-4320-84ef-7d3d7430ad42)
+![image](https://github.com/hughiephan/DPL/assets/16631121/3f06cfa0-8d3b-4436-bda4-cec8685776cb)
 
 $$
 tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,o)\})  
@@ -275,26 +275,6 @@ With:
 Explanation:
 - First of all, the new task to be inserted should not already exist in $tn_1$ and it can only be primitive task. The new task network $tn_2$ will be an expansion of the previous tasks in $tn_1$ with our new primitive task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us generate a task id for the new inserted task.
 
-Example: Inserting a new primitive task name `fly`
-```
-task_network_2: 
-  precondition:
-  alpha:
-    t0: ship,
-    t1: cityShip,
-    t2: airShip,
-    t3: cityShip,
-    t1.1: load,
-    t1.2: drive,
-    t1.3: unload,
-    t2.1: load,
-    t2.2: fly,
-    t2.3: unload,
-    t3.1: load,
-    t3.2: drive,
-    t3.3: unload,
-    t4: fly,           <--------- Map the new task ID with the new primitive task name
-```
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
