@@ -28,8 +28,6 @@ With:
 
 # Standard Progression Search Algorithm
 
----
-
 01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
 02. While $fringe \neq \emptyset$ Do
@@ -60,9 +58,7 @@ With:
 
 15. Return $unsolvable$
 
----
-
-## Line 1
+## Fringe
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
@@ -98,6 +94,10 @@ Explanation:
 - Add first, add a search node into the fringe.
 - Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
 - Test if the popped node is the solution
+
+## Decomposition
+Explanation:
+- There is similarity between decomposition, in previous paper it is used to decompose task network. It this paper it is used to decompose a new search node.
 
 ## Solution Criteria
 $$
