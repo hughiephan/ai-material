@@ -322,23 +322,7 @@ Explanation:
 Example: Inserting a new primitive task name `fly`
 ```
 task_network_2: 
-  tasks: 
-    t0,
-    t1, 
-    t2,
-    t3,
-    t1.1,
-    t1.2,
-    t1.3,
-    t2.1,
-    t2.2,
-    t2.3,
-    t3.1,
-    t3.2,
-    t3.3,
-    t4           <-------- New Task ID 
   precondition:
-    hasFuel,
   alpha:
     t0: ship,
     t1: cityShip,
@@ -353,7 +337,7 @@ task_network_2:
     t3.1: load,
     t3.2: drive,
     t3.3: unload,
-    t4: fly,           <--------- Map the task ID with the new primitive task name
+    t4: fly,           <--------- Map the new task ID with the new primitive task name
 ```
 
 ## References
