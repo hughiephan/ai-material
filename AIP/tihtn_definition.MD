@@ -131,7 +131,7 @@ tn4:
 
 ## Domain
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f5927-0393-4514-b900-e66dc7d82044)
+![image](https://github.com/hughiephan/DPL/assets/16631121/cfb2d8a6-3011-4475-bef0-6983e11e003c)
 
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
