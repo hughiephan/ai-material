@@ -170,7 +170,7 @@ domain:
     a7: load, 
     a8: drive, 
     a9: unload,
-  method: [ 
+  method:
     m-ship
       compound_task_name: ship(pkg1, whA, shopB), 
       tn0, 
@@ -182,8 +182,7 @@ domain:
       tnY,
     m-cityShip
       compound_task_name: cityShip(pkg1, airpB, shopB),
-      tnZ,
-  ]
+      tnZ
 ```
 
 ## Problem
@@ -200,12 +199,11 @@ Example:
 problem:
   initial_state: ???
   tnI: 
-    tasks: 
-      t0
+    precondition: <>
     alpha:
-      t0: ship
+      t0: ship(pkg1, whA, shopB)
   domain:
-    fact: x, not(x), y, not(y), z, not(z),
+    fact: ???
     primitive_task_name: load, fly, drive, unload,
     compound_task_name: ship, cityShip, airShip,
     delta: 
@@ -218,27 +216,19 @@ problem:
       a7: load, 
       a8: drive, 
       a9: unload,
-    method: [
-      compound_task_name: ship(x,y,z)
-      task_network_1: 
-        tasks: 
-          t0, 
-        precondition: 
-          hasFuel,
-        alpha:
-          t0: ship,
-     
-      compound_task_name: cityShip(x,y,z)
-      task_network_2: 
-        tasks: 
-          t1, 
-        precondition: 
-          hasFuel,
-        alpha:
-          t1.1: load,
-          t1.2: drive,
-          t1.3: unload,
-    ]
+    method:
+      m-ship
+        compound_task_name: ship(pkg1, whA, shopB), 
+        tn0, 
+      m-cityShip
+        compound_task_name: cityShip(pkg1, whA, airpA),
+        tnX,  
+      m-airShip
+        compound_task_name: airShip(pkg1, airpA, airpB),
+        tnY,
+      m-cityShip
+        compound_task_name: cityShip(pkg1, airpB, shopB),
+        tnZ
 ```
 
 ## Executable Task Network
