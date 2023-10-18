@@ -161,3 +161,4 @@ The task network $tn$ is a solution if and only if:
 - What is special about "progression"?
 - Primitive tasks (also called actions) can be directly executed and cause state transition, so does decomposing cause state transition?
 - Why dot product for goal?
+- How do we know a state is a goal state?
