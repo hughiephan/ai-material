@@ -102,24 +102,20 @@ Method maps a compound task name to a task network.
 Method will decomposes a task network $tn_1 = (T_1, \prec, \alpha_1)$ into a new task network $tn_2$  by replacing task t, written $tn_1 \xrightarrow[t,m]{} tn_2$, 
 
 Example: 
-We have a method for mapping a compound task name `ship(x,y,z)` to `task_network_1`
+
+Define `m-cityShip` method for mapping the compound task name `cityShip(pkg1, whA, airpA)` to Task Network `tn1`
 ```
-method:
-  compound_task_name: ship(x,y,z)
-  task_network_1: 
-    tasks: 
-      t0, 
-    precondition: 
-      hasFuel,
+m-cityShip:
+  compound_task_name: cityShip(pkg1, whA, airpA)
+  tn1: 
+    precondition: <t1, t2, t3>
     alpha:
-      t0: ship
+      t1: cityShip(pkg1, whA, airpA),
+      t2: airShip(pkg1, airpA, airpB),
+      t3: cityShip(pkg1, airpB, shopB)
 ```
 
-Let's try to decompose `task network 1` from previous step into `task network 4`
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/899accea-ba2a-4d6c-9c32-f87c7563f2e7)
-
-Into
+We can decompose Task Network `tn1` from previous step into Task Network `tn4` using `m-cityShip` method
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b7026e9b-596c-4265-a673-bad1fa452939)
 
