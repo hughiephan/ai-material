@@ -292,10 +292,8 @@ Here are the concepts I could not fully grasp about HTN yet:
 - CFG Proof?
 - Propositional Symbols?
 - Why $s \in 2^L$?
-- Sequence of state and sequence of tasks?
-
-## Note
-- $\epsilon$ is an empty sequence
+- HTN vs TIHTN solution criteria?
+- HTN vs Classical?
 
 ## Classical Problem
 $$
