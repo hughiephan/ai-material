@@ -58,6 +58,10 @@ With:
 
 15. Return $unsolvable$
 
+## Applicable
+
+To determine whether an action is applicable in a given state, the planner checks whether all the preconditions of that action are true in the current state. If all preconditions are satisfied, the action is considered applicable in the current state and can be considered as a candidate for execution.
+
 ## Fringe
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
