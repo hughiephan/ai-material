@@ -110,6 +110,9 @@ $$
 - $\acute{n}$: search node from progressing $t$
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 
+Explanation:
+- The new precondition remove the precondition relationship between the unconstrained task 
+
 ## Solution Criteria
 $$
 tn = (T, \prec, \alpha)
