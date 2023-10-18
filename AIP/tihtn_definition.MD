@@ -117,7 +117,7 @@ m-cityShip:
 
 We can decompose Task Network `tn1` from previous step into Task Network `tn4` using `m-cityShip` method
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b7026e9b-596c-4265-a673-bad1fa452939)
+![image](https://github.com/hughiephan/DPL/assets/16631121/2e0885f6-4f32-4164-8ba5-18ddf5794bb7)
 
 ```
 tn4: 
