@@ -13,7 +13,7 @@ Explanation:
 
 # Solution
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/7beba7fa-94be-4a83-8581-be407f55b1cc)
+![image](https://github.com/hughiephan/DPL/assets/16631121/9a0f496c-a3ce-4390-af3b-77b8984f12f8)
 
 $$
 n = (s, (T, \prec, \alpha), \pi)
