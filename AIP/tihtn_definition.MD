@@ -305,7 +305,7 @@ Plan $\sigma_1$ =ã€ˆload, drive, unload, load, fly, unload, load, drive, unloadã
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/044ece9d-afa7-4bd4-ab5d-9fc809270e18)
+![image](https://github.com/hughiephan/DPL/assets/16631121/b9807dbb-ab23-4320-84ef-7d3d7430ad42)
 
 $$
 tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,o)\})  
