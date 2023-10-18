@@ -82,7 +82,10 @@ fringe:
   element: ??
 ```
 
-A search node is a tuple that includes the 
+## Search Node 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
+
 - current state
 - task network
 - elements of the problem definition that change during search
