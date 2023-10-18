@@ -1,7 +1,5 @@
 # Progression Search Formal Definition
 
-# Some description
-
 In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. This approach combines task decomposition with state-based goals.
 
 # Unconstrained Task
