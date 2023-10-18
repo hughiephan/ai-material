@@ -82,11 +82,10 @@ The initial task network which consists of the initial task $t_I$ mapping to the
 Example: We create the initial task network with no precondition, task ids, and alpha function to map the task with task names.
 
 ```
-task_network_initial: 
-  tasks: 
-    t0
+tnI: 
+  precondition: <>
   alpha:
-    t0: ship
+    t0: ship(pkg1, whA, shopB)
 ```
 
 ## Method
