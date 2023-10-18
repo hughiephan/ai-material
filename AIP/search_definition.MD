@@ -105,6 +105,11 @@ $$
 \acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
 $$ 
 
+- $n = (s, T, \prec, \alpha, \pi)$ : a search node
+- $t \in T$: unconstrained task
+- $\acute{n}$: search node from progressing $t$
+- $\acute{\prec} = \prec \ {(t,\acute{t}) | \acute{t} in T}  
+
 ## Solution Criteria
 $$
 tn = (T, \prec, \alpha)
