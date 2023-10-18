@@ -115,20 +115,23 @@ method:
       t0: ship
 ```
 
-Then we can decompose the task network `task_network_1` into `task_network_2`:
+Let's try to decompose `task network 1` from previous step into `task network 4`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/899accea-ba2a-4d6c-9c32-f87c7563f2e7)
+
+Into
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/b7026e9b-596c-4265-a673-bad1fa452939)
 
 ```
-task_network_2: 
-  tasks: 
-    t1,
-    t2,
-    t3,
-  precondition: 
-    hasFuel,
+tn4: 
+  precondition: <t1.1, t1.2, t1.3, t2, t3>
   alpha:
-    t1: cityShip,
-    t2: airShip,
-    t3: cityShip,
+    t1.1: load,
+    t1.2: drive,
+    t1.3: unload,
+    t2: airShip(pkg1, airpA, airpB),
+    t3: cityShip(pkg1, airpB, shopB)
 ```
 
 
