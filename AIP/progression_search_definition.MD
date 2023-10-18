@@ -119,7 +119,7 @@ Given:
 - $\acute{n}$: search node from progressing $t$
 
 With:
-- $\acute{s} = \sigma ( \alpha(t), s )$ 
+- $\acute{s} = \gamma ( \alpha(t), s )$ 
 - $\acute{T} = T$ \ { $t$ }
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 - $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
