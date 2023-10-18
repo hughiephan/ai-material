@@ -1,4 +1,4 @@
-444444444444444444444444444444444444444444# Progression Search Formal Definition
+# Progression Search Formal Definition
 
 # Some description
 
