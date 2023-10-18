@@ -2,7 +2,7 @@
 
 Considering the logistics domain example from Xiao et al [1], we have made a few modifications for an easier explanation of the HTN Definition. Suppose every task has only one method, the initial task `ship(pkg1, whA, shopB)` is to ship a package from city A to city B and it has a method: to ship the package from the warehouse to the airport by truck, from city A to city B by plane, and from the airport to the shop by truck. 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/39c3a93c-f814-42f2-9db0-8276a8f67d79)
+![image](https://github.com/hughiephan/DPL/assets/16631121/b343f25b-5492-4dc7-ae76-d5b101e85839)
 
 ## Task Network
 
