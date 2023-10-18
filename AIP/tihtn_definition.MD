@@ -115,7 +115,7 @@ m-cityShip:
 
 We can decompose Task Network `tn1` from previous step into Task Network `tn4` using `m-cityShip` method
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/2e0885f6-4f32-4164-8ba5-18ddf5794bb7)
+![image](https://github.com/hughiephan/DPL/assets/16631121/b20303a6-a539-4c47-8719-83590511e2d7)
 
 ```
 tn4: 
@@ -128,10 +128,9 @@ tn4:
     t3: cityShip(pkg1, airpB, shopB)
 ```
 
-
 ## Domain
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/105a92f7-0a96-4e42-9796-73e5ec55dd2d)
+![image](https://github.com/hughiephan/DPL/assets/16631121/0e0745b7-9272-4820-87b3-f63654fd4f57)
 
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
