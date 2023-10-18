@@ -99,6 +99,12 @@ Explanation:
 Explanation:
 - There is similarity between decomposition, in previous paper it is used to decompose task network. It this paper it is used to decompose a new search node.
 
+## Progression
+
+$$
+\acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
+$$ 
+
 ## Solution Criteria
 $$
 tn = (T, \prec, \alpha)
