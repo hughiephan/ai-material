@@ -6,12 +6,13 @@ In AI search algorithms, the state (or search) space is usually represented as a
 
 # Unconstrained Task
 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdea9ce9-4384-4960-917f-b5c853cefed6)
 
 A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
 
 Explanation: 
-- Meaning that there is no precondition between that task and another task.
+- Unconstrained tasks are tasks that have no predecessors in the network.
 
 # Solution
 $$
