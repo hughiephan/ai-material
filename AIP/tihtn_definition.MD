@@ -131,7 +131,7 @@ tn4:
 
 ## Domain
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/cfb2d8a6-3011-4475-bef0-6983e11e003c)
+![image](https://github.com/hughiephan/DPL/assets/16631121/105a92f7-0a96-4e42-9796-73e5ec55dd2d)
 
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
@@ -157,7 +157,7 @@ Example:
 Above example (written in different form):
 ```
 domain:
-  fact: x, not(x), y, not(y), z, not(z),
+  fact:???
   primitive_task_name: load, fly, drive, unload,
   compound_task_name: ship, cityShip, airShip,
   delta: 
@@ -170,26 +170,19 @@ domain:
     a7: load, 
     a8: drive, 
     a9: unload,
-  method: [
-    compound_task_name: ship(x,y,z)
-    task_network_1: 
-      tasks: 
-        t0, 
-      precondition: 
-        hasFuel,
-      alpha:
-        t0: ship,
-   
-    compound_task_name: cityShip(x,y,z)
-    task_network_2: 
-      tasks: 
-        t1, 
-      precondition: 
-        hasFuel,
-      alpha:
-        t1.1: load,
-        t1.2: drive,
-        t1.3: unload,
+  method: [ 
+    m-ship
+      compound_task_name: ship(pkg1, whA, shopB), 
+      tn0, 
+    m-cityShip
+      compound_task_name: cityShip(pkg1, whA, airpA),
+      tnX,  
+    m-airShip
+      compound_task_name: airShip(pkg1, airpA, airpB),
+      tnY,
+    m-cityShip
+      compound_task_name: cityShip(pkg1, airpB, shopB),
+      tnZ,
   ]
 ```
 
@@ -205,8 +198,8 @@ $$
 Example:
 ```
 problem:
-  initial_state: x, y, z
-  task_network_initial: 
+  initial_state: ???
+  tnI: 
     tasks: 
       t0
     alpha:
