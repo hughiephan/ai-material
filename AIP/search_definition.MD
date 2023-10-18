@@ -115,12 +115,14 @@ $$
 - $\acute{T} = T$ \ { $t$ }
 - $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
 - $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
+- $\acute{\pi} = \pi o \alpha(t)$
 
 
 Explanation:
 - List of new tasks should remove the unconstrained task we just processed.
 - The new precondition remove the precondition relationship between the unconstrained task 
 - The $\alpha$ mapping of the unconstrained task will be removed also.
+- The goal $\pi$ is also updated by adding the task names 
 
 ## Solution Criteria
 $$
