@@ -297,7 +297,7 @@ Possible route
 
 Solution
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/ed189763-02d3-44b4-8317-deae27019a0c)
+![image](https://github.com/hughiephan/DPL/assets/16631121/cee81b01-8ea2-4115-84d0-ffae0251d9a2)
 
 Plan $\sigma_1$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
