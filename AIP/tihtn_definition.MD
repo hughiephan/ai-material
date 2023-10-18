@@ -33,7 +33,7 @@ tn1:
 
 ## Isomorphic
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/c93e7a22-4eab-460b-8e9f-b7b0deabf508)
+![image](https://github.com/hughiephan/DPL/assets/16631121/de836baf-b114-4fe8-a24f-5945e77f3d77)
 
 Two task networks are isomorphic if they describe the same arrangement of task names despite using different identifiers. For $tn=(T, \prec, \alpha)$ and $\acute{tn}=(\acute{T}, \acute{\prec}, \acute{\alpha})$, we have:
 
