@@ -1,4 +1,4 @@
-# Progression Search Formal Definition
+444444444444444444444444444444444444444444# Progression Search Formal Definition
 
 # Some description
 
@@ -108,7 +108,7 @@ $$
 - $n = (s, T, \prec, \alpha, \pi)$ : a search node
 - $t \in T$: unconstrained task
 - $\acute{n}$: search node from progressing $t$
-- $\acute{\prec} = \prec \ {(t,\acute{t}) | \acute{t} in T}  
+- $\acute{\prec} = \prec \ {(t,\acute{t}) | \acute{t} in T}$
 
 ## Solution Criteria
 $$
