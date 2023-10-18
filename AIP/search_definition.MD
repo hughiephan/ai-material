@@ -150,3 +150,4 @@ The task network $tn$ is a solution if and only if:
 - Useful for calculating heuristics?
 - What is special about "progression"?
 - Primitive tasks (also called actions) can be directly executed and cause state transition, so does decomposing cause state transition?
+- Why dot product for goal?
