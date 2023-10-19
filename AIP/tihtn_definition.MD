@@ -373,8 +373,8 @@ Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 - $O := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
 
 - $M := \lbrace (c_I, tn \rbrace \cup$ 
-          $(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \cup$
-          $(X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
+$(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \cup$
+$(X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
 
 - $s_I := {turn_{G1}}$
 
@@ -384,7 +384,7 @@ where:
 
 - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
 
-- $tn_{X \rightarrow a} := (\brace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
+- $tn_{X \rightarrow a}$ := $(\brace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 
 ## Questions
