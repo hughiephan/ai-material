@@ -372,19 +372,19 @@ Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
 - $O := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
 
-- $M := \{(c_I, tn \} \cup$ 
-          $(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \bigcup$
-          $(X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \{1,2\}\}$
+- $M := \lbrace (c_I, tn \rbrace \cup$ 
+          $(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \cup$
+          $(X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
 
 - $s_I := {turn_{G1}}$
 
 where:
 
-    $tn := (\{s_1,s_2,f\}, \{(s_1,f), (s_2,f)\}, \{(s_1, S_1), (s_2, S_2), (f,F)\})$
+    $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
 
-    $tn_{X \rightarrow YZ} := (\{t, \acute{t}\}, \{(t, \acute{t}\}), \{t, Y\}, \{\acute{t}, Z\})$
+    $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
 
-    $tn_{X \rightarrow a} := (\{t\}, \emptyset, \{(t, G_i^a)\})$
+    $tn_{X \rightarrow a} := (\brace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 
 ## Questions
