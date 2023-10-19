@@ -267,6 +267,7 @@ Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
 The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
 
+
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
 
@@ -323,6 +324,67 @@ CFG fits with HTN Planning is because we can can derive the string by repeatedly
 Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
 
 We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
+
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
+
+Two Formal Grammar G and G' was processed in parallel
+
+
+
+$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
+
+$G_1, G_2$, two CFG in normal form
+
+Rule has either form:
+
+- $X \rightarrow Y Z$
+
+- $X \rightarrow\ a$
+
+- X, Y, Z: non-terminal symbol
+
+- a: terminal symbol
+
+- $\sum$, set of terminal symbols 
+
+For $i \in {1,2} $, we have:
+
+- $\Gamma$: non-terminal symbols of $G_i$ 
+
+- $S_i \in \Gamma_i$: start symbol of $G_i$
+
+Assume: $\Gamma_1 \bigcap \Gamma_2  = \emptyset$ 
+
+Define: $\Gamma := \Gamma_1 \bigcup \Gamma_2$
+
+$L(G_i)$: is language of $G_i$
+
+Assume: $\epsilon \notin L(G_1) \cup L(G_2)$
+
+$R_i$, grammar rules of $G_i$, set $R := R_1 \cup R_2$
+
+Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
+
+- $L := \{(turn_{G1}, turn_{G2})\} \cup \sum$
+
+- $C := \Gamma \cup \{ c_I\}$
+
+- $O := G_i^a | a \in \sum , i \in \{1,2\}\} \cup {F}$
+
+- $M := \{(c_I, tn \} \cup$ 
+          $(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \bigcup$
+          $(X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \{1,2\}\}$
+
+- $s_I := {turn_{G1}}$
+
+where:
+
+    $tn := (\{s_1,s_2,f\}, \{(s_1,f), (s_2,f)\}, \{(s_1, S_1), (s_2, S_2), (f,F)\})$
+
+    $tn_{X \rightarrow YZ} := (\{t, \acute{t}\}, \{(t, \acute{t}\}), \{t, Y\}, \{\acute{t}, Z\})$
+
+    $tn_{X \rightarrow a} := (\{t\}, \emptyset, \{(t, G_i^a)\})$
 
 
 ## Questions
