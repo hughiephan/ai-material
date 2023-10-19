@@ -370,7 +370,7 @@ Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
 - $C := \Gamma \cup \{ c_I\}$
 
-- $O := G_i^a | a \in \sum , i \in \{1,2\}\} \cup {F}$
+- $O := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
 
 - $M := \{(c_I, tn \} \cup$ 
           $(X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \} \bigcup$
