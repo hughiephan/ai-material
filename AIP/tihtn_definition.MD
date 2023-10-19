@@ -368,7 +368,7 @@ Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
 - $L := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
 
-- $C := \Gamma \cup \{ c_I\}$
+- $C := \Gamma \cup \lbrace c_I \rbrace$
 
 - $O := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
 
@@ -380,11 +380,11 @@ Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
 where:
 
-    $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
+- $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
 
-    $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
+- $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
 
-    $tn_{X \rightarrow a} := (\brace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
+- $tn_{X \rightarrow a} := (\brace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 
 ## Questions
