@@ -281,6 +281,7 @@ Explanation:
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 - [4] Chad Hogg, Ugur Kuter, and Héctor Muñoz-Avila. 2009. Learning hierarchical task networks for nondeterministic planning domains. In Proceedings of the 21st International Joint Conference on Artificial Intelligence (IJCAI'09). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1708–1714.
+- [5] Yaman, Fusun & Nau, Dana. (2003). TimeLine: An HTN Planner That can Reason About Time. AIPS Workshop on Planning for Temporal Domains, 2002. 
 - https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
 
 # Extra
@@ -296,11 +297,18 @@ Here are the concepts I could not fully grasp about HTN yet:
 - Why $s \in 2^L$?
 - HTN vs TIHTN solution criteria?
 
-### HTN vs Classical?
+### Question: HTN vs Classical
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
 
 In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. HTN works in deterministic domain but it can also works on Nondeterministic domain [4]
+
+In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment, while HTN Planning can works on both fully observable and partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
+
+In Classical Planning, there is no consideration of time. Time duration is Instantaneous meaning it does not consider the time it takes to perform each action and the effects of actions occurring simultaneously. There is the paper TimeLine [5] on HTN that can deal with time.
+
+
 
 ## Classical Problem
 $$
