@@ -276,6 +276,23 @@ Explanation:
 - First of all, the new task to be inserted should not already exist in $tn_1$ and it can only be primitive task. The new task network $tn_2$ will be an expansion of the previous tasks in $tn_1$ with our new primitive task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us generate a task id for the new inserted task.
 
 
+## Classical Problem
+$$
+P_c = (F, A, s_I, g, \delta)
+$$
+
+- Sometimes Classical Problem is defined with a 4-tuple without the Delta $\delta$
+- F is set of propositional environment facts
+- $s_I \subseteq F$ is initial state
+- $g \subseteq F$ gives the goal definition
+- A is set of action names
+- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $A -> 2^F$
+- State is set of facts
+- Action a is applicable in state s, with relation $\tau = A \times 2^F \), \( \tau(a,s) \iff prec(a) \subseteq s$
+- When applicable, state transition function: $\gamma : A \times 2^F \rightarrow 2^F$, $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
+- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
+- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
+
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
@@ -315,20 +332,4 @@ Both Classical and HTN planning have sequential plans with a linearly ordered se
 
 Both Classical and HTN is finite system (finite states, actions, events). If we want to model the domain and problem as inifite system, maybe use Turing infinite state machine.
 
-## Classical Problem
-$$
-P_c = (F, A, s_I, g, \delta)
-$$
-
-- Sometimes Classical Problem is defined with a 4-tuple without the Delta $\delta$
-- F is set of propositional environment facts
-- $s_I \subseteq F$ is initial state
-- $g \subseteq F$ gives the goal definition
-- A is set of action names
-- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $A -> 2^F$
-- State is set of facts
-- Action a is applicable in state s, with relation $\tau = A \times 2^F \), \( \tau(a,s) \iff prec(a) \subseteq s$
-- When applicable, state transition function: $\gamma : A \times 2^F \rightarrow 2^F$, $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
-- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
-- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
