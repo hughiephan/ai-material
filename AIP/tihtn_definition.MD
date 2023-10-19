@@ -232,7 +232,7 @@ problem:
 
 ## Executable Task Network
 
-$tn=(T, \prec, \alpha)$ is executable in state $s \in 2^L$
+$tn=(T, \prec, \alpha)$ is executable in state $s$
 
 If and only if:
 - It is primitive
@@ -301,7 +301,6 @@ Here are the concepts I could not fully grasp about HTN yet:
 - What is State and Fact?
 - CFG Proof?
 - Propositional Symbols?
-- Why $s \in 2^L$?
 - Task hierarchy model physic and advice?
 
 ### Question: Classical vs HTN planning
