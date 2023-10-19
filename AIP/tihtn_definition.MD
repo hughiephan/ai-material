@@ -311,7 +311,9 @@ In Classical Planning, there is no consideration of time. Time duration is Insta
 
 In Classical Planning, it's is Static.  We see that Classical Planning does not consider time so there can be no exogenous event. An exogenous event can be defined as a happening that occurs at a specific point along a conceptual timeline and changes the world state by altering the value of one or more predicates. For example: Electricity will be available at 10 AM. Thus, actions that need electricity will only be able to execute after 10 AM [6]. Due to this paper on TimeLine [5], it is theoretically possible for HTN Planning's word dynamics to be Exogenous Events.
 
+Both Classical and HTN planning have sequential plans with a linearly ordered sequence of actions (a1, a2, … an) 
 
+Both Classical and HTN is finite system (finite states, actions, events). If we want to model the domain and problem as inifite system, maybe use Turing infinite state machine.
 
 ## Classical Problem
 $$
