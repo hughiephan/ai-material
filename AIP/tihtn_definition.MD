@@ -265,7 +265,7 @@ Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
 
-The task network $tn_6$ is the solution because both the words ab and a'b' appear twice, and only consists of Primitive Tasks.
+The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
 
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
