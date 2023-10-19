@@ -314,7 +314,7 @@ $$
 
 ## Undeciability of HTN Planning
 
-Theorem: $PLAN-EXISTENCE_HTN$ is undeciable.
+Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
 
 We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
