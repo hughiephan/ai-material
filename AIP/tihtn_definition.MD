@@ -285,7 +285,7 @@ $$
 - F is set of propositional environment facts
 - $s_I \subseteq F$ is initial state
 - $g \subseteq F$ gives the goal definition
-- $N_A$ is set of action names
+- $N_A$ is a finite set of action names
 - $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $N_A -> 2^F$
 - State is set of facts
 - Action a is applicable in state s, with relation $\tau = N_A \times 2^F \), \( \tau(a,s) \iff prec(a) \subseteq s$
