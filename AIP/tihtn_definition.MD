@@ -304,6 +304,7 @@ Here are the concepts I could not fully grasp about HTN yet:
 - CFG Proof?
 - Propositional Symbols?
 - Task hierarchy model physic and advice?
+- Goal description?
 
 ### Question: Classical vs HTN planning
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
