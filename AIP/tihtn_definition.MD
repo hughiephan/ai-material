@@ -255,8 +255,8 @@ Solution Criteria:
 
 Given:
 - $tn=(T, \prec, \alpha)$
-- D = (F, N_P, N_C, \delta, M) : Domain
-- P = (D, s_I, tn_I): Problem
+- $D$ : Domain
+- $P$ : HTN Problem
 
 Explanation:
 - The task network can be reached by decomposing the initial task network
