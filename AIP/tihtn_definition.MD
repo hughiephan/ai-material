@@ -282,6 +282,7 @@ Explanation:
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
 - [4] Chad Hogg, Ugur Kuter, and Héctor Muñoz-Avila. 2009. Learning hierarchical task networks for nondeterministic planning domains. In Proceedings of the 21st International Joint Conference on Artificial Intelligence (IJCAI'09). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1708–1714.
 - [5] Yaman, Fusun & Nau, Dana. (2003). TimeLine: An HTN Planner That can Reason About Time. AIPS Workshop on Planning for Temporal Domains, 2002. 
+- [6] Do, Minh & Kambhampati, Subbarao & Zimmerman, Terry. (2004). Planning - Scheduling Connections through Exogenous Events. 
 - https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
 
 # Extra
@@ -307,6 +308,8 @@ In Classical Planning, the Actions have deterministic effects, meaning that one 
 In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment, while HTN Planning can works on both fully observable and partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
 
 In Classical Planning, there is no consideration of time. Time duration is Instantaneous meaning it does not consider the time it takes to perform each action and the effects of actions occurring simultaneously. There is the paper TimeLine [5] on HTN that can deal with time.
+
+In Classical Planning, it's is Static.  We see that Classical Planning does not consider time so there can be no exogenous event. An exogenous event can be defined as a happening that occurs at a specific point along a conceptual timeline and changes the world state by altering the value of one or more predicates. For example: Electricity will be available at 10 AM. Thus, actions that need electricity will only be able to execute after 10 AM [6]. Due to this paper on TimeLine [5], it is theoretically possible for HTN Planning's word dynamics to be Exogenous Events.
 
 
 
