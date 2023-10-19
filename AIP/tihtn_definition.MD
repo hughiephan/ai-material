@@ -316,14 +316,11 @@ $$
 
 Theorem: $PLAN-EXISTENCE_HTN$ is undeciable.
 
-We can prove this by transform our HTN Formalism 
+We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
-To be written (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
 
 ## Questions
 - What is State and Fact?
-- CFG Proof?
-- Propositional Symbols?
 - Task hierarchy model physic and advice?
 - Goal description?
 
@@ -356,4 +353,5 @@ The goal in classical planning is defined by a set of state features that shall 
 - [4] Chad Hogg, Ugur Kuter, and Héctor Muñoz-Avila. 2009. Learning hierarchical task networks for nondeterministic planning domains. In Proceedings of the 21st International Joint Conference on Artificial Intelligence (IJCAI'09). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1708–1714.
 - [5] Yaman, Fusun & Nau, Dana. (2003). TimeLine: An HTN Planner That can Reason About Time. AIPS Workshop on Planning for Temporal Domains, 2002. 
 - [6] Do, Minh & Kambhampati, Subbarao & Zimmerman, Terry. (2004). Planning - Scheduling Connections through Exogenous Events. 
+- [7] Hopcroft et al., 2000 John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman. Introduction to Automata Theory, Languages, and Computation, volume 3. Addison-Wesley Reading, MA, second edition, 2000.
 - https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
