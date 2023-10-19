@@ -246,6 +246,23 @@ Explantion:
 Example: To be written
 
 ## Solution
+Solution Criteria:
+
+- $tn_I \rightarrow tn$ 
+- $\Forall{t} \in T: \alpha(t) \in A$
+- Sequence <$t_1t_2...t_n$> of the tasks is in line with $\prec$
+- (Optional) <$(\alpha(t_1)\alpha(t_2)...\alpha(t_n)> in $s_I$ results in a goal state.
+
+Given:
+- $tn=(T, \prec, \alpha)$
+- D = (F, N_P, N_C, \delta, M) : Domain
+- P = (D, s_I, tn_I): Problem
+
+Explanation:
+- The task network can be reached by decomposing the initial task network
+- All the task names in the Task Network are primitive.
+- The sequence of tasks need to follow the rule of preconditions.
+- Combines task decomposition with state-based goals. This could also be used without state-based goal.
 
 Possible route
 
