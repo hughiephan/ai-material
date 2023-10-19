@@ -354,7 +354,7 @@ For $i \in {1,2} $, we have:
 
 - $S_i \in \Gamma_i$: start symbol of $G_i$
 
-Assume: $\Gamma_1 \bigcap \Gamma_2  = \emptyset$ 
+Assume: $\Gamma_1 \cap \Gamma_2  = \emptyset$ 
 
 Define: $\Gamma := \Gamma_1 \bigcup \Gamma_2$
 
@@ -366,7 +366,7 @@ $R_i$, grammar rules of $G_i$, set $R := R_1 \cup R_2$
 
 Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
-- $L := \{(turn_{G1}, turn_{G2})\} \cup \sum$
+- $L := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
 
 - $C := \Gamma \cup \{ c_I\}$
 
