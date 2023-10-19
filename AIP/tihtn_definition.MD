@@ -246,7 +246,7 @@ Explantion:
 Example: To be written
 
 ## Solution
-Solution Criteria:
+Solution Criteria: (Seems a bit different with the solution criteria in page 52/62 of Tutorial: An Introduction to Hierarchical Task Network (HTN) Planning))
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T: \alpha(t) \in A$
