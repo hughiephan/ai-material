@@ -321,6 +321,10 @@ Both Classical and HTN planning have sequential plans with a linearly ordered se
 
 Both Classical and HTN is finite system (finite states, actions, events). If we want to model the domain and problem as inifite system, maybe use Turing infinite state machine.
 
+The goal in classical planning is defined by a set of state features that shall be achieved. Therefore classical heuristics are designed to estimate the distance from a given state to a goal state. In HTN planning the “goal” is an abstract task to perform; no state-based goal is given. HTN will decompose high level abstraction tasks.
+
+
+
 ### Question: HTN vs TIHTN planning
 
 
