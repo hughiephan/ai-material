@@ -302,9 +302,9 @@ Here are the concepts I could not fully grasp about HTN yet:
 - CFG Proof?
 - Propositional Symbols?
 - Why $s \in 2^L$?
-- HTN vs TIHTN solution criteria?
+- Task hierarchy model physic and advice?
 
-### Question: HTN vs Classical
+### Question: Classical vs HTN planning
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
@@ -320,6 +320,8 @@ In Classical Planning, it's is Static.  We see that Classical Planning does not 
 Both Classical and HTN planning have sequential plans with a linearly ordered sequence of actions (a1, a2, … an) 
 
 Both Classical and HTN is finite system (finite states, actions, events). If we want to model the domain and problem as inifite system, maybe use Turing infinite state machine.
+
+### Question: HTN vs TIHTN planning
 
 
 ## References
