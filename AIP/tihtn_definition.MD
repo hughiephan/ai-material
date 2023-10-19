@@ -314,6 +314,19 @@ $$
 
 ## Undeciability of HTN Planning
 
+```
+G= (V, T, P, S)  
+```
+
+G describes the grammar
+T describes a finite set of terminal symbols.
+V describes a finite set of non-terminal symbols
+P describes a set of production rules
+S is the start symbol.
+
+CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks.
+
+
 Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
 
 We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
