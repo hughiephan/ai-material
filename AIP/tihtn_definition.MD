@@ -250,8 +250,8 @@ Solution Criteria:
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T: \alpha(t) \in A$
-- Sequence <$t_1t_2...t_n$> of the tasks is in line with $\prec$
-- (Optional) <$(\alpha(t_1)\alpha(t_2)...\alpha(t_n)> in $s_I$ results in a goal state.
+- Sequence < $t_1t_2...t_n$ > of the tasks is in line with $\prec$
+- (Optional) < $(\alpha(t_1)\alpha(t_2)...\alpha(t_n)$ > in $s_I$ results in a goal state.
 
 Given:
 - $tn=(T, \prec, \alpha)$
