@@ -317,16 +317,18 @@ Both Classical and HTN is finite system (finite states, actions, events). If we 
 
 ## Classical Problem
 $$
-P_c = (F, A, s_0, g, \delta)
+P_c = (F, A, s_I, g, \delta)
 $$
 
+- Sometimes Classical Problem is defined with a 4-tuple without the Delta $\delta$
 - F is set of propositional environment facts
-- $s_0 \subseteq F$ is initial state
+- $s_I \subseteq F$ is initial state
 - $g \subseteq F$ gives the goal definition
 - A is set of action names
 - $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $A -> 2^F$
 - State is set of facts
 - Action a is applicable in state s, with relation $\tau = A \times 2^F \), \( \tau(a,s) \iff prec(a) \subseteq s$
 - When applicable, state transition function: $\gamma : A \times 2^F \rightarrow 2^F$, $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
-- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in A$ is applicable in a state $s_0$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
-- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_0$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
+- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
+- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
+
