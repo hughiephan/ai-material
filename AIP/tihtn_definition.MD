@@ -293,6 +293,9 @@ $$
 - Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
 - Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
+## Formal Grammar 
+To be written (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
+
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
@@ -301,11 +304,6 @@ $$
 - [5] Yaman, Fusun & Nau, Dana. (2003). TimeLine: An HTN Planner That can Reason About Time. AIPS Workshop on Planning for Temporal Domains, 2002. 
 - [6] Do, Minh & Kambhampati, Subbarao & Zimmerman, Terry. (2004). Planning - Scheduling Connections through Exogenous Events. 
 - https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
-
-# Extra
-
-## Formal Grammar 
-To be written (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
 
 ## Questions
 Here are the concepts I could not fully grasp about HTN yet:
