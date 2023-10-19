@@ -293,7 +293,11 @@ Here are the concepts I could not fully grasp about HTN yet:
 - Propositional Symbols?
 - Why $s \in 2^L$?
 - HTN vs TIHTN solution criteria?
-- HTN vs Classical?
+
+### HTN vs Classical?
+In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
+![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
+
 
 ## Classical Problem
 $$
