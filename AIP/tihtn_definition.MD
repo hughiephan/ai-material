@@ -316,7 +316,6 @@ $$
 To be written (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
 
 ## Questions
-Here are the concepts I could not fully grasp about HTN yet:
 - What is State and Fact?
 - CFG Proof?
 - Propositional Symbols?
