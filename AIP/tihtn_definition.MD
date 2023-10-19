@@ -230,23 +230,10 @@ problem:
         tnZ
 ```
 
-## Executable Task Network
-
-$tn=(T, \prec, \alpha)$ is executable in state $s$
-
-If and only if:
-- It is primitive
-- Exist a linearization of tasks t1,...,tn compatible with $\prec$ and sequence states $s_0,...s_n$ such that $s_0 = s$
-
-Explantion:
-- This definition is important because we don't want to create an task network that can not be run. The solution will be based on this.
-- Executable Task Network should only consists of primitive tasks.
-- I think linearization means that we want to have a definite route from task t1 to task tn. We don't want it to loop.
-
-Example: To be written
-
 ## Solution
 Solution Criteria: (Seems a bit different with the solution criteria in page 52/62 of Tutorial: An Introduction to Hierarchical Task Network (HTN) Planning))
+
+A bit similar to Executable Task Network
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T: \alpha(t) \in A$
