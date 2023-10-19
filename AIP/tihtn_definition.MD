@@ -147,7 +147,7 @@ $$
 Explanation: Delta $\delta$ function has the same purpose of Alpha $\alpha$ function, mapping unique IDs to task names because there can be duplicate task names. But the different is that $\delta$ only works with primitive task names, while $\alpha$ works will both primitive and compound task names. Maybe this has the purpose of helping us get the ordered combination of primitive tasks as plan. Final solution cannot contain compound task names, so Delta $\delta$ help us track the primitive tasks.
 
 Example:
-- Set of facts: $F$ = { $x, \neg{x}, y, \neg{y}, z, \neg{z}$ }
+- Set of facts: $F$ = ???
 - Set of primitive task names: $N_P$ = { load, fly, drive, unload }
 - Set of compound task names: $N_C$ = { ship, cityShip, airShip }
 - With Delta $\delta$ function, we have a set of actions to primitive task names: {(a1, load), (a2, fly), (a3, unload), (a4, load), (a5, drive), (a6, unload), (a7, load), (a8, drive), (a9, unload)}
