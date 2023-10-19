@@ -272,7 +272,7 @@ Solution
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/cee81b01-8ea2-4115-84d0-ffae0251d9a2)
 
-Plan $\sigma_1$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
+Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
 
 ## Task Insertion
