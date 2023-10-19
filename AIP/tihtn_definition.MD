@@ -255,7 +255,7 @@ Solution Criteria:
 
 Given:
 - $tn=(T, \prec, \alpha)$
-- $D$ : Domain
+- $D$ : HTN Domain
 - $P$ : HTN Problem
 
 Explanation:
