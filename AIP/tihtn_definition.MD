@@ -280,6 +280,8 @@ Explanation:
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
 - [2] Thomas Geier and Pascal Bercher. 2011. On the decidability of HTN planning with task insertion. In Proceedings of the Twenty-Second international joint conference on Artificial Intelligence - Volume Volume Three (IJCAI'11). AAAI Press, 1955–1961.
 - [3] Bercher, P., Alford, R., & Höller, D. (2019). A Survey on Hierarchical Planning – One Abstract Idea, Many Concrete Realizations. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, ĲCAI-19 (pp. 6267–6275). International Joint Conferences on Artificial Intelligence Organization.
+- [4] Chad Hogg, Ugur Kuter, and Héctor Muñoz-Avila. 2009. Learning hierarchical task networks for nondeterministic planning domains. In Proceedings of the 21st International Joint Conference on Artificial Intelligence (IJCAI'09). Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1708–1714.
+- https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
 
 # Extra
 
@@ -298,6 +300,7 @@ Here are the concepts I could not fully grasp about HTN yet:
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
 
+In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. HTN works in deterministic domain but it can also works on Nondeterministic domain [4]
 
 ## Classical Problem
 $$
