@@ -324,6 +324,9 @@ We can prove this by transform our HTN Formalization into two CFG. Then because 
 - Task hierarchy model physic and advice?
 - Goal description?
 
+### Question: Classical vs TIHTN planning
+- Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
+
 ### Question: Classical vs HTN planning
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
 
