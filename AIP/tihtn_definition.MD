@@ -264,12 +264,12 @@ In case the plane is not in the airport of city A, the air transportation task a
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3f06cfa0-8d3b-4436-bda4-cec8685776cb)
 
 $$
-tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,o)\})  
+tn_2 = (T_1 \cup \{t\}, \prec_1, \alpha_1 \cup \{(t,p)\})  
 $$
 
 With:
 - $tn_1 =  (T_1, \prec_1, \alpha_1)$: a task network  
-- $o$: a primitive task name 
+- $p$: a primitive task name 
 - $t \notin T_1$
 
 Explanation:
