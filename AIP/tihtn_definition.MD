@@ -318,6 +318,8 @@ $$
 G= (V, T, P, S)  
 ```
 
+(Page 78 should helps with facts, goal description, and other examples)
+
 G describes the grammar
 T describes a finite set of terminal symbols.
 V describes a finite set of non-terminal symbols
@@ -326,16 +328,13 @@ S is the start symbol.
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks.
 
-
 Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
 
 We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
 
 ## Questions
-- What is State and Fact?
 - Task hierarchy model physic and advice?
-- Goal description?
 
 ### Question: Classical vs TIHTN planning
 - Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
@@ -360,7 +359,7 @@ Both Classical and HTN is finite system (finite states, actions, events). If we 
 The goal in classical planning is defined by a set of state features that shall be achieved. Therefore classical heuristics are designed to estimate the distance from a given state to a goal state. In HTN planning the “goal” is an abstract task to perform; no state-based goal is given. HTN will decompose high level abstraction tasks.
 
 ### Question: HTN vs TIHTN planning
-
+To be written
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
