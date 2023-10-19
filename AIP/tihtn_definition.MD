@@ -261,6 +261,8 @@ Plan $\sigma_1$ =ã€ˆload, drive, unload, load, fly, unload, load, drive, unloadã
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
 
+A task network is called executable if there exists an executable linearization of its tasks.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3f06cfa0-8d3b-4436-bda4-cec8685776cb)
 
 $$
