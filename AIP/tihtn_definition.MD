@@ -312,7 +312,12 @@ $$
 - Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
 - Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
-## Formal Grammar 
+## Undeciability of HTN Planning
+
+Theorem: $PLAN-EXISTENCE_HTN$ is undeciable.
+
+We can prove this by transform our HTN Formalism 
+
 To be written (Section 3 of paper On the Decidability of HTN Planning with Task Insertion, IJCAI'11)
 
 ## Questions
@@ -327,21 +332,19 @@ In Classical Planning, the state is a sequence of actions. But the state in HTN 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
 
-In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. HTN works in deterministic domain but it can also works on Nondeterministic domain [4]
+In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. This HTN formalism works in deterministic domain. There are other works for HTN on Nondeterministic domain [4]
 
-In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment, while HTN Planning can works on both fully observable and partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
+In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment. This HTN Planning also works on fully observable environment. There are other HTN that can work on partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
 
-In Classical Planning, there is no consideration of time. Time duration is Instantaneous meaning it does not consider the time it takes to perform each action and the effects of actions occurring simultaneously. There is the paper TimeLine [5] on HTN that can deal with time.
+In Classical Planning, there is no consideration of time. Time duration is Instantaneous meaning it does not consider the time it takes to perform each action and the effects of actions occurring simultaneously. This HTN also does not consider time. There is the paper TimeLine [5] on HTN that can deal with time.
 
-In Classical Planning, it's is Static.  We see that Classical Planning does not consider time so there can be no exogenous event. An exogenous event can be defined as a happening that occurs at a specific point along a conceptual timeline and changes the world state by altering the value of one or more predicates. For example: Electricity will be available at 10 AM. Thus, actions that need electricity will only be able to execute after 10 AM [6]. Due to this paper on TimeLine [5], it is theoretically possible for HTN Planning's word dynamics to be Exogenous Events.
+In Classical Planning, it's is Static.  We see that Classical Planning does not consider time so there can be no exogenous event. An exogenous event can be defined as a happening that occurs at a specific point along a conceptual timeline and changes the world state by altering the value of one or more predicates. For example: Electricity will be available at 10 AM. Thus, actions that need electricity will only be able to execute after 10 AM [6]. This paper HTN is also static. Due to this paper on TimeLine [5], it is theoretically possible for HTN Planning's word dynamics to be Exogenous Events.
 
 Both Classical and HTN planning have sequential plans with a linearly ordered sequence of actions (a1, a2, … an) 
 
 Both Classical and HTN is finite system (finite states, actions, events). If we want to model the domain and problem as inifite system, maybe use Turing infinite state machine.
 
 The goal in classical planning is defined by a set of state features that shall be achieved. Therefore classical heuristics are designed to estimate the distance from a given state to a goal state. In HTN planning the “goal” is an abstract task to perform; no state-based goal is given. HTN will decompose high level abstraction tasks.
-
-
 
 ### Question: HTN vs TIHTN planning
 
