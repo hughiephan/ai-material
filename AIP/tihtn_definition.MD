@@ -365,8 +365,7 @@ Example:
   - $(\lbrace turn_{G2}, b \rbrace, \lbrace turn_{G1} \rbrace \lbrace turn_{G2}, b \rbrace) \rbrace$
   - $\cup \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace$ 
   - $\cup \lbrace F_{a}, F_{b} \rbrace$
-
-
+- $M$ ???
 
 The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
 
