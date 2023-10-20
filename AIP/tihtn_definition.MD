@@ -135,12 +135,12 @@ tn4:
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
 $$
-D = (F, N_P, N_C, \delta, M)
+D = (F, N_C, N_P, \delta, M)
 $$ 
 
 - $F$: finite set of facts 
-- $N_P$: finite set of primitive task names with $N_P \cap N_C = \emptyset$
 - $N_C$: finite set of compound task names
+- $N_P$: finite set of primitive task names with $N_P \cap N_C = \emptyset$
 - $\delta : N_P \rightarrow 2^F \times 2^F \times 2^F$, action mappings. It will assign actions to primitive task names.
 - $M \subseteq C \times TN_{C\cup{O}}$: a finite set of decomposition methods
 
@@ -354,7 +354,11 @@ Define:
 - $R := R_1 \cup R_2$
 
 
-Construct $P = (F, N_C, N_P, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
+Construct 
+- $D = (F, N_C, N_P, \delta, M)$
+- $P = (D, s_I, tn_I)$
+
+Then:
 
 - $F := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
 
