@@ -130,7 +130,7 @@ tn4:
 
 ## Domain
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/0e0745b7-9272-4820-87b3-f63654fd4f57)
+![image](https://github.com/hughiephan/DPL/assets/16631121/628f9707-4d27-442b-bd79-786f179438d9)
 
 Thomas Geier and Pascal Bercher [2] mixed the planning problem and domain together. So let's stick with the newer definition from Bercher et al [3] where the problem and domain definitions are separated nicely.
 
@@ -153,7 +153,7 @@ Example:
 - With Delta $\delta$ function, we have a set of actions to primitive task names: {(a1, load), (a2, fly), (a3, unload), (a4, load), (a5, drive), (a6, unload), (a7, load), (a8, drive), (a9, unload)}
 - With $M$ function, we have a set of decomposition methods: {(ship(pkg1, whA, shopB), tn0), (cityShip(pkg1, whA, airpA), tnX), (airShip(pkg1, airpA, airpB), tnY), (cityShip(pkg1, airpB, shopB),tnZ)}
 
-Above example (written in different form):
+Above example but written in different form:
 ```
 domain:
   fact: f-load, f-fly, f-drive, f-unload
