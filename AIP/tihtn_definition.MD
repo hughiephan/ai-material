@@ -366,8 +366,11 @@ Example:
   - $\cup \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace$ 
   - $\cup \lbrace F_{a}, F_{b} \rbrace$
 - $M$ ???
+- $\delta$ ??
 
-The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
+![image](https://github.com/hughiephan/DPL/assets/16631121/71302559-f601-41bb-990b-7f90628bb2ff)
+
+The task network $tn_6$ is the solution because it only consists of Primitive Tasks, and both the word abab appear twice. 
 
 ## Classical Problem
 $$
