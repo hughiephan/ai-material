@@ -24,6 +24,7 @@ Explanation:
 Example: 
 ```
 tn1: 
+  task: t1, t2, t3
   precondition: <t1, t2, t3>
   alpha:
     t1: cityShip(pkg1, whA, airpA),
@@ -54,6 +55,7 @@ Explanation
 Example: Two isomorphic task networks with the same task names `load`, `drive`, and `unload`
 ```
 tn2: 
+  task: t1.1, t1.2, t1.3
   precondition: <t1.1, t1.2, t1.3>
   alpha:
     t1.1: load,
@@ -61,6 +63,7 @@ tn2:
     t1.3: unload
 
 tn3: 
+  task: t3.1, t3.2, t3.3
   precondition: <t3.1, t3.2, t3.3>
   alpha:
     t3.1: load,
@@ -82,6 +85,7 @@ Example: We create the initial task network with no precondition, task ids, and 
 
 ```
 tnI: 
+  task: t0
   precondition: <>
   alpha:
     t0: ship(pkg1, whA, shopB)
@@ -106,6 +110,7 @@ Example: `m-cityShip` method is used for mapping the compound task name `cityShi
 m-cityShip:
   compound_task_name: cityShip(pkg1, whA, airpA)
   tn1: 
+    task: t1, t2, t3
     precondition: <t1, t2, t3>
     alpha:
       t1: cityShip(pkg1, whA, airpA),
@@ -119,6 +124,7 @@ We can decompose Task Network `tn1` from previous step into Task Network `tn4` u
 
 ```
 tn4: 
+  task: t1.1, t1.2, t1.3, t2, t3
   precondition: <t1.1, t1.2, t1.3, t2, t3>
   alpha:
     t1.1: load,
@@ -198,6 +204,7 @@ Example:
 problem:
   initial_state: s0
   tnI: 
+    task: t0
     precondition: <>
     alpha:
       t0: ship(pkg1, whA, shopB)
