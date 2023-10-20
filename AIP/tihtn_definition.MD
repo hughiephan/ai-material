@@ -411,9 +411,8 @@ Both Classical and HTN is finite system (finite states, actions, events). If we 
 The goal in classical planning is defined by a set of state features that shall be achieved. Therefore classical heuristics are designed to estimate the distance from a given state to a goal state. In HTN planning the “goal” is an abstract task to perform; no state-based goal is given. HTN will decompose high level abstraction tasks.
 
 ### Question: HTN vs TIHTN planning
-To be written
 
-### Question: Task Network Solution vs Solution
+Solution Criteria for HTN and TIHTN should be the same because the newly imported task from TIHTN into the task network follows the same rules.
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
