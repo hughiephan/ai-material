@@ -258,7 +258,7 @@ Explanation:
 
 Possible route
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/fb0e7e61-ea45-4693-a96d-34fbaf96fbfd)
+![image](https://github.com/hughiephan/DPL/assets/16631121/3dcc93d0-a341-4e23-9aed-16c27667b3bd)
 
 Solution
 
