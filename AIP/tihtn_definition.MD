@@ -262,7 +262,7 @@ Possible route
 
 Solution
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/cee81b01-8ea2-4115-84d0-ffae0251d9a2)
+![image](https://github.com/hughiephan/DPL/assets/16631121/5f28456b-fbab-4626-88c7-c2ad1a87c4e2)
 
 Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
