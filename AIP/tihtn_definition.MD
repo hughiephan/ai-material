@@ -301,7 +301,7 @@ With $i \in {1,2} $, we have $G_1, G_2$, two CFG in Chomsky normal form, then:
 - $S_i \in \Gamma_i$: start symbol of $G_i$ with $i \in {1,2} $
 - $R_i$: grammar rules of $G_i$, 
 
-Production Rule $R$ and $\acute{R}$ has either form (Chomsky normal form):
+Production Rule $R1$ and $R2$ has either form (Chomsky normal form):
 - $X \rightarrow Y Z$ (with X is non-terminal symbols -> Y, Z  are also non-terminal symbols)
 - $X \rightarrow\ a$  (with X is non-terminal symbol -> a terminal symbol)
 
