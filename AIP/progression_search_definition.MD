@@ -156,12 +156,8 @@ The task network $tn$ is a solution if and only if:
 
 # Extra
 ## Questions
-- {prec, add, del}: $A \rightarrow 2^L$ ?
-- State transition function $\gamma: A \times 2^L \rightarrow 2^L$ ?
 - Application of method?
 - Applicable action?
 - Useful for calculating heuristics?
-- What is special about "progression"?
 - Primitive tasks (also called actions) can be directly executed and cause state transition, so does decomposing cause state transition?
 - Why dot product for goal?
-- How do we know a state is a goal state?
