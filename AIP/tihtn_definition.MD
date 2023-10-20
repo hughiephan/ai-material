@@ -349,7 +349,7 @@ where:
 
 Example:
 - $tn_I$ = (\lbrace t, \acute{t} \rbrace, \emptyset, \lbrace (t, H), (\acute{t}, D) \rbrace)
-- $F = \lbrace F_{turnG}, F_{turn\acute{G} \rbrace \cup \lbrace F_a, F_b \rbrace$
+- $F = \lbrace F_{turnG}, F_{turn\acute{G}} \rbrace \cup \lbrace F_a, F_b \rbrace$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
 
