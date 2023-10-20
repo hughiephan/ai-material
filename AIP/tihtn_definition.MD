@@ -332,7 +332,7 @@ Construct the Domain and Problem:
 - $D = (F, N_C, N_P, \delta, M)$
 - $\acute{P} = (D, s_I, tn_I, g)$
 
-With g can be compiled away, by adding a new primitive task $p$ with $g$ as precondtion, $delta(p) = (g, \emptyset, \emptyset)$
+With g can be compiled away, by adding a new primitive task $p$ with $g$ as precondtion, $\delta(p) = (g, \emptyset, \emptyset)$
 
 Then:
 
