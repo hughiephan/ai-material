@@ -290,7 +290,7 @@ Explanation:
 - First of all, the new task to be inserted should not already exist in $tn_1$ and it can only be primitive task. The new task network $tn_2$ will be an expansion of the previous tasks in $tn_1$ with our new primitive task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us generate a task id for the new inserted task.
 
 
-## Undeciability of HTN Planning
+## Undeciability of HTN Planning (Page 78)
 
 $$
 PLAN-EXISTENCE_{HTN} : \text{is undeciable}
@@ -298,13 +298,14 @@ $$
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
-Theorem:
-
-
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
 
-(Page 78)
+Explanation:
+- H can be decomposed into aQb
+- Q can be decomposed into aQ, bQ, a or b
+- D can be decomposed into aFD or ab
+- F can be decomposed into a or b
 
 $$
 G= (\Gamma, \sum, R, S)  
