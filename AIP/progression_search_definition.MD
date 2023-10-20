@@ -90,6 +90,7 @@ fringe:
   state: s0
   task_network:
     tnI: 
+      task: t1, t2
       precondition: <>
       alpha:
         t1: deliver(P1,B),
