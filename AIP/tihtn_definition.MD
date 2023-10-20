@@ -328,9 +328,11 @@ Also define:
 - $\Gamma := \Gamma_1 \cup \Gamma_2$
 - $R := R_1 \cup R_2$
 
-Construct:
+Construct the Domain and Problem:
 - $D = (F, N_C, N_P, \delta, M)$
-- $P = (D, s_I, tn_I)$
+- $\acute{P} = (D, s_I, tn_I, g)$
+
+With g can be compiled away, by adding a new primitive task $p$ with $g$ as precondtion, $delta(p) = (g, \emptyset, \emptyset)$
 
 Then:
 
