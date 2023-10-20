@@ -348,7 +348,7 @@ where:
 - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 Example:
-- $tn_I = (\lbrace t, \acute{t} \rbrace, \emptyset, \lbrace (t, H), (\acute{t}, D) \rbrace)$
+- $tn_I = (\lbrace t, \acute{t} \rbrace, \emptyset, \lbrace (t, H), (\acute{t}, D) \rbrace)$ . Task Network has two task id $t$ and $\acute{t}$, no precondition and mapping between $t$ and $\acute{t} with the initial tasks H and D.
 - $F = \lbrace F_{turn:G}, F_{turn:\acute{G}} \rbrace \cup \lbrace F_a, F_b \rbrace$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
