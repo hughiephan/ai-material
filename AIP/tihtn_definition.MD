@@ -328,25 +328,19 @@ We can prove this by transform our HTN Formalization into two CFG. Then because 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
 
-Two Formal Grammar G and G' was processed in parallel
-
-
+Two Formal Grammar G and G' was processed in parallel. Each Formal Grammar each has (non-terminal symbols, terminal symbols, production rules, start symbol)
 
 $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
 
-$G_1, G_2$, two CFG in normal form
+$G_1, G_2$, two CFG in Chomsky normal form
 
-Rule has either form:
+Production Rule $R$ and $\acute{R}$ has either form:
 
-- $X \rightarrow Y Z$
+- $X \rightarrow Y Z$ (with X is non-terminal symbols -> Y, Z  are also non-terminal symbols)
+ 
+- $X \rightarrow\ a$  (with X is non-terminal symbol -> a terminal symbol)
 
-- $X \rightarrow\ a$
-
-- X, Y, Z: non-terminal symbol
-
-- a: terminal symbol
-
-- $\sum$, set of terminal symbols 
+And $\sum$, set of terminal symbols 
 
 For $i \in {1,2} $, we have:
 
@@ -356,7 +350,7 @@ For $i \in {1,2} $, we have:
 
 Assume: $\Gamma_1 \cap \Gamma_2  = \emptyset$ 
 
-Define: $\Gamma := \Gamma_1 \bigcup \Gamma_2$
+Define: $\Gamma := \Gamma_1 \cup \Gamma_2$
 
 $L(G_i)$: is language of $G_i$
 
