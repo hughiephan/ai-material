@@ -355,7 +355,9 @@ Example:
 - $s_I = \lbrace turn_{G1} \rbrace$ 
 - $F = \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace \cup \lbrace F_{a}, F_{b} \rbrace$
 - $N_C = \lbrace H, Q, D,F \rbrace \cup \lbrace H, D \rbrace$
-- $N_P = \lbrace \lbrace turn_{G1} \rbrace, \lbrace turn_{G2}, a \rbrace \lbrace turn_{G1} \rbrace \rbrace \cup \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace \cup \lbrace F_{a}, F_{b} \rbrace$
+- $N_P = \lbrace \lbrace turn_{G1} \rbrace, \lbrace turn_{G2}, a \rbrace \lbrace turn_{G1} \rbrace \rbrace 
+\cup \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace 
+\cup \lbrace F_{a}, F_{b} \rbrace$
 
 
 
