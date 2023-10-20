@@ -344,13 +344,11 @@ Then:
 - $F := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
 - $N_C := \Gamma \cup \lbrace c_I \rbrace$
 - $N_P := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
-- $M := \lbrace (c_I, tn \rbrace \cup$ $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$ $X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
 - $s_I := {turn_{G1}}$
-
-where:
-- $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
-- $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
-- $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
+- $M := \lbrace (c_I, tn \rbrace \cup$ $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$ $X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$, where:
+  - $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
+  - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
+  - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 Example:
 - $tn_I = (\lbrace t1, t2 \rbrace, \emptyset, \lbrace (t1, H), (t2, D) \rbrace)$ . Task Network has two task id $t1$ and $t2$, no precondition and mapping between $t1$ and $t2$ with the initial tasks $H$ and $D$
