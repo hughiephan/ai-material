@@ -293,7 +293,7 @@ Explanation:
 ## Undeciability of HTN Planning
 
 $$
-PLAN-EXISTENCE_{HTN} \, \text{is undeciable}
+PLAN-EXISTENCE_{HTN} \hspace \text{is undeciable}
 $$ 
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
