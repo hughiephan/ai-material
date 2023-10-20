@@ -317,7 +317,7 @@ Also define:
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G1 and G2 was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/86c85895-5fe5-4b22-98f5-58b3ad8b20ca)
+![image](https://github.com/hughiephan/DPL/assets/16631121/0702cf4d-5079-4abc-b6af-54654adf463b)
 
 Example:
 - $G1 = (\lbrace H,Q \rbrace, \lbrace a, b \rbrace, R1, H)$
@@ -354,7 +354,7 @@ where:
 
 Example:
 - $tn_I = (\lbrace t1, t2 \rbrace, \emptyset, \lbrace (t1, H), (t2, D) \rbrace)$ . Task Network has two task id $t1$ and $t2$, no precondition and mapping between $t1$ and $t2$ with the initial tasks $H$ and $D$
-- $F = \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace \cup \lbrace F_{a1}, F_{b1} \rbrace$
+- $F = \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace \cup \lbrace F_{a}, F_{b} \rbrace$
 
 
 The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
