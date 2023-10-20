@@ -237,16 +237,12 @@ problem:
         tnZ
 ```
 
-# Executable Task Network
-
-A task network is called executable if there exists an executable linearization of its tasks.
-
 ## Solution
 $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable. 
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T$
-- Sequence < $t_1t_2...t_n$ > of the tasks is in line with $\prec$
+- Sequence < $t_1t_2...t_n$ > of the tasks is in line with $\prec$      <---- This is the definition of Executable Task Network. A task network is called executable if there exists an executable linearization of its tasks.
 - (Optional) < $(\alpha(t_1)\alpha(t_2)...\alpha(t_n)$ > in $s_I$ results in a goal state.
 
 Given:
