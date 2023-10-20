@@ -335,28 +335,24 @@ $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from 
 $G_1, G_2$, two CFG in Chomsky normal form
 
 Production Rule $R$ and $\acute{R}$ has either form:
-
 - $X \rightarrow Y Z$ (with X is non-terminal symbols -> Y, Z  are also non-terminal symbols)
- 
 - $X \rightarrow\ a$  (with X is non-terminal symbol -> a terminal symbol)
 
-And $\sum$, set of terminal symbols 
+And:
+- $\sum$: set of terminal symbols 
+- $\Gamma$: non-terminal symbols of $G_i$ with $i \in {1,2} $
+- $S_i \in \Gamma_i$: start symbol of $G_i$ with $i \in {1,2} $
+- $L(G_i)$: is language of $G_i$
+- $R_i$: grammar rules of $G_i$, 
 
-For $i \in {1,2} $, we have:
+Assume 
+- $\Gamma_1 \cap \Gamma_2  = \emptyset$
+- $\epsilon \notin L(G_1) \cup L(G_2)$
 
-- $\Gamma$: non-terminal symbols of $G_i$ 
+Define:
+- $\Gamma := \Gamma_1 \cup \Gamma_2$
+- $R := R_1 \cup R_2$
 
-- $S_i \in \Gamma_i$: start symbol of $G_i$
-
-Assume: $\Gamma_1 \cap \Gamma_2  = \emptyset$ 
-
-Define: $\Gamma := \Gamma_1 \cup \Gamma_2$
-
-$L(G_i)$: is language of $G_i$
-
-Assume: $\epsilon \notin L(G_1) \cup L(G_2)$
-
-$R_i$, grammar rules of $G_i$, set $R := R_1 \cup R_2$
 
 Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
