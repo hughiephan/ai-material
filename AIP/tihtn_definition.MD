@@ -307,22 +307,18 @@ $$
 
 ## Undeciability of HTN Planning
 
-
 (Page 78 should helps with facts, goal description, and other examples)
 
-
-CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks.
+CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel.
 
 Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
 
 We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
-
-Two Formal Grammar G and G' was processed in parallel. Each Formal Grammar each has (non-terminal symbols, terminal symbols, production rules, start symbol)
-
 $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
 
 
 $$
@@ -340,7 +336,7 @@ Production Rule $R$ and $\acute{R}$ has either form (Chomsky normal form):
 - $X \rightarrow Y Z$ (with X is non-terminal symbols -> Y, Z  are also non-terminal symbols)
 - $X \rightarrow\ a$  (with X is non-terminal symbol -> a terminal symbol)
 
-And $L(G_i)$: is language of $G_i$
+And $L(G_i)$: is the language of $G_i$ which is the set of strings it generates
 
 Assume 
 - $\Gamma_1 \cap \Gamma_2  = \emptyset$
