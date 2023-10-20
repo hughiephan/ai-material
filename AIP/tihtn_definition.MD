@@ -345,10 +345,14 @@ Then:
 - $N_C := \Gamma \cup \lbrace c_I \rbrace$
 - $N_P := \lbrace G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \rbrace \cup \lbrace F \rbrace$
 - $s_I := \lbrace turn_{G1} \rbrace$
-- $M := \lbrace (c_I, tn \rbrace \cup$ $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$ $X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$, where:
+- $M := \lbrace (c_I, tn \rbrace \cup$ $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$ $X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace \rbrace$, where:
   - $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
   - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
   - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
+
+With: 
+- $G_1^a = (\lbrace turn_{G1} \rbrace, \lbrace turn_{G2}, a \rbrace \lbrace turn_{G1} \rbrace)$
+- $G_2^a = (\lbrace turn_{G2}, a \rbrace, \lbrace turn_{G1} \rbrace \lbrace turn_{G2}, a \rbrace)$
 
 Example:
 - $tn_I = (\lbrace t1, t2 \rbrace, \emptyset, \lbrace (t1, H), (t2, D) \rbrace)$ . Task Network has two task id $t1$ and $t2$, no precondition and mapping between $t1$ and $t2$ with the initial tasks $H$ and $D$
@@ -358,7 +362,9 @@ Example:
 - $N_P = 
 \lbrace 
 (\lbrace turn_{G1} \rbrace, \lbrace turn_{G2}, a \rbrace \lbrace turn_{G1} \rbrace),
+(\lbrace turn_{G1} \rbrace, \lbrace turn_{G2}, b \rbrace \lbrace turn_{G1} \rbrace),
 (\lbrace turn_{G2}, a \rbrace, \lbrace turn_{G1} \rbrace \lbrace turn_{G2}, a \rbrace)
+(\lbrace turn_{G2}, b \rbrace, \lbrace turn_{G1} \rbrace \lbrace turn_{G2}, b \rbrace)
 \rbrace 
 \cup \lbrace F_{turn_{G1}}, F_{turn_{G2}} \rbrace 
 \cup \lbrace F_{a}, F_{b} \rbrace$
