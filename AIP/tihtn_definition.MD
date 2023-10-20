@@ -237,12 +237,12 @@ problem:
         tnZ
 ```
 
+# Executable Task Network
+
+A task network is called executable if there exists an executable linearization of its tasks.
+
 ## Solution
-Solution Criteria: (Seems a bit different with the solution criteria in page 52/62 of Tutorial: An Introduction to Hierarchical Task Network (HTN) Planning))
-
-$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
-
-A bit similar to Executable Task Network
+$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable. 
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T$
@@ -270,14 +270,9 @@ Solution
 
 Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
-## Task Network Solution
-
-The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
 
 ## Task Insertion
-In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
-
-A task network is called executable if there exists an executable linearization of its tasks.
+In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.  
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3f06cfa0-8d3b-4436-bda4-cec8685776cb)
 
@@ -359,6 +354,8 @@ Example:
 - $F = \lbrace F_{turn:G}, F_{turn:\acute{G}} \rbrace \cup \lbrace F_a, F_b \rbrace$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
+
+The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
 
 ## Classical Problem
 $$
