@@ -233,6 +233,8 @@ problem:
 ## Solution
 Solution Criteria: (Seems a bit different with the solution criteria in page 52/62 of Tutorial: An Introduction to Hierarchical Task Network (HTN) Planning))
 
+$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
+
 A bit similar to Executable Task Network
 
 - $tn_I \rightarrow tn$ 
@@ -288,38 +290,21 @@ Explanation:
 - First of all, the new task to be inserted should not already exist in $tn_1$ and it can only be primitive task. The new task network $tn_2$ will be an expansion of the previous tasks in $tn_1$ with our new primitive task. But the preconditions should stay the same because our inserted task's purpose is to assist the planner in reaching the goal, not changing the logic of the problem. Alpha $\alpha$ function help us generate a task id for the new inserted task.
 
 
-## Classical Problem
-$$
-P_c = (F, N_A, s_I, g, \delta)
-$$
-
-- Sometimes Classical Problem is defined with a 4-tuple without the Delta $\delta$
-- F is set of propositional environment facts
-- $s_I \subseteq F$ is initial state
-- $g \subseteq F$ gives the goal definition
-- $N_A$ is a finite set of action names
-- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts.
-- State is set of facts
-- Action a is applicable in state s, with relation  \( \tau(a,s) \iff prec(a) \subseteq s$
-- When applicable, state transition function: $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
-- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
-- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
-
 ## Undeciability of HTN Planning
 
-(Page 78 should helps with facts, goal description, and other examples)
+$$
+PLAN-EXISTENCE_{HTN} \text{is undeciable}
+$$ 
 
-CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel.
+CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
-Theorem: $PLAN-EXISTENCE_{HTN}$ is undeciable.
-
-We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
+Theorem:
 
 
-$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
 
+(Page 78)
 
 $$
 G= (\Gamma, \sum, R, S)  
@@ -364,8 +349,25 @@ where:
 - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 
+## Classical Problem
+$$
+P_c = (F, N_A, s_I, g, \delta)
+$$
+
+- Sometimes Classical Problem is defined with a 4-tuple without the Delta $\delta$
+- F is set of propositional environment facts
+- $s_I \subseteq F$ is initial state
+- $g \subseteq F$ gives the goal definition
+- $N_A$ is a finite set of action names
+- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts.
+- State is set of facts
+- Action a is applicable in state s, with relation  \( \tau(a,s) \iff prec(a) \subseteq s$
+- When applicable, state transition function: $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
+- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
+- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
+
 ## Questions
-- Task hierarchy model physic and advice?
+### Question: Task hierarchy model physic and advice?
 
 ### Question: Classical vs TIHTN planning
 - Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
