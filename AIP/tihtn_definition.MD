@@ -332,7 +332,7 @@ Construct the Domain and Problem:
 - $D = (F, N_C, N_P, \delta, M)$
 - $P^* = (D, s_I, tn_I, g)$
 
-With g can be compiled away, by adding a new primitive task $p$ with $g$ as precondtion, $\delta(p) = (g, \emptyset, \emptyset)$
+With Goal description $g$ can be compiled away into $P$, by adding a new primitive task $p$ with $g$ as precondtion, $\delta(p) = (g, \emptyset, \emptyset)$
 
 Then:
 
@@ -346,6 +346,10 @@ where:
 - $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
 - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
 - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
+
+Example:
+- $tn_I$ = (\lbrace t, \acute{t} \rbrace, \emptyset, \lbrace (t, H), (\acute{t}, D) \rbrace)
+- $F = \lbrace F_{turn:G}, F_{turn:\acute{G} \rbrace \cup \lbrace F_a, F_b \rbrace$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
 
