@@ -354,13 +354,13 @@ Define:
 - $R := R_1 \cup R_2$
 
 
-Construct $P = (L, C, O, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
+Construct $P = (F, N_C, N_P, M, c_I, s_I)$ with $c_I \notin \Gamma$ as follows:
 
-- $L := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
+- $F := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
 
-- $C := \Gamma \cup \lbrace c_I \rbrace$
+- $N_C := \Gamma \cup \lbrace c_I \rbrace$
 
-- $O := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
+- $N_P := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
 
 - $M := \lbrace (c_I, tn \rbrace \cup$ 
 $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$
