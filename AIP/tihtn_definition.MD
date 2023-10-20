@@ -298,26 +298,18 @@ $$
 - $s_I \subseteq F$ is initial state
 - $g \subseteq F$ gives the goal definition
 - $N_A$ is a finite set of action names
-- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts : $N_A -> 2^F$
+- $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts.
 - State is set of facts
-- Action a is applicable in state s, with relation $\tau = N_A \times 2^F \), \( \tau(a,s) \iff prec(a) \subseteq s$
-- When applicable, state transition function: $\gamma : N_A \times 2^F \rightarrow 2^F$, $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
+- Action a is applicable in state s, with relation  \( \tau(a,s) \iff prec(a) \subseteq s$
+- When applicable, state transition function: $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
 - Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
 - Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
 ## Undeciability of HTN Planning
 
-```
-G= (V, T, P, S)  
-```
 
 (Page 78 should helps with facts, goal description, and other examples)
 
-G describes the grammar
-T describes a finite set of terminal symbols.
-V describes a finite set of non-terminal symbols
-P describes a set of production rules
-S is the start symbol.
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks.
 
@@ -332,52 +324,47 @@ Two Formal Grammar G and G' was processed in parallel. Each Formal Grammar each 
 
 $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable.
 
-$G_1, G_2$, two CFG in Chomsky normal form
 
-Production Rule $R$ and $\acute{R}$ has either form:
+$$
+G= (\Gamma, \sum, R, S)  
+$$
+
+With $i \in {1,2} $, we have $G_1, G_2$, two CFG in Chomsky normal form, then:
+
+- $\sum$: set of terminal symbols 
+- $\Gamma$: non-terminal symbols of $G_i$ 
+- $S_i \in \Gamma_i$: start symbol of $G_i$ with $i \in {1,2} $
+- $R_i$: grammar rules of $G_i$, 
+
+Production Rule $R$ and $\acute{R}$ has either form (Chomsky normal form):
 - $X \rightarrow Y Z$ (with X is non-terminal symbols -> Y, Z  are also non-terminal symbols)
 - $X \rightarrow\ a$  (with X is non-terminal symbol -> a terminal symbol)
 
-And:
-- $\sum$: set of terminal symbols 
-- $\Gamma$: non-terminal symbols of $G_i$ with $i \in {1,2} $
-- $S_i \in \Gamma_i$: start symbol of $G_i$ with $i \in {1,2} $
-- $L(G_i)$: is language of $G_i$
-- $R_i$: grammar rules of $G_i$, 
+And $L(G_i)$: is language of $G_i$
 
 Assume 
 - $\Gamma_1 \cap \Gamma_2  = \emptyset$
 - $\epsilon \notin L(G_1) \cup L(G_2)$
 
-Define:
+Also define:
 - $\Gamma := \Gamma_1 \cup \Gamma_2$
 - $R := R_1 \cup R_2$
 
-
-Construct 
+Construct:
 - $D = (F, N_C, N_P, \delta, M)$
 - $P = (D, s_I, tn_I)$
 
 Then:
 
 - $F := \lbrace (turn_{G1}, turn_{G2}) \rbrace \cup \sum$
-
 - $N_C := \Gamma \cup \lbrace c_I \rbrace$
-
 - $N_P := G_i^a | a \in \sum , i \in \lbrace 1,2 \rbrace \cup {F}$
-
-- $M := \lbrace (c_I, tn \rbrace \cup$ 
-$X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$
-$X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
-
+- $M := \lbrace (c_I, tn \rbrace \cup$ $X, tn_{X \rightarrow YZ} | X \rightarrow Y Z \in R \rbrace \cup$ $X, tn_{X \rightarrow a} | X \rightarrow a \in R_i, i \in \lbrace 1,2 \rbrace$
 - $s_I := {turn_{G1}}$
 
 where:
-
 - $tn := (\lbrace s_1,s_2,f \rbrace, \lbrace (s_1,f), (s_2,f) \rbrace, \lbrace (s_1, S_1), (s_2, S_2), (f,F) \rbrace)$
-
 - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
-
 - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
 
