@@ -238,7 +238,7 @@ $tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from 
 A bit similar to Executable Task Network
 
 - $tn_I \rightarrow tn$ 
-- $\forall{t} \in T: \alpha(t) \in A$
+- $\forall{t} \in T$
 - Sequence < $t_1t_2...t_n$ > of the tasks is in line with $\prec$
 - (Optional) < $(\alpha(t_1)\alpha(t_2)...\alpha(t_n)$ > in $s_I$ results in a goal state.
 
