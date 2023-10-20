@@ -265,10 +265,7 @@ Plan $\pi$ =〈load, drive, unload, load, fly, unload, load, drive, unload〉
 
 ## Task Network Solution
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
-
 The task network $tn_6$ is the solution because both the word abab appear twice, and only consists of Primitive Tasks.
-
 
 ## Task Insertion
 In case the plane is not in the airport of city A, the air transportation task airShip(pkg1, airpA, airpB) cannot be accomplished, and neither can the initial task. When arranging the plane to airport A, fly(plane1, airpA), is done before loading to the plane, and an executable plan is found.
@@ -297,7 +294,6 @@ PLAN-EXISTENCE_{HTN} : \text{is undeciable}
 $$ 
 
 CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G and G' was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
-
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/12784ef2-77c8-4e67-a168-e28909eaeff6)
 
@@ -349,6 +345,7 @@ where:
 - $tn_{X \rightarrow YZ} := (\lbrace t, \acute{t} \rbrace, \lbrace (t, \acute{t} \rbrace), \lbrace t, Y \rbrace, \lbrace \acute{t}, Z \rbrace)$
 - $tn_{X \rightarrow a} := (\lbrace t \rbrace, \emptyset, \lbrace (t, G_i^a) \rbrace)$
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/c6e95aaa-77ce-41f0-9cb4-019d9b138629)
 
 ## Classical Problem
 $$
@@ -394,6 +391,8 @@ The goal in classical planning is defined by a set of state features that shall 
 
 ### Question: HTN vs TIHTN planning
 To be written
+
+### Question: Task Network Solution vs Solution
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
