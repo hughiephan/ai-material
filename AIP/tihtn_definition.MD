@@ -151,7 +151,7 @@ Example:
 - Set of primitive task names: $N_P$ = { load, fly, drive, unload }
 - Set of compound task names: $N_C$ = { ship, cityShip, airShip }
 - With Delta $\delta$ function, we have a set of actions to primitive task names: {(a1, load), (a2, fly), (a3, unload), (a4, load), (a5, drive), (a6, unload), (a7, load), (a8, drive), (a9, unload)}
-- With $M$ function, we have a set of decomposition methods: {(ship(x,y,z), $tn_1$), ....}
+- With $M$ function, we have a set of decomposition methods: {(ship(pkg1, whA, shopB), tn0), (cityShip(pkg1, whA, airpA), tnX), (airShip(pkg1, airpA, airpB), tnY), (cityShip(pkg1, airpB, shopB),tnZ)}
 
 Above example (written in different form):
 ```
