@@ -22,7 +22,7 @@ tn2:
 ```
 
 ## Search Node 
-![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
+![image](https://github.com/hughiephan/DPL/assets/16631121/35562816-103f-44f2-984b-dd9f784049cd)
 
 $$
 n = (s, (T, \prec, \alpha), \pi)
