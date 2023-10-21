@@ -15,9 +15,11 @@ $$
 n = (s, (T, \prec, \alpha), \pi)
 $$
 
-- Current state
-- Task network
-- Sequence of the current plan
+Search Node consists of:
+
+- $s$: Current state
+- $(T, \prec, \alpha)$: Task network
+- $\pi$: Sequence of the current plan
 
 ## Standard Progression Search Algorithm
 
