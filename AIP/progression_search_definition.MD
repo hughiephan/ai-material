@@ -8,6 +8,19 @@ A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and onl
 
 Explanation: Unconstrained tasks are tasks that have no predecessors in the network. So in this case there should not be any task $\acute{t}$ before our unconstrained tasks.
 
+Example: `t1` and `t2.1` are our unconstrained tasks.
+```
+tn2: 
+  task: t1, t2.1, t2.2, t2.3, t2.4
+  precondition: <t2.1, t2.2, t2.3, t2.4>
+  alpha:
+    t1: deliver(P1, B),
+    t2.1: get-to(T2, C),
+    t2.2: pick-up(T2, C, P2),
+    t2.3: get-to(T2, D),
+    t2.4: drop(T2, D, P2)
+```
+
 ## Search Node 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
 
