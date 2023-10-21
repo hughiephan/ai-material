@@ -36,7 +36,7 @@ Search Node consists of:
 
 ## Fringe
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
+![image](https://github.com/hughiephan/DPL/assets/16631121/39bd823e-2d54-4905-ae80-7149ce8c406b)
 
 Fringe is a list of search nodes. It is like a stack, but we can control the position of search nodes in the fringe based on some cost of heuristics.
 
