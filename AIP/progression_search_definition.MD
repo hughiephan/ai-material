@@ -45,16 +45,47 @@ Example:
 fringe:
   fringe_position_0:
     state: s0
-    task_network:
-      tnI: 
-        task: t1, t2
-        precondition: <>
-        alpha:
-          t1: deliver(P1,B),
-          t2: deliver(P2,D)
+    tnI: 
+      task: t1, t2
+      precondition: <>
+      alpha:
+        t1: deliver(P1,B),
+        t2: deliver(P2,D)
     pi: <>
-  fringe_position_1:
-    state:....
+  ....
+  fringe_position_14:
+    state: s2.2.1
+    tn2.2.1: 
+      task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
+      precondition: 
+        <t1.1, t1.2, t1.3, t1.4>,
+        <t2.1.1, t2.2, t2.3, t2.4>
+      alpha:
+        t1.1: get-to(T1, A),
+        t1.2: pick-up(T1, A, P1),
+        t1.3: get-to(T1, B),
+        t1.4: drop(T1, B, P1),
+        t2.1.1: no-op(),
+        t2.2: pick-up(T2, C, P2),
+        t2.3: get-to(T2, D),
+        t2.4: drop(T2, D, P2)
+    pi: <>
+  fringe_position_15:
+    state: s2.2.1.2
+    tn2.2.1: 
+      task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
+      precondition: 
+        <t1.1, t1.2, t1.3, t1.4>,
+        <t2.2, t2.3, t2.4>
+      alpha:
+        t1.1: get-to(T1, A),
+        t1.2: pick-up(T1, A, P1),
+        t1.3: get-to(T1, B),
+        t1.4: drop(T1, B, P1),
+        t2.2: pick-up(T2, C, P2),
+        t2.3: get-to(T2, D),
+        t2.4: drop(T2, D, P2)
+    pi: <no-op()>
 ```
 
 
