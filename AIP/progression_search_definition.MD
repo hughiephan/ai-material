@@ -42,7 +42,7 @@ Fringe is a list of search nodes. It is like a stack, but we can control the pos
 
 Example: 
 
-Fringe at first.
+Here's the Fringe at first.
 
 ```
 fringe:
@@ -57,7 +57,7 @@ fringe:
     pi: <>
 ```
 
-Fringe after a while
+Here's the Fringe after we run for a while.
 
 ```
 fringe:
@@ -82,8 +82,9 @@ fringe:
   ...
 ```
 
-Fringe after a bit longer
+Here's the Fringe after we run a bit longer, and now we have the task `no-op()` for the plan sequence.
 ```
+fringe:
   ...
   fringe_position_Y:
     state: s2.2.1.2
