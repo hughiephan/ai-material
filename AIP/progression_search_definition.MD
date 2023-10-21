@@ -53,7 +53,7 @@ fringe:
         t2: deliver(P2,D)
     pi: <>
   ....
-  fringe_position_14:
+  fringe_position_X:
     state: s2.2.1
     tn2.2.1: 
       task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
@@ -70,7 +70,8 @@ fringe:
         t2.3: get-to(T2, D),
         t2.4: drop(T2, D, P2)
     pi: <>
-  fringe_position_15:
+  ...
+  fringe_position_Y:
     state: s2.2.1.2
     tn2.2.1: 
       task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
