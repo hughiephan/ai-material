@@ -21,6 +21,32 @@ Search Node consists of:
 - $(T, \prec, \alpha)$: Task network
 - $\pi$: Sequence of the current plan
 
+## Fringe
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
+
+The fringe consists of:
+- $s_0$: initial state
+- $tn_I$: initial task network
+- $\epsilon$: an empty sequence
+
+In Fringe search, the fringe is like the frontier.
+
+Example:
+```
+fringe:
+  state: s0
+  task_network:
+    tnI: 
+      task: t1, t2
+      precondition: <>
+      alpha:
+        t1: deliver(P1,B),
+        t2: deliver(P2,D)
+  pi: <>
+```
+
+
 ## Standard Progression Search Algorithm
 
 01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
@@ -86,32 +112,6 @@ With:
 Explanation:
 - When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
 - Even though not mention but I think we need a Goal Test to determines whether a given state is a goal state.
-
-## Fringe
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
-
-The fringe consists of:
-- $s_0$: initial state
-- $tn_I$: initial task network
-- $\epsilon$: an empty sequence
-
-In Fringe search, the fringe is like the frontier.
-
-Example:
-```
-fringe:
-  state: s0
-  task_network:
-    tnI: 
-      task: t1, t2
-      precondition: <>
-      alpha:
-        t1: deliver(P1,B),
-        t2: deliver(P2,D)
-  pi: <>
-```
-
 
 
 ## Decomposition
