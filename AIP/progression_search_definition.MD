@@ -40,7 +40,10 @@ Search Node consists of:
 
 Fringe is a list of search nodes. It is like a stack, but we can control the position of search nodes in the fringe based on some cost of heuristics.
 
-Example:
+Example: 
+
+Fringe at first.
+
 ```
 fringe:
   fringe_position_0:
@@ -52,7 +55,13 @@ fringe:
         t1: deliver(P1,B),
         t2: deliver(P2,D)
     pi: <>
-  ....
+```
+
+Fringe after a while
+
+```
+fringe:
+  ...
   fringe_position_X:
     state: s2.2.1
     tn2.2.1: 
@@ -71,6 +80,11 @@ fringe:
         t2.4: drop(T2, D, P2)
     pi: <>
   ...
+```
+
+Fringe after a bit longer
+```
+  ...
   fringe_position_Y:
     state: s2.2.1.2
     tn2.2.1: 
@@ -87,8 +101,8 @@ fringe:
         t2.3: get-to(T2, D),
         t2.4: drop(T2, D, P2)
     pi: <no-op()>
+  ...
 ```
-
 
 ## Standard Progression Search Algorithm
 
