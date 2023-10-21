@@ -1,6 +1,6 @@
 # Progression Search Formal Definition
 
-# Unconstrained Task
+## Unconstrained Task
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdea9ce9-4384-4960-917f-b5c853cefed6)
 
@@ -8,7 +8,20 @@ A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and onl
 
 Explanation: Unconstrained tasks are tasks that have no predecessors in the network. So in this case there should not be any task $\acute{t}$ before our unconstrained tasks.
 
-# Standard Progression Search Algorithm
+## Search Node 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
+
+- Current state
+- Task network
+- Current sequence of plan
+
+Explanation:
+- Add first, add a search node into the fringe.
+- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
+- Test if the popped node is the solution
+
+## Standard Progression Search Algorithm
 
 01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
 
@@ -50,7 +63,7 @@ For unconstrained action, there is:
 
 With `modification` means progressing the action and updating the state
 
-# Solution
+## Solution
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a0f496c-a3ce-4390-af3b-77b8984f12f8)
 
@@ -94,18 +107,7 @@ fringe:
   pi: <>
 ```
 
-## Search Node 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
-
-- current state
-- task network
-- elements of the problem definition that change during search
-
-Explanation:
-- Add first, add a search node into the fringe.
-- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
-- Test if the popped node is the solution
 
 ## Decomposition
 Explanation:
