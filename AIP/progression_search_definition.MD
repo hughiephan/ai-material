@@ -14,7 +14,7 @@ Explanation: Unconstrained tasks are tasks that have no predecessors in the netw
 
 - Current state
 - Task network
-- Current sequence of plan
+- Sequence of current plan
 
 Explanation:
 - Add first, add a search node into the fringe.
