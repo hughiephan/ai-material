@@ -1,35 +1,12 @@
 # Progression Search Formal Definition
 
-In AI search algorithms, the state (or search) space is usually represented as a graph, where nodes are states and the edges are the connections (or actions) between the corresponding states. This approach combines task decomposition with state-based goals.
-
 # Unconstrained Task
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdea9ce9-4384-4960-917f-b5c853cefed6)
 
 A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
 
-Explanation: 
-- Unconstrained tasks are tasks that have no predecessors in the network.
-
-# Solution
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/9a0f496c-a3ce-4390-af3b-77b8984f12f8)
-
-$$
-n = (s, (T, \prec, \alpha), \pi)
-$$
-
-The node will be a solution if and only if:
-- Task network is empty $T = \emptyset$
-- State is goal state $s \supseteq g$
-
-With:
-- $\pi$: generated plan
-
-Explanation:
-- When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
-- Even though not mention but I think we need a Goal Test to determines whether a given state is a goal state.
-
+Explanation: Unconstrained tasks are tasks that have no predecessors in the network. So in this case there should not be any task $\acute{t}$ before our unconstrained tasks.
 
 # Standard Progression Search Algorithm
 
@@ -72,6 +49,25 @@ For unconstrained action, there is:
 - Exactly one modfiication when it is applicable
 
 With `modification` means progressing the action and updating the state
+
+# Solution
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/9a0f496c-a3ce-4390-af3b-77b8984f12f8)
+
+$$
+n = (s, (T, \prec, \alpha), \pi)
+$$
+
+The node will be a solution if and only if:
+- Task network is empty $T = \emptyset$
+- State is goal state $s \supseteq g$
+
+With:
+- $\pi$: generated plan
+
+Explanation:
+- When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
+- Even though not mention but I think we need a Goal Test to determines whether a given state is a goal state.
 
 ## Fringe
 
