@@ -25,25 +25,23 @@ Search Node consists of:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3036954b-962f-40e3-91cb-6267e6526e3e)
 
-The fringe consists of:
-- $s_0$: initial state
-- $tn_I$: initial task network
-- $\epsilon$: an empty sequence
-
-In Fringe search, the fringe is like the frontier.
+Fringe is a list of search nodes. It is like a stack, but we can control the position of search nodes in the fringe based on some cost of heuristics.
 
 Example:
 ```
 fringe:
-  state: s0
-  task_network:
-    tnI: 
-      task: t1, t2
-      precondition: <>
-      alpha:
-        t1: deliver(P1,B),
-        t2: deliver(P2,D)
-  pi: <>
+  fringe_position_0:
+    state: s0
+    task_network:
+      tnI: 
+        task: t1, t2
+        precondition: <>
+        alpha:
+          t1: deliver(P1,B),
+          t2: deliver(P2,D)
+    pi: <>
+  fringe_position_1:
+    state:....
 ```
 
 
@@ -78,6 +76,10 @@ fringe:
 14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
 15. Return $unsolvable$
+
+- $s_0$: initial state
+- $tn_I$: initial task network
+- $\epsilon$: an empty sequence
 
 Explanation:
 - Add first, add a search node into the fringe.
