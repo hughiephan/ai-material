@@ -10,16 +10,15 @@ Explanation: Unconstrained tasks are tasks that have no predecessors in the netw
 
 ## Search Node 
 
+$$
+n = (s, (T, \prec, \alpha), \pi)
+$$
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
 
 - Current state
 - Task network
-- Sequence of current plan
-
-Explanation:
-- Add first, add a search node into the fringe.
-- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
-- Test if the popped node is the solution
+- Sequence of the current plan
 
 ## Standard Progression Search Algorithm
 
@@ -52,6 +51,11 @@ Explanation:
 14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
 15. Return $unsolvable$
+
+Explanation:
+- Add first, add a search node into the fringe.
+- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
+- Test if the popped node is the solution
 
 ## Applicable
 
