@@ -2,7 +2,7 @@
 
 ## Unconstrained Task
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/bdea9ce9-4384-4960-917f-b5c853cefed6)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ab308075-ad15-4270-9f25-0b426b822d45)
 
 A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and only if there is no task $\acute{t} \in T$ such that $(\acute{t}, t) \in \prec)$
 
