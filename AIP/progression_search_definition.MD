@@ -9,12 +9,11 @@ A task id $t$ is unconstrained in a task network $(T, \prec, \alpha)$ if and onl
 Explanation: Unconstrained tasks are tasks that have no predecessors in the network. So in this case there should not be any task $\acute{t}$ before our unconstrained tasks.
 
 ## Search Node 
+![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
 
 $$
 n = (s, (T, \prec, \alpha), \pi)
 $$
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/fb946cf3-395d-4514-b149-ca778c07569c)
 
 - Current state
 - Task network
