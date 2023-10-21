@@ -222,8 +222,4 @@ The task network $tn$ is a solution if and only if:
 
 # Extra
 ## Questions
-- Application of method?
-- Applicable action?
-- Useful for calculating heuristics?
-- Primitive tasks (also called actions) can be directly executed and cause state transition, so does decomposing cause state transition?
 - Why dot product for goal?
