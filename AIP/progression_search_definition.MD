@@ -137,6 +137,7 @@ fringe:
 
 15. Return $unsolvable$
 
+Fringe will be initialized with this search node:
 - $s_0$: initial state
 - $tn_I$: initial task network
 - $\epsilon$: an empty sequence
