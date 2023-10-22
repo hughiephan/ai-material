@@ -107,33 +107,33 @@ fringe:
 
 ## Standard Progression Search Algorithm
 
-01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$ : The fringe will be initialized with the initial search node
+01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$ (The fringe will be initialized with the initial search node)
 
-02. While $fringe \neq \emptyset$ Do : If the fringe is not empty, continue to process. 
+02. While $fringe \neq \emptyset$ Do (If the fringe is not empty, continue to process)
 
-03. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$ : We pop the search node out to process it.
+03. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$ (We pop the search node out to process it)
 
-04. &nbsp;&nbsp; If $n.isgoal$ then return $n$ : If the search node's task network is the goal then we just return it as solution
+04. &nbsp;&nbsp; If $n.isgoal$ then return $n$ (If the search node's task network is the goal then we just return it as solution)
 
-05. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$ :  We get the unconstrained nodes to process
+05. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$ (We get the unconstrained nodes to process)
 
-06. &nbsp;&nbsp; For $t \in U$ do : Get the tasks from the unconstrained nodes
+06. &nbsp;&nbsp; For $t \in U$ do (Get the tasks from the unconstrained nodes)
  
-07. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then : The tasks need to be primitive
+07. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then (The tasks need to be primitive)
 
-08. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then : The tasks need to be applicable
+08. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then (The tasks need to be applicable)
 
 09. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
 
 10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
-11. &nbsp;&nbsp;&nbsp;&nbsp; else : If the task is compound then we need to decompose it
+11. &nbsp;&nbsp;&nbsp;&nbsp; else (If the task is compound then we need to decompose it)
 
 12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For $m \in t.methods$ do
 
 13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.decompose(t,m)$
 
-14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$ : Add the already decomposed task into the fringe so we can process it
+14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$ (Add the already decomposed task into the fringe so we can process it)
 
 15. Return $unsolvable$
 
@@ -197,7 +197,7 @@ $$
 The task network $tn$ is a solution if and only if:
 - $tn_I \xrightarrow{*} tn$: can be reached by decomposing the initial task network
 - $\forall(t) \in T: \alpha(t) \in A$: all task names are primitive
-- Sequence of task ??
+- Sequence of task:
 
 ## References
 - Höller, Daniel & Bercher, Pascal & Behnke, Gregor & Biundo, Susanne. (2020). HTN Planning as Heuristic Progression Search. Journal of Artificial Intelligence Research. 67. 835-880. 10.1613/jair.1.11282. 
