@@ -422,4 +422,4 @@ Solution Criteria for HTN and TIHTN should be the same because the newly importe
 - [5] Yaman, Fusun & Nau, Dana. (2003). TimeLine: An HTN Planner That can Reason About Time. AIPS Workshop on Planning for Temporal Domains, 2002. 
 - [6] Do, Minh & Kambhampati, Subbarao & Zimmerman, Terry. (2004). Planning - Scheduling Connections through Exogenous Events. 
 - [7] Hopcroft et al., 2000 John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman. Introduction to Automata Theory, Languages, and Computation, volume 3. Addison-Wesley Reading, MA, second edition, 2000.
-- https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
+- [8] https://web.stanford.edu/class/cs227/Lectures/lec16.pdf
