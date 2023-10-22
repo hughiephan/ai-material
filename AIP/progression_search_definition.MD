@@ -144,6 +144,7 @@ Fringe will be initialized with this search node:
 
 Explanation:
 - To determine whether an action is applicable in a given state, the planner checks whether all the preconditions of that action are true in the current state. If all preconditions are satisfied, the action is considered applicable in the current state and can be considered as a candidate for execution. For unconstrained action, there is: No possible modification when it is not applicable, and exactly one modfiication when it is applicable. With `modification` means progressing the action and updating the state
+- We can determine the heuristic cost of the search nodes in the fringe and sort them
 
 ## Progression
 
