@@ -107,33 +107,33 @@ fringe:
 
 ## Standard Progression Search Algorithm
 
-01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$
+01. $fringe \gets { \{(s_0, tn_I, \epsilon) \} }$ : The fringe will be initialized with the initial search node
 
-02. While $fringe \neq \emptyset$ Do
+02. While $fringe \neq \emptyset$ Do : If the fringe is not empty, continue to process. 
 
-03. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$
+03. &nbsp;&nbsp; $n \xleftarrow{} fringe.pop()$ : We pop the search node out to process it.
 
-04. &nbsp;&nbsp; If $n.isgoal$ then return $n$ 
+04. &nbsp;&nbsp; If $n.isgoal$ then return $n$ : If the search node's task network is the goal then we just return it as solution
 
-05. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$
+05. &nbsp;&nbsp; $U  \xleftarrow[]{} n.unconstrainedNodes$ :  We get the unconstrained nodes to process
 
-06. &nbsp;&nbsp; For $t \in U$ do
+06. &nbsp;&nbsp; For $t \in U$ do : Get the tasks from the unconstrained nodes
+ 
+07. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then : The tasks need to be primitive
 
-07. &nbsp;&nbsp;&nbsp;&nbsp; If $isPrimitive(t)$ then
-
-08. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then
+08. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If $isApplicable(t)$ then : The tasks need to be applicable
 
 09. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.apply(t)$
 
 10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
 
-11. &nbsp;&nbsp;&nbsp;&nbsp; else
+11. &nbsp;&nbsp;&nbsp;&nbsp; else : If the task is compound then we need to decompose it
 
 12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For $m \in t.methods$ do
 
 13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\acute{n} \xleftarrow[]{} n.decompose(t,m)$
 
-14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$
+14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $fringe.add(\acute{n})$ : Add the already decomposed task into the fringe so we can process it
 
 15. Return $unsolvable$
 
@@ -143,10 +143,7 @@ Fringe will be initialized with this search node:
 - $\epsilon$: an empty sequence
 
 Explanation:
-1. The fringe will be initialized with the initial search node
-2. If the fringe is not empty, continue to process. 
-3. We 
-- Test if the popped node is the solution
+- To determine whether an action is applicable in a given state, the planner checks whether all the preconditions of that action are true in the current state. If all preconditions are satisfied, the action is considered applicable in the current state and can be considered as a candidate for execution. For unconstrained action, there is: No possible modification when it is not applicable, and exactly one modfiication when it is applicable. With `modification` means progressing the action and updating the state
 
 ## Progression
 
@@ -172,16 +169,6 @@ Explanation:
 - The new precondition remove the precondition relationship between the unconstrained task 
 - The $\alpha$ mapping of the unconstrained task will be removed also.
 - The goal $\pi$ is also updated by adding the task names 
-
-## Applicable
-
-To determine whether an action is applicable in a given state, the planner checks whether all the preconditions of that action are true in the current state. If all preconditions are satisfied, the action is considered applicable in the current state and can be considered as a candidate for execution.
-
-For unconstrained action, there is:
-- No possible modification when it is not applicable
-- Exactly one modfiication when it is applicable
-
-With `modification` means progressing the action and updating the state
 
 ## Solution
 
@@ -211,9 +198,6 @@ The task network $tn$ is a solution if and only if:
 - $tn_I \xrightarrow{*} tn$: can be reached by decomposing the initial task network
 - $\forall(t) \in T: \alpha(t) \in A$: all task names are primitive
 - Sequence of task ??
-
-## Questions
-- Why dot product for goal?
 
 ## References
 - Höller, Daniel & Bercher, Pascal & Behnke, Gregor & Biundo, Susanne. (2020). HTN Planning as Heuristic Progression Search. Journal of Artificial Intelligence Research. 67. 835-880. 10.1613/jair.1.11282. 
