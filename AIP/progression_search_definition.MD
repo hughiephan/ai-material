@@ -201,4 +201,4 @@ The task network $tn$ is a solution if and only if:
 
 ## References
 - [1] Höller, Daniel & Bercher, Pascal & Behnke, Gregor & Biundo, Susanne. (2020). HTN Planning as Heuristic Progression Search. Journal of Artificial Intelligence Research. 67. 835-880. 10.1613/jair.1.11282. 
-- https://cs.stanford.edu/people/eroberts/courses/soco/projects/2003-04/intelligent-search/intro.htm
+- [2] https://cs.stanford.edu/people/eroberts/courses/soco/projects/2003-04/intelligent-search/intro.htm
