@@ -196,8 +196,7 @@ $$
 
 The task network $tn$ is a solution if and only if:
 - $tn_I \xrightarrow{*} tn$: can be reached by decomposing the initial task network
-- $\forall(t) \in T: \alpha(t) \in A$: all task names are primitive
-- Sequence of task:
+- $\forall(t) \in T: \alpha(t) \in N_P$: all task names are primitive
 
 ## References
 - Höller, Daniel & Bercher, Pascal & Behnke, Gregor & Biundo, Susanne. (2020). HTN Planning as Heuristic Progression Search. Journal of Artificial Intelligence Research. 67. 835-880. 10.1613/jair.1.11282. 
