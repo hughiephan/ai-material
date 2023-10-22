@@ -143,9 +143,35 @@ Fringe will be initialized with this search node:
 - $\epsilon$: an empty sequence
 
 Explanation:
-- Add first, add a search node into the fringe.
-- Fringe will be sorted according to some heuristic. For example: based on the priority (distance between nodes), we can sort the fringe.  
+1. The fringe will be initialized with the initial search node
+2. If the fringe is not empty, continue to process. 
+3. We 
 - Test if the popped node is the solution
+
+## Progression
+
+$$
+\acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
+$$ 
+
+Given:
+- a search node $n = (s, T, \prec, \alpha, \pi)$
+- $t \in T$: unconstrained task
+- $\acute{n}$: search node from progressing $t$
+
+With:
+- $\acute{s} = \gamma ( \alpha(t), s )$ 
+- $\acute{T} = T$ \ { $t$ }
+- $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
+- $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
+- $\acute{\pi} = \pi \cdot \alpha(t)$
+
+Explanation:
+- Transition function gamma $\gamma$ to transform the task names and state to a new state.
+- List of new tasks should remove the unconstrained task we just processed.
+- The new precondition remove the precondition relationship between the unconstrained task 
+- The $\alpha$ mapping of the unconstrained task will be removed also.
+- The goal $\pi$ is also updated by adding the task names 
 
 ## Applicable
 
@@ -175,36 +201,6 @@ With:
 Explanation:
 - When we have processed all the tasks in the task network, then the task network will be empty and we are now done.
 - Even though not mention but I think we need a Goal Test to determines whether a given state is a goal state.
-
-
-## Decomposition
-Explanation:
-- There is similarity between decomposition, in previous paper it is used to decompose task network. It this paper it is used to decompose a new search node.
-
-## Progression
-
-$$
-\acute{n} = (\acute{s}, (\acute{T}, \acute{\prec}, \acute{\alpha}), \acute{\pi}
-$$ 
-
-Given:
-- a search node $n = (s, T, \prec, \alpha, \pi)$
-- $t \in T$: unconstrained task
-- $\acute{n}$: search node from progressing $t$
-
-With:
-- $\acute{s} = \gamma ( \alpha(t), s )$ 
-- $\acute{T} = T$ \ { $t$ }
-- $\acute{\prec} = \prec$ \ { $(t,\acute{t}) | \acute{t} \in T$ }
-- $\acute{\alpha} = \alpha$ \ { $t \mapsto \alpha(t)$ }  
-- $\acute{\pi} = \pi \cdot \alpha(t)$
-
-Explanation:
-- Transition function gamma $\gamma$ to transform the task names and state to a new state.
-- List of new tasks should remove the unconstrained task we just processed.
-- The new precondition remove the precondition relationship between the unconstrained task 
-- The $\alpha$ mapping of the unconstrained task will be removed also.
-- The goal $\pi$ is also updated by adding the task names 
 
 ## Solution Criteria
 $$
