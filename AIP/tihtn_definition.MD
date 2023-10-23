@@ -311,7 +311,8 @@ Also define:
 - $\Gamma := \Gamma_1 \cup \Gamma_2$
 - $R := R_1 \cup R_2$
 
-CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G1 and G2 was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
+Explanation:
+- CFG fits with HTN Planning is because we can can derive the string by repeatedly replacing a non-terminal by the right hand side of the production, until all non-terminal have been replaced by terminal symbols. We can think of non-terminal symbols as Compound Tasks, and terminal symbols as Primitive Tasks. Two Formal Grammar G1 and G2 was processed in parallel. We can prove this by transform our HTN Formalization into two CFG. Then because of "whether the languages of two CFGs have a non-empty intersection" is undecidable [7] then our HTN Formalization will also be undeciable.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0702cf4d-5079-4abc-b6af-54654adf463b)
 
