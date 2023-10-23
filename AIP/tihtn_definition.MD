@@ -387,7 +387,6 @@ $$
 - Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
 ## Questions
-### Question: Task hierarchy model physic and advice?
 
 ### Question: Classical vs TIHTN planning
 - Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
