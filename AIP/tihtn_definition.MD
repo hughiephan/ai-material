@@ -76,10 +76,10 @@ tn3:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/def7b4b9-80df-4a8b-a224-0cc2e3bc78d7)
 
 $$
-tn_I := ({t_I}, \emptyset, {(t_I , c_I )})
+tn_I := ({t_I}, \emptyset, {(t_I , n_I )})
 $$
 
-The initial task network which consists of the initial task $t_I$ mapping to the initial task name $c_I$. Precondition is an empty set.
+The initial task network which consists of the initial task $t_I$ mapping to the initial task name $n_I$. Precondition is an empty set.
 
 Example: We create the initial task network with no precondition, task ids, and alpha function to map the task with task names. Initial Task Network is different from the initial task, meaning that Initial Task Network can combines multiple initial tasks, not just one task.
 
