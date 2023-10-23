@@ -382,7 +382,7 @@ $$
 - $\delta = (prec, add, del)$ contains functions. Functions map action name to subset of environment facts.
 - Action a is applicable in state s, with relation  $\tau(a,s) \iff prec(a) \subseteq s$
 - When applicable, state transition function: $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
-- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$ if and only if $a_i$ is applicable in $s_i$, with $s_i$ is defined as $\gamma(a_{i-1},s_{i-1})$ for $i > 0$. State $s_{l+1}$ results from application.
+- Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$
 - Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
 ## Questions
