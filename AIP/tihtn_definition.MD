@@ -238,7 +238,7 @@ problem:
 ```
 
 ## Solution
-$tn_S$ is a solution of problem $P$, if and only if $tn_s$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable. 
+$tn$ is a solution of problem $P$, if and only if $tn$ can be obtained from initial task network $tn_I$ by a sequence of method applications, does not contain compound task anymore, and is executable. 
 
 - $tn_I \rightarrow tn$ 
 - $\forall{t} \in T$
