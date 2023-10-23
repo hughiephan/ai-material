@@ -42,7 +42,7 @@ $$
 tn \cong \acute{tn}
 $$
 
-If any only if there exists a bijection $\sigma:T \rightarrow \acute{T}$.
+If any only if there exists a bijection Sigma $\sigma:T \rightarrow \acute{T}$.
 
 With $t,\acute{t} \in T$, it holds that $(t,\acute{t}) \in \prec$, if and only if $(\sigma(t),\sigma(\acute{t})) \in \acute{\prec}$ and $\alpha(t) = \acute{\alpha}(\sigma(t))$
 
