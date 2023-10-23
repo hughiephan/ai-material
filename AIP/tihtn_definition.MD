@@ -396,9 +396,9 @@ In Classical Planning, the state is a sequence of actions. But the state in HTN 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
 
-In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. This HTN formalism works in deterministic domain. There are other works for HTN on Nondeterministic domain [4]
+In Classical Planning, the Actions have deterministic effects, meaning that one action only results in one outcome. This HTN Formalism works in deterministic domain. There are other works for HTN on Nondeterministic domain [4]
 
-In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment. This HTN Planning also works on fully observable environment. There are other HTN that can work on partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
+In real-world / complex planning problems, the environment can be partially observable. This means that the planner does not have complete information about the current state and may need to make decisions based on partial or uncertain information. Classical Planning only works with fully observable environment. This HTN Formalism also works on fully observable environment. There are other HTN that can work on partially observable environment (for example, Partially Observable Markov Decision Processes POMDP can works on partially observable environment)
 
 In Classical Planning, there is no consideration of time. Time duration is Instantaneous meaning it does not consider the time it takes to perform each action and the effects of actions occurring simultaneously. This HTN also does not consider time. There is the paper TimeLine [5] on HTN that can deal with time.
 
