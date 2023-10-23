@@ -388,9 +388,6 @@ $$
 
 ## Questions
 
-### Question: Classical vs TIHTN planning
-- Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
-
 ### Question: Classical vs HTN planning
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
 
@@ -413,6 +410,9 @@ The goal in classical planning is defined by a set of state features that shall 
 ### Question: HTN vs TIHTN planning
 
 Solution Criteria for HTN and TIHTN should be the same because the newly imported task from TIHTN into the task network follows the same rules.
+
+### Question: Classical vs TIHTN planning
+- Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
 
 ## References
 - [1] Xiao, Z., Wan, H., Zhuo, H., Herzig, A., Perrussel, L., & Chen, P. (2019). Refining HTN Methods via Task Insertion with Preferences. AAAI Conference on Artificial Intelligence.
