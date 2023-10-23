@@ -383,11 +383,8 @@ $$
 - Action a is applicable in state s, with relation  $\tau(a,s) \iff prec(a) \subseteq s$
 - When applicable, state transition function: $\gamma(a,s) = (s \ del(a)) \bigcup add(a)$, 
 - Sequence of actions $(a_0,a_1...a_l)$ with $a_i \in N_A$ is applicable in a state $s_I$
-- Solution is a sequence $(a_0,a_1...a_l)$ that is applicable in $s_I$ that results in state $s_{l+1}$, with $s_{l+1} \supseteq g$
 
-## Questions
-
-### Question: Classical vs HTN planning
+## Question: Classical vs HTN planning
 In Classical Planning, the state is a sequence of actions. But the state in HTN is a hierarchy.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f5968d79-9c1e-4461-bd02-d62bc3eab1be)
@@ -406,11 +403,11 @@ Both Classical and HTN is finite system (finite states, actions, events). If we 
 
 The goal in classical planning is defined by a set of state features that shall be achieved. Therefore classical heuristics are designed to estimate the distance from a given state to a goal state. In HTN planning the “goal” is an abstract task to perform; no state-based goal is given. HTN will decompose high level abstraction tasks.
 
-### Question: HTN vs TIHTN planning
+## Question: HTN vs TIHTN planning
 
 Solution Criteria for HTN and TIHTN should be the same because the newly imported task from TIHTN into the task network follows the same rules.
 
-### Question: Classical vs TIHTN planning
+## Question: Classical vs TIHTN planning
 - Task insertion plus goal description fully subsumes classical planning (while allowing task hierarchies as well)
 
 ## References
