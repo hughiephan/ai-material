@@ -25,7 +25,7 @@ Example:
 ```
 tn1: 
   task: t1, t2, t3
-  precondition: <t1, t2, t3>
+  ordering-constraint: <t1, t2, t3>
   alpha:
     t1: cityShip(pkg1, whA, airpA),
     t2: airShip(pkg1, airpA, airpB),
@@ -56,7 +56,7 @@ Example: Two isomorphic task networks with the same task names `load`, `drive`, 
 ```
 tn2: 
   task: t1.1, t1.2, t1.3
-  precondition: <t1.1, t1.2, t1.3>
+  ordering-constraint: <t1.1, t1.2, t1.3>
   alpha:
     t1.1: load,
     t1.2: drive,
@@ -64,7 +64,7 @@ tn2:
 
 tn3: 
   task: t3.1, t3.2, t3.3
-  precondition: <t3.1, t3.2, t3.3>
+  ordering-constraint: <t3.1, t3.2, t3.3>
   alpha:
     t3.1: load,
     t3.2: drive,
@@ -86,7 +86,7 @@ Example: We create the initial task network with no precondition, task ids, and 
 ```
 tnI: 
   task: t0
-  precondition: <>
+  ordering-constraint: <>
   alpha:
     t0: ship(pkg1, whA, shopB)
 ```
@@ -111,7 +111,7 @@ m-cityShip:
   compound_task_name: cityShip(pkg1, whA, airpA)
   tn1: 
     task: t1, t2, t3
-    precondition: <t1, t2, t3>
+    ordering-constraint: <t1, t2, t3>
     alpha:
       t1: cityShip(pkg1, whA, airpA),
       t2: airShip(pkg1, airpA, airpB),
@@ -125,7 +125,7 @@ We can decompose Task Network `tn1` from previous step into Task Network `tn4` u
 ```
 tn4: 
   task: t1.1, t1.2, t1.3, t2, t3
-  precondition: <t1.1, t1.2, t1.3, t2, t3>
+  ordering-constraint: <t1.1, t1.2, t1.3, t2, t3>
   alpha:
     t1.1: load,
     t1.2: drive,
@@ -165,16 +165,7 @@ domain:
   fact: f-load, f-fly, f-drive, f-unload
   primitive_task_name: load, fly, drive, unload,
   compound_task_name: ship, cityShip, airShip,
-  delta: 
-    a1: load, 
-    a2: fly, 
-    a3: unload,
-    a4: load, 
-    a5: drive, 
-    a6: unload, 
-    a7: load, 
-    a8: drive, 
-    a9: unload,
+  delta:...
   method:
     m-ship
       compound_task_name: ship(pkg1, whA, shopB), 
@@ -205,23 +196,14 @@ problem:
   initial_state: s0
   tnI: 
     task: t0
-    precondition: <>
+    ordering-constraint: <>
     alpha:
       t0: ship(pkg1, whA, shopB)
   domain:
     fact: f-load, f-fly, f-drive, f-unload
     primitive_task_name: load, fly, drive, unload,
     compound_task_name: ship, cityShip, airShip,
-    delta: 
-      a1: load, 
-      a2: fly, 
-      a3: unload,
-      a4: load, 
-      a5: drive, 
-      a6: unload, 
-      a7: load, 
-      a8: drive, 
-      a9: unload,
+    delta: ...
     method:
       m-ship
         compound_task_name: ship(pkg1, whA, shopB), 
