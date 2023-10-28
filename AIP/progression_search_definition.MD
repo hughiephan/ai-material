@@ -12,7 +12,7 @@ Example: `t1` and `t2.1` are our unconstrained tasks.
 ```
 tn2: 
   task: t1, t2.1, t2.2, t2.3, t2.4
-  precondition: <t2.1, t2.2, t2.3, t2.4>
+  ordering-constraint: <t2.1, t2.2, t2.3, t2.4>
   alpha:
     t1: deliver(P1, B),
     t2.1: get-to(T2, C),
@@ -50,7 +50,7 @@ fringe:
     state: s0
     tnI: 
       task: t1, t2
-      precondition: <>
+      ordering-constraint: <>
       alpha:
         t1: deliver(P1,B),
         t2: deliver(P2,D)
@@ -66,7 +66,7 @@ fringe:
     state: s2.2.1
     tn2.2.1: 
       task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
-      precondition: 
+      ordering-constraint: 
         <t1.1, t1.2, t1.3, t1.4>,
         <t2.1.1, t2.2, t2.3, t2.4>
       alpha:
@@ -90,7 +90,7 @@ fringe:
     state: s2.2.1.2
     tn2.2.1: 
       task: t1.1, t1.2, t1.3, t1.4, t2.1.1, t2.2, t2.3, t2.4
-      precondition: 
+      ordering-constraint: 
         <t1.1, t1.2, t1.3, t1.4>,
         <t2.2, t2.3, t2.4>
       alpha:
