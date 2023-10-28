@@ -1,5 +1,7 @@
 # Progression Search Formal Definition
 
+Correction: We should use "ordering constraint" instead of "prec" in the example images
+
 ## Unconstrained Task
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ab308075-ad15-4270-9f25-0b426b822d45)
