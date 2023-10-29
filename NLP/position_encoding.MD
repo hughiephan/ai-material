@@ -1,4 +1,4 @@
-```
+```python
 import pickle
 import warnings 
 warnings.filterwarnings('ignore')
@@ -69,3 +69,24 @@ model.summary()
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
+
+```
+sentences = [
+    "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
+    "Wonderful performances from Cher and Nicolas Cage (as always) gently row the plot along. There are no rapids to cross, no dangerous waters, just a warm and witty paddle through New York life at its best."
+]
+
+for sentence in sentences:
+    input_sequence = tokenizer.texts_to_sequences([sentence])
+    input_padded = pad_sequences(input_sequence, maxlen=120)
+    prediction = model.predict(input_padded)
+    print(sentence)
+    print("Prediction ", prediction[0][0])
+    if prediction[0][0] >= 0.5:
+        print("The review is positive. \n")
+    else:
+        print("The review is negative. \n")
+```
+
+# Reference
+- https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/
