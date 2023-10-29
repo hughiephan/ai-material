@@ -55,6 +55,8 @@ cax = plt.matshow(positional_encoding(seq_length=120, embedding_dim=516))
 plt.gcf().colorbar(cax)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/c89d66d8-48e4-44ff-a357-c555e5ed67d2)
+
 ## Step 4: Add Positional Encoding to our model
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
@@ -73,11 +75,19 @@ output = tf.keras.layers.Dense(10, activation='relu')(output)
 output = tf.keras.layers.Dense(1, activation='sigmoid')(output)
 model = tf.keras.Model(inputs=input_layer, outputs=output)
 model.summary()
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/2c139e34-3415-4798-b0c1-002bfee92d88)
+
+## Step 5: Train
+```python
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
 
-## Step 5: Make predictions
+![image](https://github.com/hughiephan/DPL/assets/16631121/7cacc1ee-7b5e-4309-b0bd-52dfdeba0dd6)
+
+## Step 6: Make predictions
 ```python
 sentences = [
     "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
@@ -95,6 +105,8 @@ for sentence in sentences:
     else:
         print("The review is negative. \n")
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ce0804af-ab03-4787-9c1f-01e1a443a53f)
 
 ## Reference
 - https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1
