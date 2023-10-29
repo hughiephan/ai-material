@@ -37,7 +37,7 @@ embedding_dim= 16
 def positional_encoding(seq_length, embedding_dim):
     P = np.zeros((seq_length, embedding_dim))
     for k in range(seq_length):
-        for i in np.arange(int(embedding_dim/2)):
+        for i in range(int(embedding_dim/2)):
             denominator = np.power(10000, 2*i/embedding_dim)
             P[k, 2*i] = np.sin(k/denominator)
             P[k, 2*i+1] = np.cos(k/denominator)
