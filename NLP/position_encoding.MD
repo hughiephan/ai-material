@@ -1,4 +1,4 @@
-# Positional Encoding from Scratch for Sentiment Analysis
+# Positional Encoding from scratch for Sentiment Analysis
 
 ## Step
 ```python
