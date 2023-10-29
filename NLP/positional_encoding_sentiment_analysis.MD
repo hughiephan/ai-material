@@ -1,6 +1,6 @@
 # Positional Encoding from scratch for Sentiment Analysis
 
-## Step
+## Step 1: Import libraries
 ```python
 import pickle
 import warnings 
@@ -12,7 +12,10 @@ import tensorflow_datasets as tfds
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 tfds.disable_progress_bar()
+```
 
+## Step 2: Pre-process
+```python
 imdb = tfds.load("imdb_reviews", as_supervised=True)
 train_data, test_data = imdb['train'], imdb['test']
 training_sentences = []
@@ -37,8 +40,7 @@ vocab_size = 10000
 embedding_dim= 16
 ```
 
-## Step
-
+## Step 3: Build postional encoding from scratch
 ```python
 def positional_encoding(seq_length, embedding_dim):
     P = np.zeros((seq_length, embedding_dim))
@@ -49,19 +51,16 @@ def positional_encoding(seq_length, embedding_dim):
             P[k, 2*i+1] = np.cos(k/denominator)
     return P
 
-P = positional_encoding(seq_length=120, embedding_dim=516)
-cax = plt.matshow(P)
+cax = plt.matshow(positional_encoding(seq_length=120, embedding_dim=516))
 plt.gcf().colorbar(cax)
 ```
 
-## Step: 
-
+## Step 4: Add Positional Encoding to our model
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
     def __init__(self, max_seq_length, embedding_dim, **kwargs):
         super(PositionalEncoding, self).__init__(**kwargs)
-        self.positional_encoding = positional_encoding(max_seq_length, embedding_dim)
-                
+        self.positional_encoding = positional_encoding(max_seq_length, embedding_dim)     
     def call(self, inputs):
         return inputs + self.positional_encoding
 
@@ -78,8 +77,7 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
 
-## Step:
-
+## Step 5: Make predictions
 ```python
 sentences = [
     "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
@@ -99,4 +97,4 @@ for sentence in sentences:
 ```
 
 ## Reference
-- https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/
+- https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1
