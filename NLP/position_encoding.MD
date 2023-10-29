@@ -1,5 +1,6 @@
+# Positional Encoding from Scratch for Sentiment Analysis
 
-# Step
+## Step
 ```python
 import pickle
 import warnings 
