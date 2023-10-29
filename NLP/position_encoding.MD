@@ -1,3 +1,5 @@
+
+# Step
 ```python
 import pickle
 import warnings 
@@ -33,6 +35,8 @@ vocab_size = 10000
 embedding_dim= 16
 ```
 
+## Step
+
 ```python
 def positional_encoding(seq_length, embedding_dim):
     P = np.zeros((seq_length, embedding_dim))
@@ -47,6 +51,8 @@ P = positional_encoding(seq_length=120, embedding_dim=516)
 cax = plt.matshow(P)
 plt.gcf().colorbar(cax)
 ```
+
+## Step: 
 
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
@@ -70,6 +76,8 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
 
+## Step:
+
 ```python
 sentences = [
     "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
@@ -88,5 +96,5 @@ for sentence in sentences:
         print("The review is negative. \n")
 ```
 
-# Reference
+## Reference
 - https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1/
