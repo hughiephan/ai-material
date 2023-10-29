@@ -1,4 +1,4 @@
-# Positional Encoding from scratch for Sentiment Analysis
+# Positional Encoding for Sentiment Analysis
 
 ## Step 1: Import libraries
 ```python
