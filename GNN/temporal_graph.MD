@@ -2,6 +2,8 @@
 
 ## Temporal Graph
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/c8fbd242-7518-4ea6-b689-5c15f2565f4a)
+
 Let $\mathcal{G} (\mathcal{V},\mathcal{E})$, where:
 
 - $\mathcal{G}$, directed temporal graph 
