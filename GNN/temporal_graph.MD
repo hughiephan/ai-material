@@ -25,3 +25,14 @@ Given a vertex $u \in \mathcal{V}$:
 - $degr_{out}(u) = |N_{out}|$, out-degree
 
 - $degr_{in}(u) = |N_{in}|$, in-degree
+
+## Interval
+
+$\mathcal{G}_{[t_s, t_e]}$ is the projected graph of $\mathcal{G}$ in time interval $[t_s, t_e]$, with:
+
+- $V(\mathcal{G}_{[t_s, t_e]}) = \mathcal{V}$
+
+- $E(\mathcal{G}_{[t_s, t_e]}) = \lbrace (u, v) | (u,v,t) \in \mathcal{E}, t \in [t_s, t_e] \rbrace$
+
+And length of interval $[t_s, t_e]$ is $t_e - t_s + 1$
+
