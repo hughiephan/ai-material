@@ -30,7 +30,7 @@ Given a vertex $u \in \mathcal{V}$:
 
 ## Projected Graph
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/f643f9d5-89da-4c3e-be71-88008c2f7b84)
+![image](https://github.com/hughiephan/DPL/assets/16631121/dafa16d8-6d3f-4ebb-8e2f-b9063d77d30b)
 
 $\mathcal{G}_{[t_s, t_e]}$ is the projected graph of $\mathcal{G}$ in time interval $[t_s, t_e]$, with:
 
