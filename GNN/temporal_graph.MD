@@ -40,6 +40,9 @@ $\mathcal{G}_{[t_s, t_e]}$ is the projected graph of $\mathcal{G}$ in time inter
 
 And length of interval $[t_s, t_e]$ is $t_e - t_s + 1$
 
+## Span Reachability
 
+Given a temporal graph $\mathcal{G}$, two vertices $u, v$ and a time interval $[t_s, t_e]$, then $u$ span-reaches $v$ in $[t_s, t_e]$, denoted as
+$u \rightsquigarrow_{[t_s, t_e]} v$ if $u$ reaches $v$ in the projected graph $\mathcal{G}_{[t_s, t_e]}$
 
 
