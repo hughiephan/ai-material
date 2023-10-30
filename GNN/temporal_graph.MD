@@ -42,7 +42,10 @@ And length of interval $[t_s, t_e]$ is $t_e - t_s + 1$
 
 ## Span Reachability
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/0c79b069-f716-4f5c-9c50-f07064d145eb)
+
 Given a temporal graph $\mathcal{G}$, two vertices $u, v$ and a time interval $[t_s, t_e]$, then $u$ span-reaches $v$ in $[t_s, t_e]$, denoted as
 $u \rightsquigarrow_{[t_s, t_e]} v$ if $u$ reaches $v$ in the projected graph $\mathcal{G}_{[t_s, t_e]}$
 
+Example: $u \rightsquigarrow_{[t_s, t_e]} v$
 
