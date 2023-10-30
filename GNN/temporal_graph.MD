@@ -28,7 +28,9 @@ Given a vertex $u \in \mathcal{V}$:
 
 - $degr_{in}(u) = |N_{in}|$, in-degree
 
-## Interval
+## Projected Graph
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/f643f9d5-89da-4c3e-be71-88008c2f7b84)
 
 $\mathcal{G}_{[t_s, t_e]}$ is the projected graph of $\mathcal{G}$ in time interval $[t_s, t_e]$, with:
 
@@ -37,4 +39,7 @@ $\mathcal{G}_{[t_s, t_e]}$ is the projected graph of $\mathcal{G}$ in time inter
 - $E(\mathcal{G}_{[t_s, t_e]}) = \lbrace (u, v) | (u,v,t) \in \mathcal{E}, t \in [t_s, t_e] \rbrace$
 
 And length of interval $[t_s, t_e]$ is $t_e - t_s + 1$
+
+
+
 
