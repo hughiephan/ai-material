@@ -63,7 +63,11 @@ Loop through `k and i`, we notice that for `i` we loop until it reach half of th
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a1febfff-b77c-426f-98a5-d37cd1076d43)
 
-For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`
+For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`. Let this run for a while, and we will get
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/f1cfb8aa-9ca7-4a3d-84ee-b59a5836e832)
+
+And finally, we get the whole postional encoding which we will combined with our embedding in the later step.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c89d66d8-48e4-44ff-a357-c555e5ed67d2)
 
