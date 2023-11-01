@@ -53,4 +53,6 @@ Example: $v_1 \rightsquigarrow_{[2, 4]} v_3$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a0c6239-a129-4828-80bb-c5f991828c5e)
 
+Given a temporal graph $\mathcal{G}$, two vertices $u,v$, a parameter $\theta$ and a time interval $[t_s, t_e]$, s.t. $t_e - t_s + 1 \geq \theta$, $u$ $\theta$-reaches $v$ if there exists an interval $[t_s', t_e'] \subseteq [t_s, t_e]$ such that $t_e' - t_s' + 1 = \theta$ and $u$ reaches $v$ in $\mathcal{G}_{[t'_s, t'_e]}$ 
+
 
