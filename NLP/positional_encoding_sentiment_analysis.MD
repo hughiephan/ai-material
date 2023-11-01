@@ -75,9 +75,9 @@ For each position, we just add a new value based on sin and cos. Even dimension 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f1cfb8aa-9ca7-4a3d-84ee-b59a5836e832)
 
-And finally, we get the whole postional encoding which we will combined with our embedding in the later step.
+And finally, we get the whole postional encoding.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/c89d66d8-48e4-44ff-a357-c555e5ed67d2)
+![image](https://github.com/hughiephan/DPL/assets/16631121/d8d399c3-9beb-4236-9129-5a245de36f12)
 
 ## Step 5: Positional Encoding Layer
 ```python
