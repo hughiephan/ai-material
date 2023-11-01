@@ -89,11 +89,11 @@ class PositionalEncoding(tf.keras.layers.Layer):
         return inputs + self.positional_encoding
 ```
 
-Example Embedding of the sentence "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline" 
+Here's an example of the Embedding the following sentence after we have trained for one epoch: "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline" 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3900093f-f6cd-4abc-84ef-a8bd7d33e16a)
 
-Our goal is to combine the Embedding with our Positional Encoding
+Our goal is to combine the Embedding with the Positional Encoding we have generated from previous steps.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fca01039-3f67-40d4-a353-2fa4cf142b85)
 
@@ -143,7 +143,7 @@ for sentence in sentences:
 
 ## (Optional) Step 9: Visualize embedding
 
-We point to the layer two Postional Embedding `model.get_layer(index=2)` but you can change to index=1 for the Embedding layer.
+We point to the layer two Postional Embedding `model.get_layer(index=2)` but you can change to index=1 for the Embedding layer. If you train with `epochs=5` it will be a little hard to see the different between two layers. 
 
 ```python
 sentences = "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline"
