@@ -98,7 +98,7 @@ Our goal is to combine the Embedding with our Positional Encoding
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fca01039-3f67-40d4-a353-2fa4cf142b85)
 
 # Step 6: Add Positional Encoding Layer to our model
-```
+```python
 input_layer = tf.keras.layers.Input(shape=(sequence_len,))
 output = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sequence_len)(input_layer)
 output = PositionalEncoding(sequence_len, embedding_dim)(output)
@@ -110,12 +110,12 @@ model = tf.keras.Model(inputs=input_layer, outputs=output)
 model.summary()
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/2c139e34-3415-4798-b0c1-002bfee92d88)
+![image](https://github.com/hughiephan/DPL/assets/16631121/4834c11c-b718-48f9-8141-f8006a8df6f2)
 
 ## Step 7: Train
 ```python
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-history = model.fit(padded, training_labels_final, epochs=1, validation_data = (testing_padded, testing_labels_final))
+history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7cacc1ee-7b5e-4309-b0bd-52dfdeba0dd6)
@@ -142,6 +142,8 @@ for sentence in sentences:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ce0804af-ab03-4787-9c1f-01e1a443a53f)
 
 ## (Optional) Step 9: Visualize embedding
+
+We point to the layer two Postional Embedding `model.get_layer(index=2)` but you can change to index=1 for the Embedding layer.
 
 ```python
 sentences = "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline"
