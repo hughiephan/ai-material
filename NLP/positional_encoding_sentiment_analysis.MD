@@ -96,6 +96,7 @@ Our goal is to combine the Embedding with our Positional Encoding
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fca01039-3f67-40d4-a353-2fa4cf142b85)
 
 # Step 6: Add Positional Encoding Layer to our model
+```
 input_layer = tf.keras.layers.Input(shape=(sequence_len,))
 output = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sequence_len)(input_layer)
 output = PositionalEncoding(sequence_len, embedding_dim)(output)
