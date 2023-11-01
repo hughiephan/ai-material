@@ -143,3 +143,4 @@ for sentence in sentences:
 
 ## Reference
 - https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1
+- https://vaclavkosar.com/ml/transformer-positional-embeddings-and-encodings
