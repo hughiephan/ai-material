@@ -141,6 +141,19 @@ for sentence in sentences:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ce0804af-ab03-4787-9c1f-01e1a443a53f)
 
+## (Optional) Step 9: Visualize embedding
+
+```python
+sentences = "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline"
+input_sequence = tokenizer.texts_to_sequences([sentence])
+input_padded = pad_sequences(input_sequence, maxlen=sequence_len)
+embedding_output = model.get_layer(index=2).output  
+embedding_extractor = tf.keras.Model(model.input, embedding_output)
+prediction = embedding_extractor.predict(input_padded)
+cax = plt.matshow(tf.squeeze(prediction, axis=0))
+plt.gcf().colorbar(cax)
+```
+
 ## Reference
 - https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1
 - https://vaclavkosar.com/ml/transformer-positional-embeddings-and-encodings
