@@ -49,3 +49,8 @@ $u \rightsquigarrow_{[t_s, t_e]} v$ if $u$ reaches $v$ in the projected graph $\
 
 Example: $v_1 \rightsquigarrow_{[2, 4]} v_3$
 
+## Theta Reachability
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/9a0c6239-a129-4828-80bb-c5f991828c5e)
+
+
