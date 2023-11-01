@@ -1,5 +1,7 @@
 # Positional Encoding for Sentiment Analysis
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/1ce73c5f-ef72-4cec-894e-087fae9fec14)
+
 ## Step 1: Import libraries
 ```python
 import pickle
