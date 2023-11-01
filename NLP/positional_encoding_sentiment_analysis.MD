@@ -18,7 +18,7 @@ tfds.disable_progress_bar()
 
 ## Step 2: Define variables
 Our model can process up to 10.000 distinct words. A sentence will have maximum of 120 words, and each word will be represented by a 516 dimension vector.
-```
+```python
 vocab_size = 10000
 embedding_dim= 516
 sequence_len = 120
