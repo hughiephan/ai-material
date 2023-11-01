@@ -55,6 +55,16 @@ cax = plt.matshow(positional_encoding(seq_length=120, embedding_dim=516))
 plt.gcf().colorbar(cax)
 ```
 
+With `P = np.zeros((120, 516))`, we have:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/635d4e15-a87a-45cf-a55a-9c9fa0e0d8c6)
+
+Loop through `k and i`, we notice that for `i` we loop until it reach half of the embedding dimension, which is 258
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/a1febfff-b77c-426f-98a5-d37cd1076d43)
+
+For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c89d66d8-48e4-44ff-a357-c555e5ed67d2)
 
 ## Step 4: Add Positional Encoding to our model
