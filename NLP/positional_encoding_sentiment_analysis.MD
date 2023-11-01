@@ -14,7 +14,15 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 tfds.disable_progress_bar()
 ```
 
-## Step 2: Pre-process
+## Step 2: Define variables
+Our model can process up to 10.000 distinct words. A sentence will have maximum of 120 words, and each word will be represented by a 516 dimension vector.
+```
+vocab_size = 10000
+embedding_dim= 516
+sequence_len = 120
+```
+
+## Step 3: Pre-process
 ```python
 imdb = tfds.load("imdb_reviews", as_supervised=True)
 train_data, test_data = imdb['train'], imdb['test']
@@ -30,28 +38,26 @@ for s,l in test_data:
     testing_labels.append(l.numpy())
 training_labels_final = np.array(training_labels)
 testing_labels_final = np.array(testing_labels)
-tokenizer = Tokenizer(num_words = 10000, oov_token="")
+tokenizer = Tokenizer(num_words = vocab_size, oov_token="")
 tokenizer.fit_on_texts(training_sentences)
 sequences = tokenizer.texts_to_sequences(training_sentences)
-padded = pad_sequences(sequences, maxlen=120, truncating='post')
+padded = pad_sequences(sequences, maxlen=sequence_len, truncating='post')
 testing_sequences = tokenizer.texts_to_sequences(testing_sentences)
-testing_padded = pad_sequences(testing_sequences, maxlen=120)
-vocab_size = 10000
-embedding_dim= 16
+testing_padded = pad_sequences(testing_sequences, maxlen=sequence_len)
 ```
 
-## Step 3: Build postional encoding from scratch
+## Step 4: Build postional encoding from scratch
 ```python
-def positional_encoding(seq_length, embedding_dim):
-    P = np.zeros((seq_length, embedding_dim))
-    for k in range(seq_length):
+def positional_encoding(sequence_len, embedding_dim):
+    P = np.zeros((sequence_len, embedding_dim))
+    for k in range(sequence_len):
         for i in range(int(embedding_dim/2)):
             denominator = np.power(10000, 2*i/embedding_dim)
             P[k, 2*i] = np.sin(k/denominator)
             P[k, 2*i+1] = np.cos(k/denominator)
     return P
 
-cax = plt.matshow(positional_encoding(seq_length=120, embedding_dim=516))
+cax = plt.matshow(positional_encoding(sequence_len, embedding_dim))
 plt.gcf().colorbar(cax)
 ```
 
@@ -71,18 +77,18 @@ And finally, we get the whole postional encoding which we will combined with our
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c89d66d8-48e4-44ff-a357-c555e5ed67d2)
 
-## Step 4: Add Positional Encoding to our model
+## Step 5: Add Positional Encoding to our model
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
-    def __init__(self, max_seq_length, embedding_dim, **kwargs):
+    def __init__(self, sequence_len, embedding_dim, **kwargs):
         super(PositionalEncoding, self).__init__(**kwargs)
-        self.positional_encoding = positional_encoding(max_seq_length, embedding_dim)     
+        self.positional_encoding = positional_encoding(sequence_len, embedding_dim)     
     def call(self, inputs):
         return inputs + self.positional_encoding
 
-input_layer = tf.keras.layers.Input(shape=(120,))
-output = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=120)(input_layer)
-output = PositionalEncoding(120, embedding_dim)(output)
+input_layer = tf.keras.layers.Input(shape=(sequence_len,))
+output = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sequence_len)(input_layer)
+output = PositionalEncoding(sequence_len, embedding_dim)(output)
 output = tf.keras.layers.Flatten()(output)
 output = tf.keras.layers.Dense(64, activation='relu')(output)
 output = tf.keras.layers.Dense(10, activation='relu')(output)
@@ -93,15 +99,15 @@ model.summary()
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2c139e34-3415-4798-b0c1-002bfee92d88)
 
-## Step 5: Train
+## Step 6: Train
 ```python
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
+history = model.fit(padded, training_labels_final, epochs=1, validation_data = (testing_padded, testing_labels_final))
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7cacc1ee-7b5e-4309-b0bd-52dfdeba0dd6)
 
-## Step 6: Make predictions
+## Step 7: Make predictions
 ```python
 sentences = [
     "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
@@ -110,7 +116,7 @@ sentences = [
 
 for sentence in sentences:
     input_sequence = tokenizer.texts_to_sequences([sentence])
-    input_padded = pad_sequences(input_sequence, maxlen=120)
+    input_padded = pad_sequences(input_sequence, maxlen=sequence_len)
     prediction = model.predict(input_padded)
     print(sentence)
     print("Prediction ", prediction[0][0])
