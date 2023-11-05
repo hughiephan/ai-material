@@ -164,3 +164,4 @@ plt.gcf().colorbar(cax)
 ## Reference
 - https://machinelearningmastery.com/a-gentle-introduction-to-positional-encoding-in-transformer-models-part-1
 - https://vaclavkosar.com/ml/transformer-positional-embeddings-and-encodings
+- https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Is-Positional-Encoding-Required-In-All-Language-Models/post/1450078
