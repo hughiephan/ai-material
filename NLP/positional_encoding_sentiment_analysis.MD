@@ -31,7 +31,7 @@ sequence_len = 120
 
 ## Step 3: Pre-process
 
-We use the `imdb_reviews` dataset, which is already splitted into training and testing dataset. But we will need to further split them into the features `sentences` and target `labels`. Example of a sentence "I like this movie", with its corresponding label "0"
+We use the `imdb_reviews` dataset, which is already splitted into training and testing dataset. But we will need to further split them into the features `sentences` and target `labels`. Example of a sentence "I like this movie", with its corresponding label "1" stands for postive comment.
 
 ```python
 imdb = tfds.load("imdb_reviews", as_supervised=True)
