@@ -86,9 +86,9 @@ With `P = np.zeros((120, 516))`, we have:
 
 Loop through `k` and `i`, we notice that for `i` we loop until it reach half of the embedding dimension, which is 258
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/40674133-ee1a-4448-bb5d-ff6bde0bfdd5)
+![image](https://github.com/hughiephan/DPL/assets/16631121/4552c766-82bb-4828-9ee2-b1b0e171a8a6)
 
-For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`. Let this run for a while, and we will get
+For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`. We use denominator as 10000 to increase the probability that different positions will have unique encodings. Let this run for a while, and we will get
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f1cfb8aa-9ca7-4a3d-84ee-b59a5836e832)
 
