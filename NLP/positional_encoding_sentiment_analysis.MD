@@ -56,7 +56,7 @@ We apply Tokenization with `Tokenizer`, fitting the word index on our training d
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/641b2e5a-3949-4d2c-8f2c-d292493f462c)
 
-```
+```python
 tokenizer = Tokenizer(num_words = vocab_size, oov_token="")
 tokenizer.fit_on_texts(training_sentences)
 sequences = tokenizer.texts_to_sequences(training_sentences)
