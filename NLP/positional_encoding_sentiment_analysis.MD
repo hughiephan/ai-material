@@ -31,9 +31,7 @@ sequence_len = 120
 
 ## Step 3: Pre-process
 
-We apply Tokenization with `Tokenizer`, fitting the word index on our training dataset with `tokenizer.fit_on_texts`, and create sequences and padding them with `texts_to_sequences` and `pad_sequences`
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/641b2e5a-3949-4d2c-8f2c-d292493f462c)
+We use the `imdb_reviews` dataset, which is already splitted into training and testing dataset. But we will need to further split them into the features `sentences` and target `labels`. Example of a sentence "I like this movie", with its corresponding label "0"
 
 ```python
 imdb = tfds.load("imdb_reviews", as_supervised=True)
@@ -50,6 +48,15 @@ for s,l in test_data:
     testing_labels.append(l.numpy())
 training_labels_final = np.array(training_labels)
 testing_labels_final = np.array(testing_labels)
+```
+
+## Step 4:
+
+We apply Tokenization with `Tokenizer`, fitting the word index on our training dataset with `tokenizer.fit_on_texts`, and create sequences and padding them with `texts_to_sequences` and `pad_sequences`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/641b2e5a-3949-4d2c-8f2c-d292493f462c)
+
+```
 tokenizer = Tokenizer(num_words = vocab_size, oov_token="")
 tokenizer.fit_on_texts(training_sentences)
 sequences = tokenizer.texts_to_sequences(training_sentences)
