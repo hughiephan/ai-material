@@ -22,7 +22,7 @@ tfds.disable_progress_bar()
 ```
 
 ## Step 2: Define variables
-Our model can process up to 10.000 distinct words. A sentence will have maximum of 120 words, and each word will be represented by a 516 dimension vector.
+Our model can process up to 10.000 distinct words. A sentence will have maximum of 120 words, and each word will be represented by a 516 dimension vector. These numbers are hyperparameters and can be freely adjusted.
 ```python
 vocab_size = 10000
 embedding_dim= 516
@@ -30,6 +30,11 @@ sequence_len = 120
 ```
 
 ## Step 3: Pre-process
+
+We apply Tokenization with `Tokenizer`, fitting the word index on our training dataset with `tokenizer.fit_on_texts`, and create sequences and padding them with `texts_to_sequences` and `pad_sequences`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/641b2e5a-3949-4d2c-8f2c-d292493f462c)
+
 ```python
 imdb = tfds.load("imdb_reviews", as_supervised=True)
 train_data, test_data = imdb['train'], imdb['test']
