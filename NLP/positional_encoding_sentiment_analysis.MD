@@ -50,7 +50,7 @@ training_labels_final = np.array(training_labels)
 testing_labels_final = np.array(testing_labels)
 ```
 
-## Step 4:
+## Step 4: Tokenization
 
 We apply Tokenization with `Tokenizer`, fitting the word index on our training dataset with `tokenizer.fit_on_texts`, and create sequences and padding them with `texts_to_sequences` and `pad_sequences`
 
@@ -65,7 +65,7 @@ testing_sequences = tokenizer.texts_to_sequences(testing_sentences)
 testing_padded = pad_sequences(testing_sequences, maxlen=sequence_len)
 ```
 
-## Step 4: Build postional encoding from scratch
+## Step 5: Build postional encoding from scratch
 ```python
 def positional_encoding(sequence_len, embedding_dim):
     P = np.zeros((sequence_len, embedding_dim))
@@ -96,7 +96,7 @@ And finally, we get the whole postional encoding.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d8d399c3-9beb-4236-9129-5a245de36f12)
 
-## Step 5: Positional Encoding Layer
+## Step 6: Positional Encoding Layer
 ```python
 class PositionalEncoding(tf.keras.layers.Layer):
     def __init__(self, sequence_len, embedding_dim, **kwargs):
@@ -114,7 +114,7 @@ Our goal is to combine the Embedding with the Positional Encoding we have genera
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fca01039-3f67-40d4-a353-2fa4cf142b85)
 
-# Step 6: Add Positional Encoding Layer to our model
+# Step 7: Add Positional Encoding Layer to our model
 ```python
 input_layer = tf.keras.layers.Input(shape=(sequence_len,))
 output = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=sequence_len)(input_layer)
@@ -129,7 +129,7 @@ model.summary()
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4834c11c-b718-48f9-8141-f8006a8df6f2)
 
-## Step 7: Train
+## Step 8: Train
 ```python
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
@@ -137,7 +137,7 @@ history = model.fit(padded, training_labels_final, epochs=5, validation_data = (
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7cacc1ee-7b5e-4309-b0bd-52dfdeba0dd6)
 
-## Step 8: Make predictions
+## Step 9: Make predictions
 ```python
 sentences = [
     "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline",
@@ -158,7 +158,7 @@ for sentence in sentences:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ce0804af-ab03-4787-9c1f-01e1a443a53f)
 
-## (Optional) Step 9: Visualize embedding
+## (Optional) Step 10: Visualize embedding
 
 We point to the layer two Postional Embedding `model.get_layer(index=2)` but you can change to index=1 for the Embedding layer. If you train with `epochs=5` it will be a little hard to see the different between two layers. 
 
