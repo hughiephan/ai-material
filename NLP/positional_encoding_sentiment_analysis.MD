@@ -4,8 +4,7 @@
 
 Transformer-based language models, such as GPT-3, are widely used in many Natural Language Processing but the attention mechanism of the transformer has no notion of order. Therefore, the order of the words must explicitly be encoded. This positional information injected into the word representations is referred to as Position Encoding.
 
-## Prerequisites
-You should already have knowledge on: MLP, Embedding and Transformer
+Prerequisites: You should have prior knowledge of MLP, Embedding and Transformer
 
 ## Step 1: Import libraries
 ```python
