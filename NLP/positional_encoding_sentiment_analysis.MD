@@ -110,7 +110,7 @@ Here's an example of the Embedding `inputs`, for the following sentence (trained
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3900093f-f6cd-4abc-84ef-a8bd7d33e16a)
 
-Our goal is to combine the Embedding with the Positional Encoding we have generated from previous steps.
+Then combine the Embedding `inputs` with the Positional Encoding using `inputs + self.positional_encoding`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/fca01039-3f67-40d4-a353-2fa4cf142b85)
 
