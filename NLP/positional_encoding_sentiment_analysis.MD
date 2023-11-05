@@ -2,6 +2,11 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1ce73c5f-ef72-4cec-894e-087fae9fec14)
 
+Transformer-based language models, such as GPT-3, are widely used in many Natural Language Processing but the attention mechanism of the transformer has no notion of order. Therefore, the order of the words must explicitly be encoded. This positional information injected into the word representations is referred to as Position Encoding.
+
+## Prerequisites
+You should already have knowledge on: Embedding and Transformer
+
 ## Step 1: Import libraries
 ```python
 import pickle
@@ -67,7 +72,7 @@ With `P = np.zeros((120, 516))`, we have:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/635d4e15-a87a-45cf-a55a-9c9fa0e0d8c6)
 
-Loop through `k and i`, we notice that for `i` we loop until it reach half of the embedding dimension, which is 258
+Loop through `k` and `i`, we notice that for `i` we loop until it reach half of the embedding dimension, which is 258
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a1febfff-b77c-426f-98a5-d37cd1076d43)
 
