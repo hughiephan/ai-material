@@ -86,7 +86,7 @@ With `P = np.zeros((120, 516))`, we have:
 
 Loop through `k` and `i`, we notice that for `i` we loop until it reach half of the embedding dimension, which is 258
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/a1febfff-b77c-426f-98a5-d37cd1076d43)
+![image](https://github.com/hughiephan/DPL/assets/16631121/40674133-ee1a-4448-bb5d-ff6bde0bfdd5)
 
 For each position, we just add a new value based on sin and cos. Even dimension `P[k, 2*i]` will be assigned with value of sin `np.sin(k/denominator)`, and odd dimension `P[k, 2*i+1]` will be assigned with value of cos `np.cos(k/denominator)`. Let this run for a while, and we will get
 
