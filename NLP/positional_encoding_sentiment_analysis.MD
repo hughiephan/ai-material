@@ -106,7 +106,7 @@ class PositionalEncoding(tf.keras.layers.Layer):
         return inputs + self.positional_encoding
 ```
 
-Here's an example of the Embedding the following sentence after we have trained for one epoch: "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline" 
+Here's an example of the Embedding `inputs`, for the following sentence (trained in one epoch): "This was an absolutely terrible movie. Don't be lured in by Christopher Walken or Michael Ironside. Both are great actors, but this must simply be their worst role in history. Even their great acting could not redeem this movie's ridiculous storyline" 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3900093f-f6cd-4abc-84ef-a8bd7d33e16a)
 
