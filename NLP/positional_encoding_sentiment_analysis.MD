@@ -8,13 +8,12 @@ Prerequisites: You should have prior knowledge of MLP, Embedding and Transformer
 
 ## Step 1: Import libraries
 ```python
-import pickle
-import warnings 
-warnings.filterwarnings('ignore')
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import tensorflow_datasets as tfds
+import warnings 
+warnings.filterwarnings('ignore')
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 tfds.disable_progress_bar()
