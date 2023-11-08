@@ -8,9 +8,10 @@ import pytorch_lightning as pl
 import warnings
 warnings.filterwarnings("ignore")
 from sklearn.model_selection import train_test_split
+from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import T5Tokenizer, T5ForConditionalGeneration  
 from transformers import AdamW
-from pytorch_lightning.callbacks import ModelCheckpoint
+from torch.utils.data import Dataset, DataLoader
 from torch.nn.utils.rnn import pad_sequence
 pl.seed_everything(100)
 ```
@@ -25,14 +26,10 @@ data.drop(columns=['Unnamed: 0'],inplace=True)
 
 ## Step: Define variables
 ```python
-DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 INPUT_MAX_LEN = 128 
 OUTPUT_MAX_LEN = 128 
-TRAIN_BATCH_SIZE = 8 
-VAL_BATCH_SIZE = 2
-EPOCHS = 2
-MODEL_NAME = "t5-base"
-tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, model_max_length=512)
+tokenizer = T5Tokenizer.from_pretrained("t5-base", model_max_length=512)
+t5 = T5ForConditionalGeneration.from_pretrained("t5-base", return_dict = True)
 df_train, df_test = train_test_split(data,test_size = 0.2, random_state=100)
 ```
 
@@ -47,7 +44,6 @@ class ChatDataset(Dataset):
   def __init__(self,question,answer):   
     self.question = question
     self.answer = answer
-    self.tokenizer = tokenizer
   
   def __len__(self):
     return len(self.question)
@@ -57,7 +53,7 @@ class ChatDataset(Dataset):
     question = ''.join(question.split())
     answer = str(self.answer[item])
     answer = ''.join(answer.split())
-    input_tokenize = self.tokenizer(      
+    input_tokenize = tokenizer(      
             question,
             add_special_tokens=True,
             max_length=INPUT_MAX_LEN,
@@ -66,7 +62,7 @@ class ChatDataset(Dataset):
             return_attention_mask=True,
             return_tensors="pt"
     )
-    output_tokenize = self.tokenizer(
+    output_tokenize = tokenizer(
             answer,
             add_special_tokens=True,
             max_length=OUTPUT_MAX_LEN,
@@ -101,12 +97,11 @@ for (i, sample) in list(enumerate(chatdataset))[:1]:
 DataLoader wraps an iterable around the Dataset to enable easy access to the samples
 
 ```python
-class T5DataLoad(pl.LightningDataModule):
+class ChatDataLoad(pl.LightningDataModule):
     def __init__(self,df_train,df_test):
         super().__init__()
         self.df_train = df_train
         self.df_test = df_test
-        self.tokenizer = tokenizer
     
     def setup(self, stage=None):
         self.train_data = ChatDataset(
@@ -119,17 +114,80 @@ class T5DataLoad(pl.LightningDataModule):
         )
         
     def train_dataloader(self):
-        return torch.utils.data.DataLoader(
+        return DataLoader(
              self.train_data,
-             batch_size= TRAIN_BATCH_SIZE,
+             batch_size= 8,
              shuffle=True, 
              num_workers=2
         )
     
     def val_dataloader(self):
-        return torch.utils.data.DataLoader(
+        return DataLoader(
             self.valid_data,
-            batch_size= VAL_BATCH_SIZE,
+            batch_size= 2,
             num_workers = 2
         )
+    
+dataload = ChatDataLoad(df_train,df_test)
+dataload.setup()
+```
+
+## Step: Training
+```python
+chatModel = ChatModel()
+chatModel.to(torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
+checkpoint = ModelCheckpoint(
+    dirpath="/kaggle/working",
+    filename='best-model',
+    save_top_k=2,
+    verbose=True,
+    monitor="val_loss",
+    mode="min"
+)
+trainer = pl.Trainer(
+    callbacks = checkpoint,
+    max_epochs= 1,
+    gpus=1,
+    accelerator="gpu"
+)
+trainer.fit(chatModel, dataload)
+```
+
+## Step: Predict
+```python
+train_model = ChatModel.load_from_checkpoint('/kaggle/working/best-model.ckpt')
+train_model.freeze()
+
+def generate_question(question):
+    inputs_encoding =  tokenizer(
+        question,
+        add_special_tokens=True,
+        max_length= INPUT_MAX_LEN,
+        padding = 'max_length',
+        truncation='only_first',
+        return_attention_mask=True,
+        return_tensors="pt"
+    )
+
+    generate_ids = train_model.model.generate(
+        input_ids = inputs_encoding["input_ids"],
+        attention_mask = inputs_encoding["attention_mask"],
+        max_length = INPUT_MAX_LEN,
+        num_beams = 4,
+        num_return_sequences = 1,
+        no_repeat_ngram_size=2,
+        early_stopping=True,
+    )
+
+    preds = [
+        tokenizer.decode(gen_id,
+        skip_special_tokens=True, 
+        clean_up_tokenization_spaces=True)
+        for gen_id in generate_ids
+    ]
+    return "".join(preds)
+
+ques = "hi, how are you doing?"
+print("Ques: ",ques)
+print("BOT: ",generate_question(ques))
 ```
