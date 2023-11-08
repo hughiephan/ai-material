@@ -33,6 +33,7 @@ VAL_BATCH_SIZE = 2
 EPOCHS = 2
 MODEL_NAME = "t5-base"
 tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, model_max_length=512)
+df_train, df_test = train_test_split(data,test_size = 0.2, random_state=100)
 ```
 
 ## Step: T5Dataset
@@ -40,7 +41,7 @@ tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, model_max_length=512)
 Pytorch `Dataset` stores the samples and their corresponding labels. We will read the question, answer in `__init__` but leave the reading of each item to `__getitem__`. This is memory efficient because all the questions, and answers are not stored in the memory at once but read as required. We use `Tokenizer` to tokenize both the questions and answers. We override the `__len__` methods  so that `len(self.question)` returns the size of the dataset (it is also possible to use `len(self.answer)` as they both have the same size).
 
 ```python
-class T5Dataset:
+class ChatDataset(Dataset):
   def __init__(self,question,answer):   
     self.question = question
     self.answer = answer
@@ -83,7 +84,14 @@ class T5Dataset:
             'attention_mask':attention_mask,
             'target':labels
     } 
-    return out    
+    return out      
+
+chatdataset = ChatDataset(            
+    question = df_train.question.values,
+    answer = df_train.answer.values
+)
+for (i, sample) in list(enumerate(chatdataset))[:1]:
+    print(sample)
 ```
 
 ## Step: DataLoader
