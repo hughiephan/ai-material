@@ -8,7 +8,6 @@ import pytorch_lightning as pl
 import warnings
 warnings.filterwarnings("ignore")
 from sklearn.model_selection import train_test_split
-from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import T5Tokenizer, T5ForConditionalGeneration  
 from transformers import AdamW
 from torch.utils.data import Dataset, DataLoader
@@ -171,16 +170,7 @@ class ChatModel(pl.LightningModule):
 ```python
 chatModel = ChatModel()
 chatModel.to(torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
-checkpoint = ModelCheckpoint(
-    dirpath="/kaggle/working",
-    filename='best-model',
-    save_top_k=2,
-    verbose=True,
-    monitor="val_loss",
-    mode="min"
-)
 trainer = pl.Trainer(
-    callbacks = checkpoint,
     max_epochs= 1,
     gpus=1,
     accelerator="gpu"
@@ -190,9 +180,6 @@ trainer.fit(chatModel, dataload)
 
 ## Step: Predict
 ```python
-train_model = ChatModel.load_from_checkpoint('/kaggle/working/best-model.ckpt')
-train_model.freeze()
-
 def generate_question(question):
     inputs_encoding =  tokenizer(
         question,
@@ -204,7 +191,7 @@ def generate_question(question):
         return_tensors="pt"
     )
 
-    generate_ids = train_model.model.generate(
+    generate_ids = chatModel.model.generate(
         input_ids = inputs_encoding["input_ids"],
         attention_mask = inputs_encoding["attention_mask"],
         max_length = INPUT_MAX_LEN,
@@ -222,6 +209,7 @@ def generate_question(question):
     ]
     return "".join(preds)
 
+chatModel.freeze()
 ques = "hi, how are you doing?"
 print("Ques: ",ques)
 print("BOT: ",generate_question(ques))
