@@ -12,7 +12,6 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import AdamW
 from pytorch_lightning.callbacks import ModelCheckpoint
 from torch.nn.utils.rnn import pad_sequence
-pl.seed_everything(100)
 ```
 
 ## Step: Load dataset
@@ -37,7 +36,7 @@ tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, model_max_length=512)
 
 ## Step: T5Dataset
 
-Pytorch `Dataset` stores the samples and their corresponding labels. We will read the question, answer in `__init__` but leave the reading of each item to `__getitem__`. This is memory efficient because all the questions, and answers are not stored in the memory at once but read as required. We also use `Tokenizer` to tokenize both the questions and answers.
+Pytorch `Dataset` stores the samples and their corresponding labels. We will read the question, answer in `__init__` but leave the reading of each item to `__getitem__`. This is memory efficient because all the questions, and answers are not stored in the memory at once but read as required. We use `Tokenizer` to tokenize both the questions and answers. We override the `__len__` methods  so that `len(self.question)` returns the size of the dataset (it is also possible to use `len(self.answer)` as they both have the same size).
 
 ```python
 class T5Dataset:
@@ -45,8 +44,6 @@ class T5Dataset:
     self.question = question
     self.answer = answer
     self.tokenizer = tokenizer
-    self.input_max_len = INPUT_MAX_LEN
-    self.output_max_len = OUTPUT_MAX_LEN
   
   def __len__(self):
     return len(self.question)
@@ -59,7 +56,7 @@ class T5Dataset:
     input_tokenize = self.tokenizer(      
             question,
             add_special_tokens=True,
-            max_length=self.input_max_len,
+            max_length=INPUT_MAX_LEN,
             padding = 'max_length',
             truncation = True,
             return_attention_mask=True,
@@ -68,7 +65,7 @@ class T5Dataset:
     output_tokenize = self.tokenizer(
             answer,
             add_special_tokens=True,
-            max_length=self.output_max_len,
+            max_length=OUTPUT_MAX_LEN,
             padding = 'max_length',
             truncation = True,
             return_attention_mask=True,
@@ -99,8 +96,6 @@ class T5DataLoad(pl.LightningDataModule):
         self.df_train = df_train
         self.df_test = df_test
         self.tokenizer = tokenizer
-        self.input_max_len = INPUT_MAX_LEN
-        self.out_max_len = OUTPUT_MAX_LEN
     
     def setup(self, stage=None):
         self.train_data = T5Dataset(
