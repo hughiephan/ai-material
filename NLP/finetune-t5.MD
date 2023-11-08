@@ -16,7 +16,10 @@ pl.seed_everything(100)
 ```
 
 ## Step: Load dataset
-Download the following dataset https://www.kaggle.com/datasets/kreeshrajani/3k-conversations-dataset-for-chatbot
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/e360ceb4-a679-48f4-9031-5802038d34fe)
+
+Download the following dataset https://www.kaggle.com/datasets/kreeshrajani/3k-conversations-dataset-for-chatbot . The conversation dataset consists of 3724 conversation pairs.
 
 ```python
 data = pd.read_csv("/kaggle/input/3k-conversations-dataset-for-chatbot/Conversation.csv")
