@@ -33,7 +33,7 @@ t5 = T5ForConditionalGeneration.from_pretrained("t5-base", return_dict = True)
 df_train, df_test = train_test_split(data,test_size = 0.2, random_state=100)
 ```
 
-## Step: ChatDataset
+## Step: Define ChatDataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a864171f-3d49-4edb-8ba8-21a676adb585)
 
@@ -92,7 +92,7 @@ for (i, sample) in list(enumerate(chatdataset))[:1]:
     print(sample)
 ```
 
-## Step: DataLoader
+## Step: Define DataLoader
 
 DataLoader wraps an iterable around the Dataset to enable easy access to the samples
 
@@ -130,6 +130,41 @@ class ChatDataLoad(pl.LightningDataModule):
     
 dataload = ChatDataLoad(df_train,df_test)
 dataload.setup()
+```
+
+## Step: Define ChatModel
+```python
+class ChatModel(pl.LightningModule):
+    def __init__(self):
+        super().__init__()
+        self.model = t5
+
+    def forward(self, input_ids, attention_mask, labels=None):
+        output = t5(
+            input_ids=input_ids, 
+            attention_mask=attention_mask, 
+            labels=labels
+        )
+        return output.loss, output.logits
+    
+    def training_step(self, batch, batch_idx):
+        input_ids = batch["input_ids"]
+        attention_mask = batch["attention_mask"]
+        labels= batch["target"]
+        loss, logits = self(input_ids , attention_mask, labels)
+        self.log("train_loss", loss, prog_bar=True, logger=True)
+        return {'loss': loss}
+    
+    def validation_step(self, batch, batch_idx):
+        input_ids = batch["input_ids"]
+        attention_mask = batch["attention_mask"]
+        labels= batch["target"]
+        loss, logits = self(input_ids, attention_mask, labels)
+        self.log("val_loss", loss, prog_bar=True, logger=True)
+        return {'val_loss': loss}
+
+    def configure_optimizers(self):
+        return AdamW(self.parameters(), lr=0.0001)
 ```
 
 ## Step: Training
