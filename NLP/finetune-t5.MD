@@ -38,6 +38,8 @@ df_train, df_test = train_test_split(data,test_size = 0.2, random_state=100)
 
 ## Step: T5Dataset
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/a864171f-3d49-4edb-8ba8-21a676adb585)
+
 Pytorch `Dataset` stores the samples and their corresponding labels. We will read the question, answer in `__init__` but leave the reading of each item to `__getitem__`. This is memory efficient because all the questions, and answers are not stored in the memory at once but read as required. We use `Tokenizer` to tokenize both the questions and answers. We override the `__len__` methods  so that `len(self.question)` returns the size of the dataset (it is also possible to use `len(self.answer)` as they both have the same size).
 
 ```python
