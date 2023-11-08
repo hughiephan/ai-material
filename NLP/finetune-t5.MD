@@ -36,7 +36,7 @@ tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME, model_max_length=512)
 df_train, df_test = train_test_split(data,test_size = 0.2, random_state=100)
 ```
 
-## Step: T5Dataset
+## Step: ChatDataset
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a864171f-3d49-4edb-8ba8-21a676adb585)
 
@@ -109,11 +109,11 @@ class T5DataLoad(pl.LightningDataModule):
         self.tokenizer = tokenizer
     
     def setup(self, stage=None):
-        self.train_data = T5Dataset(
+        self.train_data = ChatDataset(
             question = self.df_train.question.values,
             answer = self.df_train.answer.values
         )
-        self.valid_data = T5Dataset(
+        self.valid_data = ChatDataset(
             question = self.df_test.question.values,
             answer = self.df_test.answer.values
         )
