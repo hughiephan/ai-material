@@ -12,6 +12,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import AdamW
 from pytorch_lightning.callbacks import ModelCheckpoint
 from torch.nn.utils.rnn import pad_sequence
+pl.seed_everything(100)
 ```
 
 ## Step: Load dataset
