@@ -65,3 +65,5 @@ for i in range(0,12):
     plt.imshow(cv2.imread(output[index_result]))
 plt.show()
 ```
+## Reference
+- https://www.kaggle.com/code/hamditarek/similar-image-cnn-cosine-similarity
