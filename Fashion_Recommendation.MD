@@ -1,6 +1,6 @@
 # Fashion Recommendation with Xception and Nearest Neighbors
 
-![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/96a5e71c-99cb-476a-988c-6a4a6dc49b0d)
+
 
 We will use Xception Feature Exaction layer, plugging in with the `sklearn.neighbors` method to find similiar images. 
 
@@ -28,7 +28,11 @@ dataset = dataset[:10000]
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6fdf8065-63a8-441d-aa48-658bfd8c5f0f)
 
 ## Step 3: Add Xception Model
+
+![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/96a5e71c-99cb-476a-988c-6a4a6dc49b0d)
+
 Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at-hand. We set all the layers to False in Xception layer with `layer.trainable=False` to stop it from updating the weights.
+
 
 ```python
 model = Xception(weights='imagenet',include_top=False)
