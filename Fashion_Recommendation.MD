@@ -93,3 +93,4 @@ Publish on group
 ## Reference
 - https://www.kaggle.com/code/hamditarek/similar-image-cnn-cosine-similarity
 - https://maelfabien.github.io/deeplearning/xception/#what-does-it-look-like
+- https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity
