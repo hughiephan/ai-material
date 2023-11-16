@@ -63,6 +63,9 @@ nbrs = NearestNeighbors(n_neighbors=12, algorithm='ball_tree', metric="cosine").
 ```
 
 ## Step 6: Predict
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/9e275165-fe81-4bd7-957f-a1c112b8cd4a)
+
 ```python
 image_data=cv2.imread((dataset[1000])) # Get the 1000th image for testing
 image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
