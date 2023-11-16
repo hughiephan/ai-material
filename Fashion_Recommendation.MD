@@ -9,7 +9,6 @@ We will use Xception Feature Exaction layer, plugging in with the `sklearn.neigh
 import os
 import cv2
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from keras.applications.xception import Xception,preprocess_input
 from sklearn.neighbors import NearestNeighbors
