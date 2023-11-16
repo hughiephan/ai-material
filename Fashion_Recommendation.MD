@@ -73,12 +73,15 @@ distances, result = nbrs.kneighbors([feature])
 plt.title("Query Image")
 plt.imshow(cv2.imread(output[1000]))
 fig = plt.figure(figsize=(12,8))
+fig.suptitle('Similar Images', fontsize=16)
 for i in range(0,12):
     index_result=result[0][i]
     plt.subplot(3,4,i+1)
     plt.imshow(cv2.imread(output[index_result]))
 plt.show()
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/db6c2f5d-71f2-4842-b28d-12ffe1dc8a62)
 
 ## Todo: 
 
