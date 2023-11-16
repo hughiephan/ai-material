@@ -1,5 +1,5 @@
 
-![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/528cf62e-b954-4ef2-9a10-bfad6f4cf312)
+![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/13d98120-98fc-4bcd-a387-d638cbf41171)
 
 ## Step:
 ```python
