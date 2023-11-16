@@ -51,11 +51,11 @@ for img_path in output[:999]: # Limiting the data for training
     extracted_feature=model.predict(image_data)
     extracted_feature=np.array(extracted_feature).flatten()
     features.append(extracted_feature)
+feature_vec = np.array(features)
 ```
 
 ## Step: 5
 ```python
-feature_vec = np.array(features)
 nbrs = NearestNeighbors(n_neighbors=12, metric="cosine").fit(feature_vec)
 ```
 
