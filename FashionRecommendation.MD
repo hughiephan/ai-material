@@ -15,44 +15,48 @@ from sklearn.neighbors import NearestNeighbors
 ```
 
 ```python
-def getImagePaths(path):
-    image_names = []
-    for dirname, _, filenames in os.walk(path):
-        for filename in filenames:
-            fullpath = os.path.join(dirname, filename)
-            image_names.append(fullpath)
-    return image_names
+output = []
+for dirname, _, filenames in os.walk('/kaggle/input/h-and-m-personalized-fashion-recommendations/images'):
+    for filename in filenames:
+        fullpath = os.path.join(dirname, filename)
+        output.append(fullpath)
+output = output[:10000]
+```
 
-features=[]
-output = getImagePaths("../input/h-and-m-personalized-fashion-recommendations/images")[:10000]
+```python
 model = Xception(weights='imagenet',include_top=False)
 for layer in model.layers:
     layer.trainable=False
 ```
 
 ```python
-def feature_extraction(image_data,model):
-    features=model.predict(image_data)
-    features=np.array(features)
-    features=features.flatten()
-    return features
-
+features=[]
 for img_path in output[:999]: # Limiting the data for training
     # Preprocess Image
-    new_image=cv2.imread(img_path)
-    new_image=cv2.resize(new_image,(225,225),interpolation=cv2.INTER_NEAREST)  
-    new_image=np.expand_dims(new_image,axis=0)
-    new_image=preprocess_input(new_image)
-    
+    image_data=cv2.imread(img_path)
+    image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
+    image_data=np.expand_dims(image_data,axis=0)
+    image_data=preprocess_input(image_data)
     # Feature Extraction
-    features.append(feature_extraction(new_image,model))
-    
+    extracted_feature=model.predict(image_data)
+    extracted_feature=np.array(extracted_feature).flatten()
+    features.append(extracted_feature)
+```
+
+```python
 feature_vec = np.array(features)
-new_feature = model.predict(preprocess_img(output[1000]))
-new_feature = np.array(new_feature)
-new_feature = new_feature.flatten()
 nbrs = NearestNeighbors(n_neighbors=12, metric="cosine").fit(feature_vec)
-distances, result = nbrs.kneighbors([new_feature])
+```
+
+```python
+image_data=cv2.imread((output[1000])) # Get the 1000th image for testing
+image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
+image_data=np.expand_dims(image_data,axis=0)
+image_data=preprocess_input(image_data)
+feature = model.predict(image_data)
+feature = np.array(feature)
+feature = feature.flatten()
+distances, result = nbrs.kneighbors([feature])
 ```
 
 ```python
