@@ -1,18 +1,17 @@
+
+## Step:
 ```python
 import os
 import cv2
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 import matplotlib.pyplot as plt
-from sklearn.utils import shuffle
-from sklearn.preprocessing import LabelBinarizer
 from keras.applications.xception import Xception,preprocess_input
-from keras.preprocessing import image
-from keras.layers import Input
-from keras.backend import reshape
 from sklearn.neighbors import NearestNeighbors
 ```
+
+## Step:
+Download the Fasion Recommendation dataset from: https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
 
 ```python
 output = []
@@ -23,11 +22,17 @@ for dirname, _, filenames in os.walk('/kaggle/input/h-and-m-personalized-fashion
 output = output[:10000]
 ```
 
+## Step:
+Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. Read more about Xception here: https://maelfabien.github.io/deeplearning/xception . We will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer, as we will use `sklearn.neighbors` to find similiar images.
+
 ```python
 model = Xception(weights='imagenet',include_top=False)
 for layer in model.layers:
     layer.trainable=False
 ```
+
+## Step:
+`xception.preprocess_input` will scale input pixels between -1 and 1. 
 
 ```python
 features=[]
@@ -43,11 +48,13 @@ for img_path in output[:999]: # Limiting the data for training
     features.append(extracted_feature)
 ```
 
+## Step:
 ```python
 feature_vec = np.array(features)
 nbrs = NearestNeighbors(n_neighbors=12, metric="cosine").fit(feature_vec)
 ```
 
+## Step:
 ```python
 image_data=cv2.imread((output[1000])) # Get the 1000th image for testing
 image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
@@ -59,6 +66,7 @@ feature = feature.flatten()
 distances, result = nbrs.kneighbors([feature])
 ```
 
+## Step:
 ```python
 plt.title("Query Image")
 plt.imshow(cv2.imread(output[1000]))
@@ -76,3 +84,4 @@ Publish on group
 
 ## Reference
 - https://www.kaggle.com/code/hamditarek/similar-image-cnn-cosine-similarity
+- https://maelfabien.github.io/deeplearning/xception/#what-does-it-look-like
