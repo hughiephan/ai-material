@@ -4,7 +4,7 @@
 
 We will use Xception Feature Exaction layer, plugging in with the `sklearn.neighbors` method to find similiar images. 
 
-## Step: 1
+## Step 1: Import libraries
 ```python
 import os
 import cv2
@@ -15,7 +15,7 @@ from keras.applications.xception import Xception,preprocess_input
 from sklearn.neighbors import NearestNeighbors
 ```
 
-## Step: 2
+## Step 2: 
 Download the Fasion Recommendation dataset from: https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
 
 ```python
@@ -27,7 +27,7 @@ for dirname, _, filenames in os.walk('/kaggle/input/h-and-m-personalized-fashion
 output = output[:10000]
 ```
 
-## Step: 3
+## Step 3: 4
 Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at-hand. We set all the layers to False in Xception layer with `layer.trainable=False` to stop it from updating the weights.
 
 ```python
@@ -36,7 +36,7 @@ for layer in model.layers:
     layer.trainable=False
 ```
 
-## Step: 4
+## Step 4:
 `xception.preprocess_input` will scale input pixels between -1 and 1. 
 
 ```python
@@ -54,12 +54,12 @@ for img_path in output[:999]: # Limiting the data for training
 feature_vec = np.array(features)
 ```
 
-## Step: 5
+## Step 5:
 ```python
 nbrs = NearestNeighbors(n_neighbors=12, metric="cosine").fit(feature_vec)
 ```
 
-## Step: 6
+## Step 6:
 ```python
 image_data=cv2.imread((output[1000])) # Get the 1000th image for testing
 image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
@@ -71,7 +71,7 @@ feature = feature.flatten()
 distances, result = nbrs.kneighbors([feature])
 ```
 
-## Step: 7
+## Step 7:
 ```python
 plt.title("Query Image")
 plt.imshow(cv2.imread(output[1000]))
