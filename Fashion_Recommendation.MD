@@ -1,4 +1,6 @@
 
+![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/528cf62e-b954-4ef2-9a10-bfad6f4cf312)
+
 ## Step:
 ```python
 import os
