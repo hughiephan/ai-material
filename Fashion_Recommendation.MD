@@ -1,6 +1,8 @@
 
 ![Xception-NearestNeighbors](https://github.com/hughiephan/DPL/assets/16631121/96a5e71c-99cb-476a-988c-6a4a6dc49b0d)
 
+We will use Xception Feature Exaction layer, plugging in with the `sklearn.neighbors` method to find similiar images.
+
 ## Step:
 ```python
 import os
@@ -25,7 +27,9 @@ output = output[:10000]
 ```
 
 ## Step:
-Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. Read more about Xception here: https://maelfabien.github.io/deeplearning/xception . We will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer, as we will use `sklearn.neighbors` to find similiar images.
+Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . 
+
+For this tutorial, we will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer, as we only need the Feature Exaction layer, then we plugin the `sklearn.neighbors` method on the  find similiar images.
 
 ```python
 model = Xception(weights='imagenet',include_top=False)
