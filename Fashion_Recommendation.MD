@@ -15,7 +15,7 @@ from sklearn.neighbors import NearestNeighbors
 ```
 
 ## Step 2: Prepare dataset
-Download the Fasion Recommendation dataset from: https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data . 
+Download the Fasion Recommendation dataset from: https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data . A dirname contains a list of filename (many images). We will join the dirnames and filenames together to create our dataset. Even though there are total of 105100 images, for our tutorial we focus on the first 10000 images.
 
 ```python
 dataset = []
