@@ -70,6 +70,8 @@ nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(fea
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9e275165-fe81-4bd7-957f-a1c112b8cd4a)
 
+`distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
+
 ```python
 image_data = cv2.imread((dataset[999])) # Get the 999th image for testing
 image_data = cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
