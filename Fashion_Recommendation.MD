@@ -73,9 +73,10 @@ nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(fea
 `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
 
 ```python
-image_data = cv2.imread((dataset[999])) # Get the 999th image for testing
-image_data = cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
-image_data = np.expand_dims(image_data,axis=0)
+testData = dataset[999] # Get the 999th image for testing
+image_data = cv2.imread(testData) 
+image_data = cv2.resize(image_data, (225,225), interpolation=cv2.INTER_NEAREST)  
+image_data = np.expand_dims(image_data, axis=0)
 image_data = preprocess_input(image_data)
 feature = model.predict(image_data)
 feature = np.array(feature)
@@ -86,7 +87,7 @@ distances, result = nbrs.kneighbors([feature])
 ## Step 7: Visualize predictions
 ```python
 plt.title("Query Image")
-plt.imshow(cv2.imread(dataset[999]))
+plt.imshow(cv2.imread(testData))
 fig = plt.figure(figsize=(12,8))
 fig.suptitle('Similar Images', fontsize=16)
 for i in range(0, nNeighbors):
