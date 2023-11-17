@@ -78,10 +78,10 @@ testImage = cv2.imread(testImagePath)
 testImage = cv2.resize(testImage, (225,225), interpolation=cv2.INTER_AREA)  
 testImage = np.expand_dims(testImage, axis=0)
 testImage = preprocess_input(testImage)
-feature = model.predict(testImage)
-feature = np.array(feature)
-feature = feature.flatten()
-distances, result = nbrs.kneighbors([feature])
+testFeature = model.predict(testImage)
+testFeature = np.array(testFeature)
+testFeature = testFeature.flatten()
+distances, result = nbrs.kneighbors([testFeature])
 ```
 
 ## Step 7: Visualize predictions
