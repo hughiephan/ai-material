@@ -59,7 +59,7 @@ for img_path in dataset:
 feature_vec = np.array(features)
 ```
 
-## Step 5: Training with Nearest Neighbors
+## Step 5: Training with KD Tree Nearest Neighbors
 ```python
 nNeighbors = 4
 nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(feature_vec)
