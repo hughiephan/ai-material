@@ -1,4 +1,4 @@
-# Fashion Recommendation with Xception and Nearest Neighbors
+# Fashion Recommendation with Xception and KD Tree Nearest Neighbors
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/41645366-fed7-4162-aea8-a92ea935c4ac)
 
@@ -61,6 +61,9 @@ feature_vec = np.array(features)
 ```
 
 ## Step 5: Training with KD Tree Nearest Neighbors
+
+KD Tree is an improvement over KNN. It is useful for representing data efficiently.
+
 ```python
 nNeighbors = 4
 nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(feature_vec)
@@ -79,9 +82,7 @@ testImage = cv2.resize(testImage, (225,225), interpolation=cv2.INTER_AREA)
 testImage = np.expand_dims(testImage, axis=0)
 testImage = preprocess_input(testImage)
 testFeature = model.predict(testImage)
-testFeature = np.array(testFeature)
-testFeature = testFeature.flatten()
-distances, result = nbrs.kneighbors([testFeature])
+distances, result = nbrs.kneighbors([testFeature.flatten()])
 ```
 
 ## Step 7: Visualize predictions
