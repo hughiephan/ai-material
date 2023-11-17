@@ -74,8 +74,6 @@ To easily explain how KD Tree works, let's say that our image features are just 
 
 ## Step 6: Predict
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/9e275165-fe81-4bd7-957f-a1c112b8cd4a)
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/be6ffdf0-a5a6-4ec5-8716-64758c9e4378)
 
 `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
