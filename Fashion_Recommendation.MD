@@ -57,17 +57,20 @@ for img_path in dataset:
     extracted_feature = model.predict(image_data)
     extracted_feature = np.array(extracted_feature).flatten()
     features.append(extracted_feature)
-feature_vec = np.array(features)
 ```
 
 ## Step 5: Training with KD Tree Nearest Neighbors
 
-KD Tree is an improvement over KNN. It is useful for representing data efficiently.
+KD Tree is an improvement over KNN. It is useful for representing data efficiently. Our features has the shape of `(1000, 100352)`, meaning it has 1000 images, and each image is a 100352-dimension vector. So our K = 100352, and the model will create a 100352-D Tree. Calling `fit` will start training our model with KD Train based on our list of features.
 
 ```python
 nNeighbors = 4
-nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(feature_vec)
+nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(features)
 ```
+
+To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (13,5)], not the 100352-D Vector.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6673d4b0-95f8-4aa6-8db6-90a7c37030ec)
 
 ## Step 6: Predict
 
