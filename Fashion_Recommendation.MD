@@ -34,7 +34,7 @@ dataset = dataset[:10000]
 Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at-hand. We set all the layers to False in Xception layer with `layer.trainable=False` to stop it from updating the weights.
 
 ```python
-model = Xception(weights='imagenet',include_top=False)
+model = Xception(weights='imagenet', include_top=False)
 for layer in model.layers:
     layer.trainable=False
 ```
