@@ -1,15 +1,10 @@
 # Vietnamese Celeb Classification using Roboflow for Image Preprocessing and Augmentation
 
-## Dataset
-https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
-
 ## Prerequisites
-Register a free account at https://app.roboflow.com/
+- Register a free account at https://app.roboflow.com/
+- Download Dataset from https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
 
-## References
-https://blog.roboflow.com/why-preprocess-augment/
-
-# Tutorial
+## Tutorial
 
 ## Step 1: Create new Project
 
@@ -143,3 +138,6 @@ print("Predicted Class:", predicted_class)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
+
+## References
+- https://blog.roboflow.com/why-preprocess-augment/
