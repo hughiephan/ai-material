@@ -59,7 +59,7 @@ feature_vec = np.array(features)
 
 ## Step 5: Training with Nearest Neighbors
 ```python
-nbrs = NearestNeighbors(n_neighbors=12, algorithm='ball_tree', metric="cosine").fit(feature_vec)
+nbrs = NearestNeighbors(n_neighbors=12, algorithm='kd_tree', metric="cosine").fit(feature_vec)
 ```
 
 ## Step 6: Predict
@@ -100,3 +100,4 @@ Publish on group
 - https://www.kaggle.com/code/hamditarek/similar-image-cnn-cosine-similarity
 - https://maelfabien.github.io/deeplearning/xception/#what-does-it-look-like
 - https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity
+- https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree/
