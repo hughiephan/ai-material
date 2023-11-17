@@ -4,8 +4,6 @@
 - Register a free account at https://app.roboflow.com/
 - Download Dataset from https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
 
-## Tutorial
-
 ## Step 1: Create new Project
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/307eb057-1af4-429c-be8d-52e52b9cdcc0)
