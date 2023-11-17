@@ -42,6 +42,8 @@ for layer in model.layers:
 ## Step 4: Pre-process and extract features
 `xception.preprocess_input` will scale input pixels between -1 and 1.  `INTER_AREA` is used when we need to shrink an image and `INTER_LINEAR` is used when enlarging is required
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/129057a1-28f7-4dda-84bd-6ed040f91e37)
+
 ```python
 features=[]
 for img_path in dataset:
