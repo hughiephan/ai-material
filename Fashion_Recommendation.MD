@@ -73,12 +73,12 @@ nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(fea
 `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
 
 ```python
-testData = dataset[999] # Get the 999th image for testing
-image_data = cv2.imread(testData) 
-image_data = cv2.resize(image_data, (225,225), interpolation=cv2.INTER_NEAREST)  
-image_data = np.expand_dims(image_data, axis=0)
-image_data = preprocess_input(image_data)
-feature = model.predict(image_data)
+testImagePath = dataset[999]
+testImage = cv2.imread(testImagePath) 
+testImage = cv2.resize(testImage, (225,225), interpolation=cv2.INTER_AREA)  
+testImage = np.expand_dims(testImage, axis=0)
+testImage = preprocess_input(testImage)
+feature = model.predict(testImage)
 feature = np.array(feature)
 feature = feature.flatten()
 distances, result = nbrs.kneighbors([feature])
@@ -87,17 +87,17 @@ distances, result = nbrs.kneighbors([feature])
 ## Step 7: Visualize predictions
 ```python
 plt.title("Query Image")
-plt.imshow(cv2.imread(testData))
+plt.imshow(cv2.imread(testImagePath))
 fig = plt.figure(figsize=(12,8))
-fig.suptitle('Similar Images', fontsize=16)
+fig.suptitle('Similar Images')
 for i in range(0, nNeighbors):
     index_result=result[0][i]
-    plt.subplot(3,4,i+1)
+    plt.subplot(3, 4, i+1)
     plt.imshow(cv2.imread(dataset[index_result]))
 plt.show()
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/db6c2f5d-71f2-4842-b28d-12ffe1dc8a62)
+![image](https://github.com/hughiephan/DPL/assets/16631121/112c37dd-f849-4711-a435-59e0b77ee537)
 
 ## Todo: 
 
