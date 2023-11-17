@@ -40,14 +40,14 @@ for layer in model.layers:
 ```
 
 ## Step 4: Pre-process and extract features
-`xception.preprocess_input` will scale input pixels between -1 and 1. 
+`xception.preprocess_input` will scale input pixels between -1 and 1.  `INTER_AREA` is used when we need to shrink an image and `INTER_LINEAR` is used when enlarging is required
 
 ```python
 features=[]
 for img_path in dataset[:999]: # Limiting the data for training
     # Preprocess Image
     image_data=cv2.imread(img_path)
-    image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
+    image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
     image_data=np.expand_dims(image_data,axis=0)
     image_data=preprocess_input(image_data)
     # Feature Extraction
@@ -68,7 +68,7 @@ nbrs = NearestNeighbors(n_neighbors=3, algorithm='kd_tree', metric="cosine").fit
 
 ```python
 image_data=cv2.imread((dataset[1000])) # Get the 1000th image for testing
-image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_NEAREST)  
+image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
 image_data=np.expand_dims(image_data,axis=0)
 image_data=preprocess_input(image_data)
 feature = model.predict(image_data)
