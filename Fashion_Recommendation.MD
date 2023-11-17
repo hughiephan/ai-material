@@ -107,4 +107,5 @@ Publish on group
 - https://www.kaggle.com/code/hamditarek/similar-image-cnn-cosine-similarity
 - https://maelfabien.github.io/deeplearning/xception/#what-does-it-look-like
 - https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity
-- https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree/
+- https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree
+- https://www.geeksforgeeks.org/introductory-guide-to-information-retrieval-using-knn-and-kdtree/
