@@ -2,8 +2,6 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/41645366-fed7-4162-aea8-a92ea935c4ac)
 
-We will use Xception Feature Exaction layer, plugging in with the `sklearn.neighbors` method to find similiar images. 
-
 ## Step 1: Import libraries
 ```python
 import os
