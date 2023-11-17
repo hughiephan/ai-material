@@ -68,13 +68,15 @@ nNeighbors = 4
 nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(features)
 ```
 
-To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (13,5)], not the 100352-D Vector.
+To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (9,6)], not the 100352-D Vector.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/6673d4b0-95f8-4aa6-8db6-90a7c37030ec)
+![image](https://github.com/hughiephan/DPL/assets/16631121/90baacad-2103-44ab-bcf4-19c820702776)
 
 ## Step 6: Predict
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9e275165-fe81-4bd7-957f-a1c112b8cd4a)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/be6ffdf0-a5a6-4ec5-8716-64758c9e4378)
 
 `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
 
