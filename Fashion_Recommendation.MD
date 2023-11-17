@@ -40,7 +40,8 @@ for layer in model.layers:
 ```
 
 ## Step 4: Pre-process and extract features
-Xception input must be 4-dimensional so we need to expand dimension with `expand_dims`, `xception.preprocess_input` will scale input pixels between -1 and 1.  `INTER_AREA` is used when we need to shrink an image and `INTER_LINEAR` is used when enlarging is required
+
+Image files vary in size so we need to resize them all into the same width and height using `cv2.resize`. But Xception input must be 4-dimensional so we need to expand our image dimension with `expand_dims`. Last pre-process step is using `xception.preprocess_input` to normalize the input pixels between -1 and 1. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/05c87d19-8a50-4f0f-b4ae-ee2a95b40725)
 
