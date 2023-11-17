@@ -90,9 +90,7 @@ distances, result = nbrs.kneighbors([queryFeature.flatten()])
 
 ## Step 7: Visualize predictions
 
-We sucessfully found 4 similar images ranking by the most similarities from left to right. Note that the first image is the query image itself, as the similarity score of the query image to itself is always the highest.
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/112c37dd-f849-4711-a435-59e0b77ee537)
+We have sucessfully found 4 similar images ranking by the most similarities from left to right. Note that the first image is the query image itself, as the similarity score of the query image to itself is always the highest.
 
 ```python
 plt.title("Query")
@@ -105,6 +103,8 @@ for i in range(0, nNeighbors):
     plt.imshow(cv2.imread(dataset[index_result]))
 plt.show()
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/112c37dd-f849-4711-a435-59e0b77ee537)
 
 ## Todo: 
 
