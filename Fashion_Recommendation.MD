@@ -44,7 +44,7 @@ for layer in model.layers:
 
 ```python
 features=[]
-for img_path in dataset[:999]: # Limiting the data for training
+for img_path in dataset:
     # Preprocess Image
     image_data=cv2.imread(img_path)
     image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
@@ -59,7 +59,8 @@ feature_vec = np.array(features)
 
 ## Step 5: Training with Nearest Neighbors
 ```python
-nbrs = NearestNeighbors(n_neighbors=3, algorithm='kd_tree', metric="cosine").fit(feature_vec)
+nNeighbors = 4
+nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(feature_vec)
 ```
 
 ## Step 6: Predict
@@ -67,10 +68,10 @@ nbrs = NearestNeighbors(n_neighbors=3, algorithm='kd_tree', metric="cosine").fit
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9e275165-fe81-4bd7-957f-a1c112b8cd4a)
 
 ```python
-image_data=cv2.imread((dataset[1000])) # Get the 1000th image for testing
-image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
-image_data=np.expand_dims(image_data,axis=0)
-image_data=preprocess_input(image_data)
+image_data = cv2.imread((dataset[999])) # Get the 999th image for testing
+image_data = cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
+image_data = np.expand_dims(image_data,axis=0)
+image_data = preprocess_input(image_data)
 feature = model.predict(image_data)
 feature = np.array(feature)
 feature = feature.flatten()
@@ -80,10 +81,10 @@ distances, result = nbrs.kneighbors([feature])
 ## Step 7: Visualize predictions
 ```python
 plt.title("Query Image")
-plt.imshow(cv2.imread(dataset[1000]))
+plt.imshow(cv2.imread(dataset[999]))
 fig = plt.figure(figsize=(12,8))
 fig.suptitle('Similar Images', fontsize=16)
-for i in range(0,12):
+for i in range(0, nNeighbors):
     index_result=result[0][i]
     plt.subplot(3,4,i+1)
     plt.imshow(cv2.imread(dataset[index_result]))
