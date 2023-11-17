@@ -76,7 +76,7 @@ To easily explain how KD Tree works, let's say that our image features are just 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/be6ffdf0-a5a6-4ec5-8716-64758c9e4378)
 
-`distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
+Given a query image, our model will predict by finding nearest neighbors as the similar images. In our code `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
 
 ```python
 queryImagePath = dataset[999]
@@ -89,6 +89,11 @@ distances, result = nbrs.kneighbors([queryFeature.flatten()])
 ```
 
 ## Step 7: Visualize predictions
+
+We sucessfully found 4 similar images ranking by the most similarities from left to right. Note that the first image is the query image itself, as the similarity score of the query image to itself is always the highest.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/112c37dd-f849-4711-a435-59e0b77ee537)
+
 ```python
 plt.title("Query")
 plt.imshow(cv2.imread(queryImagePath))
@@ -100,8 +105,6 @@ for i in range(0, nNeighbors):
     plt.imshow(cv2.imread(dataset[index_result]))
 plt.show()
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/112c37dd-f849-4711-a435-59e0b77ee537)
 
 ## Todo: 
 
