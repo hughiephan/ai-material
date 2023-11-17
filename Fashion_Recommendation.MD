@@ -59,7 +59,7 @@ feature_vec = np.array(features)
 
 ## Step 5: Training with Nearest Neighbors
 ```python
-nbrs = NearestNeighbors(n_neighbors=12, algorithm='kd_tree', metric="cosine").fit(feature_vec)
+nbrs = NearestNeighbors(n_neighbors=3, algorithm='kd_tree', metric="cosine").fit(feature_vec)
 ```
 
 ## Step 6: Predict
