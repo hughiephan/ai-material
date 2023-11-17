@@ -1,6 +1,6 @@
 # Fashion Recommendation with Xception and KD Tree Nearest Neighbors
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/41645366-fed7-4162-aea8-a92ea935c4ac)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ebeabf55-c495-4fb0-b793-7d27d6ecbf90)
 
 ## Step 1: Import libraries
 ```python
