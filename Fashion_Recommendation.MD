@@ -40,21 +40,21 @@ for layer in model.layers:
 ```
 
 ## Step 4: Pre-process and extract features
-`xception.preprocess_input` will scale input pixels between -1 and 1.  `INTER_AREA` is used when we need to shrink an image and `INTER_LINEAR` is used when enlarging is required
+Xception input must be 4-dimensional so we need to expand dimension with `expand_dims`, `xception.preprocess_input` will scale input pixels between -1 and 1.  `INTER_AREA` is used when we need to shrink an image and `INTER_LINEAR` is used when enlarging is required
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/129057a1-28f7-4dda-84bd-6ed040f91e37)
+![image](https://github.com/hughiephan/DPL/assets/16631121/05c87d19-8a50-4f0f-b4ae-ee2a95b40725)
 
 ```python
 features=[]
 for img_path in dataset:
     # Preprocess Image
-    image_data=cv2.imread(img_path)
-    image_data=cv2.resize(image_data,(225,225),interpolation=cv2.INTER_AREA)  
-    image_data=np.expand_dims(image_data,axis=0)
-    image_data=preprocess_input(image_data)
+    image_data = cv2.imread(img_path)
+    image_data = cv2.resize(image_data, (225,225), interpolation=cv2.INTER_AREA)  
+    image_data = np.expand_dims(image_data, axis=0)
+    image_data = preprocess_input(image_data)
     # Feature Extraction
-    extracted_feature=model.predict(image_data)
-    extracted_feature=np.array(extracted_feature).flatten()
+    extracted_feature = model.predict(image_data)
+    extracted_feature = np.array(extracted_feature).flatten()
     features.append(extracted_feature)
 feature_vec = np.array(features)
 ```
