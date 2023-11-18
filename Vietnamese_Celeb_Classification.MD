@@ -123,9 +123,11 @@ model.fit(train_data, epochs=10, validation_data=val_data)
 
 ## Step 11: Try a new version of the dataset with different Pre-processing and Augmentation 
 
-You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others. Then update your Notebook with the new version and train everything again to see if the new set of pre-processing and augmentation methods increases the accuracy or not.
+You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6361218b-f8e0-4917-aeea-7ca716b982a1)
+
+ Then update your Notebook with the new version and train everything again to see if the new set of pre-processing and augmentation methods increases the accuracy or not.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
 
