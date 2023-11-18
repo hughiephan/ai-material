@@ -48,6 +48,8 @@ dataset = project.version("ADD_PROJECT_VERSION").download("folder")
 
 ## Step 7: Train a CNN model with Train and Validation Set
 
+With `label_mode = 'int'`, our label will be encoded as integer numbers: 0,1,2...9 but `categorical` means that the labels are encoded as categorical vectors, for example: 000, 001, 010,...111
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5c8bbc57-f8be-4de2-95b1-3936d590e359)
 
 ```python
