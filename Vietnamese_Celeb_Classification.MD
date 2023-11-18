@@ -97,15 +97,16 @@ test_data = tf.keras.preprocessing.image_dataset_from_directory(
 
 ## Step 9: Train our custom CNN model
 
+Our basic model is made up of Convolutional Layers and Pooling Layers, with a fully-connected layer at the end. `Conv2D(32, (3, 3)` means that this layer can process 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
 ```python
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
 model.add(tf.keras.layers.MaxPooling2D((2, 2)))
-model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(tf.keras.layers.Conv2D(28, (3, 3), activation='relu'))
 model.add(tf.keras.layers.MaxPooling2D((2, 2)))
-model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(64, activation='relu'))
 model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
