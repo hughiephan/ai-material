@@ -40,7 +40,6 @@ Image augmentation manipulations are forms of image preprocessing, but there is 
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
-from torchvision import transforms
 from roboflow import Roboflow
 rf = Roboflow(api_key="ADD_YOUR_API_KEY")
 project = rf.workspace("ADD_YOUR_WORKSPACE").project("ADD_YOUR_PROJECT")
