@@ -6,6 +6,8 @@
 
 ## Step 1: Create new Project
 
+Our task is Face Detection (one face at a time), which is the equivalent of Single-Label Classification. If there are many people in one image, we need to use the Multi-Label Classification.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/307eb057-1af4-429c-be8d-52e52b9cdcc0)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9435c558-3e58-414e-bfe5-e71f0226fa4b)
