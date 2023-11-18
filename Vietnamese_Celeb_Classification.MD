@@ -97,9 +97,9 @@ test_data = tf.keras.preprocessing.image_dataset_from_directory(
 
 ## Step 9: Train our custom CNN model
 
-Our basic model is made up of Convolutional Layers and Pooling Layers, with a fully-connected layer at the end. `Conv2D(32, (3, 3)` means that this layer can process 
+Our basic model is made up of Convolutional Layers and Pooling Layers, with a fully connected layer at the end. `Conv2D(32, (3, 3)` means that this layer has 32 filters, with each filter being 3x3 size, and the `MaxPooling2D((2, 2))` with a 2x2 filter size. The `Dense` layer requires everything in a 1-D vector or array so we must flatten the last input layer which (30, 30, 28) into 25200 (which is 30 x 30 x 28)
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
+![image](https://github.com/hughiephan/DPL/assets/16631121/128b821c-613f-4cf9-8a9b-9696850d0639)
 
 ```python
 model = tf.keras.models.Sequential()
@@ -110,6 +110,7 @@ model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(64, activation='relu'))
 model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 ```
 
 ## Step 10: Training
@@ -117,6 +118,8 @@ model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
 ```python
 model.fit(train_data, epochs=10, validation_data=val_data)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
 ## Step 11: Try a new version of the dataset with different Pre-processing and Augmentation 
 
