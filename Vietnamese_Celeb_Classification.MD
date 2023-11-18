@@ -129,8 +129,6 @@ You should test each pre-processing and augmentation method on this dataset to s
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/29deb0fa-201f-4992-83f6-b0f0ebdfbdb2)
-
 ## Step 12: Evaluate with Test Set
 ```python
 loss, accuracy = model.evaluate(test_data)
