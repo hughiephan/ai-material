@@ -141,6 +141,9 @@ print("Test Accuracy:", accuracy)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
 
 ## Step 13: Make a prediction
+
+Create an iterator from the test_data object and next() to retrieve the next item from that iterator. Then we pick a random image from all the test images using `np.random.randint(0, len(test_images))`. Before inputting the image into our model we need to add a blank dimension `np.expand_dims(random_image, axis=0)` to comply with the input requirement. Our prediction will be an 10 elements array. With each element is the probablity of a celebrity. For example: [0.2, 0.1, 0.3,....0.01], meaning that our model predicts that the image is the first celebrity with 20% probability, and the second celebrity with 10% probability, and so on. So we use `np.argmax` to find the predictions with the highest probability and then we just map that with our celebrity name. 
+
 ```python
 test_images, test_classes = next(iter(test_data))
 random_index = np.random.randint(0, len(test_images))
