@@ -57,6 +57,8 @@ dataset = project.version("ADD_PROJECT_VERSION").download("folder")
 
 ## Step 7: Set variables
 
+The number `3` in Input Shape means we are handling colored images. If you want to set it to a Gray image, you can use `1`.
+
 ```python
 image_size = (128, 128)
 input_shape = (128, 128, 3)
@@ -94,8 +96,6 @@ test_data = tf.keras.preprocessing.image_dataset_from_directory(
 ```
 
 ## Step 9: Train our custom CNN model
-
-Numer `3` in Input Shape means we are handling colored image. If you want to set it to Gray image, you can use `1`.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
 
