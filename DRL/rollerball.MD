@@ -162,7 +162,7 @@ behaviors:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/de5919d4-0a4f-425e-ad3c-f5a9b6fb9afe)
 
 ```C
-mlagents-learn config/rollerball_config.yaml --run-id=RollerBall
+mlagents-learn config/rollerball_config.yaml --run-id=RollerBall --resume
 ```
 
 ## References
