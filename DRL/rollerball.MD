@@ -14,8 +14,6 @@ Install Unity 2021 and download the source zip file from https://github.com/Unit
 
 ## Step: RollerAgent
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/de5919d4-0a4f-425e-ad3c-f5a9b6fb9afe)
-
 - Select the RollerAgent GameObject to show its properties in the Inspector window.
 - Drag the Target GameObject in the Hierarchy into the Target field in RollerAgent Script.
 - Add a Decision Requester script with the Add Component button. Set the Decision Period to 10. For more information on decisions, see the Agent documentation
@@ -24,7 +22,6 @@ Install Unity 2021 and download the source zip file from https://github.com/Unit
 - Vector Observation > Space Size = 8
 - Actions > Continuous Actions = 2
 
-RollerAgent
 ```C
 using System.Collections.Generic;
 using UnityEngine;
@@ -135,6 +132,8 @@ behaviors:
 ```
 
 ## Step: Training
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/de5919d4-0a4f-425e-ad3c-f5a9b6fb9afe)
 
 ```C
 mlagents-learn config/rollerball_config.yaml --run-id=RollerBall
