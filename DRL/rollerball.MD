@@ -99,6 +99,32 @@ public class RollerAgent : Agent
 }
 ```
 
+## Step: Target   
+```C
+using System.Collections;  
+using System.Collections.Generic;  
+using UnityEngine;  
+  
+public class Movement : MonoBehaviour  
+{  
+    Vector3 Vec;  
+    // Start is called before the first frame update  
+    void Start()  
+    {  
+          
+    }  
+  
+    public float forceMultiplier = 10;
+    void Update()  // Update is called once per frame  
+    {  
+        Vec = transform.localPosition;  
+        Vec.x += Input.GetAxis("Horizontal") * Time.deltaTime * forceMultiplier;  
+        Vec.z += Input.GetAxis("Vertical") * Time.deltaTime * forceMultiplier;  
+        transform.localPosition = Vec;  
+    }  
+}  
+```
+
 ## Step: Rollerball Config
 
 Rollerball_config.yaml
