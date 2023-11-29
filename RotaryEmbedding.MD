@@ -4,6 +4,8 @@ This is a work-in-progress
 
 ## Step 1: Import libraries
 
+We will use Rotary Embedding from `https://github.com/lucidrains/rotary-embedding-torch`
+
 ```python
 !pip install rotary-embedding-torch
 import torch
