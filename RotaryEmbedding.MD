@@ -1,3 +1,7 @@
+# Rotary Embedding
+
+This is a work-in-progress
+
 ## Step 1: Import libraries
 
 ```python
@@ -17,6 +21,9 @@ rotary_emb = RotaryEmbedding(dim = 32)
 ```
 
 ## Step: 3: Add Rotary Embedding to MultiHeadAttention
+
+Rotate keys and values
+
 ```python
 class MultiHeadAttention(nn.Module):
     def __init__(self, d_model, num_heads):
@@ -49,8 +56,8 @@ class MultiHeadAttention(nn.Module):
     def forward(self, Q, K, V, mask=None):
         Q = self.split_heads(self.W_q(Q))
         K = self.split_heads(self.W_k(K))
-        Q = rotary_emb.rotate_queries_or_keys(Q)  // Add Rotary here
-        K = rotary_emb.rotate_queries_or_keys(K)  // Add Rotary here
+        Q = rotary_emb.rotate_queries_or_keys(Q)  // <------- Rotary is added
+        K = rotary_emb.rotate_queries_or_keys(K)  // <------- Rotary is added
         V = self.split_heads(self.W_v(V))
         attn_output = self.scaled_dot_product_attention(Q, K, V, mask)
         output = self.W_o(self.combine_heads(attn_output))
