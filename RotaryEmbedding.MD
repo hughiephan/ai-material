@@ -95,7 +95,7 @@ class PositionalEncoding(nn.Module):
         return x + self.pe[:, :x.size(1)]
 ```
 
-## Step 6: Customer Encoder Layer
+## Step 6: Custom Encoder Layer
 ```python
 class EncoderLayer(nn.Module):
     def __init__(self, d_model, num_heads, d_ff, dropout):
@@ -114,7 +114,7 @@ class EncoderLayer(nn.Module):
         return x
 ```
 
-## Step 7: Customer Decoder Layer
+## Step 7: Custom Decoder Layer
 ```python
 class DecoderLayer(nn.Module):
     def __init__(self, d_model, num_heads, d_ff, dropout):
