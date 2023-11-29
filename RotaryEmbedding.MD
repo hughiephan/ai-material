@@ -1,4 +1,4 @@
-## Step: 
+## Step 1: Import libraries
 
 ```python
 !pip install rotary-embedding-torch
@@ -11,12 +11,12 @@ import copy
 from rotary_embedding_torch import RotaryEmbedding
 ```
 
-## Step:
+## Step 2: Define Rotary Embedding
 ```python
 rotary_emb = RotaryEmbedding(dim = 32)
 ```
 
-## Step:
+## Step: 3: Add Rotary Embedding to MultiHeadAttention
 ```python
 class MultiHeadAttention(nn.Module):
     def __init__(self, d_model, num_heads):
@@ -57,7 +57,7 @@ class MultiHeadAttention(nn.Module):
         return output
 ```
 
-## Step:
+## Step 4: Custom PositionWiseFeedForward Layer
 ```python
 class PositionWiseFeedForward(nn.Module):
     def __init__(self, d_model, d_ff):
@@ -70,7 +70,7 @@ class PositionWiseFeedForward(nn.Module):
         return self.fc2(self.relu(self.fc1(x)))
 ```
 
-## Step:
+## Step 5: Custom PositionalEncoding Layer
 ```python
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_seq_length):
@@ -86,7 +86,7 @@ class PositionalEncoding(nn.Module):
         return x + self.pe[:, :x.size(1)]
 ```
 
-## Step:
+## Step 6: Customer Encoder Layer
 ```python
 class EncoderLayer(nn.Module):
     def __init__(self, d_model, num_heads, d_ff, dropout):
@@ -105,7 +105,7 @@ class EncoderLayer(nn.Module):
         return x
 ```
 
-## Step:
+## Step 7: Customer Decoder Layer
 ```python
 class DecoderLayer(nn.Module):
     def __init__(self, d_model, num_heads, d_ff, dropout):
@@ -128,7 +128,7 @@ class DecoderLayer(nn.Module):
         return x
 ```
 
-## Step:
+## Step 8: Custom Transformer Layer
 ```python
 class Transformer(nn.Module):
     def __init__(self, src_vocab_size, tgt_vocab_size, d_model, num_heads, num_layers, d_ff, max_seq_length, dropout):
@@ -163,7 +163,7 @@ class Transformer(nn.Module):
         return output
 ```
 
-## Step: Training
+## Step 9: Training
 ```python
 src_vocab_size = 5000
 tgt_vocab_size = 5000
@@ -187,3 +187,5 @@ for epoch in range(100):
     optimizer.step()
     print(f"Epoch: {epoch+1}, Loss: {loss.item()}")
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/55a081c9-116f-4f34-be11-61d884147796)
