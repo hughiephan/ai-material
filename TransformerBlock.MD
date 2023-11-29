@@ -84,3 +84,6 @@ model.summary()
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=5, validation_data = (testing_padded, testing_labels_final))
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/77a2bb1c-aaf3-42c9-bdd6-55fd08a9c2d6)
+
