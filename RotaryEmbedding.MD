@@ -198,3 +198,7 @@ for epoch in range(100):
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/55a081c9-116f-4f34-be11-61d884147796)
+
+## Reference
+- https://towardsdatascience.com/build-your-own-transformer-from-scratch-using-pytorch-84c850470dcb
+- https://github.com/lucidrains/rotary-embedding-torch
