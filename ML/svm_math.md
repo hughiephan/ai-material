@@ -5,3 +5,4 @@
 ## Reference
 - https://www.adeveloperdiary.com/data-science/machine-learning/support-vector-machines-for-beginners-duality-problem
 - https://machinelearningcoban.com/2017/04/09/smv
+- https://becominghuman.ai/support-vector-machine-duality-problem-10442bb2f6cc
