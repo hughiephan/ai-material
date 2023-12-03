@@ -14,9 +14,9 @@ The theorem states that the solution $w$ can always be written as a linear combi
 
 $N$ is the number of training points, and $d$ is the dimension of feature vector x.
 
-Primal Problem: for $w \in \mathbb{R}^d$, 
-  
- $\underset{w \in \mathbb{R}^d}{\min} ||w||^2 + C\displaystyle\sum_{i}^N{\max(0, 1 - y_i{f(x_i)})}$ 
+Primal Problem: for $w \in \mathbb{R}^d$, $\underset{w \in \mathbb{R}^d}{\min} ||w||^2 + C\displaystyle\sum_{i}^N{\max(0, 1 - y_i{f(x_i)})}$ 
+
+Dual Problem: for $\alpha \in \mathbb{R}^N, $\underset{\alpha_i \geq 0 C\displaystyle\sum_{i}\alpha_i}{\max}
 
 
 ## Example
