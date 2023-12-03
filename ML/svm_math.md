@@ -36,6 +36,14 @@ And the Dual Classifier becomes: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(\p
 
 Dual Classifier can be learnt and applied without explicitly computing $\phi(x)$ (also called Kernel trick)
 
+## Kernel
+
+Kernel Trick: Classifiers can be learned for high-dimensional feature spaces, without actually having to map the points into the high-dimensional space. We can use the kernel trick again to replace scalar products
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/629ea8ba-c48b-4efe-8e92-e53991d91bd5)
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/54a3c968-b8fe-4d40-b84a-3d8f162de5f2)
+
 ## Example
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
