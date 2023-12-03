@@ -4,6 +4,12 @@ Primal problem: SVM is a linear classifier $f(x) = w^{\top}x + b$ is formulated 
 
 Dual problem: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by solving an optimization problem over $\alpha_i$
 
+## Representer Theorem
+
+The theorem states that the solution $w$ can always be written as a linear combination of the training data $w = \displaystyle\sum_{j=1}^N{\alpha_i{y_i}(x_j)} . Read the proof here https://en.wikipedia.org/wiki/Representer_theorem
+
+
+
 ## Example
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
@@ -15,3 +21,4 @@ Dual problem: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by 
 - https://www.analytixlabs.co.in/blog/introduction-support-vector-machine-algorithm
 - https://www.youtube.com/watch?v=efR1C6CvhmE
 - https://www.robots.ox.ac.uk/~az/lectures/ml/lect3.pdf
+- https://stats.stackexchange.com/questions/544959/what-does-representer-theorem-in-machine-learning-tells-us
