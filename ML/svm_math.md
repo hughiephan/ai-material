@@ -6,7 +6,7 @@ Dual problem: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by 
 
 ## Representer Theorem
 
-The theorem states that the solution $w$ can always be written as a linear combination of the training data $w = \displaystyle\sum_{j=1}^N{\alpha_i{y_i}(x_j)} . Read the proof here https://en.wikipedia.org/wiki/Representer_theorem
+The theorem states that the solution $w$ can always be written as a linear combination of the training data $w = \displaystyle\sum_{j=1}^N{\alpha_i{y_i}(x_j)}$. Proof: https://en.wikipedia.org/wiki/Representer_theorem
 
 
 
