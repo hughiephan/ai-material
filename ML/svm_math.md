@@ -6,9 +6,9 @@ Dual problem: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by 
 
 ## Representer Theorem
 
-The theorem states that the solution $w$ can always be written as a linear combination of the training data $w = \displaystyle\sum_{j=1}^N{\alpha_i{y_i}(x_j)}$. Proof: https://en.wikipedia.org/wiki/Representer_theorem
+Proof: https://en.wikipedia.org/wiki/Representer_theorem
 
-
+The theorem states that the solution $w$ can always be written as a linear combination of the training data $w = \displaystyle\sum_{j=1}^N{\alpha_i{y_i}(x_j)}$. With $(x_1,y_1),...,(x_n,y_n) \in \chi \times \mathbb{R}$ is the training samples, with $\chi$ is a non-empty set
 
 ## Example
 
