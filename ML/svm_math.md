@@ -1,8 +1,9 @@
 ## Primal and Dual formulation
 
-Primal formulation: SVM is a linear classifier $f(x) = w^{\top}x + b$ is formulated as solving an optimization problem over $w$
+SVM can be a classifier with one of the two form:
 
-Dual formulation: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by solving an optimization problem over $\alpha_i$
+- Primal formulation: $f(x) = w^{\top}x + b$ is formulated as solving an optimization problem over $w$
+- Dual formulation: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by solving an optimization problem over $\alpha_i$
 
 ## Representer Theorem
 
