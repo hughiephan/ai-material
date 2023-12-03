@@ -16,7 +16,7 @@ $N$ is the number of training points, and $d$ is the dimension of feature vector
 
 Primal Problem: $\underset{w \in \mathbb{R}^d}{\min} ||w||^2 + C\displaystyle\sum_{i}^N{\max(0, 1 - y_i{f(x_i)})}$, for $w \in \mathbb{R}^d$
 
-Dual Problem: $\underset{\alpha_i \geq 0 C\displaystyle\sum_{i}\alpha_i}{\max} - 1/2$, for $\alpha \in \mathbb{R}^N$
+Dual Problem: $\underset{\alpha_i \geq 0 {C\displaystyle\sum_{i}\alpha_i}}{\max} - 1/2$, for $\alpha \in \mathbb{R}^N$
 
 
 ## Example
