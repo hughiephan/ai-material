@@ -1,5 +1,7 @@
 ## Primal and Dual formulation
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/170b9616-1516-4d9d-9c17-6b5726144f32)
+
 SVM can be a classifier with one of the two form:
 
 - Primal formulation: $f(x) = w^{\top}x + b$ is formulated as solving an optimization problem over $w$
