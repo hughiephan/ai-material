@@ -18,6 +18,7 @@ Primal Problem: $\underset{w \in \mathbb{R}^d}{\min} ||w||^2 + C\displaystyle\su
 
 Dual Problem: $\underset{\alpha_i \geq 0}{\max}\displaystyle\sum_{i}\alpha_i - \frac{1}{2}\displaystyle\sum_{jk}\alpha_j\alpha_k{y_j}{y_k}(x_j^\top x_k)$, for $\alpha \in \mathbb{R}^N$
 
+The dual form has an advantage because it only involves $x_j^\top x_k$
 
 ## Example
 
