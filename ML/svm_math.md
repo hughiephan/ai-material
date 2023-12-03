@@ -1,6 +1,10 @@
-$f(x) = w^{\top}x + b$
+## Primal and Dual Problem
 
-$\underset{w \in \mathbb{R}^d}{\min}$
+Primal problem: SVM is a linear classifier $f(x) = w^{\top}x + b$ is formulated as solving an optimization problem over $w$: $\underset{w \in \mathbb{R}^d}{\min} ||w||^2 + C\displaystyle\sum_{i}^N{\max(0, 1 - y_i{f(x_i)})}$ 
+
+Dual problem: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(x_i^\top{x}) + b$ by solving an optimization problem over $\alpha_i$
+
+## Example
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
 
