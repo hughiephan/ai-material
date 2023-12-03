@@ -1,3 +1,5 @@
+$f(x) = w^{\top}x + b$
+
 $\underset{w \in R^d}{\min}$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
