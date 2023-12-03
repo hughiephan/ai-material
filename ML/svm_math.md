@@ -28,6 +28,8 @@ The dual form has an advantage because it only involves $x_j^\top x_k$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5c356a0a-f058-416f-93af-5d516de93e33)
 
+Then the Primal becomes $f(x) = w^\top\theta(x) + b$
+
 ## Example
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
