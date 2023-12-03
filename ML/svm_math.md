@@ -1,4 +1,4 @@
-
+$\underset{w \in R^d}{\min}$
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
 
@@ -8,3 +8,4 @@
 - https://becominghuman.ai/support-vector-machine-duality-problem-10442bb2f6cc
 - https://www.analytixlabs.co.in/blog/introduction-support-vector-machine-algorithm
 - https://www.youtube.com/watch?v=efR1C6CvhmE
+- https://www.robots.ox.ac.uk/~az/lectures/ml/lect3.pdf
