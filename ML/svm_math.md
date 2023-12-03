@@ -32,6 +32,10 @@ Then the Primal Classifier becomes: $f(x) = w^\top\phi(x) + b$
 
 And the Dual Classifier becomes: $f(x) = \displaystyle\sum_{i}^N\alpha_i{y_i}(\phi(x_i)^\top\phi{x}) + b$
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/34981040-6d49-42d9-88fb-0ee0e478ab13)
+
+Dual Classifier can be learnt and applied without explicitly computing $\phi(x)$ (also called Kernel trick)
+
 ## Example
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e41598a-3bcd-4abe-9dd8-1750fff3cf52)
