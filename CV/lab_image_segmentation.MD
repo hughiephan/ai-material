@@ -1,4 +1,4 @@
-# Lab: Image Segmentation
+# Image Segmentation
 
 ## Learning Outcomes
 Upon successful completion of this workshop, you will have demonstrated the abilities to: Understand the knowledge of image segmentation and their algorithms. Implement segmentation algorithms: Snakes algorithm, watershed algorithm, K Means algorithm, Mean shift algorithm
