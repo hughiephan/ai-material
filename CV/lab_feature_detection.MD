@@ -14,9 +14,7 @@ In this assignment, students are asked to write a program that implements algori
 
 # Evaluation Criteria
 
-No | Criteria | Requires | Mark | Note
---- | --- | --- | --- |--- 
-1 | Function 1: Harris Corner Detector | Implement Harris Corner Detector | 2 | Using mouse or keyboard
+- Function 1: Implement Harris Corner Detector, score 2.
 
 
 
