@@ -26,6 +26,9 @@ binary_predictions = model.predict(df[['Hours']])
 print("Pass prediction based on Hours: ", binary_predictions)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/3d677eb3-2169-4e22-8390-88c2db69c3d4)
+
+
 ## Metrics
 The prediction accuracy is 80%, with 5 missed prediction data points. We use np.where to find the indices where the Pass Prediction and the Pass Actual Data is different. The incorrect predictions are at: 6,8,11,13
 
@@ -36,6 +39,8 @@ print("Incorrect predictions:")
 print(df.iloc[incorrect_indices])
 print("Accuracy ", accuracy)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6ac312ba-39ce-4d32-9c3b-589606f43aa9)
 
 ## Plot
 To plot the logistic regression line and the data scatter points, we can use the sns seaborn library. In order to plot the incorrect prediction 6,8,11,13, we need to first combine the predictions and the original dataframe, then use the Prediction column as the hue.
