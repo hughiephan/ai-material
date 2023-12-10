@@ -48,3 +48,5 @@ palette = {0: 'red', 1: 'blue'}
 graph = sns.lmplot(x='Hours', y='Pass', hue='Prediction', data=result, fit_reg=False, palette=palette)
 sns.regplot(x='Hours', y='Pass', data=result, scatter=False, ax=graph.axes[0, 0], logistic=True)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/ce8bc00c-4d0e-43b0-8d14-742ed51f7d2c)
