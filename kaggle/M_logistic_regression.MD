@@ -1,8 +1,11 @@
 # Logistic Regression
 
-## Import libraries and prepare data
+## Introduction
+This notebook explores logistic regression to predict student pass/fail outcomes based on study hours. We start with preparing the data and training the logistic regression model to make predictions solely from the hours studied. Then evaluates the model's accuracy and identifies points where predictions differ from actual outcomes. Additionally, we will visualize the regression line and scatter points using seaborn, distinguishing correct and incorrect predictions.
 
-Sklearn provides us with a Logistic Regression model out of the box
+If you're interested in exploring similar data analysis or learning more about AI applications, then checkout my personal website https://hughiephan.co . Don't forget to upvote if you found the notebook insightful or helpful. Your feedback is valuable and can help others discover useful content.
+
+## Import libraries
 
 ```python
 import pandas as pd
@@ -11,13 +14,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
+```
+
+## Load data
+Create a Pandas DataFrame using study hours and pass/fail data for students, setting the stage to explore the potential relationship between study hours and exam outcomes using logistic regression.
+
+```python
 data = {'Hours': [0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.5],
         'Pass': [0, 0, 0, 0 ,0, 0, 1, 0, 1, 0, 1,0, 1,0, 1,1,1,1,1,1]}
 df = pd.DataFrame(data)
-```
+```python
 
-## Make Prediction
-Run model.fit to make prediction based on df[['Hours']] data. Logistic Regression will try to predict the df[['Pass']] without us providing any hint.
+## Model
+Builds a logistic regression model using the 'Hours' column from the DataFrame to predict 'Pass' outcomes. Then generates predictions based on study hours and displays these predictions indicating pass or fail for each corresponding hour value.
 
 ```python
 model = LogisticRegression()
@@ -26,11 +35,8 @@ binary_predictions = model.predict(df[['Hours']])
 print("Pass prediction based on Hours: ", binary_predictions)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/3d677eb3-2169-4e22-8390-88c2db69c3d4)
-
-
-## Metrics
-The prediction accuracy is 80%, with 5 missed prediction data points. We use np.where to find the indices where the Pass Prediction and the Pass Actual Data is different. The incorrect predictions are at: 6,8,11,13
+## Evaluate
+Evaluates the accuracy of the logistic regression model by comparing the predicted 'Pass' outcomes with the actual 'Pass' values in the DataFrame. Then calculatee the accuracy score and identifies incorrect predictions, displaying the corresponding rows and the overall accuracy of the model.
 
 ```python
 accuracy = accuracy_score(df['Pass'], binary_predictions)
@@ -39,19 +45,3 @@ print("Incorrect predictions:")
 print(df.iloc[incorrect_indices])
 print("Accuracy ", accuracy)
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/6ac312ba-39ce-4d32-9c3b-589606f43aa9)
-
-## Plot
-To plot the logistic regression line and the data scatter points, we can use the sns seaborn library. In order to plot the incorrect prediction 6,8,11,13, we need to first combine the predictions and the original dataframe, then use the Prediction column as the hue.
-
-```python
-prediction_df = pd.DataFrame({'Prediction': binary_predictions})
-result = pd.concat([df, prediction_df], axis=1)
-print("Combination of orignal and prediction dataframe \n", result)
-palette = {0: 'red', 1: 'blue'}
-graph = sns.lmplot(x='Hours', y='Pass', hue='Prediction', data=result, fit_reg=False, palette=palette)
-sns.regplot(x='Hours', y='Pass', data=result, scatter=False, ax=graph.axes[0, 0], logistic=True)
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/ce8bc00c-4d0e-43b0-8d14-742ed51f7d2c)
