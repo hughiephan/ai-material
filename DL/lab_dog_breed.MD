@@ -12,7 +12,7 @@ Submissions are evaluated on Multi Class Log Loss between the predicted probabil
 ## Submission 
 For each image in the test set, you must predict a probability for each of the different breeds. The file should contain a header and have the following format:
 
-```
+```python
 id,affenpinscher,afghan_hound,..,yorkshire_terrier
 000621fb3cbb32d8935728e48679680e,0.0083,0.0,...,0.0083
 etc.
