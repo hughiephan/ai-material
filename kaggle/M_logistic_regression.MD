@@ -23,7 +23,7 @@ Create a Pandas DataFrame using study hours and pass/fail data for students, set
 data = {'Hours': [0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.5],
         'Pass': [0, 0, 0, 0 ,0, 0, 1, 0, 1, 0, 1,0, 1,0, 1,1,1,1,1,1]}
 df = pd.DataFrame(data)
-```python
+```
 
 ## Model
 Builds a logistic regression model using the 'Hours' column from the DataFrame to predict 'Pass' outcomes. Then generates predictions based on study hours and displays these predictions indicating pass or fail for each corresponding hour value.
