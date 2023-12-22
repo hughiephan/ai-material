@@ -1,4 +1,4 @@
-# Vietnamese Celeb Classification using Roboflow for Image Preprocessing, Augmentation and SVM
+# Celebrity Classification using Roboflow and SVM
 
 ## Prerequisites
 - Register a free account at https://app.roboflow.com/
