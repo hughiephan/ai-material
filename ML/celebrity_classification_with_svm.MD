@@ -108,7 +108,7 @@ svm.fit(train_images, train_labels)
 ```
 
 ## Step 9: Evaluate on Validation Set
-```
+```python
 valid_predictions = svm.predict(valid_images)
 accuracy = accuracy_score(valid_labels, valid_predictions)
 print(f"Validation accuracy: {accuracy}")
