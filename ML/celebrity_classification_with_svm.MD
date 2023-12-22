@@ -1,4 +1,4 @@
-# Celebrity Classification using Roboflow and SVM
+# Celebrity Classification with Roboflow and SVM
 
 ## Prerequisites
 - Register a free account at https://app.roboflow.com/
