@@ -46,82 +46,68 @@ Create a new Notebook (Kaggle, Jupyter, or Google Colab), and import the library
 
 ```python
 !pip install roboflow
-import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import cv2
+import numpy as np
+import os
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import LabelEncoder
 from roboflow import Roboflow
 rf = Roboflow(api_key="ADD_YOUR_API_KEY")
 project = rf.workspace("ADD_YOUR_WORKSPACE").project("ADD_YOUR_PROJECT")
 dataset = project.version("ADD_PROJECT_VERSION").download("folder")
 ```
 
-## Step 7: Set variables
-
-The number `3` in Input Shape means we are handling colored images. If you want to set it to a Gray image, you can use `1`.
-
-```python
-image_size = (128, 128)
-input_shape = (128, 128, 3)
-batch_size = 32
-num_classes = 10 
-```
-
-## Step 8: Load the Dataset
+## Step 7: Load the Dataset
 
 With `label_mode = 'int'`, our label will be encoded as integer numbers: 0,1,2...9 but `categorical` means that the labels are encoded as categorical vectors, for example: 000, 001, 010,...111
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5c8bbc57-f8be-4de2-95b1-3936d590e359)
 
 ```python
-train_data = tf.keras.preprocessing.image_dataset_from_directory(
-    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/train',
-    image_size=image_size,
-    batch_size=batch_size,
-    label_mode='categorical',
-)
+def load_dataset(directory):
+    images = []
+    labels = []
+    classes = os.listdir(directory)
+    for idx, label in enumerate(classes):
+        label_dir = os.path.join(directory, label)
+        for image_name in os.listdir(label_dir):
+            image_path = os.path.join(label_dir, image_name)
+            img = cv2.imread(image_path)
+            img = cv2.resize(img, (128, 128))  # Resize images to the desired shape
+            images.append(img)
+            labels.append(label)
+    images = np.array(images)
+    labels = np.array(labels)
+    return images, labels
 
-val_data = tf.keras.preprocessing.image_dataset_from_directory(
-    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/valid',
-    image_size=image_size,
-    batch_size=batch_size,
-    label_mode='categorical',
-)
+# Load and preprocess train, validation, and test datasets
+train_images, train_labels = load_dataset(train_dir)
+valid_images, valid_labels = load_dataset(valid_dir)
+test_images, test_labels = load_dataset(test_dir)
 
-test_data = tf.keras.preprocessing.image_dataset_from_directory(
-    '/kaggle/working/ADD_YOUR_PROJECT_AND_PROJECT_VERSION/test',
-    image_size=image_size,
-    batch_size=batch_size,
-    label_mode='categorical',
-)
+# Flatten images and convert labels to numeric values
+train_images = np.array([image.flatten() for image in train_images])
+valid_images = np.array([image.flatten() for image in valid_images])
+test_images = np.array([image.flatten() for image in test_images])
+
+# Encode labels to numeric values
+label_encoder = LabelEncoder()
+train_labels = label_encoder.fit_transform(train_labels)
+valid_labels = label_encoder.transform(valid_labels)
+test_labels = label_encoder.transform(test_labels)
 ```
 
-## Step 9: Train our custom CNN model
-
-Our basic model is made up of Convolutional Layers and Pooling Layers, with a fully connected layer at the end. `Conv2D(32, (3, 3)` means that this layer has 32 filters, with each filter being 3x3 size, and the `MaxPooling2D((2, 2))` with a 2x2 filter size. The `Dense` layer requires everything in a 1-D vector or array so we must flatten the last input layer which (30, 30, 28) into 25200 (which is 30 x 30 x 28)
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/128b821c-613f-4cf9-8a9b-9696850d0639)
+## Step 8: Train our SVC Model
 
 ```python
-model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
-model.add(tf.keras.layers.MaxPooling2D((2, 2)))
-model.add(tf.keras.layers.Conv2D(28, (3, 3), activation='relu'))
-model.add(tf.keras.layers.MaxPooling2D((2, 2)))
-model.add(tf.keras.layers.Flatten())
-model.add(tf.keras.layers.Dense(64, activation='relu'))
-model.add(tf.keras.layers.Dense(num_classes, activation='softmax'))
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+svm = SVC(kernel='linear')
+svm.fit(train_images, train_labels)
 ```
 
-## Step 10: Training
-
-```python
-model.fit(train_data, epochs=10, validation_data=val_data)
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/1a4a894f-29f2-41c0-b313-b5eafa1dcc19)
-
-## Step 11: Try a new version of the dataset with different Pre-processing and Augmentation 
+## Step 9: Try a new version of the dataset with different Pre-processing and Augmentation 
 
 You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
 
@@ -131,32 +117,48 @@ You should test each pre-processing and augmentation method on this dataset to s
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
 
-## Step 12: Evaluate with Test Set
-```python
-loss, accuracy = model.evaluate(test_data)
-print("Test Loss:", loss)
-print("Test Accuracy:", accuracy)
+## Step 10: Evaluate on Validation Set
+```
+valid_predictions = svm.predict(valid_images)
+accuracy = accuracy_score(valid_labels, valid_predictions)
+print(f"Validation accuracy: {accuracy}")
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/82577557-b27f-47dc-9fc2-a031dfd70f51)
-
-## Step 13: Make a prediction
-
-Create an iterator from the test_data object and next() to retrieve the next item from that iterator. Then we pick a random image from all the test images using `np.random.randint(0, len(test_images))`. Before inputting the image into our model we need to add a blank dimension `np.expand_dims(random_image, axis=0)` to comply with the input requirement. Our prediction will be an 10 elements array. With each element is the probablity of a celebrity. For example: [0.2, 0.1, 0.3,....0.01], meaning that our model predicts that the image is the first celebrity with 20% probability, and the second celebrity with 10% probability, and so on. So we use `np.argmax` to find the predictions with the highest probability and then we just map that with our celebrity name. 
-
+## Step 11: Evaluate on Test Set
 ```python
-test_images, test_classes = next(iter(test_data))
-random_index = np.random.randint(0, len(test_images))
-random_image = test_images[random_index]
-plt.imshow(random_image.numpy().astype("uint8"))
-input_image = np.expand_dims(random_image, axis=0)
-predictions = model.predict(input_image)
-predicted_class_index = np.argmax(predictions[0])
-predicted_class = test_data.class_names[predicted_class_index]
-print("Predicted Class:", predicted_class)
+test_predictions = svm.predict(test_images)
+test_accuracy = accuracy_score(test_labels, test_predictions)
+print(f"Test accuracy: {test_accuracy}")
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/a0b30a0c-4a59-42e3-81f1-65e6441f34d2)
+## Step 12: Make a prediction
+
+```python
+def load_random_image(directory):
+    classes = os.listdir(directory)
+    label = np.random.choice(classes)
+    label_dir = os.path.join(directory, label)
+    image_name = np.random.choice(os.listdir(label_dir))
+    image_path = os.path.join(label_dir, image_name)
+    img = cv2.imread(image_path)
+    img = cv2.resize(img, (128, 128))  # Resize image to the desired shape
+    return img, label
+
+# Load a random image from the test set
+random_image, actual_label = load_random_image(test_dir)
+
+# Preprocess the random image for prediction
+random_image_processed = np.array([random_image.flatten()])
+
+# Make a prediction using the trained SVM model
+predicted_label = svm.predict(random_image_processed)[0]
+
+# Print information about the prediction
+print(f"Actual Label: {actual_label}")
+print(f"Predicted Label: {label_encoder.inverse_transform([predicted_label])[0]}")
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/3909593e-03ce-4b7f-b54b-ec774af1dd25)
 
 ## References
-- https://blog.roboflow.com/why-preprocess-augment/
+- https://blog.roboflow.com/why-preprocess-augment
