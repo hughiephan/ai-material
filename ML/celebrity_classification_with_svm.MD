@@ -107,7 +107,21 @@ svm = SVC(kernel='linear')
 svm.fit(train_images, train_labels)
 ```
 
-## Step 9: Try a new version of the dataset with different Pre-processing and Augmentation 
+## Step 9: Evaluate on Validation Set
+```
+valid_predictions = svm.predict(valid_images)
+accuracy = accuracy_score(valid_labels, valid_predictions)
+print(f"Validation accuracy: {accuracy}")
+```
+
+## Step 10: Evaluate on Test Set
+```python
+test_predictions = svm.predict(test_images)
+test_accuracy = accuracy_score(test_labels, test_predictions)
+print(f"Test accuracy: {test_accuracy}")
+```
+
+## Step 11: Try a new version of the dataset with different Pre-processing and Augmentation 
 
 You should test each pre-processing and augmentation method on this dataset to see what works best. Identifying the correct steps that can increase the model performance requires a firm understanding of the problem, data collected, and production environment. What may work well in one situation is not appropriate in others.
 
@@ -116,20 +130,6 @@ You should test each pre-processing and augmentation method on this dataset to s
  Then update your Notebook with the new version and train everything again to see if the new set of pre-processing and augmentation methods increases the accuracy or not.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0e2ebbf3-429c-485f-ae14-e0b2d913485e)
-
-## Step 10: Evaluate on Validation Set
-```
-valid_predictions = svm.predict(valid_images)
-accuracy = accuracy_score(valid_labels, valid_predictions)
-print(f"Validation accuracy: {accuracy}")
-```
-
-## Step 11: Evaluate on Test Set
-```python
-test_predictions = svm.predict(test_images)
-test_accuracy = accuracy_score(test_labels, test_predictions)
-print(f"Test accuracy: {test_accuracy}")
-```
 
 ## Step 12: Make a prediction
 
