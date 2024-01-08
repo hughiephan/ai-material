@@ -9,12 +9,23 @@ from sklearn.ensemble import RandomForestClassifier
 ```
 
 ## Step 2:
+
+Create object that can calculate shap values
 ```python
-# Create object that can calculate shap values
 explainer = shap.TreeExplainer(my_model)
-# calculate shap values. This is what we will plot.
-# Calculate shap_values for all of val_X rather than a single row, to have more data for plot.
+```
+
+## Step 3:
+
+Calculate shap_values for all of val_X rather than a single row, to have more data for plot.  Index of [1] is explained in text below.
+
+```python
 shap_values = explainer.shap_values(val_X)
-# Make plot. Index of [1] is explained in text below.
 shap.summary_plot(shap_values[1], val_X)
+```
+
+## Step 4:
+```python
+shap_values = explainer.shap_values(X)
+shap.dependence_plot('Ball Possession %', shap_values[1], X, interaction_index="Goal Scored")
 ```
