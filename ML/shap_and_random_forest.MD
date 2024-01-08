@@ -69,3 +69,4 @@ shap.dependence_plot('Ball Possession %', shap_values[1], X, interaction_index="
 
 ## Reference
 - https://www.kaggle.com/code/dansbecker/advanced-uses-of-shap-values/tutorial
+- https://www.kaggle.com/code/dansbecker/partial-plots
