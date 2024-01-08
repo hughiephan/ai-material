@@ -6,7 +6,7 @@ import pandas as pd
 import shap
 import graphviz
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn import tree
 ```
 
@@ -21,19 +21,19 @@ data = pd.read_csv('/kaggle/input/fifa-2018-match-statistics/FIFA 2018 Statistic
 ## Step 3: Pre-process data
 ```python
 y = (data['Man of the Match'] == "Yes")  # Convert from string "Yes"/"No" to binary
-feature_names = [i for i in data.columns if data[i].dtype in [np.int64, np.int64]]
+feature_names = [i for i in data.columns if data[i].dtype in [np.int64]]
 X = data[feature_names]
 train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=1)
 ```
 
 ## Step 4: Training with Random Forest
 ```python
-my_model = RandomForestClassifier(random_state=0).fit(train_X, train_y)
+model = DecisionTreeClassifier(random_state=0, max_depth=6, min_samples_split=2).fit(train_X, train_y)
 ```
 
 ## Step 5:
 ```python
-tree_graph = tree.export_graphviz(my_model, out_file=None, feature_names=feature_names)
+tree_graph = tree.export_graphviz(model, out_file=None, feature_names=feature_names)
 graphviz.Source(tree_graph)
 ```
 
@@ -41,7 +41,7 @@ graphviz.Source(tree_graph)
 
 Create object that can calculate shap values
 ```python
-explainer = shap.TreeExplainer(my_model)
+explainer = shap.TreeExplainer(model)
 ```
 
 ## Step 6:
