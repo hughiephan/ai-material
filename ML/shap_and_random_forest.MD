@@ -4,8 +4,10 @@
 import numpy as np
 import pandas as pd
 import shap
+import graphviz
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import tree
 ```
 
 ## Step 2:
@@ -27,6 +29,12 @@ train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=1)
 ## Step 4: Training with Random Forest
 ```python
 my_model = RandomForestClassifier(random_state=0).fit(train_X, train_y)
+```
+
+## Step 5:
+```python
+tree_graph = tree.export_graphviz(my_model, out_file=None, feature_names=feature_names)
+graphviz.Source(tree_graph)
 ```
 
 ## Step 5:
