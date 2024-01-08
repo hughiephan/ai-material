@@ -1,4 +1,6 @@
 
+![Untitled-2023-08-01-2301](https://github.com/hughiephan/DPL/assets/16631121/ee7b1749-1814-4504-98ec-959d58f2ded7)
+
 ## Step 1: Import libraries
 ```python
 import numpy as np
