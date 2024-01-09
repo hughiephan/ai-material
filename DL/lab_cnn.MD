@@ -1,7 +1,7 @@
-# Lab: Convolutional Neural Network
+# Lab: Image Processing with Neural Network
 
 ## Question
-Train a CNN model for a computer vision task
+Train a CNN-based or Transformer-based model for a computer vision task
 
 ## Requirements
 Choose ONE CNN model from this list: a custom CNN (Convolutional Layer, Fully-connected Layer), LeNet-5 (1998), AlexNet (2012), R-CNN (2013), GoogLeNet / Inception (2014), VGGNet (2014), ResNet (2015), U-NET (2015), SSD (2015), DenseNet (2016), Xception (2016), YOLO (2016), MobileNet (2017), EfficientNet (2019)
