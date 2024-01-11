@@ -1,8 +1,7 @@
 # Vietnamese Celeb Classification using Roboflow for Image Preprocessing and Augmentation
 
 ## Prerequisites
-- Register a free account at https://app.roboflow.com/
-- Download Dataset from https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini
+First register a free account at https://app.roboflow.com and then download the dataset from https://www.kaggle.com/datasets/hughiephan/vietnamese-celebrity-classification
 
 ## Step 1: Create a new Project
 
@@ -14,7 +13,7 @@ Our task is Face Detection (one face at a time), which is the equivalent of Sing
 
 ## Step 2: Upload Dataset to Roboflow
 
-First, we download the Celebrity Dataset from https://www.kaggle.com/datasets/thala321/famous-vietnamese-celeb-mini . Then there will be an option in Roboflow, prompting you to upload your dataset, so we just need to point it to our downloaded Dataset (remember to unzip it).
+After succesfully downloaded the dataset from https://www.kaggle.com/datasets/hughiephan/vietnamese-celebrity-classification , there will be an option in Roboflow, prompting you to upload the dataset (which you just downloaded). So we just need to point it to our downloaded Dataset (remember to unzip it).
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6e3ff2b0-f070-40ba-8055-b3da360e0a25)
 
