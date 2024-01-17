@@ -1,5 +1,7 @@
 # Lab: K-Algorithms
 
+Learn about implementing and predicting using a K-Algorithm 
+
 ## Requirements
 
 - `Requirement 1`: Choose a K-Algorithms of your choice: KDTree, KNN, K-Means, K-Means++, K-Medoids
