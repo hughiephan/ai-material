@@ -4,7 +4,7 @@
 
 - `Requirement 1`: Choose a K-Algorithms of your choice: KDTree, KNN, K-Means, K-Means++, K-Medoids
 - `Requirement 2`: Choose a Machine Learning task of your choice: Supervised Learning, Unsupervised Learning, Classification, Regression, Clustering, Image Recognition, Anomaly Detection, Recommender Systems,...
-- `Requirement 3`: Choose any `dataset` of your choice
+- `Requirement 3`: Choose any dataset of your choice
 - `Requirement 4`: Apply EDA
 - `Requirement 5`: Train and Predict your model
 - `Requirement 6`: Evaluate your model
