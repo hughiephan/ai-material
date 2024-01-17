@@ -1,6 +1,6 @@
-# Lab: K-Nearest Neighbors
+# Lab: K-Algorithms
 
-Train a KNN for an AI task
+Choose one K-Algorithms of your choice `KDTree`, `KNN`, `K-Means`, `K-Means++`, `K-Medoids` for a Machine Learning task of your choice `Supervised Learning`, `Unsupervised Learning`, `Classification`, `Regression`, `Clustering`,...
 
 ## Requirements
 
