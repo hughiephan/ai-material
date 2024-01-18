@@ -1,7 +1,5 @@
 # Lab: Image Processing in Deep Learning
 
-## Question
-
 Train a CNN-based or Transformer-based model for a Computer Vision task
 
 ## Requirements
