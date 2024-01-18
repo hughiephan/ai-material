@@ -7,7 +7,7 @@ Train a CNN-based or Transformer-based model for a Computer Vision task
 - `Requirement 1`: Choose ONE CNN model a custom CNN (Convolutional Layer, Fully-connected Layer), LeNet-5 (1998), AlexNet (2012), R-CNN (2013), GoogLeNet / Inception (2014), VGGNet (2014), ResNet (2015), U-NET (2015), SSD (2015), DenseNet (2016), Xception (2016), YOLO (2016), MobileNet (2017), EfficientNet (2019),... or any Vision-transformer based model.
 - `Requirement 2`: Choose ONE Computer Vision task Image Classification, Object Detection, Semantic Segmentation, Instance Segmentation,...
 - `Requirement 3`: Choose ONE Dataset of your choice: ImageNet, COCO, CIFAR-10 and CIFAR-100, PASCAL VOC, Open Images...
-- `Requirement 4`: Given an input image, make a prediction 
+- `Requirement 4`: Given an input image, make a prediction using your Deep Learning model
 
 ## Example
 Yolo V8 can detect upto 80 classes (person, bike,...) but it cannot detect fire. So I choose: CNN Network `YOLO`, Computer Vision Task `Object Detection`, Dataset `Fire and Smoke Dataset` from https://www.v7labs.com/open-datasets/fire-and-smoke-dataset
