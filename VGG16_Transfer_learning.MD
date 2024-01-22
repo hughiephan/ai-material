@@ -34,12 +34,12 @@ base_dir = '../input/face-mask-12k-images-dataset/Face Mask Dataset/'
 ## Step 4: Import Pre-processing & Augmentation Generator
 
 Data augmentation is a process of artificially increasing the amount of data by generating new data points from existing data. This includes adding minor alterations to data or using machine learning models to generate new data points in the latent space of original data to amplify the dataset. Use the ImageDataGenerator function from Keras to create an image generator that can apply these augmentations to the training images. The parameters for the different augmentations are set as follows:
-- Rotation: Up to 20 degrees
-- Height Shift: Up to 10% of the image height
-- Width Shift: Up to 10% of the image width
-- Fill Mode: Nearest, replaces the empty area with the nearest pixel values when shifting
-- Zoom: Up to 10%
-- Horizontal Flip: Enabled
+- `Rotation`: Up to 20 degrees
+- `Height Shift`: Up to 10% of the image height
+- `Width Shift`: Up to 10% of the image width
+- `Fill Mode`: Nearest, replaces the empty area with the nearest pixel values when shifting
+- `Zoom`: Up to 10%
+- `Horizontal Flip`: Enabled
 
 For Validation and Test Set, we only apply normalization by dividing with 255 and get the pixel range from [0 ~ 1] 
 
