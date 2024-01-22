@@ -117,7 +117,23 @@ model.fit(train_data, batch_size=32, epochs=10, validation_data=val_data)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/926d9627-9313-4760-894d-a71d6fff416d)
 
+## Step 9: Predict
+
+First we prepare the image so our model can predict it, the running `train_data.class_indices` to output the mapping of class names to integer labels `{'WithMask': 0, 'WithoutMask': 1}`. But we want the revert of this, which we called `index_to_class`, so we can map the prediction from our model `predicted_class_index` and get the label `WithMask` or `WithoutMask`
+
+```python
+img = image.load_img('/kaggle/input/face-mask-12k-images-dataset/Face Mask Dataset/Test/WithMask/1163.png', target_size=input_size)
+img_array = image.img_to_array(img)
+img_array = np.expand_dims(img_array, axis=0)
+img_array = preprocess_input(img_array)
+prediction = model.predict(img_array)
+predicted_class_index = np.argmax(prediction)
+index_to_class = {v: k for k, v in train_data.class_indices.items()}
+predicted_class_label = index_to_class[predicted_class_index]
+print("Predicted Class:", predicted_class_label)
+```
+
 ## Optional
-Running `train_data.class_indices` will output the mapping of class names to integer labels.`{'WithMask': 0, 'WithoutMask': 1}`
+
 
 
