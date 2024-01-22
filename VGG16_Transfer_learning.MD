@@ -14,6 +14,8 @@ Dataset: https://www.kaggle.com/datasets/ashishjangra27/face-mask-12k-images-dat
 
 ## Step 2: Import Libraries
 ```python
+import numpy as np
+from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import Input, Lambda, Dense, Flatten, Dropout
 from tensorflow.keras.models import Model, Sequential
