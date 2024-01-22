@@ -134,3 +134,5 @@ index_to_class = {v: k for k, v in train_data.class_indices.items()}
 predicted_class_label = index_to_class[predicted_class_index]
 print("Predicted Class:", predicted_class_label)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/31ba7179-4241-46e4-be8b-f65d4643d556)
