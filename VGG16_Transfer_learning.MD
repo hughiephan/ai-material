@@ -59,6 +59,9 @@ test_gen = ImageDataGenerator(rescale=1./255)
 ```
 
 ## Step 5: Apply Pre-processing & Augmentation 
+
+We can use `flow_from_directory` when the directory structure is organized in a way that each subdirectory represents a different class.
+
 ```python
 train_data = train_gen.flow_from_directory(base_dir + 'Train',target_size=input_size,seed=42)
 val_data = val_gen.flow_from_directory(base_dir + 'Validation',target_size=input_size,seed=42)
@@ -93,7 +96,7 @@ output = Flatten()(vgg16.output)
 output = Dense(500, activation='relu')(output)
 output = Dense(100, activation='relu')(output)
 output = Dropout(0.5)(output)
-output = Dense(2, activation='sigmoid')(output)
+output = Dense(2, activation='softmax')(output)
 model = Model(inputs=vgg16.input, outputs=output)
 model.compile(
   loss='binary_crossentropy',
@@ -109,9 +112,12 @@ Total parameters change from 14,714,688 to 18,861,490. With the 4,146,802 traina
 
 ## Step 8: Train our model
 ```python
-history = model.fit(train_data,
-                    batch_size=32,
-                    epochs=10,
-                    validation_data=val_data)
+model.fit(train_data, batch_size=32, epochs=10, validation_data=val_data)
 ```
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/926d9627-9313-4760-894d-a71d6fff416d)
+
+## Optional
+Running `train_data.class_indices` will output the mapping of class names to integer labels.`{'WithMask': 0, 'WithoutMask': 1}`
+
+
