@@ -5,9 +5,9 @@ Segmentation is the process of dividing an image into different regions based on
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0fa6fce5-59c7-46fd-86a5-d8128545ad35)
 
 ## Requirements
-Requirement 1: Choose ONE algorithm: Snakes, watershed, K-Means, Mean-shift
-Requirement 2: Choose ONE Dataset of your choice: ImageNet, COCO, CIFAR-10 and CIFAR-100, PASCAL VOC, Open Images...
-Requirement 4: Given an input image, make an image segmentation using the algorithm of your choice
+- `Requirement 1`: Choose ONE algorithm: Snakes, watershed, K-Means, Mean-shift
+- `Requirement 2`: Choose ONE Dataset of your choice: ImageNet, COCO, CIFAR-10 and CIFAR-100, PASCAL VOC, Open Images...
+- `Requirement 3`: Given an input image, detect image segmentation using your chosen algorithm
 
 ## What is Snakes algorithm?
 Snakes algorithm we try to move snake in a direction where energy is minimum. Snake model is designed to vary its shape and position while tending to search through the minimal energy state.  Snake propagates through the domain of the image to reduce the energy function, and intends to dynamically move to the local minimum. You are required to implement a Snakes algorithm for active contours.
