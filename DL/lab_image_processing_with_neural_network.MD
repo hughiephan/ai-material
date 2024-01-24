@@ -1,4 +1,4 @@
-# Lab: Image Processing in Deep Learning
+# Lab: Image Processing with Deep Learning
 
 Train a CNN-based or Transformer-based model for a Computer Vision task
 
