@@ -1,5 +1,7 @@
 # Denoising with SVD
 
+![svd](https://github.com/hughiephan/DPL/assets/16631121/5383ea44-f295-4a6e-a13f-32fbe56ed67a)
+
 ## Step 1: Import libraries
 ```python
 import numpy as np
