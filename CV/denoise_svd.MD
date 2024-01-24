@@ -36,5 +36,8 @@ plt.imshow(denoised_img)
 plt.show()
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/7f702758-0dd4-46ad-b29c-fbb653836f67)
+
 ## Reference
-- 
+- https://www.researchgate.net/figure/a-Original-Image-lena-b-Noisy-image-noise-density-08-c-Bilateral-filter_fig4_317421347
+- https://medium.com/@maydos/image-processing-with-singular-value-decomposition-ce8db3f78ce0
