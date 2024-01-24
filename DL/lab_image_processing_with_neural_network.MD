@@ -2,6 +2,8 @@
 
 Train a CNN-based or Transformer-based model for a Computer Vision task
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/28f1d52e-bdb3-4fe7-b796-bde386cf4407)
+
 ## Requirements
 
 - `Requirement 1`: Choose ONE CNN model a custom CNN (Convolutional Layer, Fully-connected Layer), LeNet-5 (1998), AlexNet (2012), R-CNN (2013), GoogLeNet / Inception (2014), VGGNet (2014), ResNet (2015), U-NET (2015), SSD (2015), DenseNet (2016), Xception (2016), YOLO (2016), MobileNet (2017), EfficientNet (2019),... or any Vision-transformer based model.
