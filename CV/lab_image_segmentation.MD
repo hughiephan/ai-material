@@ -1,21 +1,24 @@
-# Image Segmentation
+# Image Segmentation with Traditional Methods
 
-## Learning Outcomes
-Upon successful completion of this workshop, you will have demonstrated the abilities to: Understand the knowledge of image segmentation and their algorithms. Implement segmentation algorithms: Snakes algorithm, watershed algorithm, K Means algorithm, Mean shift algorithm
+Segmentation is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. The goal of segmentation is to simplify and change the representation of an image into something more meaningful and easier to analyze. Image segmentation is assigning a label to every pixel in an image such that pixels with the same label share certain characteristics. In this assignment, students are asked to write a program that implements algorithms for image segmentation. Details of the functions are described below:
 
-## Requirements:
-Segmentation is the process of dividing an image into different regions based on the characteristics of pixels to identify objects or boundaries to simplify an image and more efficiently analyze it. The goal of segmentation is to simplify and change the representation of an image into something that is more meaningful and easier to analyze. Image segmentation is the process of assigning a label to every pixel in an image such that pixels with the same label share certain characteristics. In this assignment, students are asked to write a program that implements algorithms for image segmentation. Details of the functions are described below:
+![image](https://github.com/hughiephan/DPL/assets/16631121/0fa6fce5-59c7-46fd-86a5-d8128545ad35)
 
-## Function 1
+## Requirements
+Requirement 1: Choose ONE algorithm: Snakes, watershed, K-Means, Mean-shift
+Requirement 2: Choose ONE Dataset of your choice: ImageNet, COCO, CIFAR-10 and CIFAR-100, PASCAL VOC, Open Images...
+Requirement 4: Given an input image, make an image segmentation using the algorithm of your choice
+
+## What is Snakes algorithm?
 Snakes algorithm we try to move snake in a direction where energy is minimum. Snake model is designed to vary its shape and position while tending to search through the minimal energy state.  Snake propagates through the domain of the image to reduce the energy function, and intends to dynamically move to the local minimum. You are required to implement a Snakes algorithm for active contours.
 
-## Function 2
+## What is watershed algorithm?
 A watershed is a transformation defined on a grayscale image. The name refers metaphorically to a geological watershed, or drainage divide, which separates adjacent drainage basins.  The watershed transformation treats the image it operates upon like a topographic map, with the brightness of each point representing its height, and finds the lines that run along the tops of ridges. You are required to implement the Watershed algorithm in python to perform the image segmentation.
 
-## Function 3
+## What is K-Means algorithm?
 K Means is a clustering algorithm. It is used to identify different classes or clusters in the given data based on how similar the data is. Data points in the same group are more similar to other data points in that same group than those in other groups. The main idea of performing the following process is to find those areas of pixels that share the same color hue parameter value. You are required to implement the K-means for Segmentation.
 
-## Function 4
+## What is Mean Shift algorithm?
 Mean shift implicitly models this distribution using a smooth continuous non-parametric model. The key to mean shift is a technique for efficiently finding peaks in this high-dimensional data distribution without ever computing the complete function explicitly. The idea is to replace each pixel with the mean of the pixels in a range neighborhood and whose value is within a distance d. You are required to implement the Mean shift algorithm for segmentation.
 
 
