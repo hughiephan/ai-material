@@ -19,7 +19,7 @@ from scipy.sparse import coo_matrix, identity
 ## Step 2: 
 Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
 ```python
-df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')  # Assuming you have a separate file with product information
+df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
 df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv')
 ```
 
