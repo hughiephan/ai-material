@@ -1,5 +1,9 @@
 # Recommendation with LightFM
 
+The model’s prediction for user u and item i is then given by the dot product of user and item representations, adjusted by user and item feature biases. If the model is recommending the same popular items to all users, we can try to set the item bias vectors to all zeros or apply inverse propensity weights to the features.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/98fd531b-4fbf-430a-bf87-34c3c188754e)
+
 ## Step 1: Import libraries
 
 ```python
