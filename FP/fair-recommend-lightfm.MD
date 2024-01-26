@@ -16,14 +16,14 @@ from sklearn.model_selection import train_test_split
 from scipy.sparse import coo_matrix, identity
 ```
 
-## Step 2: 
+## Step 2: Dataset
 Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
 ```python
 df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
 df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv')
 ```
 
-## Step 3: 
+## Step 3: Matrix
 ```python
 product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 order_product_matrix = coo_matrix((df_orders['reordered'], (df_orders['order_id'], df_orders['product_id']))).tocsr()
