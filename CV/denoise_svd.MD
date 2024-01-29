@@ -39,7 +39,7 @@ The denoised image `denoised_img_2d` is reconstructed using the matrices obtaine
 
 ```python
 denoised_img_2d = np.dot(U, np.dot(np.diag(S), V))
-denoised_img = denoised_img_2d.reshape(img_shape)
+denoised_img = denoised_img_2d.reshape(img.shape)
 denoised_img = np.clip(denoised_img, 0, 255)
 denoised_img = denoised_img.astype(np.uint8)
 ```
