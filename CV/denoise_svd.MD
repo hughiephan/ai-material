@@ -17,7 +17,7 @@ img = np.array(Image.open(requests.get('https://i.imgur.com/MWMslYc.png', stream
 
 ![img](https://i.imgur.com/MWMslYc.png)
 
-## Step 3: 
+## Step 3: SVD
 
 The image is flattened from 3D array into a 2D array using the `reshape(...,-1)` function. Then we apply SVD to the 2D image using the `np.linalg.svd` function, resulting in `U` and `V` are orthogonal matrices, and `S` is a diagonal matrix containing singular values. The parameter `full_matrices=False` indicates that only the essential parts of the decomposition are computed. Finally, any singular values in the S matrix that are less than `3000` are set to zero. This operation is a form of thresholding, where singular values below a certain threshold are effectively disregarded, removing the noise.
 
@@ -28,6 +28,9 @@ S[S < 3000] = 0
 ```
 
 ## Step 4: Reconstruct image
+
+The denoised image `denoised_img_2d` is reconstructed using the matrices obtained from the SVD: `U`, `S`, and `V`. This denoised image is then reshaped to the original image shape. To ensure pixel values remain within the valid range of 0 to 255, the `np.clip` function is applied, limiting values that fall outside this range. 
+
 ```python
 denoised_img_2d = np.dot(U, np.dot(np.diag(S), V))
 denoised_img = denoised_img_2d.reshape(img_shape)
