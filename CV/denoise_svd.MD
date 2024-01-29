@@ -28,7 +28,7 @@ U, S, V = np.linalg.svd(img_2d, full_matrices=False)
 S[S < 3000] = 0
 ```
 
-Output of `S`
+Output of `S` before we remove noise
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7b999612-2a08-42ea-b0de-74d7b327d8ac)
 
