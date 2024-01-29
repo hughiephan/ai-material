@@ -15,6 +15,9 @@ img = np.array(Image.open(requests.get('https://i.imgur.com/MWMslYc.png', stream
 ```
 
 ## Step 3: 
+
+The image is flattened from 3D array into a 2D array using the `reshape(...,-1)` function. Then we apply SVD to the 2D image using the `np.linalg.svd` function, resulting in `U` and `V` are orthogonal matrices, and `S` is a diagonal matrix containing singular values. The parameter `full_matrices=False` indicates that only the essential parts of the decomposition are computed. Finally, any singular values in the S matrix that are less than `3000` are set to zero. This operation is a form of thresholding, where singular values below a certain threshold are effectively disregarded, removing the noise.
+
 ```python
 img_2d = img.reshape(img.shape[0], -1)
 U, S, V = np.linalg.svd(img_2d, full_matrices=False)
