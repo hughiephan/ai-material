@@ -9,13 +9,13 @@ import requests
 import matplotlib.pyplot as plt
 ```
 
-## Step 2: Download image
-
-![img](https://i.imgur.com/MWMslYc.png)
+## Step 2: Download noised image 
 
 ```python
 img = np.array(Image.open(requests.get('https://i.imgur.com/MWMslYc.png', stream=True).raw))
 ```
+
+![img](https://i.imgur.com/MWMslYc.png)
 
 ## Step 3: 
 
