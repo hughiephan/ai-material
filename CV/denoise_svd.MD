@@ -1,6 +1,6 @@
 # Denoising with SVD
 
-Sigma matrix defines the magnitude of each concept, it tell us which concepts are the most important, and the rest are just noise. 
+Singular Value Decomposition (SVD) can be used for denoising due to its ability to describe the image's underlying concepts along unwanted noises. The key to denoising lies in the analysis of singular values in the Sigma matrix. Singular values in the Sigma matrix act as weights, indicating the contribution of each concept to the overall image. In denoising, the higher singular values are retained as they represent the predominant information, while the lower ones, associated with noise, are suppressed or discarded. 
 
 ![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/e4918e01-22e9-4527-b9ac-f066ba3e2fbd)
 
