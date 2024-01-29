@@ -4,9 +4,10 @@
 
 ## Step 1: Import libraries
 ```python
-import numpy as np
 import requests
+import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 ```
 
 ## Step 2: Download noised image 
