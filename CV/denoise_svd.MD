@@ -1,6 +1,8 @@
 # Denoising with SVD
 
-![svd](https://github.com/hughiephan/DPL/assets/16631121/5383ea44-f295-4a6e-a13f-32fbe56ed67a)
+Sigma matrix defines the magnitude of each concept, it tell us which concepts are the most important, and the rest are just noise. 
+
+![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/e4918e01-22e9-4527-b9ac-f066ba3e2fbd)
 
 ## Step 1: Import libraries
 ```python
@@ -58,3 +60,4 @@ plt.show()
 ## Reference
 - https://www.researchgate.net/figure/a-Original-Image-lena-b-Noisy-image-noise-density-08-c-Bilateral-filter_fig4_317421347
 - https://medium.com/@maydos/image-processing-with-singular-value-decomposition-ce8db3f78ce0
+- https://stackoverflow.com/questions/66768560/questions-about-svd-singular-value-decomposition
