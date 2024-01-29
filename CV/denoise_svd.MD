@@ -28,6 +28,11 @@ U, S, V = np.linalg.svd(img_2d, full_matrices=False)
 S[S < 3000] = 0
 ```
 
+Output of `S`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7b999612-2a08-42ea-b0de-74d7b327d8ac)
+
+
 ## Step 4: Reconstruct image
 
 The denoised image `denoised_img_2d` is reconstructed using the matrices obtained from the SVD: `U`, `S`, and `V`. This denoised image is then reshaped to the original image shape. To ensure pixel values remain within the valid range of 0 to 255, the `np.clip` function is applied, limiting values that fall outside this range. 
