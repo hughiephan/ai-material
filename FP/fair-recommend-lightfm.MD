@@ -1,6 +1,6 @@
-# Fair Recommendation with LightFM
+# Popularity Bias with LightFM
 
-The model’s prediction for user u and item i is then given by the dot product of user and item representations, adjusted by user and item feature biases. If the model is recommending the same popular items to all users, we can try to set the item bias vectors to all zeros or apply inverse propensity weights to the features. Read more at: https://github.com/lyst/lightfm/issues/395
+The model’s prediction for user u and item i is then given by the dot product of user and item representations, adjusted by user and item feature biases. If the model is recommending the same popular items to all users, the easiest solution is to set the item bias vectors to all zeros.
 
 ## Step 1: Import libraries
 
