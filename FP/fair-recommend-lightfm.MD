@@ -19,7 +19,7 @@ Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets
 df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
 df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv', nrows=1000)
 order_product_matrix = coo_matrix((df_orders['reordered'], (df_orders['order_id'], df_orders['product_id']))).tocsr()
-train_data, test_data = train_test_split(order_product_matrix, test_size=0.2, random_state=42)
+train_data, test_data = train_test_split(order_product_matrix, test_size=0.2)
 ```
 
 ## Step 3: Helper function
