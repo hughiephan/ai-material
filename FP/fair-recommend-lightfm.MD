@@ -35,7 +35,7 @@ item_identity = identity(train_data.shape[1])
 ## Step 4: Training
 ```python
 model = LightFM(loss='warp')
-model.fit(train_data, user_features=user_identity, item_features=item_identity, epochs=30, num_threads=2)
+model.fit(train_data, user_features=user_identity, item_features=item_identity, epochs=10)
 ```
 
 ## Step 5: Evaluate
