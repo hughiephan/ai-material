@@ -41,7 +41,7 @@ model.fit(train_data, epochs=10)
 product_biases, product_embeddings = model.get_item_representations()
 order_biases, order_embeddings = model.get_user_representations()
 scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_biases).T
-scores_without_bias = ((order_embeddings @ product_embeddings.T).T + order_biases).T
+scores_without_popularity_bias = ((order_embeddings @ product_embeddings.T).T + order_biases).T
 ```
 
 ## Step 6: Make recommendations
@@ -52,7 +52,7 @@ for i in np.argsort(scores[order_id])[::-1][:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
     print(f'Product: {product_name}')
 
-print(f'\nTop 5 Recommendations for Order {order_id} (without bias):')
+print(f'\nTop 5 Recommendations for Order {order_id} (without popularity bias):')
 for i in np.argsort(scores_without_bias[order_id])[::-1][:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
     print(f'Product: {product_name}')
