@@ -15,7 +15,7 @@ from scipy.sparse import coo_matrix
 
 ## Step 2: Dataset
 
-Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis . Then we use Pandas to read two CSV files `products.csv` and `order_products__train.csv`, representing product information and order details respectively. The `order_products__train.csv` file is read with a restriction on the number of rows `nrows=1000` as the score operation on the full matrix often results in out-of-memory notebook. After that, we construct a sparse matrix called `order_product_matrix` using the COO (Coordinate List) format from the `order_id'` and `product_id` columns, with `reordered` serving as the data values. Finally, the data is split into training and testing sets using the `train_test_split` function with 80% of the data used for training and 20% for testing
+Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis . Then we use Pandas to read two CSV files `products.csv` and `order_products__train.csv`, representing product information and order details respectively. The `order_products__train.csv` file is read with a restriction on the number of rows `nrows=1000` as the score operation on the full matrix often results in out-of-memory notebook. After that, we construct a sparse matrix called `order_product_matrix` using the COO (Coordinate List) format from the `order_id'` and `product_id` columns, with `reordered` serving as the data values. Finally, the data is split into 80% data for training and 20% data for testing.
 
 ```python
 df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
