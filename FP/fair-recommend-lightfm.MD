@@ -44,7 +44,7 @@ scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_b
 scores_without_bias = ((order_embeddings @ product_embeddings.T).T + order_biases).T
 ```
 
-## Step 6: Score and score without bias
+## Step 6: Make recommendation
 ```python
 order_id = 1
 print(f'\nTop 5 Recommendations for Order {order_id}:')
@@ -52,14 +52,11 @@ for i in np.argsort(scores[order_id])[::-1][:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
     print(f'Product: {product_name}')
 
-print(f'\nTop 5 Recommendations for Order {order_id} without bias:')
+print(f'\nTop 5 Recommendations for Order {order_id} (without bias):')
 for i in np.argsort(scores_without_bias[order_id])[::-1][:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
     print(f'Product: {product_name}')
 ```
-
-## Step 6: Score without bias
-
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ad94c1e0-12d9-4e99-875e-e3cbf8bef90b)
 
