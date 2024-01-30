@@ -44,11 +44,12 @@ manual_scores = ((user_embeddings @ item_embeddings.T + item_biases).T + user_bi
 
 ## Step 6: Make prediction
 ```python
-top_n = 5
 order_id = 1
-top_items_for_order = np.argsort(manual_scores[order_id])[::-1][:top_n]
-top_item_names = [product_id_to_name[item_id] for item_id in top_items_for_order]
-print(f"Order {order_id} recommendation: {top_item_names}")
+top_items = np.argsort(manual_scores[order_id])[::-1]
+print(f'\nTop 5 Recommendations for Order {order_id}:')
+for i in top_items[:5]:
+    product_name = product_id_to_name.get(i, f'Unknown Product {i}')
+    print(f'Product: {product_name}')
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dc725dee-ba86-480a-b2a3-98663abcd681)
