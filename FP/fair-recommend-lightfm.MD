@@ -33,9 +33,9 @@ model.fit(train_data, epochs=10)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/98fd531b-4fbf-430a-bf87-34c3c188754e)
 
 ```python
-item_biases, item_embeddings = model.get_item_representations()
-user_biases, user_embeddings = model.get_user_representations()
-manual_scores = ((user_embeddings @ item_embeddings.T + item_biases).T + user_biases).T
+product_biases, product_embeddings = model.get_item_representations()
+order_biases, order_embeddings = model.get_user_representations()
+manual_scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_biases).T
 ```
 
 ## Step 5: Make prediction
