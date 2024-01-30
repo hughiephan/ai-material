@@ -22,32 +22,44 @@ order_product_matrix = coo_matrix((df_orders['reordered'], (df_orders['order_id'
 train_data, test_data = train_test_split(order_product_matrix, test_size=0.2, random_state=42)
 ```
 
-## Step 3: Training
+## Step 3: Helper function
+```python
+product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
+```
+
+## Step 4: Training
 ```python
 model = LightFM(loss='warp')
 model.fit(train_data, epochs=10)
 ```
 
-## Step 4: Manual score
+## Step 5: Score
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/98fd531b-4fbf-430a-bf87-34c3c188754e)
 
 ```python
 product_biases, product_embeddings = model.get_item_representations()
 order_biases, order_embeddings = model.get_user_representations()
-manual_scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_biases).T
+scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_biases).T
+scores_without_bias = ((order_embeddings @ product_embeddings.T).T + order_biases).T
 ```
 
-## Step 5: Make prediction
+## Step 6: Score and score without bias
 ```python
 order_id = 1
-top_items = np.argsort(manual_scores[order_id])[::-1]
-product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 print(f'\nTop 5 Recommendations for Order {order_id}:')
-for i in top_items[:5]:
+for i in np.argsort(scores[order_id])[::-1][:5]:
+    product_name = product_id_to_name.get(i, f'Unknown Product {i}')
+    print(f'Product: {product_name}')
+
+print(f'\nTop 5 Recommendations for Order {order_id} without bias:')
+for i in np.argsort(scores_without_bias[order_id])[::-1][:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
     print(f'Product: {product_name}')
 ```
+
+## Step 6: Score without bias
+
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ad94c1e0-12d9-4e99-875e-e3cbf8bef90b)
 
