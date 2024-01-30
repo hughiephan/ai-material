@@ -1,6 +1,6 @@
 # Popularity Bias with LightFM
 
-The model’s prediction for user u and item i is then given by the dot product of user and item representations, adjusted by user and item feature biases. If the model is recommending the same popular items to all users, the easiest solution is to set the item bias vectors to all zeros.
+The model’s prediction for user u and item i is then given by the dot product of user and item representations, adjusted by user and item feature biases. If the model recommends the same popular items to all users, the easiest solution is to set the item bias vectors to all zeros.
 
 ## Step 1: Import libraries
 
@@ -33,6 +33,9 @@ product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict
 ```
 
 ## Step 4: Training
+
+Start training our LightFM model in 10 epochs
+
 ```python
 model = LightFM()
 model.fit(train_data, epochs=10)
@@ -41,6 +44,8 @@ model.fit(train_data, epochs=10)
 ## Step 5: Score
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/98fd531b-4fbf-430a-bf87-34c3c188754e)
+
+`get_item_representations()` and `get_user_representations()` functions extract the learned biases and embeddings for products and orders, respectively. We will be computing the recommendation scores using these representations. The scores are calculated by taking the dot product of the order embeddings and the transpose of the product embeddings, adding the product biases, and then adding the order biases. This score matrix represents the predicted affinity of each order for each product. We also calculate `scores_without_popularity_bias` like the previous score, but without adding the product biases so the model won't recommend popular products to the same order
 
 ```python
 product_biases, product_embeddings = model.get_item_representations()
