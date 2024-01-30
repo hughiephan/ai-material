@@ -48,7 +48,7 @@ for i in top_items[:5]:
     print(f'Product: {product_name}')
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/dc725dee-ba86-480a-b2a3-98663abcd681)
+![image](https://github.com/hughiephan/DPL/assets/16631121/ad94c1e0-12d9-4e99-875e-e3cbf8bef90b)
 
 ## Reference
 - https://www.kaggle.com/code/niyamatalmass/lightfm-hybrid-recommendation-system
