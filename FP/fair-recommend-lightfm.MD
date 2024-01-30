@@ -44,7 +44,7 @@ scores = ((order_embeddings @ product_embeddings.T + product_biases).T + order_b
 scores_without_bias = ((order_embeddings @ product_embeddings.T).T + order_biases).T
 ```
 
-## Step 6: Make recommendation
+## Step 6: Make recommendations
 ```python
 order_id = 1
 print(f'\nTop 5 Recommendations for Order {order_id}:')
@@ -58,7 +58,7 @@ for i in np.argsort(scores_without_bias[order_id])[::-1][:5]:
     print(f'Product: {product_name}')
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/ad94c1e0-12d9-4e99-875e-e3cbf8bef90b)
+![image](https://github.com/hughiephan/DPL/assets/16631121/41502cee-3717-413e-8efa-76d6c5b3a371)
 
 ## Reference
 - https://www.kaggle.com/code/niyamatalmass/lightfm-hybrid-recommendation-system
