@@ -34,7 +34,7 @@ product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict
 
 ## Step 4: Training
 ```python
-model = LightFM(loss='warp')
+model = LightFM()
 model.fit(train_data, epochs=10)
 ```
 
