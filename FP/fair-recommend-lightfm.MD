@@ -25,6 +25,9 @@ train_data, test_data = train_test_split(order_product_matrix, test_size=0.2)
 ```
 
 ## Step 3: Helper function
+
+We create a dictionary to map the `product id` to their `product name` 
+
 ```python
 product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 ```
