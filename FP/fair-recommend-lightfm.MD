@@ -64,3 +64,4 @@ for i in np.argsort(scores_without_bias[order_id])[::-1][:5]:
 - https://www.kaggle.com/code/niyamatalmass/lightfm-hybrid-recommendation-system
 - https://www.stepbystepdatascience.com/hybrid-recommender-lightfm-python
 - https://www.datarevenue.com/en-blog/building-a-production-ready-recommendation-system
+- https://github.com/lyst/lightfm/issues/395
