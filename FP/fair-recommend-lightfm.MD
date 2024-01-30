@@ -55,6 +55,9 @@ scores_without_popularity_bias = ((order_embeddings @ product_embeddings.T).T + 
 ```
 
 ## Step 6: Make recommendations
+
+Comparing the recommendations between the base model and the model without popularity bias
+
 ```python
 order_id = 1
 print(f'\nTop 5 Recommendations for Order {order_id}:')
