@@ -61,3 +61,4 @@ for i in top_items[:5]:
 
 ## Reference
 - https://www.kaggle.com/code/niyamatalmass/lightfm-hybrid-recommendation-system
+- https://www.stepbystepdatascience.com/hybrid-recommender-lightfm-python
