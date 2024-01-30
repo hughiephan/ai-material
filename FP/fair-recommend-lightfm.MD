@@ -20,32 +20,28 @@ Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets
 ```python
 df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
 df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv', nrows=1000)
-```
-
-## Step 3: Matrix
-```python
-product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 order_product_matrix = coo_matrix((df_orders['reordered'], (df_orders['order_id'], df_orders['product_id']))).tocsr()
 train_data, test_data = train_test_split(order_product_matrix, test_size=0.2, random_state=42)
 ```
 
-## Step 4: Training
+## Step 3: Training
 ```python
 model = LightFM(loss='warp')
 model.fit(train_data, epochs=10)
 ```
 
-## Step 5: Manual score
+## Step 4: Manual score
 ```python
 item_biases, item_embeddings = model.get_item_representations()
 user_biases, user_embeddings = model.get_user_representations()
 manual_scores = ((user_embeddings @ item_embeddings.T + item_biases).T + user_biases).T
 ```
 
-## Step 6: Make prediction
+## Step 5: Make prediction
 ```python
 order_id = 1
 top_items = np.argsort(manual_scores[order_id])[::-1]
+product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 print(f'\nTop 5 Recommendations for Order {order_id}:')
 for i in top_items[:5]:
     product_name = product_id_to_name.get(i, f'Unknown Product {i}')
