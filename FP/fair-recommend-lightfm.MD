@@ -11,16 +11,15 @@ The model’s prediction for user u and item i is then given by the dot product 
 import numpy as np
 import pandas as pd
 from lightfm import LightFM
-from lightfm.evaluation import precision_at_k
 from sklearn.model_selection import train_test_split
-from scipy.sparse import coo_matrix, identity
+from scipy.sparse import coo_matrix
 ```
 
 ## Step 2: Dataset
 Download `Instacart Market Basket Analysis` from https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
 ```python
 df_products = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/products.csv')
-df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv')
+df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_products__train.csv', nrows=1000)
 ```
 
 ## Step 3: Matrix
@@ -28,33 +27,28 @@ df_orders = pd.read_csv('/kaggle/input/instacart-market-basket-analysis/order_pr
 product_id_to_name = df_products.set_index('product_id')['product_name'].to_dict()
 order_product_matrix = coo_matrix((df_orders['reordered'], (df_orders['order_id'], df_orders['product_id']))).tocsr()
 train_data, test_data = train_test_split(order_product_matrix, test_size=0.2, random_state=42)
-user_identity = identity(train_data.shape[0])
-item_identity = identity(train_data.shape[1])
 ```
 
 ## Step 4: Training
 ```python
 model = LightFM(loss='warp')
-model.fit(train_data, user_features=user_identity, item_features=item_identity, epochs=10)
+model.fit(train_data, epochs=10)
 ```
 
-## Step 5: Evaluate
+## Step 5: Manual score
 ```python
-precision = precision_at_k(model, test_data, user_features=user_identity, item_features=item_identity, k=5).mean()
-print(f'Precision at k=5: {precision}')
+item_biases, item_embeddings = model.get_item_representations()
+user_biases, user_embeddings = model.get_user_representations()
+manual_scores = ((user_embeddings @ item_embeddings.T + item_biases).T + user_biases).T
 ```
 
 ## Step 6: Make prediction
 ```python
+top_n = 5
 order_id = 1
-known_positives = np.where(train_data[order_id].toarray() > 0)[0]
-scores = model.predict(order_id, np.arange(train_data.shape[1]), user_features=user_identity, item_features=item_identity)
-top_items = np.argsort(-scores)
-print(f'\nTop 5 Recommendations for Order {order_id}:')
-for i in top_items[:5]:
-    if i not in known_positives:
-        product_name = product_id_to_name.get(i, f'Unknown Product {i}')
-        print(f'Product: {product_name}')
+top_items_for_order = np.argsort(manual_scores[order_id])[::-1][:top_n]
+top_item_names = [product_id_to_name[item_id] for item_id in top_items_for_order]
+print(f"Order {order_id} recommendation: {top_item_names}")
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dc725dee-ba86-480a-b2a3-98663abcd681)
