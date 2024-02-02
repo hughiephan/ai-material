@@ -77,7 +77,7 @@ Also, we need to add the model and tokenizer in the ReviewBot folder so our back
 - `model.h5` (downloaded from previous step)
 - `tokenizer.pickle` (downloaded from previous step)
 
-Finally, `ReviewBot` folder should look like this:
+Finally, ReviewBot folder should look like this:
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4e73c81f-7778-40a1-a470-fe83fd083ab8)
 
