@@ -68,14 +68,14 @@ with open('tokenizer.pickle', 'wb') as handle:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4cc75cb3-73e2-45d8-9071-30080241ba1e)
 
 ## Step 3: Setup folder structure
-Create a new folder `ReviewBot` with these empty files:
-- app.py
-- index.html
-- requirements.txt
+Create a new folder ReviewBot with these empty files:
+- `app.py`
+- `index.html`
+- `requirements.txt`
 
-Also, we need to add the model and tokenizer in the `ReviewBot` folder so our backend could access them:
-- model.h5 (downloaded from previous step)
-- tokenizer.pickle (downloaded from previous step)
+Also, we need to add the model and tokenizer in the ReviewBot folder so our backend could access them:
+- `model.h5` (downloaded from previous step)
+- `tokenizer.pickle` (downloaded from previous step)
 
 Finally, `ReviewBot` folder should look like this:
 
