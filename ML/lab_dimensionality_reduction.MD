@@ -1,6 +1,6 @@
-# Lab: PCA
+# Lab: Dimensionality Reduction
 
-Train a PCA for an AI task
+Train a PCA or LDA for an AI task
 
 ## Requirements
 
