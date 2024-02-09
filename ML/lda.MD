@@ -1,5 +1,7 @@
 # Linear Discriminant Analysis 
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
+
 ## Step 1: Import libraries
 ```python
 import matplotlib.pyplot as plt
@@ -35,10 +37,6 @@ print("Test set accuracy: ", accuracy)
 ```python
 print(classification_report(y_test, y_pred))
 ```
-
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
-
 
 ## Reference
 - https://levelup.gitconnected.com/exploring-the-mnist-dataset-using-linear-discriminant-analysis-lda-7f0d025f4ce4
