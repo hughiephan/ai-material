@@ -31,15 +31,19 @@ X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 
 ## Step 4: Train with SVC
 ```python
+start_time = time.time()
 svm_without_lda = SVC(kernel='linear', probability=True)  # Enable probability estimation
 svm_without_lda.fit(X_train_resampled, y_train_resampled)
 y_pred_prob_svm_without_lda = svm_without_lda.predict_proba(X_test)
 fpr_svm_without_lda, tpr_svm_without_lda, _ = roc_curve(y_test, y_pred_prob_svm_without_lda[:, 1])
 roc_auc_svm_without_lda = auc(fpr_svm_without_lda, tpr_svm_without_lda)
+end_time = time.time()
+print("Time", end_time - start_time)
 ```
 
 ## Step 5: Train with SVC and LDA
 ```python
+start_time = time.time()
 n_components = min(X_train_resampled.shape[1], len(np.unique(y_train_resampled)) - 1)  # Ensure within limit
 lda = LinearDiscriminantAnalysis(n_components=n_components)
 X_train_lda = lda.fit_transform(X_train_resampled, y_train_resampled)
@@ -49,6 +53,8 @@ svm_with_lda.fit(X_train_lda, y_train_resampled)
 y_pred_prob_svm_with_lda = svm_with_lda.predict_proba(X_test_lda)
 fpr_svm_with_lda, tpr_svm_with_lda, _ = roc_curve(y_test, y_pred_prob_svm_with_lda[:, 1])
 roc_auc_svm_with_lda = auc(fpr_svm_with_lda, tpr_svm_with_lda)
+end_time = time.time()
+print("Time", end_time - start_time)
 ```
 
 ## Step 6: Report
