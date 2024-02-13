@@ -1,6 +1,6 @@
 # Linear Discriminant Analysis 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
+![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/f2a56402-2264-49f8-bff6-93c6e2855b56)
 
 ## Step 1: Import libraries
 ```python
@@ -45,6 +45,8 @@ print("Time", end_time - start_time)
 ## Step 5: Train with SVC and LDA
 
 After the you run, we can see that the total time is about 8 seconds
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
 
 ```python
 start_time = time.time()
