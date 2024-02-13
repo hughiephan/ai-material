@@ -43,6 +43,9 @@ print("Time", end_time - start_time)
 ```
 
 ## Step 5: Train with SVC and LDA
+
+After the you run, we can see that the total time is about 8 seconds
+
 ```python
 start_time = time.time()
 lda = LinearDiscriminantAnalysis(n_components=1)
