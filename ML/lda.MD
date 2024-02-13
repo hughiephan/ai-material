@@ -5,9 +5,7 @@
 ## Step 1: Import libraries
 ```python
 import time
-import numpy as np
 import pandas as pd
-import seaborn as sns 
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
@@ -33,11 +31,11 @@ X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 ## Step 4: Train with SVC
 ```python
 start_time = time.time()
-svm_without_lda = SVC(kernel='linear', probability=True)  # Enable probability estimation
-svm_without_lda.fit(X_train_resampled, y_train_resampled)
-y_pred_prob_svm_without_lda = svm_without_lda.predict_proba(X_test)
-fpr_svm_without_lda, tpr_svm_without_lda, _ = roc_curve(y_test, y_pred_prob_svm_without_lda[:, 1])
-roc_auc_svm_without_lda = auc(fpr_svm_without_lda, tpr_svm_without_lda)
+svm = SVC(kernel='linear', probability=True)  # Enable probability estimation
+svm.fit(X_train_resampled, y_train_resampled)
+y_pred_prob_svm = svm.predict_proba(X_test)
+fpr_svm, tpr_svm, _ = roc_curve(y_test, y_pred_prob_svm[:, 1])
+roc_auc_svm = auc(fpr_svm, tpr_svm)
 end_time = time.time()
 print("Time", end_time - start_time)
 ```
@@ -64,18 +62,16 @@ print("Time", end_time - start_time)
 
 ## Step 6: Report
 ```python
-plt.figure(figsize=(8, 6))
-plt.plot(fpr_svm_without_lda, tpr_svm_without_lda, color='blue', lw=2, label='SVM without LDA (AUC = %0.2f)' % roc_auc_svm_without_lda)
-plt.plot(fpr_svm_with_lda, tpr_svm_with_lda, color='red', lw=2, label='SVM with LDA (AUC = %0.2f)' % roc_auc_svm_with_lda)
-plt.plot([0, 1], [0, 1], color='black', lw=1, linestyle='--')
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.05])
+plt.plot(fpr_svm, tpr_svm, label='SVM (AUC = %0.2f)' % roc_auc_svm)
+plt.plot(fpr_svm_with_lda, tpr_svm_with_lda, label='SVM with LDA (AUC = %0.2f)' % roc_auc_svm_with_lda)
+plt.plot([0, 1], [0, 1], linestyle='--')
 plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
-plt.title('ROC Curve')
 plt.legend(loc='lower right')
 plt.show()
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/5696076b-f9e8-401e-a0b3-29a4be725f24)
 
 ## Reference
 - https://www.kaggle.com/code/houcembenmansour/bankruptcy-perdiction-99-67-f1-score
