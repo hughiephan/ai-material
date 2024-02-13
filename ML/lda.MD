@@ -4,6 +4,7 @@
 
 ## Step 1: Import libraries
 ```python
+import time
 import numpy as np
 import pandas as pd
 import seaborn as sns 
@@ -44,8 +45,7 @@ print("Time", end_time - start_time)
 ## Step 5: Train with SVC and LDA
 ```python
 start_time = time.time()
-n_components = min(X_train_resampled.shape[1], len(np.unique(y_train_resampled)) - 1)  # Ensure within limit
-lda = LinearDiscriminantAnalysis(n_components=n_components)
+lda = LinearDiscriminantAnalysis(n_components=1)
 X_train_lda = lda.fit_transform(X_train_resampled, y_train_resampled)
 X_test_lda = lda.transform(X_test)
 svm_with_lda = SVC(kernel='linear', probability=True)  # Enable probability estimation
