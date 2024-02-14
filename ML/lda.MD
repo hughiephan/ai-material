@@ -48,7 +48,7 @@ Should take around: 40 seconds
 
 After the you run, we can see that the total time is about 15 seconds
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
+![image](https://github.com/hughiephan/DPL/assets/16631121/6c2f547c-2c6a-4b3e-aeec-e8c7b7a348c3)
 
 ```python
 start_time = time.time()
