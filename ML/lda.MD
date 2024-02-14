@@ -49,7 +49,8 @@ Should take around: 40 seconds
 
 ## Step 5: Train with SVC and LDA
 
-After the you run, we can see that the total time is about 15 seconds
+![image](https://github.com/hughiephan/DPL/assets/16631121/d7302eb8-dd99-4edc-bca1-9184c17d44a0)
+
 
 ```python
 start_time = time.time()
@@ -64,6 +65,8 @@ roc_auc_svm_with_lda = auc(fpr_svm_with_lda, tpr_svm_with_lda)
 end_time = time.time()
 print("Run Time", end_time - start_time)
 ```
+
+After the you run, we can see that the total time is about 15 seconds
 
 ## Step 6: Report
 ```python
