@@ -75,6 +75,8 @@ plt.legend(loc='lower right')
 plt.show()
 ```
 
+Due to the curse of dimensionality, SVM with all 15 features resulted in a model that perform poorly and using all features without any prior selection or dimensionality reduction might lead to longer training times since SVM tends to become computationally expensive with higher dimensions.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/292d1232-1c03-42bb-a50e-60cf6f6037f4)
 
 ## Reference
