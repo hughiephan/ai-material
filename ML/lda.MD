@@ -80,3 +80,4 @@ plt.show()
 ## Reference
 - https://www.kaggle.com/code/houcembenmansour/bankruptcy-perdiction-99-67-f1-score
 - https://medium.com/aimonks/linear-discriminant-analysis-lda-in-machine-learning-example-concept-and-applications-37f27e7c7e98
+- https://machinelearningcoban.com/2017/06/30/lda/
