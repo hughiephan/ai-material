@@ -18,8 +18,6 @@ from imblearn.over_sampling import RandomOverSampler
 
 ## Step 2: Dataset
 
-![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/f2a56402-2264-49f8-bff6-93c6e2855b56)
-
 ```python
 df = pd.read_csv('../input/company-bankruptcy-prediction/data.csv')
 X = df.drop(['Bankrupt?'], axis=1).iloc[:, :15]
