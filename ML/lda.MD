@@ -1,7 +1,5 @@
 # Linear Discriminant Analysis 
 
-![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/f2a56402-2264-49f8-bff6-93c6e2855b56)
-
 Linear Discriminant Analysis (LDA) utilizes class labels in its computation, potentially resulting in improved class differentiation compared to unsupervised methods such as Principal Component Analysis (PCA). The lower-dimensional representation achieved through LDA is more interpretable than the initial feature space. However, LDA is limited in its ability to handle nonlinear relationships since it assumes linear associations between features and classes. If these relationships are nonlinear, LDA may fail to accurately capture the underlying patterns.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6c2f547c-2c6a-4b3e-aeec-e8c7b7a348c3)
@@ -19,6 +17,9 @@ from imblearn.over_sampling import RandomOverSampler
 ```
 
 ## Step 2: Dataset
+
+![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/f2a56402-2264-49f8-bff6-93c6e2855b56)
+
 ```python
 df = pd.read_csv('../input/company-bankruptcy-prediction/data.csv')
 X = df.drop(['Bankrupt?'], axis=1).iloc[:, :15]
