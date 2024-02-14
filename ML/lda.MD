@@ -4,6 +4,8 @@
 
 Linear Discriminant Analysis (LDA) utilizes class labels in its computation, potentially resulting in improved class differentiation compared to unsupervised methods such as Principal Component Analysis (PCA). The lower-dimensional representation achieved through LDA is more interpretable than the initial feature space. However, LDA is limited in its ability to handle nonlinear relationships since it assumes linear associations between features and classes. If these relationships are nonlinear, LDA may fail to accurately capture the underlying patterns.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/6c2f547c-2c6a-4b3e-aeec-e8c7b7a348c3)
+
 ## Step 1: Import libraries
 ```python
 import time
@@ -47,8 +49,6 @@ Should take around: 40 seconds
 ## Step 5: Train with SVC and LDA
 
 After the you run, we can see that the total time is about 15 seconds
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/6c2f547c-2c6a-4b3e-aeec-e8c7b7a348c3)
 
 ```python
 start_time = time.time()
