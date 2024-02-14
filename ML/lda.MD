@@ -17,21 +17,21 @@ from imblearn.over_sampling import RandomOverSampler
 ## Step 2: Dataset
 ```python
 df = pd.read_csv('../input/company-bankruptcy-prediction/data.csv')
-X = df.drop(['Bankrupt?'], axis=1)
+X = df.drop(['Bankrupt?'], axis=1).iloc[:, :15]
 y = df['Bankrupt?']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 ```
 
 ## Step 3: Sampling
 ```python
-ros = RandomOverSampler(random_state=42)
+ros = RandomOverSampler()
 X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 ```
 
 ## Step 4: Train with SVC
 ```python
 start_time = time.time()
-svm = SVC(kernel='linear', probability=True)  # Enable probability estimation
+svm = SVC(probability=True)
 svm.fit(X_train_resampled, y_train_resampled)
 y_pred_prob_svm = svm.predict_proba(X_test)
 fpr_svm, tpr_svm, _ = roc_curve(y_test, y_pred_prob_svm[:, 1])
@@ -40,9 +40,11 @@ end_time = time.time()
 print("Time", end_time - start_time)
 ```
 
+Should take around: 40 seconds
+
 ## Step 5: Train with SVC and LDA
 
-After the you run, we can see that the total time is about 8 seconds
+After the you run, we can see that the total time is about 15 seconds
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/f2360acb-3f2a-45d2-a328-4c69bbcc42af)
 
@@ -51,13 +53,13 @@ start_time = time.time()
 lda = LinearDiscriminantAnalysis(n_components=1)
 X_train_lda = lda.fit_transform(X_train_resampled, y_train_resampled)
 X_test_lda = lda.transform(X_test)
-svm_with_lda = SVC(kernel='linear', probability=True)  # Enable probability estimation
+svm_with_lda = SVC(probability=True)
 svm_with_lda.fit(X_train_lda, y_train_resampled)
 y_pred_prob_svm_with_lda = svm_with_lda.predict_proba(X_test_lda)
 fpr_svm_with_lda, tpr_svm_with_lda, _ = roc_curve(y_test, y_pred_prob_svm_with_lda[:, 1])
 roc_auc_svm_with_lda = auc(fpr_svm_with_lda, tpr_svm_with_lda)
 end_time = time.time()
-print("Time", end_time - start_time)
+print("Run Time", end_time - start_time)
 ```
 
 ## Step 6: Report
@@ -71,7 +73,7 @@ plt.legend(loc='lower right')
 plt.show()
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/5696076b-f9e8-401e-a0b3-29a4be725f24)
+![image](https://github.com/hughiephan/DPL/assets/16631121/292d1232-1c03-42bb-a50e-60cf6f6037f4)
 
 ## Reference
 - https://www.kaggle.com/code/houcembenmansour/bankruptcy-perdiction-99-67-f1-score
