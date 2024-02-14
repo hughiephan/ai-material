@@ -18,6 +18,8 @@ from imblearn.over_sampling import RandomOverSampler
 
 ## Step 2: Dataset
 
+Company Bankruptcy Predction Dataset is from https://www.kaggle.com/datasets/fedesoriano/company-bankruptcy-prediction . This dataset contains financial attributes of companies collected from the Taiwan Economic Journal for the years 1999 to 2009, with bankruptcy status defined based on the business regulations of the Taiwan Stock Exchange. Each entry includes 95 features, with 'Bankrupt?' serving as the class label denoting whether a company went bankrupt. Key attributes include various financial ratios such as Return on Assets (ROA), Gross Margin, Operating Profit Rate, Interest Rates, Tax Rates, Cash Flow, Revenue Per Share, Debt Ratios, Asset Turnover Rates, and various others. These features provide insights into the financial health, performance, and operational efficiency of companies.
+
 ```python
 df = pd.read_csv('../input/company-bankruptcy-prediction/data.csv')
 X = df.drop(['Bankrupt?'], axis=1).iloc[:, :15]
