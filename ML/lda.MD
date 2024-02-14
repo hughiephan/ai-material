@@ -49,8 +49,7 @@ Should take around: 40 seconds
 
 ## Step 5: Train with SVC and LDA
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/d7302eb8-dd99-4edc-bca1-9184c17d44a0)
-
+![image](https://github.com/hughiephan/DPL/assets/16631121/7c1ed831-d1a2-4422-aeee-51090a2b1e0f)
 
 ```python
 start_time = time.time()
