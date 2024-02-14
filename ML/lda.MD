@@ -43,7 +43,7 @@ end_time = time.time()
 print("Time", end_time - start_time)
 ```
 
-Should take around: 40 seconds
+Total run time of approach 1 should take around 40 seconds
 
 ## Step 5: Approach 2 (Train with SVC and LDA)
 
