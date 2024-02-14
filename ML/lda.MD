@@ -33,7 +33,7 @@ ros = RandomOverSampler()
 X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 ```
 
-## Step 4: Train with SVC
+## Step 4: Approach 1 (Train with SVC)
 ```python
 start_time = time.time()
 svm = SVC(probability=True)
@@ -47,7 +47,7 @@ print("Time", end_time - start_time)
 
 Should take around: 40 seconds
 
-## Step 5: Train with SVC and LDA
+## Step 5: Approach 2 (Train with SVC and LDA)
 
 In LDA, the between-class variance and within-class variance are fundamental components used to determine discriminant functions that effectively separate different classes in a dataset. The between-class variance `m`, assesses the dispersion between the means of distinct classes, highlighting the extent to which class means deviate from one another. Conversely, the within-class variance `S`, gauges the dispersion of data points within individual classes, indicating how tightly clustered or spread out the data is around their respective class means. By optimizing the ratio of between-class variance to within-class variance, LDA identifies the linear combinations of features that maximize class separability, enabling effective dimensionality reduction and classification. In essence, these variance measures serve as critical criteria for LDA to identify the most discriminative features for distinguishing between different classes in the dataset.
 
