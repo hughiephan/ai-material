@@ -18,7 +18,7 @@ from imblearn.over_sampling import RandomOverSampler
 
 ## Step 2: Dataset
 
-Company Bankruptcy Predction Dataset is from https://www.kaggle.com/datasets/fedesoriano/company-bankruptcy-prediction . This dataset contains financial attributes of companies collected from the Taiwan Economic Journal for the years 1999 to 2009, with bankruptcy status defined based on the business regulations of the Taiwan Stock Exchange. Each entry includes 95 features, with 'Bankrupt?' serving as the class label denoting whether a company went bankrupt. Key attributes include various financial ratios such as Return on Assets (ROA), Gross Margin, Operating Profit Rate, Interest Rates, Tax Rates, Cash Flow, Revenue Per Share, Debt Ratios, Asset Turnover Rates, and various others. These features provide insights into the financial health, performance, and operational efficiency of companies.
+Company Bankruptcy Predction Dataset is from https://www.kaggle.com/datasets/fedesoriano/company-bankruptcy-prediction . This dataset contains financial attributes of companies collected from the Taiwan Economic Journal for the years 1999 to 2009, with bankruptcy status defined based on the business regulations of the Taiwan Stock Exchange. Each entry includes 95 features, with 'Bankrupt?' serving as the class label denoting whether a company went bankrupt. Key attributes include various financial ratios such as Return on Assets (ROA), Gross Margin, Operating Profit Rate, Interest Rates, Tax Rates, Cash Flow, Revenue Per Share, Debt Ratios, Asset Turnover Rates, and various others. These features provide insights into the financial health, performance, and operational efficiency of companies. To decrease the execution time of the SVC model, we will exclusively use the initial 15 features from the dataset and we'll also perform the standard procedure of splitting the dataset into training and test sets.
 
 ```python
 df = pd.read_csv('../input/company-bankruptcy-prediction/data.csv')
@@ -28,12 +28,18 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 ```
 
 ## Step 3: Sampling
+
+We use RandomOverSampler for random sampling to balance the number of instances in the bankrupt and non-bankrupt classes within the training set.
+
 ```python
 ros = RandomOverSampler()
 X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 ```
 
 ## Step 4: Approach 1 (Train with SVC)
+
+We use Support Vector Classifier (SVC) with the parameter `probability=True`, indicating that the classifier will predict probabilities for each class. Next, the classifier is trained using the resampled training data `X_train_resampled` and  `y_train_resampled`. After training, the model predicts the probabilities for the classes of the test set `X_test`. These predicted probabilities are then used to calculate the Receiver Operating Characteristic (ROC) curve. 
+
 ```python
 start_time = time.time()
 svm = SVC(probability=True)
