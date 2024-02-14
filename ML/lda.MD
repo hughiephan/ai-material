@@ -2,6 +2,8 @@
 
 ![Untitled-2023-07-31-0913](https://github.com/hughiephan/DPL/assets/16631121/f2a56402-2264-49f8-bff6-93c6e2855b56)
 
+Linear Discriminant Analysis (LDA) utilizes class labels in its computation, potentially resulting in improved class differentiation compared to unsupervised methods such as Principal Component Analysis (PCA). The lower-dimensional representation achieved through LDA is more interpretable than the initial feature space. However, LDA is limited in its ability to handle nonlinear relationships since it assumes linear associations between features and classes. If these relationships are nonlinear, LDA may fail to accurately capture the underlying patterns.
+
 ## Step 1: Import libraries
 ```python
 import time
@@ -77,3 +79,4 @@ plt.show()
 
 ## Reference
 - https://www.kaggle.com/code/houcembenmansour/bankruptcy-perdiction-99-67-f1-score
+- https://medium.com/aimonks/linear-discriminant-analysis-lda-in-machine-learning-example-concept-and-applications-37f27e7c7e98
