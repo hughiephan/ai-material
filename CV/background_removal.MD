@@ -43,6 +43,9 @@ _, binary_mask = cv2.threshold(np.uint8(np.absolute(edges)), threshold_value, 25
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9d5e5f5b-fd6f-4f3a-bd2c-8b4707e80e5d)
 
 ## Step 5: Result
+
+The bitwise operation `AND` is applied element-wise to the corresponding pixels of the two input images. In this case, the input images are both the original image. The binary mask `binary_mask` acts as a filter, determining which pixels from the original image should be retained based on their corresponding values in the mask. Pixels in the original image where the corresponding pixel in the mask is white `non-zero` will be preserved, while pixels where the mask is back `zero` will be set to zero in the output image. This effectively isolates the foreground regions of the original image based on the edges detected in the previous step, producing a new image representing only the foreground objects. 
+
 ```python
 foreground = cv2.bitwise_and(image, image, mask=binary_mask)
 ```
