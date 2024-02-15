@@ -2,7 +2,7 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/4340639d-5e19-434b-92bc-6a19309186c6)
 
-This tutorial will show how to use edges as a mask for background removal to preserve the foreground object through Sobel edge detection algorithms. Sobel can help highlight regions of significant intensity variation, representing edges of objects within the image. We will converts the edge image into a binary mask, where pixels representing edges are set to a specific value while others are suppressed, effectively isolates the edges of the foreground object. And finally we apply this binary mask to the original image using a bitwise AND operation to remove the background, leaving behind only the foreground object.
+Edge is used directly for image editing. It allows users to selectively remove edges corresponding to unwanted features such as specularities, shadows, or distracting visual elements. After reconstructing the image from the remaining edges, the undesirable visual features have been removed. This tutorial will show how to use edges as a mask for background removal to preserve the foreground object through Sobel edge detection algorithms. Sobel can help highlight regions of significant intensity variation, representing edges of objects within the image. We will converts the edge image into a binary mask, where pixels representing edges are set to a specific value while others are suppressed, effectively isolates the edges of the foreground object. And finally we apply this binary mask to the original image using a bitwise AND operation to remove the background, leaving behind only the foreground object.
 
 ## Step 1: Import libraries
 
