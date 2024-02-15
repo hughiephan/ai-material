@@ -21,7 +21,10 @@ image = np.array(Image.open(image_bytes))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/357b2e56-8eb2-4b86-8e0c-28d811128afd)
 
-## Step 3: 
+## Step 3: Pre-process image
+
+Edge detection uses image's intensity instead of full-range color image so we need to converts the input image from its original color space `RGB` to grayscale using the `cv2.cvtColor`. The image is converted to a single channel representing grayscale intensity. Then we apply Gaussian blur to the grayscale image using the `cv2.GaussianBlur()` to reduce image noise and smooth out details by convolving the image with a Gaussian kernel. In this case, the kernel size is set to (5, 5), indicating a 5x5 window, and the standard deviation is set to 0.
+
 ```python
 gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 smoothed_image = cv2.GaussianBlur(gray_image, (5, 5), 0)
