@@ -1,4 +1,4 @@
-# Lab: Face Detection
+# Face Detection
 
 Gain an understanding of the chosen face detection algorithm, such as Haar Cascade Classifiers or Convolutional Neural Networks (CNNs).
 
