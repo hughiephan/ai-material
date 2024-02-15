@@ -1,4 +1,4 @@
-# Counting coins with Hough 
+# Counting coins with Hough Transform
 
 ## Step 1: Import libraries
 
