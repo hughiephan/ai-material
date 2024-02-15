@@ -1,3 +1,5 @@
+# Background Removal with Edge Detection
+
 ## Step 1: Import libraries
 
 ```python
