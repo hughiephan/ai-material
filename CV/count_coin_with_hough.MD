@@ -25,7 +25,7 @@ image = np.array(Image.open(image_bytes))
 ![image](https://github.com/hughiephan/DPL/assets/16631121/77cd8149-3bce-433e-ac00-c13057a6dcec)
 
 ## Step 3: Pre-process image
-```
+```python
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (11, 11), 0)
 ```
