@@ -57,7 +57,7 @@ for (x, y, r) in circles:
 plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/8a8f2add-f0a5-43e2-86c5-18c650691697)
+![image](https://github.com/hughiephan/DPL/assets/16631121/dd9ead59-5aa0-42e0-aee7-1c73ee25f890)
 
 ## Optional commands
 ```python
