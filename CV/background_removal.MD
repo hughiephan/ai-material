@@ -41,7 +41,7 @@ foreground = cv2.bitwise_and(image, image, mask=binary_mask)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/a6a29d17-b3ac-40eb-8b02-3b812d3275bc)
 
 ## Optional:
-```
+```python
 plt.imshow(image)
 plt.imshow(smoothed_image, cmap='gray')
 plt.imshow(binary_mask, cmap='gray')
