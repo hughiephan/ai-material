@@ -9,6 +9,9 @@ from io import BytesIO
 ```
 
 ## Step 2: Download image
+
+Frist, we download the desired image from Imgur using the HTTP requests. The image's content is downloaded as bytes and then stored in a `BytesIO` object. Then we use `Image.open()` from the Python Imaging Library (PIL) to read the image data as numpy array.
+
 ```python
 url = 'https://i.imgur.com/RE1xBRe.png'
 response = requests.get(url)
