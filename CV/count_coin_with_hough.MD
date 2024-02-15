@@ -1,3 +1,5 @@
+# Coins counting with Hough 
+
 ## Step 1: Import libraries
 
 ```python
