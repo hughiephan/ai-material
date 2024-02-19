@@ -44,11 +44,11 @@ We use Support Vector Classifier (SVC) with the parameter `probability=True`, in
 start_time = time.time()
 svm = SVC(probability=True)
 svm.fit(X_train_resampled, y_train_resampled)
-y_pred_prob_svm = svm.predict_proba(X_test)
-fpr_svm, tpr_svm, _ = roc_curve(y_test, y_pred_prob_svm[:, 1])
-roc_auc_svm = auc(fpr_svm, tpr_svm)
+y_pred = svm.predict_proba(X_test)
+fpr, tpr, _ = roc_curve(y_test, y_pred[:, 1])
+roc_auc = auc(fpr, tpr)
 end_time = time.time()
-print("Time", end_time - start_time)
+print(end_time - start_time)
 ```
 
 Total run time of approach 1 should take around 40 seconds
