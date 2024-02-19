@@ -75,7 +75,7 @@ print("Run Time", end_time - start_time)
 
 After the you run, we can see that the total time is about 15 seconds
 
-## Step 6: Report
+## Step 6: Visualize
 ```python
 plt.plot(fpr_svm, tpr_svm, label='SVM (AUC = %0.2f)' % roc_auc_svm)
 plt.plot(fpr_svm_lda, tpr_svm_lda, label='SVM with LDA (AUC = %0.2f)' % roc_auc_svm_lda)
