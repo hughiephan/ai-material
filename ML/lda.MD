@@ -29,7 +29,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 ## Step 3: Sampling
 
-We use RandomOverSampler for random sampling to balance the number of instances in the bankrupt and non-bankrupt classes within the training set.
+We use RandomOverSampler for random sampling to balance the number of instances in the bankrupt and non-bankrupt classes within the training set. When using RandomOVerSampler, we use `fit(X, y)` to check inputs and statistics of the sampler and use `fit_resample(X, y)` to actually resample the dataset.
 
 ```python
 ros = RandomOverSampler()
