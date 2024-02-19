@@ -38,7 +38,7 @@ X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
 
 ## Step 4: Approach 1 (Train with SVC)
 
-We use Support Vector Classifier (SVC) with the parameter `probability=True`, indicating that the classifier will predict probabilities for each class. `probability=True` often go along side with `predict_proba()` to get probability estimates, if we want to get the class label, then we can set `probability=False` and use `predict()`. Next, the classifier is trained using the resampled training data `X_train_resampled` and  `y_train_resampled`. After training, the model predicts the probabilities for the classes of the test set `X_test`. These predicted probabilities are then used to calculate the Receiver Operating Characteristic (ROC) curve. 
+We use Support Vector Classifier (SVC) with the parameter `probability=True`, indicating that the classifier will predict probabilities for each class. `probability=True` often go along side with `predict_proba()` to get probability estimates, if we want to get the class label, then we can set `probability=False` and use `predict()`. Next, the classifier is trained using the resampled training data `X_train_resampled` and  `y_train_resampled`. After training, the model predicts the probabilities for the classes of the test set `X_test`. These predicted probabilities are then used to calculate the Receiver Operating Characteristic (ROC) curve. The `y_pred[:, 1]` is used to extract the predicted probabilities of the positive class as ROC only care about the Postive class.
 
 ```python
 start_time = time.time()
