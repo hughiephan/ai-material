@@ -90,6 +90,11 @@ Due to the curse of dimensionality, SVM with all 15 features resulted in a model
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/292d1232-1c03-42bb-a50e-60cf6f6037f4)
 
+## Optional commands:
+```
+y_train.value_counts() # Calculate the total value of each class 
+```
+
 ## Reference
 - https://www.kaggle.com/code/houcembenmansour/bankruptcy-perdiction-99-67-f1-score
 - https://medium.com/aimonks/linear-discriminant-analysis-lda-in-machine-learning-example-concept-and-applications-37f27e7c7e98
