@@ -61,9 +61,13 @@ _, binary_mask = cv2.threshold(np.uint8(np.absolute(edges)), threshold_value, 25
 
 ## Step 5: Foreground object
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/539e28dc-0a21-481c-9b1e-b4a474d5189e)
+Compares each bit of the first operand to the corresponding bit of the second operand. If both bits are 1, the corresponding result bit is set to 1. Otherwise, the corresponding result bit is set to 0
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/2702e4b5-8220-4617-9750-f62a8bfadbf6)
 
 The bitwise operation `AND` is applied element-wise to the corresponding pixels of the two input images. In this case, the input images are both the original image. The binary mask `binary_mask` acts as a filter, determining which pixels from the original image should be retained based on their corresponding values in the mask. Pixels in the original image where the corresponding pixel in the mask is white `non-zero` will be preserved, while pixels where the mask is back `zero` will be set to zero in the output image. This effectively isolates the foreground regions of the original image based on the edges detected in the previous step, producing a new image representing only the foreground objects. 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/213b65bf-ea8a-4bcb-a1a8-5ff15b10243f)
 
 ```python
 foreground = cv2.bitwise_and(image, image, mask=binary_mask)
@@ -80,4 +84,5 @@ plt.imshow(foreground)
 ```
 
 ## Reference
-- https://encord.com/blog/image-thresholding-image-processing/
+- https://encord.com/blog/image-thresholding-image-processing
+- https://omes-va.com/operadores-bitwise
