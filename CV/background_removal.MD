@@ -42,6 +42,8 @@ smoothed_image = cv2.GaussianBlur(gray_image, (5, 5), 0)
 
 `cv2.Sobel` calculates the gradient of the image intensity in both the horizontal and vertical directions. `CV_64FC3` is colored image with 3 channels but we are processing simple grayscale image and has only 1 channel so we will use `CV_64FC1` or `CV_64F`. With `CV_` is a prefix, `64` bit, and `F` is for float. `ksize=5` means that a 5x5 Sobel kernel will be used. With `1,1` indicate the First-Order derivative in x direction, and the First-Order derivative in the y direction.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/74fcd585-5e79-4d80-9ff0-ff8ab0208a54)
+
 ```python
 edges = cv2.Sobel(smoothed_image, cv2.CV_64F, 1, 1, ksize=5)
 ```
