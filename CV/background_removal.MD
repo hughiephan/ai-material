@@ -40,7 +40,7 @@ smoothed_image = cv2.GaussianBlur(gray_image, (5, 5), 0)
 
 ## Step 4: Object mask
 
-`cv2.Sobel` calculates the gradient of the image intensity in both the horizontal and vertical directions. `CV_64FC3` is colored image with 3 channels but we are processing simple grayscale image and has only 1 channel so we will use `CV_64FC1` or ``CV_64F`. With `CV_` is a prefix, and `64` is the pixel value in grayscale image, and `F` is for float.
+`cv2.Sobel` calculates the gradient of the image intensity in both the horizontal and vertical directions. `CV_64FC3` is colored image with 3 channels but we are processing simple grayscale image and has only 1 channel so we will use `CV_64FC1` or ``CV_64F`. With `CV_` is a prefix, `64` bit, and `F` is for float.
 
 ```python
 edges = cv2.Sobel(smoothed_image, cv2.CV_64F, 1, 1, ksize=5)
