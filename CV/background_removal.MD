@@ -59,7 +59,7 @@ _, binary_mask = cv2.threshold(np.uint8(np.absolute(edges)), threshold_value, 25
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9d5e5f5b-fd6f-4f3a-bd2c-8b4707e80e5d)
 
-## Step 5: Foreground object
+## Step 6: Foreground object with Bitwise-And
 
 Compares each bit of the first operand to the corresponding bit of the second operand. If both bits are 1, the corresponding result bit is set to 1. Otherwise, the corresponding result bit is set to 0
 
