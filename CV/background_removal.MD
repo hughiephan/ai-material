@@ -88,3 +88,4 @@ plt.imshow(foreground)
 ## Reference
 - https://encord.com/blog/image-thresholding-image-processing
 - https://omes-va.com/operadores-bitwise
+- https://stackoverflow.com/questions/19248926/difference-of-opencv-mat-types
