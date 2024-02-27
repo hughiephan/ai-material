@@ -1,14 +1,19 @@
-# PDDLSTREAM
+# Planning Multi-Robot Gym
 
-- Install https://visualstudio.microsoft.com/ja/visual-cpp-build-tools/
-- Following https://stackoverflow.com/questions/40504552/how-to-install-visual-c-build-tools
+- Install https://github.com/riiswa/planning-multi-robot-gym
 
 ```python
-pip install pybullet numpy scipy
 conda install -c anaconda git
 ```
 
 ```python
-git clone --recursive --branch main git@github.com:caelan/pddlstream.git
-git submodule update --init --recursive
+git clone https://github.com/riiswa/planning-multi-robot-gym
+cd planning-multi-robot-gym
+pip install -e .
 ```
+
+```python
+python example.py
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/e76fc7ca-2c8f-4103-a442-fa9c7292b279)
