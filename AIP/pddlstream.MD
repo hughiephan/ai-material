@@ -5,4 +5,10 @@
 
 ```python
 pip install pybullet numpy scipy
+conda install -c anaconda git
+```
+
+```python
+git clone --recursive --branch main git@github.com:caelan/pddlstream.git
+git submodule update --init --recursive
 ```
