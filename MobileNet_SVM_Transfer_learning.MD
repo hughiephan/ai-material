@@ -2,7 +2,7 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a1d96d3-02c4-4860-ab81-2cf07226a0df)
 
-Transfer learning is used for feature extraction. Pretrained MobileNet is loaded from Keras applications and used to get a feature vector for each image in the dataset. Then we use SVM for classifying.
+Using MobileNet's convolutional base, we extract high-dimensional feature vectors from input images, capturing crucial visual information. These features learned during MobileNet's training on datasets like ImageNet, provide rich representations of the images. Then, employing SVM, a robust classification algorithm, we learn to classify these feature vectors into multiple classes accurately. This approach combines MobileNet's efficiency in feature extraction with SVM's effectiveness in classification, offering a powerful solution for image classification tasks in resource-constrained environments.
 
 ## Step 1: Import libraries
 ```python
