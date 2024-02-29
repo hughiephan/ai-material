@@ -36,8 +36,7 @@ feature_extractor = tf.keras.Model(model.input, output)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
-Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. We will put the extracted features into `X` and the target label in `Y`. `class_mode` is set to `sparse` meaning that ["daisy", "dandelion", "rose", "sunflower", "tulip"] will be transformed into [0, 1, 2, 3, 4]
-
+Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. Next, ImageDataGenerator from Keras is created with the preprocessing function, making sure every image will be processed as the original MobileNet was trained on. We use `flow_from_directory` to specify the directory containing the image data, the target size of images (224x224 pixels), batch size (32), the classes. We will put the extracted features into X and the target label in Y. `class_mode` is set to sparse meaning that ["daisy", "dandelion", "rose", "sunflower", "tulip"] will be transformed into [0, 1, 2, 3, 4]
 
 ```python
 classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
