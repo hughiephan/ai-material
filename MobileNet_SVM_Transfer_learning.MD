@@ -28,8 +28,8 @@ model.summary()
 The output of `reshape_2` layer is a 1000 elements vector. MobileNet predictions layer takes this vector as input. We use this vector as our feature and try to do classification. A new model `feature_extractor` is created.
 
 ```python
-vector = model.get_layer("reshape_2").output
-feature_extractor = tf.keras.Model(model.input, vector)
+output = model.get_layer("reshape_2").output
+feature_extractor = tf.keras.Model(model.input, output)
 ```
 
 ## Step 4: Run Feature Extractor
