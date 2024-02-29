@@ -1,4 +1,4 @@
-# Transfer Learning with MobileNet + SVM 
+# Transfer Learning with MobileNet and SVM 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/1a1d96d3-02c4-4860-ab81-2cf07226a0df)
 
