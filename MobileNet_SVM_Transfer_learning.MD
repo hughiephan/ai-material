@@ -7,10 +7,11 @@ import os
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.applications.mobilenet import MobileNet, preprocess_input
-from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn import svm
+
 ```
 
 ## Step 2: Import Model
@@ -34,27 +35,29 @@ feature_extractor = tf.keras.Model(model.input, vector)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
-Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. We will put the extracted features into `X` and the target label in `Y`
+Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. We will put the extracted features into `X` and the target label in `Y`. `class_mode` is set to `sparse` meaning that ["daisy", "dandelion", "rose", "sunflower", "tulip"] will be transformed into [0, 1, 2, 3, 4]
 
 
 ```python
+classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
+datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
+data_generator = datagen.flow_from_directory(
+    "/kaggle/input/flowers-recognition/flowers",
+    target_size=(224, 224),
+    batch_size=32,
+    classes=classes,
+    class_mode='sparse'
+)
+
 X = []
 Y = []
-classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
-path = "/kaggle/input/flowers-recognition/flowers"
-for f in range(5):
-    folder_path = os.path.join('/kaggle/input/flowers-recognition/flowers', classes[f])
-    for file in os.listdir(folder_path):    
-        file_path = os.path.join(folder_path, file)
-        if not(file.endswith(".jpg")):
-            continue
-        img = image.load_img(file_path, target_size=(224,224))
-        img_arr = image.img_to_array(img)
-        img_arr_b = np.expand_dims(img_arr, axis=0)
-        input_img = preprocess_input(img_arr_b)
-        feature_vec = feature_extractor.predict(input_img)
-        X.append(feature_vec.ravel())
-        Y.append(f)
+for i in range(len(data_generator)):
+    batch_images, batch_labels = data_generator[i]
+    features = feature_extractor.predict(batch_images)
+    X.extend(features)
+    Y.extend(batch_labels)
+X = np.array(X)
+Y = np.array(Y)
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/94cbceba-2e7a-4f98-a072-90f5c2008a01)
 
