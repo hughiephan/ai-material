@@ -61,7 +61,7 @@ y = np.array(y)
 ```
 
 ## Step 5: Train Test Split
-`X` and y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`.
+Split our extracted features into train and test sets using `train_test_split` with the 80% for train and 20% for test.
 
 ```python
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2)
