@@ -32,15 +32,15 @@ feature_extractor = tf.keras.Model(model.input, vector)
 
 ## Step 4: Run Feature Extract
 
-Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. 
+Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. We will put the extracted features into `X` and the target label in `Y`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
 ```python
-classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
-path = "/kaggle/input/flowers-recognition/flowers"
 X = []
 Y = []
+classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
+path = "/kaggle/input/flowers-recognition/flowers"
 for f in range(5):
     folder_path = os.path.join('/kaggle/input/flowers-recognition/flowers', classes[f])
     for file in os.listdir(folder_path):    
