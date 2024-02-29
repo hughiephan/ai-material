@@ -67,10 +67,10 @@ Looking at the first layer of `model.summary()` you can see it's expecting data 
 
 ## Step 5: Train Test Split
 `X` and y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`.
+
 ```python
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2)
 ```
-![image](https://github.com/hughiephan/DPL/assets/16631121/ae440bdc-2be2-4b9d-b992-2117ee82a170)
 
 ## Step 6: Make predictions with SVM
 ```python
