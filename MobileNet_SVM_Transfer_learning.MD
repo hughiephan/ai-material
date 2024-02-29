@@ -11,7 +11,6 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn import svm
-
 ```
 
 ## Step 2: Import Model
@@ -50,14 +49,14 @@ data_generator = datagen.flow_from_directory(
 )
 
 X = []
-Y = []
+y = []
 for i in range(len(data_generator)):
     batch_images, batch_labels = data_generator[i]
     features = feature_extractor.predict(batch_images)
     X.extend(features)
-    Y.extend(batch_labels)
+    y.extend(batch_labels)
 X = np.array(X)
-Y = np.array(Y)
+y = np.array(y)
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/94cbceba-2e7a-4f98-a072-90f5c2008a01)
 
@@ -66,19 +65,17 @@ Looking at the first layer of `model.summary()` you can see it's expecting data 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef2c9233-602b-4c73-a57f-43c869d771cf)
 
 ## Step 5: Train Test Split
-`X` and `Y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`.
+`X` and y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`.
 ```python
-X = np.asarray(X, dtype=np.float32)
-Y = np.asarray(Y, dtype=np.float32)
-train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2)
+train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2)
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ae440bdc-2be2-4b9d-b992-2117ee82a170)
 
 ## Step 6: Make predictions with SVM
 ```python
 svm_model = svm.SVC(C=1.0)
-svm_model.fit(train_X, train_Y)
+svm_model.fit(train_X, train_y)
 y_pred = svm_model.predict(test_X)
-print(classification_report(test_Y, y_pred,target_names=classes))
+print(classification_report(test_y, y_pred,target_names=classes))
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/adaa6b93-7a3b-428e-8167-ce224e2938e3)
