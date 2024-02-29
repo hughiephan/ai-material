@@ -41,7 +41,7 @@ classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
 path = "/kaggle/input/flowers-recognition/flowers"
 X = []
 Y = []
-for f in range(5): # Flowers folder have 5 classes
+for f in range(5):
     folder_path = os.path.join('/kaggle/input/flowers-recognition/flowers', classes[f])
     for file in os.listdir(folder_path):    
         file_path = os.path.join(folder_path, file)
