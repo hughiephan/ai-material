@@ -22,7 +22,7 @@ model.summary()
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/69cb2019-a45f-4a36-aa85-dbaedcd01d08)
 
-## Step 3: Feature Extractor
+## Step 3: Define Feature Extractor
 The output of `reshape_2` layer is a 1000 elements vector. MobileNet predictions layer takes this vector as input. We use this vector as our feature and try to do classification. A new model `feature_extractor` is created.
 
 ```python
@@ -30,7 +30,7 @@ vector = model.get_layer("reshape_2").output
 feature_extractor = tf.keras.Model(model.input, vector)
 ```
 
-## Step 4: Run Feature Extract
+## Step 4: Run Feature Extractor
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
@@ -51,10 +51,10 @@ data_generator = datagen.flow_from_directory(
 X = []
 y = []
 for i in range(len(data_generator)):
-    batch_images, batch_labels = data_generator[i]
-    features = feature_extractor.predict(batch_images)
+    images, labels = data_generator[i]
+    features = feature_extractor.predict(images)
     X.extend(features)
-    y.extend(batch_labels)
+    y.extend(labels)
 X = np.array(X)
 y = np.array(y)
 ```
