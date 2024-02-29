@@ -3,7 +3,6 @@ Transfer learning is used for feature extraction. Pretrained MobileNet is loaded
 
 ## Step 1: Import libraries
 ```python
-import os
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.applications.mobilenet import MobileNet, preprocess_input
