@@ -1,6 +1,6 @@
 # Transfer Learning with MobileNet and SVM 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/1a1d96d3-02c4-4860-ab81-2cf07226a0df)
+![image](https://github.com/hughiephan/DPL/assets/16631121/7a8e7915-d77d-4b59-aef8-f6830dab245b)
 
 Using MobileNet's convolutional base, we extract high-dimensional feature vectors from input images, capturing crucial visual information. These features learned during MobileNet's training on datasets like ImageNet, provide rich representations of the images. Then, employing SVM, a robust classification algorithm, we learn to classify these feature vectors into multiple classes accurately. This approach combines MobileNet's efficiency in feature extraction with SVM's effectiveness in classification, offering a powerful solution for image classification tasks in resource-constrained environments.
 
