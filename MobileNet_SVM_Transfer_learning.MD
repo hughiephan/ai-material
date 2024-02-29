@@ -13,16 +13,8 @@ from sklearn.metrics import classification_report
 from sklearn import svm
 ```
 
-## Step 2: Import Dataset
-Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name
-```python
-classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
-path = "/kaggle/input/flowers-recognition/flowers"
-```
-![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
-
-## Step 3: Import Model
-MobileNet is an efficient and portable CNN architecture. Because of the small size of the model, these models are considered very useful to be implemented on mobile and embedded devices. While a VGG16 model can take up to 500 MB of disk space, MobileNet just needs 16–18MB. This makes it ideal to be loaded on mobile devices. Having `include_top=True` means that a fully-connected layer will be added at the end of the model
+## Step 2: Import Model
+MobileNet is an efficient and portable CNN architecture. Because of the small size of the model, these models are considered very useful to be implemented on mobile and embedded devices. While a VGG16 model can take up to 500 MB of disk space, MobileNet only needs 16–18MB. This makes it ideal to be loaded on mobile devices. Having `include_top=True` means that a fully-connected layer will be added at the end of the model
 
 ```python
 model = MobileNet(input_shape=(224,224,3), include_top=True)
@@ -30,22 +22,27 @@ model.summary()
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/69cb2019-a45f-4a36-aa85-dbaedcd01d08)
 
-## Step 4: Feature Extractor
-The output of reshape_2 layer is a 1000 elements vector. MobileNet predictions layer takes this vector as input. We use this vector as our feature and try to do classification. A new model `feature_extractor` is created.
+## Step 3: Feature Extractor
+The output of `reshape_2` layer is a 1000 elements vector. MobileNet predictions layer takes this vector as input. We use this vector as our feature and try to do classification. A new model `feature_extractor` is created.
 
 ```python
 vector = model.get_layer("reshape_2").output
 feature_extractor = tf.keras.Model(model.input, vector)
 ```
 
-## Step 5: Run Feature Extract
-All files in 5 folders are scanned one by one. There are some non-image files in dataset folders. Extension of each file is checked and file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array and preprocessed. Then, feature_extractor takes image and produces corresponding feature vector. 
+## Step 4: Run Feature Extract
+
+Flowers Recognition dataset https://www.kaggle.com/datasets/alxmamaev/flowers-recognition will be used. In this dataset, there are 5 classes: daisy, dandelion, rose, sunflower, and tulip. Images belonging to a specific class are collected in the corresponding folder name. All files in 5 folders are scanned one by one. There are some non-image files in the dataset folders. The extension of each file is checked and the file is skipped if its extension is not jpg. Images are read, resized, converted to numpy array, and preprocessed. Then, feature_extractor takes an image and produces the corresponding feature vector. 
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d80667e4-4aa5-4ad9-90fc-4fa6db7a2e38)
 
 ```python
+classes = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
+path = "/kaggle/input/flowers-recognition/flowers"
 X = []
 Y = []
 for f in range(5): # Flowers folder have 5 classes
-    folder_path = os.path.join(path, classes[f])
+    folder_path = os.path.join('/kaggle/input/flowers-recognition/flowers', classes[f])
     for file in os.listdir(folder_path):    
         file_path = os.path.join(folder_path, file)
         if not(file.endswith(".jpg")):
@@ -64,7 +61,7 @@ Looking at the first layer of `model.summary()` you can see it's expecting data 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ef2c9233-602b-4c73-a57f-43c869d771cf)
 
-## Step 6: Train Test Split
+## Step 5: Train Test Split
 `X` and `Y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`. We want stratified splits with same class distributions.
 ```python
 X = np.asarray(X, dtype=np.float32)
@@ -73,7 +70,7 @@ train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2, stratif
 ```
 ![image](https://github.com/hughiephan/DPL/assets/16631121/ae440bdc-2be2-4b9d-b992-2117ee82a170)
 
-## Step 7: Make prediction with SVM
+## Step 6: Make predictions with SVM
 ```python
 svm_model = svm.SVC(C=1.0, kernel="rbf")
 svm_model.fit(train_X, train_Y)
