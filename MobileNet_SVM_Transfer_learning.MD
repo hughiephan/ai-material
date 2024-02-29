@@ -59,11 +59,6 @@ for i in range(len(data_generator)):
 X = np.array(X)
 y = np.array(y)
 ```
-![image](https://github.com/hughiephan/DPL/assets/16631121/94cbceba-2e7a-4f98-a072-90f5c2008a01)
-
-Looking at the first layer of `model.summary()` you can see it's expecting data in this format `[(None, 224, 224, 3)]` so we need to add 1 more dimension by `np.expand_dims(img_arr, axis=0)`, after that the image will transform from `(224, 224, 3)` into `(1, 224, 224, 3)`.
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/ef2c9233-602b-4c73-a57f-43c869d771cf)
 
 ## Step 5: Train Test Split
 `X` and y` Lists are converted to numpy arrays. Then further split them into train and test sets using `train_test_split`.
