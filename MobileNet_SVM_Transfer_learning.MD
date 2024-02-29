@@ -76,7 +76,7 @@ train_X, test_X, train_Y, test_Y = train_test_split(X, Y, test_size=0.2)
 
 ## Step 6: Make predictions with SVM
 ```python
-svm_model = svm.SVC(C=1.0, kernel="rbf")
+svm_model = svm.SVC(C=1.0)
 svm_model.fit(train_X, train_Y)
 y_pred = svm_model.predict(test_X)
 print(classification_report(test_Y, y_pred,target_names=classes))
