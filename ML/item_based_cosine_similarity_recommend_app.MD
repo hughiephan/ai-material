@@ -46,7 +46,7 @@ def recommend(items, input_items, num_recommendations=5):
     return similar_items[:num_recommendations]
 
 with open("model.pkl", "wb") as file:
-    pickle.dump((grouped_items, recommend), file)
+    pickle.dump(grouped_items, file)
 ```
 
 ## Requirements.txt
