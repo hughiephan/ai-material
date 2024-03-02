@@ -63,3 +63,10 @@ def recommendation_interface(input_items):
 iface = gr.Interface(fn=recommendation_interface, inputs=gr.Textbox(lines=5, label="Input Items"), outputs="text")
 iface.launch()
 ```
+
+```python
+import pickle
+
+with open("model.pkl", "wb") as file:
+    pickle.dump((grouped_items), file)
+```
