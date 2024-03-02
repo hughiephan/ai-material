@@ -78,7 +78,7 @@ scikit-learn
         left: 50%;
         display: inline-block;
         max-width: 100%;
-        width: auto;
+        width: 400px;
         margin: 50px auto 25px;
         padding: 20px 0;
         clear: both;
@@ -92,7 +92,6 @@ scikit-learn
         display: flex;
         -ms-align-items: flex-start;
         align-items: flex-start;
-
         padding: 30px 30px 45px;
         background: #fff;
         border-top-right-radius: 5px;
@@ -330,7 +329,7 @@ scikit-learn
         </div>
 
         <div class="paypal__footer">
-            Recommend item
+            Pick an item for recommendation
         </div>
     </div>
 
@@ -338,7 +337,7 @@ scikit-learn
 
 </html>
 
-<script>
+<script type="module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.12.0/dist/index.min.js";
 
     var itemsList = [
@@ -374,10 +373,17 @@ scikit-learn
         var item2 = document.querySelector('.paypal__cart-item:nth-child(2) .paypal__item-name').textContent;
         var itemsArray = [item1, item2, selectedItem];
 
-        const app = await client("https://hughiephan-rnn-reviewbot.hf.space");
+        const app = await client("https://hughiephan-item-based-cosine-similarity-recommend.hf.space");
         const result = await app.predict("/predict", [
             itemsArray,
         ]);
+
+        const arrayResult = JSON.parse(result.data[0].replace(/'/g, '"'));
+        var parsedDataContainer = document.createElement('div');
+        parsedDataContainer.innerHTML = arrayResult.join(', ');
+        var footerElement = document.querySelector('.paypal__footer');
+        footerElement.innerHTML = 'Recommend item: ';
+        footerElement.appendChild(parsedDataContainer);
     });
 </script>
 ```
