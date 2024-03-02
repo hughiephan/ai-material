@@ -392,6 +392,17 @@ from sklearn.metrics.pairwise import cosine_similarity
 with open("model.pkl", "rb") as file:
     grouped_items = pickle.load(file)
 
+def compute_item_vectors(items):
+    all_items = set()
+    for sublist in items:
+        all_items.update(sublist)
+    all_items = sorted(list(all_items))
+    vectors = []
+    for sublist in items:
+        vector = [1 if item in sublist else 0 for item in all_items]
+        vectors.append(vector)
+    return np.array(vectors), all_items
+
 def recommend(items, input_items, num_recommendations=5):
     item_vectors, all_items = compute_item_vectors(items)
     item_to_index = {item: i for i, item in enumerate(all_items)}
