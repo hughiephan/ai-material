@@ -32,7 +32,7 @@ def compute_item_vectors(items):
         vectors.append(vector)
     return np.array(vectors), all_items
 
-def recommend_items(items, input_items, num_recommendations=5):
+def recommend(items, input_items, num_recommendations=5):
     item_vectors, all_items = compute_item_vectors(items)
     item_to_index = {item: i for i, item in enumerate(all_items)}
     index_to_item = {i: item for item, i in item_to_index.items()}
@@ -51,7 +51,7 @@ def recommend_items(items, input_items, num_recommendations=5):
 ```python
 grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 input_items = ['Perrie trash']
-recommended_items = recommend_items(grouped_items, input_items)
+recommended_items = recommend(grouped_items, input_items)
 print(f"Recommended items for {input_items}: {recommended_items}")
 ```
 
@@ -65,14 +65,14 @@ iface.launch()
 ```
 
 ```python
-with open("recommendation_model.pkl", "wb") as file:
-    pickle.dump((grouped_items, recommend_items), file)
+with open("model.pkl", "wb") as file:
+    pickle.dump((grouped_items, recommend), file)
 ```
 
 ```python
 import pickle
 
 # Load grouped_items and recommend_items function
-with open("recommendation_model.pkl", "rb") as file:
-    grouped_items, recommend_items = pickle.load(file)
+with open("model.pkl", "rb") as file:
+    grouped_items, recommend = pickle.load(file)
 ```
