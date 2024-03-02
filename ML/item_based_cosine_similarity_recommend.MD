@@ -398,7 +398,7 @@ with open("model.pkl", "rb") as file:
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c524c0dc-006e-4c84-989c-d83562b6b982)
 
 ## Step: app.py
-```
+```python
 import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 
