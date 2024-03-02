@@ -1,5 +1,6 @@
 ```python
 !pip install gradio
+import pickle
 import pandas as pd
 import cv2, matplotlib.pyplot as plt
 import pandas as pd
@@ -55,24 +56,34 @@ recommended_items = recommend(grouped_items, input_items)
 print(f"Recommended items for {input_items}: {recommended_items}")
 ```
 
-```python
-def recommendation_interface(input_items):
-    recommended_items = recommend_items(grouped_items, input_items)
-    return recommended_items
-
-iface = gr.Interface(fn=recommendation_interface, inputs=gr.Textbox(lines=5, label="Input Items"), outputs="text")
-iface.launch()
-```
+## Save model
 
 ```python
 with open("model.pkl", "wb") as file:
     pickle.dump((grouped_items, recommend), file)
 ```
 
+## Step: Open model
 ```python
-import pickle
-
-# Load grouped_items and recommend_items function
 with open("model.pkl", "rb") as file:
     grouped_items, recommend = pickle.load(file)
+```
+
+## Step: app.py
+```
+import pickle
+
+with open("model.pkl", "rb") as file:
+    grouped_items, recommend = pickle.load(file)
+
+def recommend_interface(input_items):
+    recommended_items = recommend(grouped_items, input_items)
+    return recommended_items
+
+iface = gr.Interface(fn=recommend_interface, 
+                     inputs=gr.inputs.Textbox(lines=5, label="Input items separated by comma"), 
+                     outputs="text",
+                     title="Fashion Item Recommendation",
+                     description="Enter a list of fashion items separated by comma to get recommendations.")
+iface.launch()
 ```
