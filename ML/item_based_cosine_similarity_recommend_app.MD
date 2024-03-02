@@ -49,6 +49,8 @@ with open("model.pkl", "wb") as file:
     pickle.dump(grouped_items, file)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/8b66ed95-42e9-46ff-a85e-6e2490694360)
+
 ## Requirements.txt
 
 ```
