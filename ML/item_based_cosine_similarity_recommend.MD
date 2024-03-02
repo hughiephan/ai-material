@@ -57,17 +57,4 @@ recommended_items = recommend(grouped_items, input_items)
 print(f"Recommended items for {input_items}: {recommended_items}")
 ```
 
-## Save model
-
-```python
-with open("model.pkl", "wb") as file:
-    pickle.dump((grouped_items, recommend), file)
-```
-
-## Step: Open model
-```python
-with open("model.pkl", "rb") as file:
-    grouped_items, recommend = pickle.load(file)
-```
-
 
