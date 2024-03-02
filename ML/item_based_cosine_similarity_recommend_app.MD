@@ -1,5 +1,20 @@
 ## Frontend
 
+
+## Save model
+
+```python
+with open("model.pkl", "wb") as file:
+    pickle.dump((grouped_items, recommend), file)
+```
+
+## Step: Open model
+```python
+with open("model.pkl", "rb") as file:
+    grouped_items, recommend = pickle.load(file)
+```
+
+
 ```html
 <style>
     html,
