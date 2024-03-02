@@ -47,10 +47,11 @@ def recommend(items, input_items, num_recommendations=5):
     similar_indices = similarities.argsort()[::-1]  # Sort in descending order
     similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
     return similar_items[:num_recommendations]
+
+grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 ```
 
 ```python
-grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 input_items = ['Perrie trash']
 recommended_items = recommend(grouped_items, input_items)
 print(f"Recommended items for {input_items}: {recommended_items}")
