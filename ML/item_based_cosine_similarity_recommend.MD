@@ -6,6 +6,7 @@ import cv2, matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import gradio as gr
+import ast
 from os.path import exists
 from sklearn.metrics.pairwise import cosine_similarity
 ```
@@ -34,6 +35,7 @@ def compute_item_vectors(items):
     return np.array(vectors), all_items
 
 def recommend(items, input_items, num_recommendations=5):
+    input_items = ast.literal_eval(input_items)
     item_vectors, all_items = compute_item_vectors(items)
     item_to_index = {item: i for i, item in enumerate(all_items)}
     index_to_item = {i: item for item, i in item_to_index.items()}
