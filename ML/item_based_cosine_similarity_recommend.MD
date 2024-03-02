@@ -65,8 +65,14 @@ iface.launch()
 ```
 
 ```python
+with open("recommendation_model.pkl", "wb") as file:
+    pickle.dump((grouped_items, recommend_items), file)
+```
+
+```python
 import pickle
 
-with open("model.pkl", "wb") as file:
-    pickle.dump((grouped_items), file)
+# Load grouped_items and recommend_items function
+with open("recommendation_model.pkl", "rb") as file:
+    grouped_items, recommend_items = pickle.load(file)
 ```
