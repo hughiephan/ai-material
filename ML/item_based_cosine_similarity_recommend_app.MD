@@ -14,7 +14,13 @@ with open("model.pkl", "rb") as file:
     grouped_items, recommend = pickle.load(file)
 ```
 
+## Requirements.txt
 
+```
+scikit-learn
+```
+
+## Frontend
 ```html
 <style>
     html,
