@@ -400,6 +400,7 @@ with open("model.pkl", "rb") as file:
 ## Step: app.py
 ```python
 import pickle
+import gradio as gr
 from sklearn.metrics.pairwise import cosine_similarity
 
 with open("model.pkl", "rb") as file:
