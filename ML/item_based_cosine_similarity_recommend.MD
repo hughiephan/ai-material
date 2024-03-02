@@ -400,16 +400,33 @@ with open("model.pkl", "rb") as file:
 ## Step: app.py
 ```
 import pickle
+from sklearn.metrics.pairwise import cosine_similarity
 
 with open("model.pkl", "rb") as file:
-    grouped_items, recommend = pickle.load(file)
+    grouped_items = pickle.load(file)
+
+def recommend(items, input_items, num_recommendations=5):
+    item_vectors, all_items = compute_item_vectors(items)
+    item_to_index = {item: i for i, item in enumerate(all_items)}
+    index_to_item = {i: item for item, i in item_to_index.items()}
+    input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
+    if not input_indices:
+        print("None of the input items found.")
+        return []
+    input_vectors = item_vectors[:, input_indices]
+    aggregated_vector = np.sum(input_vectors, axis=1)
+    similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
+    similar_indices = similarities.argsort()[::-1]  # Sort in descending order
+    similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
+    return similar_items[:num_recommendations]
+
 
 def recommend_interface(input_items):
     recommended_items = recommend(grouped_items, input_items)
     return recommended_items
 
 iface = gr.Interface(fn=recommend_interface, 
-                     inputs=gr.inputs.Textbox(lines=5, label="Input items separated by comma"), 
+                     inputs=gr.Textbox(lines=5, label="Input items separated by comma"), 
                      outputs="text",
                      title="Fashion Item Recommendation",
                      description="Enter a list of fashion items separated by comma to get recommendations.")
