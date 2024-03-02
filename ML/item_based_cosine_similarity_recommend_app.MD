@@ -1,4 +1,4 @@
-## Frontend
+## Item based Cosine Similarity Recommendation
 
 
 ## Save model
