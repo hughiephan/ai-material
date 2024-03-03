@@ -4,9 +4,13 @@ Train a SVM for an AI task
 
 ## Requirements
 
-Choose `ONE AI task` of your choice: Image Classification, Text Classification, Recognition, Healthcare, Financial Forecasting... with `ONE Dataset` of your choice and apply SVM.
-
-Example: AI Task: `Fraud Detection`. Dataset: `Credit Card Dataset`
+Requirement 1: Choose a SVM with any Kernel of your choice. While not obligatory, opting for either from-scratch implementation or using advanced techniques from a research paper will receive higher evaluation.
+Requirement 2: Choose a Machine Learning Task of your choice: Regression, Classification
+Requirement 3: Choose any dataset of your choice
+Requirement 4: Apply EDA and Pre-processing. Your extracted features, plots, or insights need to be directly related to why it helps your SVM Algorithm peform better
+Requirement 5: Train and Predict with your SVM
+Requirement 6: Evaluate your SVM
+Requirement 7: Evaluate your SVM with another algorithm or from a different kernel and explain why one is better or worse.
 
 ## Scoring Criteria
 
