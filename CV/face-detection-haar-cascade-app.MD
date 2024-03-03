@@ -2,6 +2,20 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5bb795e4-a863-4686-9ece-f17836b8797d)
 
+## Step 1: Hugging Face Space
+
+Access https://huggingface.co
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/90ccae8d-7b8f-4673-bf69-9ac6bc0055e1)
+
+## Step 2: Create new space
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/6f2c2416-623c-43a8-be9e-076781071bd2)
+
+## Step 3: Create files
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/2243df05-1b9e-4655-be50-a807b233e579)
+
 ## App.py
 ```python
 import numpy as np
