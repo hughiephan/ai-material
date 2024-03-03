@@ -48,9 +48,18 @@ iface.launch()
 ```
 
 ## Requirements.txt
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/c1b357f2-8099-4d70-9ea9-cd41ed457301)
+
 ```
 opencv-python
 ```
+
+## Run
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/05280682-042a-4dd8-ad00-ecbc35edcd3e)
+
+## Result
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f1ee2-b862-415c-b4a5-608d77bac72a)
 
