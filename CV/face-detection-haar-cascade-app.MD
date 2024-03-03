@@ -17,6 +17,9 @@ Access https://huggingface.co
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2243df05-1b9e-4655-be50-a807b233e579)
 
 ## App.py
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
+
 ```python
 import numpy as np
 import cv2
