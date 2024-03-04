@@ -18,6 +18,8 @@ Add your space name: `Face Detection` or any other name you like. The owner will
 
 ## Step 3: How to create files
 
+After you click on the `Files`, it will take you to your Space codebase. You can see it is similar to Github as they are both using Git for version control of the codebase. The default files are `.gitattributes` and `README.md`. The way you can add the Haar Cascade code or any other Deep Learning model is by clicking on `Add file`, then `Create a new file`
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2243df05-1b9e-4655-be50-a807b233e579)
 
 ## Step 4: Create App.py
