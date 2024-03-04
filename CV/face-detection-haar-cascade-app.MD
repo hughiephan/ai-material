@@ -90,7 +90,7 @@ Make sure that our space's folder structure looks like this
 
 ## Step 8: Get prediction
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f1ee2-b862-415c-b4a5-608d77bac72a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/27618bfd-515f-4d97-a641-9797e58f79f1)
 
 ## Optional: Notebook
 
