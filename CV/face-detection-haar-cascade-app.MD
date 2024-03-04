@@ -1,5 +1,7 @@
 ## Face Detection with Haar Cascade Application
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/540bac90-4412-462e-918a-d328ca5e0286)
+
 ## Step 1: Hugging Face Space
 
 Access https://huggingface.co , then click on `New` and `Space` to create an interactive ML demo for our Face Detection
@@ -67,3 +69,5 @@ Make sure that our space's folder structure looks like this
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f1ee2-b862-415c-b4a5-608d77bac72a)
 
+## Reference
+- https://becominghuman.ai/face-detection-using-opencv-with-haar-cascade-classifiers-941dbb25177
