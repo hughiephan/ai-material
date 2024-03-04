@@ -90,5 +90,27 @@ Make sure that our space's folder structure looks like this
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f1ee2-b862-415c-b4a5-608d77bac72a)
 
+## Optional: Notebook
+
+You can run the following code on any Notebook to test 
+
+```python
+import requests
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+from io import BytesIO
+from PIL import Image
+url = 'https://neurohive.io/wp-content/uploads/2023/08/ai-photo-enhancing-scaled.jpeg'
+response = requests.get(url)
+image = np.array(Image.open(BytesIO(response.content)))
+gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+for (x, y, w, h) in faces:
+    cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+plt.imshow(image)
+```
+
 ## Reference
 - https://becominghuman.ai/face-detection-using-opencv-with-haar-cascade-classifiers-941dbb25177
