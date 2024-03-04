@@ -1,6 +1,6 @@
 ## Face Detection with Haar Cascade Application
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/540bac90-4412-462e-918a-d328ca5e0286)
+![image](https://github.com/hughiephan/DPL/assets/16631121/59dae5c4-00de-4545-bbc1-c3be273fcca6)
 
 ## Step 1: Hugging Face Space
 
