@@ -22,9 +22,9 @@ After you click on the `Files`, it will take you to your Space codebase. You can
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2243df05-1b9e-4655-be50-a807b233e579)
 
-## Step 4: Create App.py
+## Step 4: Create app.py
 
-Name the file `App.py` and copy the below Haar Cascade code into it. Finally, press on `Commit new file to main` to save the file. 
+Name the file `app.py` and copy the below Haar Cascade code into it. Finally, press on `Commit new file to main` to save the file. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
 
@@ -62,13 +62,13 @@ interface = gr.Interface(
 interface.launch()
 ```
 
-## Step 5: Create Requirements.txt
+## Step 5: Create requirements.txt
 
-As our code is using `cv2`, we need to install the `opencv-python` library.
+Create a new file and name it `requirements.txt`. As our code is using `cv2`, we need to install the `opencv-python` library.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c1b357f2-8099-4d70-9ea9-cd41ed457301)
 
-Copy this code into requirements.txt
+Copy the below line into `requirements.txt`
 
 ```
 opencv-python
