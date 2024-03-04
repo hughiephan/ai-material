@@ -1,6 +1,8 @@
 ## Face Detection with Haar Cascade Application
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/59dae5c4-00de-4545-bbc1-c3be273fcca6)
+![image](https://github.com/hughiephan/DPL/assets/16631121/b11d9e21-8cd7-4c2b-81e5-56fa00e3d7a7)
+
+Haar features are just like our convolutional kernel. Each feature is a single value obtained by subtracting the sum of pixels under the white rectangle from the sum of pixels under the black rectangle. The first feature selected focuses on the property that the region of the eyes is often darker than the region of the nose and cheeks. The second feature selected relies on the property that the eyes are darker than the bridge of the nose. 
 
 ## Step 1: Hugging Face Space
 
