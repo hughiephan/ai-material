@@ -86,7 +86,7 @@ Make sure that our space's folder structure looks like this
 
 ## Step 7: Run demo
 
-Upload a image and press `Submit`
+We need to go to the `App` tab to see the interface of the Gradio. In this tab, upload a image and press `Submit` to run our demo.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/05280682-042a-4dd8-ad00-ecbc35edcd3e)
 
