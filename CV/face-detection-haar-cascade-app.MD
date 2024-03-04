@@ -8,9 +8,11 @@ Haar features are just like our convolutional kernel. Each feature is a single v
 
 Access https://huggingface.co , then click on `New` and `Space` to create an interactive ML demo for our Face Detection
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/90ccae8d-7b8f-4673-bf69-9ac6bc0055e1)
+![image](https://github.com/hughiephan/DPL/assets/16631121/88579fdd-21a4-4d91-8637-ab9f8e49f8cd)
 
 ## Step 2: Create space
+
+Add your space name: `Face Detection` or any other name you like. The owner will be your Hugging Face username, and leave the License field empty. After that, we will choose Gradio as the interface for our demo. We also set the Space Hardware to the FREE CPU basic and set it to the public so it can be accessed by everyone. If you don't want any to use your application, you can also set it to private.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6f2c2416-623c-43a8-be9e-076781071bd2)
 
