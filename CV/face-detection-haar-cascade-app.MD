@@ -24,6 +24,8 @@ After you click on the `Files`, it will take you to your Space codebase. You can
 
 ## Step 4: Create App.py
 
+Name the file `App.py` and copy the below Haar Cascade code into it. Finally, press on `Commit new file to main` to save the file. 
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
 
 ```python
