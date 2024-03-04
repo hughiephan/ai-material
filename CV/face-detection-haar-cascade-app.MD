@@ -48,8 +48,7 @@ def detect_faces(image):
     faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         cv2.rectangle(image_np, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    image_with_boxes = cv2.cvtColor(image_np, cv2.COLOR_GRAY2RGB)
-    return image_with_boxes
+    return image_np
 ```
 
 Using the `gr.Interface` from the gradio library to create a web-based interface for our Haar Cascade Face Detection. Upon instantiation, the interface is configured with parameters specifying that the `detect_faces` function will process input images and produce output images. Upon launching the interface, users are presented with a web page where they can upload an image and receive the identified faces with bounding boxes outlining them. 
