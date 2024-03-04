@@ -2,8 +2,8 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b11d9e21-8cd7-4c2b-81e5-56fa00e3d7a7)
 
-Haar features are just like our convolutional kernel. Each feature is a single value obtained by subtracting the sum of pixels under the white rectangle from the sum of pixels under the black rectangle. The first feature selected focuses on the property that the region of the eyes is often darker than the region of the nose and cheeks. The second feature selected relies on the property that the eyes are darker than the bridge of the nose. The main idea of Haar Cascade is to use Adaboost with Cascade of Classifiers but it will not be discussed in depth here. You can read more about it here https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
-`
+Haar features are just like our convolutional kernel. Each feature is a single value obtained by subtracting the sum of pixels under the white rectangle from the sum of pixels under the black rectangle. The first feature selected focuses on the property that the region of the eyes is often darker than the region of the nose and cheeks. The second feature selected relies on the property that the eyes are darker than the bridge of the nose. The main idea of Haar Cascade is to use Adaboost with Cascade of Classifiers but it will not be discussed in depth here. You can read more about it here `https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html`
+
 ## Prerequisites:
 - Create a new account at `https://huggingface.co/join`. You can watch this tutorial on how to create a new Hugging Face account: `https://www.youtube.com/watch?v=Hgqi28ffeBY`
 
