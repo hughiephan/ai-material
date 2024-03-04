@@ -116,5 +116,7 @@ for (x, y, w, h) in faces:
 plt.imshow(image)
 ```
 
+Instead of using Gradio, you can experiment with different technologies like FastAPI, Flask, HTML+CSS+Javascript, or ReactJS to build your application.
+
 ## Reference
 - https://becominghuman.ai/face-detection-using-opencv-with-haar-cascade-classifiers-941dbb25177
