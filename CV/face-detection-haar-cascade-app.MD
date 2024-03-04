@@ -49,15 +49,17 @@ def detect_faces(image):
     return image_with_boxes
 ```
 
-iface = gr.Interface(
+Using the `gr.Interface` from the gradio library to create a web-based interface for our Haar Cascade Face Detection. Upon instantiation, the interface is configured with parameters specifying that the `detect_faces` function will process input images and produce output images. Upon launching the interface, users are presented with a web page where they can upload an image and receive the identified faces with bounding boxes outlining them. 
+
+```
+interface = gr.Interface(
     fn=detect_faces,
     inputs="image",
     outputs="image",
-    title="Face Detection",
+    title="Face Detection with Haar Cascade",
     description="Upload an image, and the model will detect faces and draw bounding boxes around them.",
 )
-
-iface.launch()
+interface.launch()
 ```
 
 ## Step 5: Create Requirements.txt
