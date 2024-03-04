@@ -54,7 +54,7 @@ def detect_faces(image):
 
 Using the `gr.Interface` from the gradio library to create a web-based interface for our Haar Cascade Face Detection. Upon instantiation, the interface is configured with parameters specifying that the `detect_faces` function will process input images and produce output images. Upon launching the interface, users are presented with a web page where they can upload an image and receive the identified faces with bounding boxes outlining them. 
 
-```
+```python
 interface = gr.Interface(
     fn=detect_faces,
     inputs="image",
@@ -73,7 +73,7 @@ Create a new file and name it `requirements.txt`. As our code is using `cv2`, we
 
 Copy the below line into `requirements.txt`
 
-```
+```python
 opencv-python
 ```
 
