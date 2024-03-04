@@ -1,22 +1,20 @@
 ## Face Detection with Haar Cascade Application
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/5bb795e4-a863-4686-9ece-f17836b8797d)
-
 ## Step 1: Hugging Face Space
 
-Access https://huggingface.co
+Access https://huggingface.co , then click on `New` and `Space` to create an interactive ML demo for our Face Detection
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/90ccae8d-7b8f-4673-bf69-9ac6bc0055e1)
 
-## Step 2: Create new space
+## Step 2: Create space
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6f2c2416-623c-43a8-be9e-076781071bd2)
 
-## Step 3: Create files
+## Step 3: How to create files
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2243df05-1b9e-4655-be50-a807b233e579)
 
-## App.py
+## Step 4: Create App.py
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
 
@@ -47,7 +45,7 @@ iface = gr.Interface(
 iface.launch()
 ```
 
-## Requirements.txt
+## Step 5: Create Requirements.txt
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c1b357f2-8099-4d70-9ea9-cd41ed457301)
 
@@ -55,11 +53,17 @@ iface.launch()
 opencv-python
 ```
 
-## Run
+## Step 6: Folder structure
+
+Make sure that our space's folder structure looks like this
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/5bb795e4-a863-4686-9ece-f17836b8797d)
+
+## Step 7: Run demo
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/05280682-042a-4dd8-ad00-ecbc35edcd3e)
 
-## Result
+## Step 8: Get prediction
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9c6f1ee2-b862-415c-b4a5-608d77bac72a)
 
