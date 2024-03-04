@@ -29,7 +29,7 @@ After you click on the `Files`, it will take you to your Space codebase. You can
 
 Name the file `app.py` and copy the below Haar Cascade code into it. Finally, press on `Commit new file to main` to save the file. 
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
+![image](https://github.com/hughiephan/DPL/assets/16631121/5ae9de89-5ada-4479-bbab-03bbdcd932ef)
 
 CV2 has a built-in Haar Cascade which is ready to be used. `numpy` and `Pil` are two libraries to help us process the image. `Gradio` is used to create an interface for our demo.
 
@@ -39,6 +39,8 @@ import cv2
 import gradio as gr
 from PIL import Image
 ```
+
+Converts the input image to a NumPy array. This conversion allows us to process the image using OpenCV functions, which typically expect image data in NumPy array format. We convert the input image in RGB format to grayscale to simplify face detection since the Haar Cascade classifier works better with grayscale images. Loads the pre-trained Haar Cascade classifier for frontal face detection with `haarcascade_frontalface_default.xml`. The `detectMultiScale` accepts  A smaller parameters like  `scaleFactor`, `minNeighbors`, and `minSize` . `scaleFactor` increases the chance of detecting smaller faces but also increases the computational time. A typical value is around 1.1, meaning the image size is reduced by 10% at each scale. `minNeighbors` specifies how many neighbors each candidate rectangle should have to retain. Higher values result in fewer detections but with higher quality. Lower values will sometimes detect multiple overlapping faces but might include more false positives. `minSize` specifies the minimum size of the detected face. After all that, the `detectMultiScale` will return a list of  `bounding boxes` representing the detected faces for (x, y, w, h) in all the faces. We need to iterate over each detected face `(0, 255, 0)` tuple specifies the color of the rectangle, and `2` specifies the thickness of the rectangle outline.
 
 ```python
 def detect_faces(image):
