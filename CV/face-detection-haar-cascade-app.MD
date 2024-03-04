@@ -64,7 +64,11 @@ interface.launch()
 
 ## Step 5: Create Requirements.txt
 
+As our code is using `cv2`, we need to install the `opencv-python` library.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c1b357f2-8099-4d70-9ea9-cd41ed457301)
+
+Copy this code into requirements.txt
 
 ```
 opencv-python
