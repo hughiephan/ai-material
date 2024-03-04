@@ -28,12 +28,16 @@ Name the file `App.py` and copy the below Haar Cascade code into it. Finally, pr
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b0c69afa-9ba2-4f69-916a-14b50eeb2b26)
 
+CV2 has a built-in Haar Cascade which is ready to be used. `numpy` and `Pil` are two libraries to help us process the image. `Gradio` is used to create an interface for our demo.
+
 ```python
 import numpy as np
 import cv2
 import gradio as gr
 from PIL import Image
+```
 
+```python
 def detect_faces(image):
     image_np = np.array(image)
     gray_image = cv2.cvtColor(image_np, cv2.COLOR_RGB2GRAY)
@@ -41,8 +45,9 @@ def detect_faces(image):
     faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         cv2.rectangle(image_np, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    image_with_boxes = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
+    image_with_boxes = cv2.cvtColor(image_np, cv2.COLOR_GRAY2RGB)
     return image_with_boxes
+```
 
 iface = gr.Interface(
     fn=detect_faces,
