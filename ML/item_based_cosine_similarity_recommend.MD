@@ -19,7 +19,7 @@ articles_df = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations
 article_id_to_name = dict(zip(articles_df['article_id'], articles_df['prod_name']))
 ```
 
-## Step 3: Dctionary
+## Step 3: Dictionary
 ```python
 df['prod_name'] = df['article_id'].map(article_id_to_name)
 df = df[['customer_id','prod_name']]
