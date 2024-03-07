@@ -117,3 +117,6 @@ Output of `aggregated_vector`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/61aa8bec-c7d3-4b35-82bd-07d630e31769)
 
+Final recommendation:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/648e9488-72fc-4fed-9d3d-460a917ceeed)
