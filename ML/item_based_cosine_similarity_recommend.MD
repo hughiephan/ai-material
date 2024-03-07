@@ -16,6 +16,7 @@ article_id_to_name = dict(zip(articles_df['article_id'], articles_df['prod_name'
 ```
 
 ## Step 3: Dctionary
+```python
 df['prod_name'] = df['article_id'].map(article_id_to_name)
 df = df[['customer_id','prod_name']]
 grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
@@ -23,7 +24,6 @@ unique_prod_names = df['prod_name'].unique().tolist()
 ```
 
 ## Step 4: Item to vectors
-
 ```python
 def compute_item_vectors(items):
     all_items = set()
