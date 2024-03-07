@@ -1,28 +1,28 @@
 ## Step 1: Import libraries
 
 ```python
-!pip install gradio
-import pickle
-import pandas as pd
-import cv2, matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import gradio as gr
 import ast
-from os.path import exists
 from sklearn.metrics.pairwise import cosine_similarity
 ```
+
+## Step 2: Dataset
 
 ```python
 df = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
 articles_df = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
 article_id_to_name = dict(zip(articles_df['article_id'], articles_df['prod_name']))
+```
+
+## Step 3: Dctionary
 df['prod_name'] = df['article_id'].map(article_id_to_name)
 df = df[['customer_id','prod_name']]
 grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 unique_prod_names = df['prod_name'].unique().tolist()
-print(unique_prod_names)
 ```
+
+## Step 4: Item to vectors
 
 ```python
 def compute_item_vectors(items):
@@ -35,7 +35,10 @@ def compute_item_vectors(items):
         vector = [1 if item in sublist else 0 for item in all_items]
         vectors.append(vector)
     return np.array(vectors), all_items
+```
 
+## Step 5: Recommend
+```python
 def recommend(items, input_items, num_recommendations=5):
     input_items = ast.literal_eval(input_items)
     item_vectors, all_items = compute_item_vectors(items)
@@ -51,12 +54,13 @@ def recommend(items, input_items, num_recommendations=5):
     similar_indices = similarities.argsort()[::-1]  # Sort in descending order
     similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
     return similar_items[:num_recommendations]
-
-grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 ```
+
+## Step 6: Prediction
 
 ```python
 input_items = ['Perrie trash']
+grouped_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 recommended_items = recommend(grouped_items, input_items)
 print(f"Recommended items for {input_items}: {recommended_items}")
 ```
