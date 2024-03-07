@@ -89,3 +89,12 @@ else:
     recommended_items = similar_items[:5]
     print(f"Recommended items for {input_items}: {recommended_items}")
 ```
+
+Output of `input_vectors`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/abae85d5-90b0-4dd1-9a34-0a8f424ea707)
+
+Output of `aggregated_vector`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/61aa8bec-c7d3-4b35-82bd-07d630e31769)
+
