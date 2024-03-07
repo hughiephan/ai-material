@@ -16,10 +16,11 @@ Download H&M Personalized Fashion Recommendations dataset from `https://www.kagg
 ```python
 transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
 article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/article.csv')
-
 ```
 
 ## Step 3: Dataframe
+![image](https://github.com/hughiephan/DPL/assets/16631121/91c1a4f0-0810-4225-aab3-51cbb3a860ca)
+
 ```python
 article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
 transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
