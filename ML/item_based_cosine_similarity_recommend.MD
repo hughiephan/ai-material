@@ -33,7 +33,13 @@ Output of `article_id_to_name`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/424e5115-e3cf-4ebd-a9bf-63b33ef29f6e)
 
+Output of `df`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/e3ed43a0-3067-4b5a-b4bb-465a8973e742)
+
 ## Step 4: Group items
+
+We use `df.groupby` to categorize products that are commonly purchased together by individual customers. 
 
 ```python
 group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
@@ -44,6 +50,8 @@ Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e64dee94-9850-4bcb-a25f-3fdae15947df)
 
 ## Step 5: All unique items
+
+Generate a set of all unique items, this will prove valuable when we construct a new item vector according to the query.
 
 ```python
 all_items = set(df['prod_name'].unique())
