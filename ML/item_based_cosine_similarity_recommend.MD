@@ -58,6 +58,8 @@ for sublist in group_items:
 item_vectors = np.array(item_vectors)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/b7a3ebb7-0dba-4730-80ee-fab2226c5dd8)
+
 ## Step 7: Recommend
 ```python
 item_to_index = {item: i for i, item in enumerate(all_items)}
