@@ -66,6 +66,14 @@ item_to_index = {item: i for i, item in enumerate(all_items)}
 index_to_item = {i: item for item, i in item_to_index.items()}
 ```
 
+Output of `item_to_index`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/e5dc71a5-2f1c-451c-87f6-151ad68fb605)
+
+Output of `index_to_item`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/3e36b70e-d0c6-45b4-8459-d5c217feebe8)
+
 ## Step 8: Recommend
 ```python
 input_items = ['Perrie trash', 'Glans tunic']
