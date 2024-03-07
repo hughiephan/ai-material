@@ -31,7 +31,7 @@ Output of `article_id_to_name`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/424e5115-e3cf-4ebd-a9bf-63b33ef29f6e)
 
-## Step 4: Group
+## Step 4: Group items
 
 ```python
 group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
@@ -41,12 +41,16 @@ Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e64dee94-9850-4bcb-a25f-3fdae15947df)
 
-## Step 5: Item to vectors
+## Step 5: All unique items
+
 ```python
-all_items = set()
-for sublist in group_items:
-    all_items.update(sublist)
-all_items = sorted(list(all_items))
+all_items = set(df['prod_name'].unique())
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7a985a82-4c1a-4946-8ced-da87343332d2)
+
+## Step 6: Item to vectors
+```python
 item_vectors = []
 for sublist in group_items:
     vector = [1 if item in sublist else 0 for item in all_items]
@@ -54,7 +58,7 @@ for sublist in group_items:
 item_vectors = np.array(item_vectors)
 ```
 
-## Step 6: Recommend
+## Step 7: Recommend
 ```python
 item_to_index = {item: i for i, item in enumerate(all_items)}
 index_to_item = {i: item for item, i in item_to_index.items()}
