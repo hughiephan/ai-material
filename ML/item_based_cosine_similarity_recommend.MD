@@ -2,6 +2,8 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0f33463d-5877-4e3d-929e-003aceda0781)
 
+Item-based recommendation explores the relationship between the pair of items (the user who bought Y, also bought Z). Then the similarity between item pairs can be found in different ways. One of the most common methods is to use cosine similarity. 
+
 ## Step 1: Import libraries
 
 ```python
