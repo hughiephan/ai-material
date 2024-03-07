@@ -51,7 +51,7 @@ Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca 
 
 ## Step 5: All unique items
 
-Generate a set of all unique items, this will prove valuable when we construct a new item vector according to the query.
+Generate a set of all unique items, this will prove valuable when we construct new item vectors for existing dataset or a new query.
 
 ```python
 all_items = set(df['prod_name'].unique())
@@ -60,6 +60,9 @@ all_items = set(df['prod_name'].unique())
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7a985a82-4c1a-4946-8ced-da87343332d2)
 
 ## Step 6: Item to vectors
+
+If the item is present then we assign a `1`, otherwise, a `0` is assigned. This process resuts in a series of vectors consisting of 0s and 1s.
+
 ```python
 item_vectors = []
 for sublist in group_items:
@@ -71,6 +74,9 @@ item_vectors = np.array(item_vectors)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/b7a3ebb7-0dba-4730-80ee-fab2226c5dd8)
 
 ## Step 7: Dictionary
+
+Indices are beneficial when determining the appropriate placement to put a `1` (if the item exists). With these 2 functions, we can translate vectors into product names and vice versa.
+
 ```python
 item_to_index = {item: i for i, item in enumerate(all_items)}
 index_to_item = {i: item for item, i in item_to_index.items()}
