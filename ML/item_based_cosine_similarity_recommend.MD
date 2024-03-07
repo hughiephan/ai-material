@@ -27,6 +27,11 @@ transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
 df = transaction[['customer_id','prod_name']]
 ```
 
+Output of `article_id_to_name`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/424e5115-e3cf-4ebd-a9bf-63b33ef29f6e)
+
+
 ## Step 4: Item to vectors
 ```python
 def compute_item_vectors(items):
