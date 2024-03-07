@@ -15,7 +15,7 @@ Download H&M Personalized Fashion Recommendations dataset from `https://www.kagg
 
 ```python
 transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
-article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/article.csv')
+article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
 ```
 
 ## Step 3: Dataframe
