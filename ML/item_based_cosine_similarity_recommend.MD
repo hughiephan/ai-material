@@ -20,7 +20,6 @@ article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/art
 ```
 
 ## Step 3: Dataframe
-![image](https://github.com/hughiephan/DPL/assets/16631121/91c1a4f0-0810-4225-aab3-51cbb3a860ca)
 
 ```python
 article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
@@ -31,6 +30,16 @@ df = transaction[['customer_id','prod_name']]
 Output of `article_id_to_name`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/424e5115-e3cf-4ebd-a9bf-63b33ef29f6e)
+
+## Step 4: Group
+
+```python
+group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
+```
+
+Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'],...
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/e64dee94-9850-4bcb-a25f-3fdae15947df)
 
 
 ## Step 4: Item to vectors
