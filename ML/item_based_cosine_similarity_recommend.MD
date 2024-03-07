@@ -1,6 +1,6 @@
 # Item-based Recommend with Cosine Similarity
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/3766c43c-b075-4514-b540-eae17f087f8f)
+![image](https://github.com/hughiephan/DPL/assets/16631121/1a95331f-f2e5-4875-a495-7c544c3b6bf1)
 
 ## Step 1: Import libraries
 
