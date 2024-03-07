@@ -1,3 +1,5 @@
+## Step 1: Import libraries
+
 ```python
 !pip install gradio
 import pickle
