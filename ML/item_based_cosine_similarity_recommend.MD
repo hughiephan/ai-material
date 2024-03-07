@@ -91,6 +91,9 @@ Output of `index_to_item`
 ![image](https://github.com/hughiephan/DPL/assets/16631121/3e36b70e-d0c6-45b4-8459-d5c217feebe8)
 
 ## Step 8: Recommend
+
+We first check if the input items exist in the dictionary `item_to_index`. If any input items are found, we proceed to extract their corresponding vectors from a matrix `item_vectors`. These vectors are aggregated into a single vector, and then the cosine similarity between this aggregated vector and all other item vectors is calculated. The resulting similarities are sorted in descending order to identify the most similar items. Finally, we filter out the input items from the list of similar items and selects the top five recommendations.
+
 ```python
 input_items = ['Perrie trash', 'Glans tunic']
 input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
