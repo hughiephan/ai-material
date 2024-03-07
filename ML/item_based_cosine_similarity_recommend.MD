@@ -44,9 +44,9 @@ We use `df.groupby` to categorize products that are commonly purchased together 
 group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 ```
 
-Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'],...
-
 ![image](https://github.com/hughiephan/DPL/assets/16631121/e64dee94-9850-4bcb-a25f-3fdae15947df)
+
+So basically, we will have Group 1: [Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p], Group 2: ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'], and so on.
 
 ## Step 5: All unique items
 
