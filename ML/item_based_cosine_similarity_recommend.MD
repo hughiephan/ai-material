@@ -9,6 +9,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 ## Step 2: Dataset
 
+Download H&M Personalized Fashion Recommendations dataset from `https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data`
+
 ```python
 df = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
 articles_df = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
