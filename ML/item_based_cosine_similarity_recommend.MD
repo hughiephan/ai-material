@@ -21,7 +21,9 @@ article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/art
 
 ## Step 3: Dataframe
 
+The Transaction dataframe initially includes only the customer ID and article ID, but to enhance clarity, we aim to display the product name alongside. Thus, we utilize a mapping technique, associating each transaction's article ID with its corresponding product name from a dictionary containing article IDs and their respective product names. Then, the resulting dataframe contains solely the customer ID and product names.
 ```python
+
 article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
 transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
 df = transaction[['customer_id','prod_name']]
