@@ -32,7 +32,7 @@ image = np.array(Image.open(image_bytes))
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/77cd8149-3bce-433e-ac00-c13057a6dcec)
 
-## Step 3: Pre-process image
+## Step 3: Gray and Blur
 ```python
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (11, 11), 0)
@@ -40,18 +40,15 @@ blurred = cv2.GaussianBlur(gray, (11, 11), 0)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c05eceec-462c-4a27-98cd-58da555a6204)
 
-## Step 4: Edge Detection
-```python
-edges = cv2.Canny(blurred, 50, 150)
-```
+## Step 4: Detect circles
 
+`dp` controls the size of the accumulator array. A smaller value will result in a larger accumulator array, which means higher resolution in the detection, but also more computational cost. `param2` represents the accumulator threshold for the circle centers at the detection stage with a smaller value means that more false circles may be detected, while a larger value means that fewer circles will be detected
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/d986e57d-8053-4394-bd30-1e48ebe61050)
+ 
+`cv2.HoughCircles` already have canny edge detection implemented, in this the parameter `param1` can be used to set the higher threshold 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/0963d052-4992-4d64-b4cb-6b8249279b13)
-
-## Step 5: Detect circles
-
-`dp` controls the size of the accumulator array. A smaller value will result in a larger accumulator array, which means higher resolution in the detection, but also more computational cost. HoughCircles already have canny edge detection, in this case the parameters are `param1` representing the higher threshold . `param2` represents the accumulator threshold for the circle centers at the detection stage with a smaller value means that more false circles may be detected, while a larger value means that fewer circles will be detected
 
 ```python
 circles = cv2.HoughCircles(
