@@ -40,7 +40,14 @@ blurred = cv2.GaussianBlur(gray, (11, 11), 0)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c05eceec-462c-4a27-98cd-58da555a6204)
 
-## Step 4: Detect circles
+## Step 4: Edge Detection
+```python
+edges = cv2.Canny(blurred, 50, 150)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/162a5182-1779-4e2b-a65b-44122e36bca5)
+
+## Step 5: Detect circles
 ```python
 circles = cv2.HoughCircles(
     blurred,
