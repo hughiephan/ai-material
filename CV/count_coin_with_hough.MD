@@ -44,6 +44,9 @@ blurred = cv2.GaussianBlur(gray, (11, 11), 0)
 
 `dp` controls the size of the accumulator array. A smaller value will result in a larger accumulator array, which means higher resolution in the detection, but also more computational cost. `param2` represents the accumulator threshold for the circle centers at the detection stage with a smaller value means that more false circles may be detected, while a larger value means that fewer circles will be detected
 
+
+`minDist` is the minimum distance between the centers of the detected circles which helps in eliminating multiple detections of the same circle. `minRadius` is the minimum radius of the circles to be detected where circles with a smaller radius than this value will not be detected. `maxRadius` is the maximum radius of the circles to be detected where circles with a larger radius than this value will not be detected.
+
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d986e57d-8053-4394-bd30-1e48ebe61050)
  
 `cv2.HoughCircles` already have canny edge detection implemented, in this the parameter `param1` can be used to set the higher threshold 
