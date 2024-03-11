@@ -74,8 +74,8 @@ HoughCircles will result in an array of triplet `(x,y,r)` where `x, y` is the ce
 print("Number of coins detected:", len(circles[0]))
 circles = np.round(circles[0, :]).astype("int")
 for (x, y, r) in circles:
-    cv2.circle(image, (x, y), r, (0, 255, 0), 4)
-plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    cv2.circle(image, (x, y), r, (255, 0, 0))
+plt.imshow(image)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/dd9ead59-5aa0-42e0-aee7-1c73ee25f890)
