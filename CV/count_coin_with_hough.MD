@@ -2,6 +2,9 @@
 
 The circle Hough Transform is a basic feature extraction technique used in digital image processing for detecting circles in imperfect images. The circle candidates are produced by “voting” in the Hough parameter space and then selecting local maxima in an accumulator matrix
 
+![CHT](https://github.com/hughiephan/DPL/assets/16631121/3335891a-323e-4498-8cb4-bbd423034be0)
+
+
 ## Step 1: Import libraries
 
 ```python
