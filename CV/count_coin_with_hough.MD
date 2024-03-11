@@ -50,7 +50,7 @@ edges = cv2.Canny(blurred, 50, 150)
 ## Step 5: Detect circles
 ```python
 circles = cv2.HoughCircles(
-    blurred,
+    edges,
     cv2.HOUGH_GRADIENT,
     dp=1.5,
     minDist=50,
