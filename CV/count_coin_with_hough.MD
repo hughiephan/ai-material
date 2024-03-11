@@ -63,9 +63,13 @@ circles = cv2.HoughCircles(
 )
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/80800481-3f6e-4a02-a2ad-8abe5271af61)
 
 ## Step 5: Number of coins
+
+HoughCircles will result in an array of triplet `(x,y,r)` where `x, y` is the center point and the `r` is the radius of the circle
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/0c0633ae-fd41-4b70-b9c0-663a478bae6a)
+
 ```python
 print("Number of coins detected:", len(circles[0]))
 circles = np.round(circles[0, :]).astype("int")
@@ -80,7 +84,6 @@ plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 ```python
 plt.imshow(image)
 plt.imshow(blurred, cmap='gray')
-print(circles)
 edges = cv2.Canny(blurred, 50, 150)
 plt.imshow(edges, cmap='gray')
 ```
