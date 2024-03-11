@@ -78,7 +78,7 @@ for (x, y, r) in circles:
 plt.imshow(image)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/dd9ead59-5aa0-42e0-aee7-1c73ee25f890)
+![image](https://github.com/hughiephan/DPL/assets/16631121/6a1e1f02-39df-472b-a38b-edffa4d93b18)
 
 ## Optional commands
 ```python
