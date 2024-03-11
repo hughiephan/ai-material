@@ -1,4 +1,4 @@
-# Lab: Advanced Learning
+# Assignment: Advanced Learning
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/69842115-80a7-4cd1-928d-ae69b8db5f06)
 
