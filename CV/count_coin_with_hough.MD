@@ -48,7 +48,7 @@ blurred = cv2.GaussianBlur(gray, (11, 11), 0)
  
 `cv2.HoughCircles` already has canny edge detection implemented so we can modify its parameter `param1` to set the higher threshold to determine which edges are strong and which are weak. `param2` represents the accumulator threshold for the circle centers at the detection stage with a smaller value means that more false circles may be detected, while a larger value means that fewer circles will be detected. `dp` controls the size of the accumulator array where a smaller value will result in a larger accumulator array, which means higher resolution in the detection, but also more computational cost
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/0963d052-4992-4d64-b4cb-6b8249279b13)
+![image](https://github.com/hughiephan/DPL/assets/16631121/8629f319-acca-4edd-944e-a92a944e8aef)
 
 ```python
 circles = cv2.HoughCircles(
