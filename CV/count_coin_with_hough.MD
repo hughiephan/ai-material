@@ -64,7 +64,7 @@ circles = cv2.HoughCircles(
 ```
 
 
-## Step 5: Number of coins
+## Step 5: Count coins
 
 HoughCircles will result in an array of triplet `(x,y,r)` where `x, y` is the center point and the `r` is the radius of the circle
 
