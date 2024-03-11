@@ -4,7 +4,7 @@ The circle Hough Transform is a basic feature extraction technique for detecting
 
 ![CHT](https://github.com/hughiephan/DPL/assets/16631121/3335891a-323e-4498-8cb4-bbd423034be0)
 
-Multiple local maxima points
+An example with local maxima points
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5e621a46-19ec-4238-b33b-fdd03283bc7e)
 
