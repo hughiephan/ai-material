@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 First, we download the desired image from Imgur using the HTTP requests. The image's content is downloaded as bytes and then stored in a `BytesIO` object. Then we use `Image.open()` from the Python Imaging Library (PIL) to read the image data as numpy array.
 
 ```python
-url = 'https://i.imgur.com/KkctjzS.jpeg'
+url = 'https://github.com/hughiephan/DPL/assets/16631121/77cd8149-3bce-433e-ac00-c13057a6dcec'
 response = requests.get(url)
 image_bytes = BytesIO(response.content)
 image = np.array(Image.open(image_bytes))
