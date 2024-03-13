@@ -1,3 +1,5 @@
+# Movement Detection with Absolute Difference
+
 ## Step 1: Import libraries
 
 ```python
