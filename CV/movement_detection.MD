@@ -35,7 +35,7 @@ img2 = cv2.GaussianBlur(img2,(5,5),0)
 imgDiff = cv2.absdiff(img1, img2) 
 ```
 
-## Step 5:
+## Step 5: Dilate structure
 ```python
 ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
@@ -53,6 +53,9 @@ im2 = np.zeros((ht,wd,3), np.uint8)
 im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
+
+
 ## Step 7: Hull
 ```python
 hulls = list(contours)
@@ -61,6 +64,8 @@ for i in range(len(contours)):
 im3 = np.zeros((ht,wd,3), np.uint8)
 im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/affff523-02a7-47ef-b3dd-a11a79a45979)
 
 ## Reference
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
