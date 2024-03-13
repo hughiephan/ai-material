@@ -36,7 +36,7 @@ imgDiff = cv2.absdiff(img1, img2)
 ```
 
 ## Step 5:
-```
+```python
 ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
