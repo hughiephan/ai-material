@@ -13,12 +13,9 @@ import matplotlib.pyplot as plt
 Download dataset from `https://www.kaggle.com/datasets/gauravduttakiit/video-analysis`
 
 ```python
-cap = cv2.VideoCapture('../input/video-analysis/AundhBridge.mp4')
-ret, fFrame  = cap.read()
-ret, fFrame1 = cap.read()
-ret, fFrame2 = cap.read()
-img1 = fFrame1.copy()
-img2 = fFrame2.copy()
+cap = cv2.VideoCapture('/kaggle/input/video-analysis/AundhBridge.mp4')
+ret, img1 = cap.read()
+ret, img2 = cap.read()
 ```
 
 ## Step 3: Gray and Blur
@@ -44,12 +41,11 @@ strucEle15x15 = cv2.getStructuringElement(cv2.MORPH_RECT,(15,15))
 for i in range(2):
     imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
     imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
-    imgThreshCopy = imgThresh.copy()
 ```
 
 ## Step 5: Contour
 ```python
-contours, hierarchy = cv2.findContours(imgThreshCopy,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 im2 = np.zeros((ht,wd,3), np.uint8)
 im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ```
