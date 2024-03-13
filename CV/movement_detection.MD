@@ -26,6 +26,36 @@ img2 = cv2.GaussianBlur(img2,(5,5),0)
 imgDiff = cv2.absdiff(img1, img2) 
 ```
 
+## Step 4:
+```python
+ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
+ht = np.size(imgThresh,0)
+wd = np.size(imgThresh,1)
+
+strucEle3x3 = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
+strucEle5x5 = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+strucEle7x7 = cv2.getStructuringElement(cv2.MORPH_RECT,(7,7))        
+strucEle15x15 = cv2.getStructuringElement(cv2.MORPH_RECT,(15,15))
+for i in range(2):
+    imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
+    imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
+    imgThreshCopy = imgThresh.copy()
+
+def drawAndShowContours(wd,ht,contours,strImgName):
+    blank_image = np.zeros((ht,wd,3), np.uint8)
+    cv2.drawContours(blank_image,contours,-1,(255.0,255.0,255.0),-1)
+    blank_image_contour_9 = np.zeros((ht,wd,3), np.uint8)
+    cv2.drawContours(blank_image_contour_9,contours,8,(255.0,255.0,255.0),-1)
+    return blank_image
+
+contours, hierarchy = cv2.findContours(imgThreshCopy,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+im2 = drawAndShowContours(wd,ht,contours,'imgContours')
+
+hulls = list(contours)  # Convert contours tuple to a list
+for i in range(len(contours)):
+    hulls[i] = cv2.convexHull(contours[i])
+im3 = drawAndShowContours(wd, ht, hulls, 'imgConvexHulls')
+```
 
 ## Reference
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
