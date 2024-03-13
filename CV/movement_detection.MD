@@ -45,21 +45,22 @@ for i in range(2):
     imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
     imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
     imgThreshCopy = imgThresh.copy()
+```
 
-def drawAndShowContours(wd,ht,contours,strImgName):
-    blank_image = np.zeros((ht,wd,3), np.uint8)
-    cv2.drawContours(blank_image,contours,-1,(255.0,255.0,255.0),-1)
-    blank_image_contour_9 = np.zeros((ht,wd,3), np.uint8)
-    cv2.drawContours(blank_image_contour_9,contours,8,(255.0,255.0,255.0),-1)
-    return blank_image
-
+## Step 5: Contour
+```python
 contours, hierarchy = cv2.findContours(imgThreshCopy,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-im2 = drawAndShowContours(wd,ht,contours,'imgContours')
+im2 = np.zeros((ht,wd,3), np.uint8)
+im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
+```
 
-hulls = list(contours)  # Convert contours tuple to a list
+## Step 6: Hull
+```python
+hulls = list(contours)
 for i in range(len(contours)):
     hulls[i] = cv2.convexHull(contours[i])
-im3 = drawAndShowContours(wd, ht, hulls, 'imgConvexHulls')
+im3 = np.zeros((ht,wd,3), np.uint8)
+im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
 ```
 
 ## Reference
