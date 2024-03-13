@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 ```
 
 ##  Step 2: Read video
+Download dataset from `https://www.kaggle.com/datasets/gauravduttakiit/video-analysis`
+
 ```python
 cap = cv2.VideoCapture('../input/video-analysis/AundhBridge.mp4')
 ret, fFrame  = cap.read()
