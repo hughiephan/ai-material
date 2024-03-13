@@ -28,8 +28,15 @@ img2 = cv2.GaussianBlur(img2,(5,5),0)
 
 
 ## Step 4:
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/88e54921-503e-4ed0-b996-3c7501b6a76f)
+
 ```python
 imgDiff = cv2.absdiff(img1, img2) 
+```
+
+## Step 5:
+```
 ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
@@ -43,14 +50,14 @@ for i in range(2):
     imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
 ```
 
-## Step 5: Contour
+## Step 6: Contour
 ```python
 contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 im2 = np.zeros((ht,wd,3), np.uint8)
 im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ```
 
-## Step 6: Hull
+## Step 7: Hull
 ```python
 hulls = list(contours)
 for i in range(len(contours)):
