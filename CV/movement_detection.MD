@@ -23,11 +23,12 @@ img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
 img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 img1 = cv2.GaussianBlur(img1,(5,5),0)
 img2 = cv2.GaussianBlur(img2,(5,5),0)
-imgDiff = cv2.absdiff(img1, img2) 
 ```
+
 
 ## Step 4:
 ```python
+imgDiff = cv2.absdiff(img1, img2) 
 ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
