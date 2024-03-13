@@ -40,11 +40,7 @@ imgDiff = cv2.absdiff(img1, img2)
 ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
-
-strucEle3x3 = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
-strucEle5x5 = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
-strucEle7x7 = cv2.getStructuringElement(cv2.MORPH_RECT,(7,7))        
-strucEle15x15 = cv2.getStructuringElement(cv2.MORPH_RECT,(15,15))
+strucEle5x5= cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
 for i in range(2):
     imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
     imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
