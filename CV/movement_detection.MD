@@ -18,6 +18,8 @@ ret, img1 = cap.read()
 ret, img2 = cap.read()
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/9a4eaf6e-c5d9-4bbc-86e5-fe06ef1fd357)
+
 ## Step 3: Gray and Blur
 ```python
 img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
