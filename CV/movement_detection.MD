@@ -65,7 +65,7 @@ im3 = np.zeros((ht,wd,3), np.uint8)
 im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/affff523-02a7-47ef-b3dd-a11a79a45979)
+![image](https://github.com/hughiephan/DPL/assets/16631121/42599119-6dcd-4c98-9370-c34a1ff7effc)
 
 ## Reference
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
