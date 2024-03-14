@@ -78,7 +78,7 @@ def build_ann():
 
 ```python
 class EnsembleClassifier:
-    def __init__(self, verbose=True):
+    def __init__(self):
         self.ann = build_ann()
         self.rf = RandomForestClassifier(n_estimators=30, max_depth=10, random_state=42)
         self.svm = SVC(random_state=42)
