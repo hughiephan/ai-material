@@ -1,6 +1,8 @@
 # Titanic Disaster with Ensemble Learning
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/5597fb70-eeb6-4ec9-b1da-f48cd4c36a44)
 
+Using ensemble majority voting with Artificial Neural Network, Random Forest, and SVM can create a robust and reliable predictive model for determining the survival outcomes of Titanic passengers, by incorporating the diverse strengths of these three powerful machine learning techniques.
 
 ## Step 1: Import libraries
 ```python
@@ -119,3 +121,6 @@ print("Accuracy:", score)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/020abd22-fcf7-43cc-bc5f-02ed1d6015af)
+
+## Reference
+- https://pub.towardsai.net/introduction-to-ensemble-methods-226a5a421687
