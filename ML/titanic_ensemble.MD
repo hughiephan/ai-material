@@ -86,10 +86,10 @@ def build_ann():
 class EnsembleClassifier:
     def __init__(self):
         self.ann = build_ann()
-        self.rf = RandomForestClassifier(n_estimators=30, max_depth=10, random_state=42)
-        self.svm = SVC(random_state=42)
+        self.rf = RandomForestClassifier()
+        self.svm = SVC()
     def fit(self, X, y):
-        self.ann.fit(X, y, epochs=2, batch_size=16, verbose=0)
+        self.ann.fit(X, y, epochs=2, verbose=0)
         self.rf.fit(X, y)
         self.svm.fit(X, y)
     def predict(self, X):
@@ -114,7 +114,7 @@ Train our EnsembleClassifier by using `model.fit` and call `model.predict` to ge
 
 ```python
 model = EnsembleClassifier()
-model.fit(X, Y)
+model.fit(X_train, Y_train)
 prediction = model.predict(X_test)
 score = metrics.accuracy_score(Y_test, prediction)
 print("Accuracy:", score)
