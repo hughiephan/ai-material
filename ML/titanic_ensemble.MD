@@ -33,7 +33,9 @@ Y = train_df['Survived']
 
 ## Step 3: Fill missing values
 
-`inplace=True` parameter ensures that the changes are made directly instead of this `X['...'] = X['...'].fillna(...)` . `mean` simply fills missing values with the mean of existing data, and interpolate fills missing values by generating new values based on the existing data's trend or pattern.
+`inplace=True` parameter ensures that the changes are made directly instead of this `X['...'] = X['...'].fillna(...)` . For the `Embarked`, C stands for Cherbourg, Q stands for Queenstown, and S stands for Southampton, which indicates the port where each passenger boarded the Titanic.  
+
+`mean` fills missing values with the mean of existing data, and `interpolate` fills missing values by generating new values based on the existing data's trend or pattern, you can also read about interpolate here `https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.interpolate.html` . For example, temperature increase is gradual and not sudden, so we cannot just copy the values from earlier recordings into the empty values. So in the time series data, we should use `interpolate`
 
 ```python
 X['Embarked'].fillna('C', inplace=True)
