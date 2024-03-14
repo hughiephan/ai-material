@@ -60,6 +60,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 ```
 
 ## Step 6: Neural network
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d64723d0-b655-412a-9d16-e48928fbfa89)
+
 ```python
 def build_ann():
     ann = Sequential()
