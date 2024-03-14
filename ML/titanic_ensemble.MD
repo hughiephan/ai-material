@@ -32,53 +32,22 @@ Y = train_df['Survived']
 ## Step 3: Feature engineering
 ```python
 X['Embarked'].fillna('C', inplace=True)
-
-# We replace missing ages by the mean age of passengers who belong to the same group of class/sex/family
 X['Age'] = X.groupby(['Pclass','Sex','Parch','SibSp'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex','Parch'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex'])['Age'].transform(lambda x: x.fillna(x.mean()))
-
-# We replace the only missing fare value for test dataset and the missing values of the cabin column
 X['Fare'] = X['Fare'].interpolate()
 X['Cabin'].fillna('U', inplace=True)
-
-# Create a Title column from name column
 X['Title'] = pd.Series((name.split('.')[0].split(',')[1].strip() for name in X['Name']), index=X.index)
 X['Title'] = X['Title'].replace(['Lady', 'the Countess','Countess','Capt', 'Col','Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], 'Rare')
 X['Title'] = X['Title'].replace(['Mlle', 'Ms'], 'Miss')
 X['Title'] = X['Title'].replace('Mme', 'Mrs')
 X['Title'] = X['Title'].map({"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5})
-
-# Filling Age missing values with mean age of passengers who have the same title
 X['Age'] = X.groupby(['Title'])['Age'].transform(lambda x: x.fillna(x.mean()))
-
-# Transform categorical variables to numeric variables
 X['Sex'] = X['Sex'].map({'male': 0, 'female': 1})
 X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
-
-# Create a Family Size, Is Alone, Child and Mother columns
-X['FamillySize'] = X['SibSp'] + X['Parch'] + 1
-X['FamillySize'][X['FamillySize'].between(1, 5, inclusive=False)] = 2
-X['FamillySize'][X['FamillySize']>5] = 3
-X['IsAlone'] = np.where(X['FamillySize']!=1, 0, 1)
 X['IsChild'] = X['Age'] < 18
 X['IsChild'] = X['IsChild'].astype(int)
-
-# Modification of cabin column to keep only the letter contained corresponding to the deck of the boat
-X['Cabin'] = X['Cabin'].str[:1]
-X['Cabin'] = X['Cabin'].map({cabin: p for p, cabin in enumerate(set(cab for cab in X['Cabin']))})
-
-# Create a ticket survivor column which is set to 1 if an other passenger with the same ticket survived and 0 else
-X['TicketSurvivor'] = pd.Series(0, index=X.index)
-tickets = X['Ticket'].value_counts().to_dict()
-for t, occ in tickets.items():
-    if occ != 1:
-        table = X['Survived'][X['Ticket'] == t]
-        if sum(table) != 0:
-            X['TicketSurvivor'][X['Ticket'] == t] = 1
-
-# These two columns are not useful anymore
-X = X.drop(['Name', 'Ticket', 'PassengerId'], 1)
+X = X.drop(['Name', 'Ticket', 'Cabin'], axis=1)
 ```
 
 ## Step 4: Scaling and split
