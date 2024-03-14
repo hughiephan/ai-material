@@ -103,6 +103,9 @@ class EnsembleClassifier:
 ```
 
 ## Step 6: Training
+
+Train our EnsembleClassifier by using `model.fit` and call `model.predict` to get the prediction on the test set. Finally, compare the prediction of our classifier on the test set and actual label `Y_test` to get the accuracy.
+
 ```python
 model = EnsembleClassifier()
 model.fit(X, Y)
