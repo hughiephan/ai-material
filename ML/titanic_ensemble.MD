@@ -43,7 +43,7 @@ X['Fare'].interpolate(inplace=True)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87a8e44e-ac1d-4236-bc6d-b064ab686ee7)
 
-## Step 4: Encode
+## Step 4: Encoding
 ```python
 X['Sex'] = X['Sex'].map({'male': 0, 'female': 1})
 X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
