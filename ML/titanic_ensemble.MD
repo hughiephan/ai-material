@@ -37,7 +37,6 @@ X['Embarked'].fillna('C', inplace=True)
 X['Age'] = X.groupby(['Pclass','Sex','Parch','SibSp'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex','Parch'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Cabin'].fillna('U', inplace=True)
 X['Fare'] = X['Fare'].interpolate()
 ```
 
