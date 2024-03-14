@@ -29,6 +29,8 @@ X = train_df.drop(['Survived'], axis=1)
 Y = train_df['Survived']
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/6f4c6fcb-5cce-4740-9556-573678446770)
+
 ## Step 3: Fill missing values
 ```python
 X['Embarked'].fillna('C', inplace=True)
