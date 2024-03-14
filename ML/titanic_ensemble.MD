@@ -74,6 +74,8 @@ def build_ann():
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2819e4a8-3ca7-4f5f-bbe6-420035a38099)
 
+`(pred_ann > 0.5)*1` compares each element in the prediction array with 0.5. If the values are greater than 0.5 are classified as `1` (Survived), and values less than or equal to 0.5 are classified as `0` (Dead).
+
 ```python
 class EnsembleClassifier:
     def __init__(self, verbose=True):
