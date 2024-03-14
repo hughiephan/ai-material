@@ -33,7 +33,7 @@ Y = train_df['Survived']
 
 ## Step 3: Fill missing values
 
-`inplace=True` parameter ensures that the changes are made directly instead of this `X['...'] = X['...'].fillna(...)`
+`inplace=True` parameter ensures that the changes are made directly instead of this `X['...'] = X['...'].fillna(...)` . `mean` simply fills missing values with the mean of existing data, and interpolate fills missing values by generating new values based on the existing data's trend or pattern.
 
 ```python
 X['Embarked'].fillna('C', inplace=True)
@@ -52,6 +52,9 @@ X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c12e7039-4341-4454-ae64-53bedf75e57c)
 
 ## Step 5: Scaling and split
+
+StandardScaler is a preprocessing technique used to standardize features by removing the mean and scaling to unit variance. It's often applied to numerical features to ensure they have the same scale, which can be important for certain machine learning algorithms. We applies the StandardScaler transformation to the features in `X` after we have removed some features like `Name`, `Ticket`,... then transforms the data using the `fit_transform()` and converts the resulting array back into a DataFrame, ensureing that all features in `X` are standardized.
+
 ```python
 sc = StandardScaler()
 X = X.drop(['Name', 'Ticket', 'Cabin'], axis=1)
