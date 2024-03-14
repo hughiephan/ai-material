@@ -85,15 +85,6 @@ class EnsembleClassifier:
         self.rf.fit(X, y)
         self.svm.fit(X, y)
     def predict(self, X):
-        """
-        If more than 2 classifiers make the same prediction, then trust that prediction. With: 0 is survived, 1 is dead
-        Example:
-             1 1 1: all classifiers say survived => survived
-             1 0 1: two classfiers say survived => survived
-             0 1 1: two classfiers say survived => survived
-             1 0 0: two classfiers say dead => dead
-             0 0 0: all classfiers say dead => dead
-        """
         predictions = list()
         pred_ann = self.ann.predict(X)
         pred_ann = (pred_ann > 0.5)*1
