@@ -55,7 +55,7 @@ X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
 
 ## Step 5: Scaling and split
 
-StandardScaler is a preprocessing technique used to standardize features by removing the mean and scaling to unit variance. It's often applied to numerical features to ensure they have the same scale, which can be important for certain machine learning algorithms. We applies the StandardScaler transformation to the features in `X` after we have removed some features like `Name`, `Ticket`,... then transforms the data using the `fit_transform()` and converts the resulting array back into a DataFrame, ensureing that all features in `X` are standardized.
+StandardScaler is a preprocessing technique used to standardize features by removing the mean and scaling to unit variance. It's often applied to numerical features to ensure they have the same scale, which can be important for certain machine learning algorithms. We apply the StandardScaler transformation to the features in `X` after we have removed some features like `Name`, `Ticket`,... then transform the data using the `fit_transform()` and convert the resulting array back into a DataFrame, ensuring that all features in `X` is standardized.
 
 ```python
 sc = StandardScaler()
