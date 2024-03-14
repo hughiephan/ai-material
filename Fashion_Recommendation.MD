@@ -111,3 +111,4 @@ plt.show()
 - https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree
 - https://www.geeksforgeeks.org/introductory-guide-to-information-retrieval-using-knn-and-kdtree
 - https://stackoverflow.com/questions/23853632/which-kind-of-interpolation-best-for-resizing-image
+- https://yasenh.github.io/post/kd-tree
