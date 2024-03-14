@@ -8,8 +8,8 @@ import warnings
 warnings.filterwarnings('ignore')
 import pandas as pd
 import numpy as np
-import sklearn
 import keras
+import sklearn
 from sklearn import metrics
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
