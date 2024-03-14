@@ -4,8 +4,6 @@
 
 ## Step 1: Import libraries
 ```python
-import warnings
-warnings.filterwarnings('ignore')
 import pandas as pd
 import numpy as np
 import keras
