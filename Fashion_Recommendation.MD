@@ -29,7 +29,7 @@ dataset = dataset[:10000]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/625bda7a-5b44-47ad-b801-1f60f6251830)
 
-Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which was already trained on 14.000.000 images of the Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at hand. We set all the layers to False in the Xception layer with `layer.trainable=False` to stop it from updating the weights.
+Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here `https://maelfabien.github.io/deeplearning/xception` . For this tutorial, we will use Xception model which was already trained on 14.000.000 images of the Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at hand. We set all the layers to False in the Xception layer with `layer.trainable=False` to stop it from updating the weights.
 
 ```python
 model = Xception(weights='imagenet', include_top=False)
@@ -66,7 +66,7 @@ nNeighbors = 4
 nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(features)
 ```
 
-To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (9,6)], not the 100352-D Vector. In this illustration, our variation of the KD Tree picks the first value to compare instead of choosing a mean for simplicity, for a precise approach of KD Tree please refer to here https://yasenh.github.io/post/kd-tree
+To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (9,6)], not the 100352-D Vector. In this illustration, our variation of the KD Tree picks the first value to compare instead of choosing a mean for simplicity, for a precise approach of KD Tree please refer to here `https://yasenh.github.io/post/kd-tree`
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/90baacad-2103-44ab-bcf4-19c820702776)
 
