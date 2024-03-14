@@ -126,3 +126,4 @@ print("Accuracy:", score)
 
 ## Reference
 - https://pub.towardsai.net/introduction-to-ensemble-methods-226a5a421687
+- https://www.numpyninja.com/post/interpolation-using-pandas
