@@ -53,7 +53,7 @@ X = pd.DataFrame(sc.fit_transform(X.values), index=X.index, columns=X.columns)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 ```
 
-## Step 5: Model
+## Step 6: Model
 ```python
 def build_ann():
     ann = Sequential()
