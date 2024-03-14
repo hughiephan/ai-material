@@ -59,9 +59,6 @@ def build_ann():
     ann = Sequential()
     ann.add(Dense(units=32, activation='relu', input_shape=(8,)))
     ann.add(Dense(units=64, activation='relu'))
-    ann.add(Dropout(rate=0.5))
-    ann.add(Dense(units=64, activation='relu'))
-    ann.add(Dropout(rate=0.5))
     ann.add(Dense(units=1, activation='sigmoid'))
     ann.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return ann
