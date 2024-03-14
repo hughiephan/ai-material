@@ -13,7 +13,7 @@ from sklearn.neighbors import NearestNeighbors
 ```
 
 ## Step 2: Prepare dataset
-Download the Fasion Recommendation dataset from: https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data . A dirname contains a list of filename (many images). We will join the dirnames and filenames together to create our dataset. Even though there are total of 105100 images, for our tutorial we focus on the first 10000 images.
+Download the Fashion Recommendation dataset from: `https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data` . A dirname contains a list of filenames (many images). We will join the dirnames and filenames together to create our dataset. Even though there are a total of 105100 images, for our tutorial we focus on the first 10000 images.
 
 ```python
 dataset = []
@@ -29,7 +29,7 @@ dataset = dataset[:10000]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/625bda7a-5b44-47ad-b801-1f60f6251830)
 
-Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which were already trained on 14.000.000 images of Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at-hand. We set all the layers to False in Xception layer with `layer.trainable=False` to stop it from updating the weights.
+Xception stands for “extreme inception”, it takes the principles of Inception to an extreme. XCeption architecture relies on Depthwise Separable Convolution, and Shortcuts between Convolution blocks as in ResNet. You can read more about Xception here: https://maelfabien.github.io/deeplearning/xception . For this tutorial, we will use Xception model which was already trained on 14.000.000 images of the Imagenet dataset. We use `include_top=False` to remove the Fully-connected Layer as this Layer is not useful for our task at hand. We set all the layers to False in the Xception layer with `layer.trainable=False` to stop it from updating the weights.
 
 ```python
 model = Xception(weights='imagenet', include_top=False)
@@ -39,7 +39,7 @@ for layer in model.layers:
 
 ## Step 4: Pre-process and extract features
 
-Image files vary in size so we need to resize them all into the same width and height using `cv2.resize`. But Xception input must be 4-dimensional so we need to expand our image dimension with `expand_dims`. Last pre-process step is using `xception.preprocess_input` to normalize the input pixels between -1 and 1. 
+Image files vary in size so we need to resize them all into the same width and height using `cv2.resize`. Because we are shrinking the image, we will use `INTER_AREA` interpolation but if the image needs to be enlarged, then we would use `INTER_LINEAR` or `INTER_CUBIC` interpolation. If. And Xception input must be 4-dimensional so we need to expand our image dimension with `expand_dims`. Lastly, the pre-process step uses `xception.preprocess_input` to normalize the input pixels between -1 and 1. 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/05c87d19-8a50-4f0f-b4ae-ee2a95b40725)
 
@@ -59,7 +59,7 @@ for img_path in dataset:
 
 ## Step 5: Training with KD Tree Nearest Neighbors
 
-KD Tree is an improvement over KNN. It is useful for representing data efficiently. Our features has the shape of `(1000, 100352)`, meaning it has 1000 images, and each image is a 100352-dimension vector. So our K = 100352, and the model will create a 100352-D Tree. Calling `fit` will start training our model with KD Train based on our list of features.
+KD Tree is an improvement over KNN. It is useful for representing data efficiently. Our features have the shape of `(1000, 100352)`, meaning it has 1000 images, and each image is a 100352-dimension vector. So our K = 100352, and the model will create a 100352-D Tree. Calling `fit` will start training our model with KD Train based on our list of features.
 
 ```python
 nNeighbors = 4
@@ -74,7 +74,7 @@ To easily explain how KD Tree works, let's say that our image features are just 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/be6ffdf0-a5a6-4ec5-8716-64758c9e4378)
 
-Given a query image, our model will predict by finding nearest neighbors as the similar images. In our code `distances` is the distances to the 4 closet neighbors. And `result` is the index of that 4 neighbors.
+Given a query image, our model will predict by finding nearest neighbors as similar images. In our code `distances` is the distance to the 4 closest neighbors. And `result` is the index of that 4 neighbors.
 
 ```python
 queryImagePath = dataset[999]
@@ -109,4 +109,5 @@ plt.show()
 - https://maelfabien.github.io/deeplearning/xception/#what-does-it-look-like
 - https://scikit-learn.org/stable/modules/metrics.html#cosine-similarity
 - https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree
-- https://www.geeksforgeeks.org/introductory-guide-to-information-retrieval-using-knn-and-kdtree/
+- https://www.geeksforgeeks.org/introductory-guide-to-information-retrieval-using-knn-and-kdtree
+- https://stackoverflow.com/questions/23853632/which-kind-of-interpolation-best-for-resizing-image
