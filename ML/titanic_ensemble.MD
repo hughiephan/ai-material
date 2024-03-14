@@ -71,6 +71,9 @@ def build_ann():
 ```
 
 ## Step 6: Ensemble classifier
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/2819e4a8-3ca7-4f5f-bbe6-420035a38099)
+
 ```python
 class EnsembleClassifier:
     def __init__(self, verbose=True):
