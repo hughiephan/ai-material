@@ -24,8 +24,8 @@ from keras.layers import Dense, Dropout
 Download dataset from `https://www.kaggle.com/competitions/titanic/data`
 
 ```python
-train_df = pd.read_csv("../input/titanic-disaster/train.csv")
-X = train_df.drop(['Survived'], 1)
+train_df = pd.read_csv("/kaggle/input/titanic/train.csv")
+X = train_df.drop(['Survived'], axis=1)
 Y = train_df['Survived']
 ```
 
