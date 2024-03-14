@@ -29,30 +29,26 @@ X = train_df.drop(['Survived'], 1)
 Y = train_df['Survived']
 ```
 
-## Step 3: Feature engineering
+## Step 3: Fill missing values
 ```python
 X['Embarked'].fillna('C', inplace=True)
 X['Age'] = X.groupby(['Pclass','Sex','Parch','SibSp'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex','Parch'])['Age'].transform(lambda x: x.fillna(x.mean()))
 X['Age'] = X.groupby(['Pclass','Sex'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Fare'] = X['Fare'].interpolate()
 X['Cabin'].fillna('U', inplace=True)
-X['Title'] = pd.Series((name.split('.')[0].split(',')[1].strip() for name in X['Name']), index=X.index)
-X['Title'] = X['Title'].replace(['Lady', 'the Countess','Countess','Capt', 'Col','Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], 'Rare')
-X['Title'] = X['Title'].replace(['Mlle', 'Ms'], 'Miss')
-X['Title'] = X['Title'].replace('Mme', 'Mrs')
-X['Title'] = X['Title'].map({"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5})
-X['Age'] = X.groupby(['Title'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Sex'] = X['Sex'].map({'male': 0, 'female': 1})
-X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
-X['IsChild'] = X['Age'] < 18
-X['IsChild'] = X['IsChild'].astype(int)
-X = X.drop(['Name', 'Ticket', 'Cabin'], axis=1)
+X['Fare'] = X['Fare'].interpolate()
 ```
 
-## Step 4: Scaling and split
+## Step 4: Map
+```python
+X['Sex'] = X['Sex'].map({'male': 0, 'female': 1})
+X['Embarked'] = X['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
+```
+
+## Step 5: Scaling and split
 ```python
 sc = StandardScaler()
+X = X.drop(['Name', 'Ticket', 'Cabin'], axis=1)
 X = pd.DataFrame(sc.fit_transform(X.values), index=X.index, columns=X.columns)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 ```
