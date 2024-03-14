@@ -41,6 +41,8 @@ X['Cabin'].fillna('U', inplace=True)
 X['Fare'] = X['Fare'].interpolate()
 ```
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/87a8e44e-ac1d-4236-bc6d-b064ab686ee7)
+
 ## Step 4: Encode
 ```python
 X['Sex'] = X['Sex'].map({'male': 0, 'female': 1})
