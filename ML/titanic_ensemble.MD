@@ -21,7 +21,7 @@ from keras.layers import Dense
 
 ## Step 2: Data
 
-Download dataset from `https://www.kaggle.com/competitions/titanic/data`
+Download the dataset from `https://www.kaggle.com/competitions/titanic/data` . We only use `train.csv` for simplicity, but `test.csv` is also available if you want a more concrete approach.
 
 ```python
 train_df = pd.read_csv("/kaggle/input/titanic/train.csv")
