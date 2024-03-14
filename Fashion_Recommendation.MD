@@ -25,7 +25,7 @@ dataset = dataset[:10000]
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6fdf8065-63a8-441d-aa48-658bfd8c5f0f)
 
-## Step 3: Add Xception Model
+## Step 3: Add Xception model
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/625bda7a-5b44-47ad-b801-1f60f6251830)
 
@@ -66,7 +66,7 @@ nNeighbors = 4
 nbrs = NearestNeighbors(n_neighbors = nNeighbors, algorithm = 'kd_tree').fit(features)
 ```
 
-To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (9,6)], not the 100352-D Vector.
+To easily explain how KD Tree works, let's say that our image features are just 2-D Vector [(2, 8), (7, 5), (1, 6), (6, 4), (9,6)], not the 100352-D Vector. In this illustration, our variation of the KD Tree picks the first value to compare instead of choosing a mean for simplicity, for a precise approach of KD Tree please refer to here https://yasenh.github.io/post/kd-tree
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/90baacad-2103-44ab-bcf4-19c820702776)
 
