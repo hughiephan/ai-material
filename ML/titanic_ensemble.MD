@@ -53,7 +53,7 @@ X = pd.DataFrame(sc.fit_transform(X.values), index=X.index, columns=X.columns)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 ```
 
-## Step 6: Model
+## Step 6: Neural network
 ```python
 def build_ann():
     ann = Sequential()
@@ -62,7 +62,10 @@ def build_ann():
     ann.add(Dense(units=1, activation='sigmoid'))
     ann.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return ann
+```
 
+## Step 6: Ensemble classifier
+```python
 class EnsembleClassifier:
     def __init__(self, verbose=True):
         self.ann = build_ann()
@@ -105,3 +108,5 @@ prediction = model.predict(X_test)
 score = metrics.accuracy_score(Y_test, prediction)
 print("Accuracy:", score)
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/020abd22-fcf7-43cc-bc5f-02ed1d6015af)
