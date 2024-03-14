@@ -1,6 +1,6 @@
 # Titanic Disaster with Ensemble Learning
 
-Dataset is from: https://www.kaggle.com/competitions/titanic/data
+
 
 ## Step 1: Import libraries
 ```python
@@ -20,6 +20,9 @@ from keras.layers import Dense, Dropout
 ```
 
 ## Step 2: Data
+
+Download dataset from `https://www.kaggle.com/competitions/titanic/data`
+
 ```python
 def preprocess_data(df):
     processed_df = df
