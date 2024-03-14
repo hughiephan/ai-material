@@ -32,12 +32,13 @@ Y = train_df['Survived']
 ![image](https://github.com/hughiephan/DPL/assets/16631121/6f4c6fcb-5cce-4740-9556-573678446770)
 
 ## Step 3: Fill missing values
+
+`inplace=True` parameter ensures that the changes are made directly instead of this `X['...'] = X['...'].fillna(...)`
+
 ```python
 X['Embarked'].fillna('C', inplace=True)
-X['Age'] = X.groupby(['Pclass','Sex','Parch','SibSp'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Age'] = X.groupby(['Pclass','Sex','Parch'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Age'] = X.groupby(['Pclass','Sex'])['Age'].transform(lambda x: x.fillna(x.mean()))
-X['Fare'] = X['Fare'].interpolate()
+X['Age'].fillna(X['Age'].mean(), inplace=True)
+X['Fare'].interpolate(inplace=True)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/87a8e44e-ac1d-4236-bc6d-b064ab686ee7)
