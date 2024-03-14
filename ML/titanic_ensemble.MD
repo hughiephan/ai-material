@@ -2,7 +2,7 @@
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/5597fb70-eeb6-4ec9-b1da-f48cd4c36a44)
 
-Using ensemble majority voting with Artificial Neural Network, Random Forest, and SVM can create a robust and reliable predictive model for determining the survival outcomes of Titanic passengers, by incorporating the diverse strengths of these three powerful machine learning techniques.
+By incorporating the diverse strengths of these three powerful machine learning techniques Artificial Neural Network, Random Forest, and SVM with ensemble majority voting, we can create a robust and reliable predictive model for determining the survival outcomes of Titanic passengers.
 
 ## Step 1: Import libraries
 ```python
