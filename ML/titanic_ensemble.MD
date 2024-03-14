@@ -57,7 +57,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 ```python
 def build_ann():
     ann = Sequential()
-    ann.add(Dense(units=32, activation='relu', input_shape=(13,)))
+    ann.add(Dense(units=32, activation='relu', input_shape=(8,)))
     ann.add(Dense(units=64, activation='relu'))
     ann.add(Dropout(rate=0.5))
     ann.add(Dense(units=64, activation='relu'))
