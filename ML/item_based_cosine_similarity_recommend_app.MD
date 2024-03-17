@@ -18,7 +18,7 @@ print('Group items: \n', group_items)
 print('All items: \n', all_items)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/d0002950-1e81-4e25-b0c8-fecf45409af2)
+![image](https://github.com/hughiephan/DPL/assets/16631121/965764d5-dead-49d1-a300-d65e1e4b95e4)
 
 ## Step 2: Create Huggingface Space
 
