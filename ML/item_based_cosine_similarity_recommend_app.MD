@@ -75,7 +75,8 @@ transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
 df = transaction[['customer_id','prod_name']]
 group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
 all_items = set(df['prod_name'].unique())
-print(all_items)
+print('Group items', group_items)
+print('All items', all_items)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2e5039f2-fb53-4661-a761-79765495845a)
