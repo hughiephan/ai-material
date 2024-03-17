@@ -110,8 +110,6 @@ Click on `App` and we can try out the Gradio Interface with the following input 
 
 ## Step 6: Create a frontend application
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
-
 Create an `index.html` file on your computer and copy the below code into the file to create a frontend application using HTML, CSS, and Javascript. You will also need to populate the `allItems` with the list from the previous step, and populate the `URL` to your Huggingface Space. If your username is `hughiephan` and spacename is `item-based-cosine-similarity-recommend` then the URL will be `https://hughiephan-item-based-cosine-similarity-recommend.hf.space`
 
 ```html
@@ -304,3 +302,5 @@ Create an `index.html` file on your computer and copy the below code into the fi
     });
 </script>
 ```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
