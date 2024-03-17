@@ -7,7 +7,6 @@ In a Notebook, run the following code with this dataset `https://www.kaggle.com/
 
 ```python
 import pandas as pd
-import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
 article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
@@ -15,9 +14,9 @@ article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
 transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
 df = transaction[['customer_id','prod_name']]
 group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
-all_items = set(df['prod_name'].unique())
-print('Group items', group_items)
-print('All items', all_items)
+all_items = list(set(df['prod_name'].unique()))
+print('Group items: \n', group_items)
+print('All items: \n', all_items)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d0002950-1e81-4e25-b0c8-fecf45409af2)
