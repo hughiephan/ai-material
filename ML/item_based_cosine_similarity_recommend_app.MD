@@ -40,7 +40,7 @@ From this URL `https://huggingface.co/new-space` create a new Huggingface Space 
 
 To start creating items containing our application's logic, click on `Files` -> `Add file` -> `Create new file`. We will need to create 2 files, `requirements.txt` to install libraries and `app.py` to store the logic and handle API requests.
 
-## Step 3: Create requirements.txt
+## Step 4: Create requirements.txt
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af24a864-c614-4773-8e20-aea885161017)
 
@@ -48,7 +48,7 @@ To start creating items containing our application's logic, click on `Files` -> 
 scikit-learn
 ```
 
-## Step 4: Create app.py
+## Step 5: Create app.py
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/06d35634-3db7-405f-a7be-45b40b04b9f8)
 
