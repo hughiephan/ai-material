@@ -50,7 +50,7 @@ scikit-learn
 
 ## Step 5: Create app.py
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/06d35634-3db7-405f-a7be-45b40b04b9f8)
+![image](https://github.com/hughiephan/DPL/assets/16631121/35186bc9-1139-4028-8107-fc8228acaae0)
 
 Create a new file `app.py`. We then populate the `grouped_items` and `all_items` from the previous step into the following code and keep everything else the same.
 
@@ -72,29 +72,32 @@ def recommend(group_items, all_items, input_items):
     for sublist in group_items:
         vector = [1 if item in sublist else 0 for item in all_items]
         item_vectors.append(vector)    
+    item_vectors = np.array(item_vectors)
     item_to_index = {item: i for i, item in enumerate(all_items)}
     index_to_item = {i: item for item, i in item_to_index.items()}
     input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
     if not input_indices:
         print("None of the input items found.")
+        return []
     else:
         input_vectors = item_vectors[:, input_indices]
         aggregated_vector = np.sum(input_vectors, axis=1)
         similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
-        similar_indices = similarities.argsort()[::-1]  # Sort in descending order
+        similar_indices = similarities.argsort()[::-1]
         similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
         recommended_items = similar_items[:5]
         print(f"Recommended items for {input_items}: {recommended_items}")
+        return recommended_items
 
 def recommend_interface(input_items):
     recommended_items = recommend(grouped_items, all_items, input_items)
     return recommended_items
 
-interface = gr.Interface(fn=recommend, 
-                     inputs=gr.Textbox(label="Input items separated by comma"), 
+interface = gr.Interface(fn=recommend_interface, 
+                     inputs=gr.Textbox(label="Input items"), 
                      outputs="text",
                      title="Fashion Item Recommendation",
-                     description="Enter a list of fashion items separated by a comma to get recommendations.")
+                     description="Enter a list of fashion items separated by a comma to get recommendations. Example: ['Perrie trash', 'Glans tunic']")
 interface.launch()
 ```
 
