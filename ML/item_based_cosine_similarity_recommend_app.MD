@@ -1,5 +1,27 @@
 ## Item-based Cosine Similarity Recommendation
 
+
+## Step 1: Get a list of all items and a list of group items
+
+In a Notebook, run the following code with this dataset `https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data` to create a list of group items and a list of all items.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
+article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
+article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
+transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
+df = transaction[['customer_id','prod_name']]
+group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
+all_items = set(df['prod_name'].unique())
+print('Group items', group_items)
+print('All items', all_items)
+```
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/d11c4220-f8b5-4d1b-b9b7-f9793a80756a)
+
 ## Step 1: Create Huggingface Space
 
 From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode. The owner will automatically be your username.
@@ -62,24 +84,6 @@ iface = gr.Interface(fn=recommend_interface,
                      description="Enter a list of fashion items separated by comma to get recommendations.")
 iface.launch()
 ```
-
-## Step 1: Get a list of all items
-```python
-import pandas as pd
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
-article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
-article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
-transaction['prod_name'] = transaction['article_id'].map(article_id_to_name)
-df = transaction[['customer_id','prod_name']]
-group_items = df.groupby('customer_id')['prod_name'].apply(list).tolist()
-all_items = set(df['prod_name'].unique())
-print('Group items', group_items)
-print('All items', all_items)
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/2e5039f2-fb53-4661-a761-79765495845a)
 
 ## Step 2: Create a frontend application
 
