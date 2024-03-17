@@ -95,9 +95,7 @@ interface = gr.Interface(fn=recommend,
 interface.launch()
 ```
 
-## Step 5: 
-
-## Step 2: Create a frontend application
+## Step 6: Create a frontend application
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
 
@@ -267,7 +265,7 @@ Create an `index.html` file on your computer and copy the below code into the fi
 
 <script type="module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.12.0/dist/index.min.js";
-    var itemsList = [
+    var all_items = [
         'Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p', 'Inca Jumper', 'W YODA KNIT OL OFFER', 'Inca jumper',
         'Gyda!', 'Thomas paperbag wide', 'Fiona Wide', 'Drew Cardigan', 'Lauper Sweater', 'SIRPA', 'Felicia Tank',
         'EDC ROMAN BLOUSE', 'RICHIE PELATED SKIRT', 'HOPPER 9.99', 'Bientot graphic tee', 'Linni tee', 'EDC LAURA LACE TOP',
@@ -283,7 +281,7 @@ Create an `index.html` file on your computer and copy the below code into the fi
         'Slurp long tregging', 'Perrie trash'
     ];
     var selectElement = document.getElementById('itemSelect');
-    itemsList.forEach(function (item) {
+    all_items.forEach(function (item) {
         var option = document.createElement('option');
         option.value = item;
         option.textContent = item;
