@@ -2,6 +2,8 @@
 
 Using Gradio as an interface for item-based cosine similarity allows for a seamless integration of machine learning models into interactive web applications built on HTML, CSS, and Javascript.
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/f3a1db61-7705-410e-956f-dc8332efffb7)
+
 ## Step 1: Get a list of all items and a list of group items
 
 In a Notebook, run the following code with this dataset `https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data` to create a list of group items and a list of all items.
