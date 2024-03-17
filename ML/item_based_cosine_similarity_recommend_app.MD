@@ -1,6 +1,6 @@
 ## Item-based Cosine Similarity Recommendation
 
-## Step 1: Get a list of items
+## Step 1: Get a list of all items
 ```python
 import pandas as pd
 import numpy as np
@@ -17,7 +17,7 @@ print(all_items)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2e5039f2-fb53-4661-a761-79765495845a)
 
-## Frontend
+## Step 2: Create frontend application
 ```html
 <style>
     html,
