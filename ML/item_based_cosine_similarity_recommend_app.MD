@@ -20,9 +20,9 @@ print('Group items', group_items)
 print('All items', all_items)
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/d11c4220-f8b5-4d1b-b9b7-f9793a80756a)
+![image](https://github.com/hughiephan/DPL/assets/16631121/d0002950-1e81-4e25-b0c8-fecf45409af2)
 
-## Step 1: Create Huggingface Space
+## Step 2: Create Huggingface Space
 
 From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode. The owner will automatically be your username.
 
