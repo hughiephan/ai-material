@@ -1,5 +1,68 @@
 ## Item-based Cosine Similarity Recommendation
 
+## Step 1: Create Huggingface Space
+
+From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/7f4fd9d6-2da1-44fa-b001-b61961f0c5de)
+
+## Step 1: Requirements.txt
+
+```
+scikit-learn
+```
+
+## Step 1: Deploy backend 
+```python
+import pickle
+import gradio as gr
+import numpy as np
+import ast
+from sklearn.metrics.pairwise import cosine_similarity
+
+with open("model.pkl", "rb") as file:
+    grouped_items = pickle.load(file)
+
+def compute_item_vectors(items):
+    all_items = set()
+    for sublist in items:
+        all_items.update(sublist)
+    all_items = sorted(list(all_items))
+    vectors = []
+    for sublist in items:
+        vector = [1 if item in sublist else 0 for item in all_items]
+        vectors.append(vector)
+    return np.array(vectors), all_items
+
+def recommend(items, input_items, num_recommendations=5):
+    input_items = ast.literal_eval(input_items)
+    item_vectors, all_items = compute_item_vectors(items)
+    item_to_index = {item: i for i, item in enumerate(all_items)}
+    index_to_item = {i: item for item, i in item_to_index.items()}
+    input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
+    if not input_indices:
+        print("None of the input items found.")
+        return []
+    input_vectors = item_vectors[:, input_indices]
+    aggregated_vector = np.sum(input_vectors, axis=1)
+    similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
+    similar_indices = similarities.argsort()[::-1]  # Sort in descending order
+    similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
+    return similar_items[:num_recommendations]
+
+
+def recommend_interface(input_items):
+    recommended_items = recommend(grouped_items, input_items)
+    return recommended_items
+
+iface = gr.Interface(fn=recommend_interface, 
+                     inputs=gr.Textbox(lines=5, label="Input items separated by comma"), 
+                     outputs="text",
+                     title="Fashion Item Recommendation",
+                     description="Enter a list of fashion items separated by comma to get recommendations.")
+iface.launch()
+```
+
 ## Step 1: Get a list of all items
 ```python
 import pandas as pd
@@ -226,63 +289,4 @@ Create an `index.html` file on your computer and copy the below code into the fi
         footerElement.appendChild(parsedDataContainer);
     });
 </script>
-```
-
-## Requirements.txt
-
-```
-scikit-learn
-```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/c524c0dc-006e-4c84-989c-d83562b6b982)
-
-## Step: app.py
-```python
-import pickle
-import gradio as gr
-import numpy as np
-import ast
-from sklearn.metrics.pairwise import cosine_similarity
-
-with open("model.pkl", "rb") as file:
-    grouped_items = pickle.load(file)
-
-def compute_item_vectors(items):
-    all_items = set()
-    for sublist in items:
-        all_items.update(sublist)
-    all_items = sorted(list(all_items))
-    vectors = []
-    for sublist in items:
-        vector = [1 if item in sublist else 0 for item in all_items]
-        vectors.append(vector)
-    return np.array(vectors), all_items
-
-def recommend(items, input_items, num_recommendations=5):
-    input_items = ast.literal_eval(input_items)
-    item_vectors, all_items = compute_item_vectors(items)
-    item_to_index = {item: i for i, item in enumerate(all_items)}
-    index_to_item = {i: item for item, i in item_to_index.items()}
-    input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
-    if not input_indices:
-        print("None of the input items found.")
-        return []
-    input_vectors = item_vectors[:, input_indices]
-    aggregated_vector = np.sum(input_vectors, axis=1)
-    similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
-    similar_indices = similarities.argsort()[::-1]  # Sort in descending order
-    similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
-    return similar_items[:num_recommendations]
-
-
-def recommend_interface(input_items):
-    recommended_items = recommend(grouped_items, input_items)
-    return recommended_items
-
-iface = gr.Interface(fn=recommend_interface, 
-                     inputs=gr.Textbox(lines=5, label="Input items separated by comma"), 
-                     outputs="text",
-                     title="Fashion Item Recommendation",
-                     description="Enter a list of fashion items separated by comma to get recommendations.")
-iface.launch()
 ```
