@@ -17,12 +17,6 @@ print(all_items)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2e5039f2-fb53-4661-a761-79765495845a)
 
-## Requirements.txt
-
-```
-scikit-learn
-```
-
 ## Frontend
 ```html
 <style>
@@ -227,6 +221,12 @@ scikit-learn
         footerElement.appendChild(parsedDataContainer);
     });
 </script>
+```
+
+## Requirements.txt
+
+```
+scikit-learn
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/c524c0dc-006e-4c84-989c-d83562b6b982)
