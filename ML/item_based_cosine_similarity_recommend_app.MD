@@ -45,6 +45,8 @@ To start creating items containing our application's logic, click on `Files` -> 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af24a864-c614-4773-8e20-aea885161017)
 
+Name the file as `requirements.txt`, then add the following code and click on `Commit new file to main`
+
 ```python
 scikit-learn
 ```
@@ -53,7 +55,7 @@ scikit-learn
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/35186bc9-1139-4028-8107-fc8228acaae0)
 
-Create a new file `app.py`. We then populate the `grouped_items` and `all_items` from the previous step into the following code and keep everything else the same.
+Name the file as `app.py`. Before we add the following code to `app.py`, we need to populate the `grouped_items` and `all_items` from the previous step into the following code and keep everything else the same. Then click on `Commit new file to main`. 
 
 ```python
 import gradio as gr
