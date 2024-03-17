@@ -26,62 +26,59 @@ From this URL `https://huggingface.co/new-space` create a new Huggingface Space 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7f4fd9d6-2da1-44fa-b001-b61961f0c5de)
 
-## Step 1: Requirements.txt
+## Step 3: Create requirements.txt
 
 ```
 scikit-learn
 ```
 
-## Step 1: Deploy backend 
+## Step 4: Create backend
+
+Add the `group_items` and `all_items` from the previous step
+
 ```python
-import pickle
 import gradio as gr
 import numpy as np
 import ast
 from sklearn.metrics.pairwise import cosine_similarity
 
-with open("model.pkl", "rb") as file:
-    grouped_items = pickle.load(file)
+grouped_items = [['Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p'], ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'], ['Gyda!', 'Thomas paperbag wide', 'Fiona Wide', 'Gyda!', 'Gyda!'], ['Drew Cardigan', 'Lauper Sweater'], ['SIRPA', 'SIRPA', 'Felicia Tank', 'EDC ROMAN BLOUSE', 'EDC ROMAN BLOUSE', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'HOPPER 9.99', 'Bientot graphic tee', 'Bientot graphic tee', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Linni tee', 'Linni tee', 'EDC LAURA LACE TOP', 'EDC LAURA LACE TOP', 'Wendy jersey top', 'Wendy jersey top', 'CSP Smock Top', 'CSP Smock Top', 'Linni tee', 'Linni tee', 'Jenner waist belt', 'Jenner waist belt', 'Svea Cropped Tank', 'Svea Cropped Tank', 'Fall graphic tee', 'Fall graphic tee'], ['Skinny L.W Bargain (1)'], ['Stork fancy', 'CSP Hackney tank'], ['Mini Trainer 5p Socks', 'Space 5 pkt tregging'], ['Håkan half zip CC', 'Dawn trousrer', 'TVP Henry trouser', 'Tempest TVP'], ['SC - MAJOR boot low'], ['Keyring fluff', 'Greta Shortie (Daisy Mid) 3p', 'Greta Shortie (Daisy Mid) 3p'], ['HM+ Glans tunic', 'HM+ Glans tunic', 'Glans SS', 'ED Tulip'], ['Valentino', 'A-band unicorn PU', 'HM+ Katie skatedress', '2P LS GIRLY PJ', 'Kai tunic', 'Cosy tunic', 'Lolly', 'Valentino', 'ED Madison Skinny HW', 'SORRENTO trousers', 'Glans tunic'], ['Rebecca or Delphine shirt', 'Swift Dress'], ['Janet SL-set (W)', 'Janet SL-set (W)', 'India PJ (W)', 'India PJ (W)'], ['Cindererlla'], ['Lola Lace-Up'], ['Cat Tee', 'Irma SL-set print (J)', 'Polly pencil case', 'Bracelet Tom'], ['Charlotte Brazilian Aza.Low 2p', 'Liza Superpush (Andes) 2pk', 'Henry polo. (1)', 'Mary fancy LS', 'Charlotte Brazilian Aza.Low 2p'], ['Nora Cardigan', 'Dolly hood', 'Jess oversize LS'], ['Latte slacks (1)'], ['FOG tanktop', 'MIST muscle tank', 'Boulevard TOP PRODUCT'], ['DOMINIC'], ['lennart dress'], ['Slurp long tregging'], ['Perrie trash']]
 
-def compute_item_vectors(items):
-    all_items = set()
-    for sublist in items:
-        all_items.update(sublist)
-    all_items = sorted(list(all_items))
-    vectors = []
-    for sublist in items:
+all_items = ['ED Tulip', 'Felicia Tank', 'Bracelet Tom', 'DOMINIC', 'Bientot graphic tee', 'Inca jumper', 'Wendy jersey top', 'CSP Hackney tank', 'Glans tunic', 'SIRPA', 'Stork fancy', 'Cat Tee', 'Boulevard TOP PRODUCT', 'Lolly', 'Jess oversize LS', 'FOG tanktop', 'Slurp long tregging', 'Space 5 pkt tregging', 'HOPPER 9.99', 'Linni tee', 'Fiona Wide', 'Skinny L.W Bargain (1)', 'Lola Lace-Up', 'W YODA KNIT OL OFFER', 'RICHIE PELATED SKIRT', 'Lauper Sweater', 'Thomas paperbag wide', '2P LS GIRLY PJ', 'HM+ Katie skatedress', 'EDC LAURA LACE TOP', 'Valentino', 'Nora Cardigan', 'Cosy tunic', 'Polly pencil case', 'Irma SL-set print (J)', 'Dolly hood', 'Keyring fluff', 'ED Madison Skinny HW', 'Håkan half zip CC', 'Mary fancy LS', 'MIST muscle tank', 'Kai tunic', 'Latte slacks (1)', 'HM+ Glans tunic', 'Swift Dress', 'Janet SL-set (W)', 'Drew Cardigan', 'India PJ (W)', 'Glans SS', 'SC - MAJOR boot low', 'Greta Shortie (Daisy Mid) 3p', 'Jenner waist belt', 'Atlanta Push Body Harlow', 'Svea Cropped Tank', 'Inca Jumper', 'lennart dress', 'EDC ROMAN BLOUSE', 'SORRENTO trousers', 'Liza Superpush (Andes) 2pk', 'Mini Trainer 5p Socks', 'Rae Push (Melbourne) 2p', 'Perrie trash', 'Dawn trousrer', 'TVP Henry trouser', 'Gyda!', 'Tempest TVP', 'A-band unicorn PU', 'Cindererlla', 'Charlotte Brazilian Aza.Low 2p', 'CSP Smock Top', 'Fall graphic tee', 'Rebecca or Delphine shirt', 'Henry polo. (1)']
+
+def recommend(group_items, all_items, input_items):
+    input_items = ast.literal_eval(input_items) 
+    item_vectors = []
+    for sublist in group_items:
         vector = [1 if item in sublist else 0 for item in all_items]
-        vectors.append(vector)
-    return np.array(vectors), all_items
-
-def recommend(items, input_items, num_recommendations=5):
-    input_items = ast.literal_eval(input_items)
-    item_vectors, all_items = compute_item_vectors(items)
+        item_vectors.append(vector)    
     item_to_index = {item: i for i, item in enumerate(all_items)}
     index_to_item = {i: item for item, i in item_to_index.items()}
     input_indices = [item_to_index[item] for item in input_items if item in item_to_index]
     if not input_indices:
         print("None of the input items found.")
-        return []
-    input_vectors = item_vectors[:, input_indices]
-    aggregated_vector = np.sum(input_vectors, axis=1)
-    similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
-    similar_indices = similarities.argsort()[::-1]  # Sort in descending order
-    similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
-    return similar_items[:num_recommendations]
-
+    else:
+        input_vectors = item_vectors[:, input_indices]
+        aggregated_vector = np.sum(input_vectors, axis=1)
+        similarities = cosine_similarity([aggregated_vector], item_vectors.T)[0]
+        similar_indices = similarities.argsort()[::-1]  # Sort in descending order
+        similar_items = [index_to_item[idx] for idx in similar_indices if idx not in input_indices]
+        recommended_items = similar_items[:5]
+        print(f"Recommended items for {input_items}: {recommended_items}")
 
 def recommend_interface(input_items):
-    recommended_items = recommend(grouped_items, input_items)
+    recommended_items = recommend(grouped_items, all_items, input_items)
     return recommended_items
 
-iface = gr.Interface(fn=recommend_interface, 
-                     inputs=gr.Textbox(lines=5, label="Input items separated by comma"), 
+interface = gr.Interface(fn=recommend, 
+                     inputs=gr.Textbox(label="Input items separated by comma"), 
                      outputs="text",
                      title="Fashion Item Recommendation",
-                     description="Enter a list of fashion items separated by comma to get recommendations.")
-iface.launch()
+                     description="Enter a list of fashion items separated by a comma to get recommendations.")
+interface.launch()
 ```
+
+## Step 5: 
 
 ## Step 2: Create a frontend application
 
