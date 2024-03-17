@@ -17,11 +17,11 @@ print(all_items)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/2e5039f2-fb53-4661-a761-79765495845a)
 
-## Step 2: Create frontend application
+## Step 2: Create a frontend application
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
 
-Create an `index.html` file on your computer and copy the below code into the file to create a frontend application using HTML, CSS, and Javascript.
+Create an `index.html` file on your computer and copy the below code into the file to create a frontend application using HTML, CSS, and Javascript. In the `itemList`, remember to populate the list of items which we have printed out in the previous step.
 
 ```html
 <style>
