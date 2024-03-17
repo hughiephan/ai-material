@@ -42,6 +42,8 @@ scikit-learn
 
 ## Step 4: Create backend
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/06d35634-3db7-405f-a7be-45b40b04b9f8)
+
 Add the `group_items` and `all_items` from the previous step
 
 ```python
