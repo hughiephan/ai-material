@@ -7,7 +7,6 @@ In a Notebook, run the following code with this dataset `https://www.kaggle.com/
 
 ```python
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
 transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
 article = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/articles.csv')
 article_id_to_name = dict(zip(article['article_id'], article['prod_name']))
