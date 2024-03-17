@@ -20,6 +20,14 @@ print('All items: \n', all_items)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/965764d5-dead-49d1-a300-d65e1e4b95e4)
 
+```python
+Group items: 
+ [['Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p'], ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'], ['Gyda!', 'Thomas paperbag wide', 'Fiona Wide', 'Gyda!', 'Gyda!'], ['Drew Cardigan', 'Lauper Sweater'], ['SIRPA', 'SIRPA', 'Felicia Tank', 'EDC ROMAN BLOUSE', 'EDC ROMAN BLOUSE', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'HOPPER 9.99', 'Bientot graphic tee', 'Bientot graphic tee', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Linni tee', 'Linni tee', 'EDC LAURA LACE TOP', 'EDC LAURA LACE TOP', 'Wendy jersey top', 'Wendy jersey top', 'CSP Smock Top', 'CSP Smock Top', 'Linni tee', 'Linni tee', 'Jenner waist belt', 'Jenner waist belt', 'Svea Cropped Tank', 'Svea Cropped Tank', 'Fall graphic tee', 'Fall graphic tee'], ['Skinny L.W Bargain (1)'], ['Stork fancy', 'CSP Hackney tank'], ['Mini Trainer 5p Socks', 'Space 5 pkt tregging'], ['Håkan half zip CC', 'Dawn trousrer', 'TVP Henry trouser', 'Tempest TVP'], ['SC - MAJOR boot low'], ['Keyring fluff', 'Greta Shortie (Daisy Mid) 3p', 'Greta Shortie (Daisy Mid) 3p'], ['HM+ Glans tunic', 'HM+ Glans tunic', 'Glans SS', 'ED Tulip'], ['Valentino', 'A-band unicorn PU', 'HM+ Katie skatedress', '2P LS GIRLY PJ', 'Kai tunic', 'Cosy tunic', 'Lolly', 'Valentino', 'ED Madison Skinny HW', 'SORRENTO trousers', 'Glans tunic'], ['Rebecca or Delphine shirt', 'Swift Dress'], ['Janet SL-set (W)', 'Janet SL-set (W)', 'India PJ (W)', 'India PJ (W)'], ['Cindererlla'], ['Lola Lace-Up'], ['Cat Tee', 'Irma SL-set print (J)', 'Polly pencil case', 'Bracelet Tom'], ['Charlotte Brazilian Aza.Low 2p', 'Liza Superpush (Andes) 2pk', 'Henry polo. (1)', 'Mary fancy LS', 'Charlotte Brazilian Aza.Low 2p'], ['Nora Cardigan', 'Dolly hood', 'Jess oversize LS'], ['Latte slacks (1)'], ['FOG tanktop', 'MIST muscle tank', 'Boulevard TOP PRODUCT'], ['DOMINIC'], ['lennart dress'], ['Slurp long tregging'], ['Perrie trash']]
+
+All items: 
+ ['ED Tulip', 'Felicia Tank', 'Bracelet Tom', 'DOMINIC', 'Bientot graphic tee', 'Inca jumper', 'Wendy jersey top', 'CSP Hackney tank', 'Glans tunic', 'SIRPA', 'Stork fancy', 'Cat Tee', 'Boulevard TOP PRODUCT', 'Lolly', 'Jess oversize LS', 'FOG tanktop', 'Slurp long tregging', 'Space 5 pkt tregging', 'HOPPER 9.99', 'Linni tee', 'Fiona Wide', 'Skinny L.W Bargain (1)', 'Lola Lace-Up', 'W YODA KNIT OL OFFER', 'RICHIE PELATED SKIRT', 'Lauper Sweater', 'Thomas paperbag wide', '2P LS GIRLY PJ', 'HM+ Katie skatedress', 'EDC LAURA LACE TOP', 'Valentino', 'Nora Cardigan', 'Cosy tunic', 'Polly pencil case', 'Irma SL-set print (J)', 'Dolly hood', 'Keyring fluff', 'ED Madison Skinny HW', 'Håkan half zip CC', 'Mary fancy LS', 'MIST muscle tank', 'Kai tunic', 'Latte slacks (1)', 'HM+ Glans tunic', 'Swift Dress', 'Janet SL-set (W)', 'Drew Cardigan', 'India PJ (W)', 'Glans SS', 'SC - MAJOR boot low', 'Greta Shortie (Daisy Mid) 3p', 'Jenner waist belt', 'Atlanta Push Body Harlow', 'Svea Cropped Tank', 'Inca Jumper', 'lennart dress', 'EDC ROMAN BLOUSE', 'SORRENTO trousers', 'Liza Superpush (Andes) 2pk', 'Mini Trainer 5p Socks', 'Rae Push (Melbourne) 2p', 'Perrie trash', 'Dawn trousrer', 'TVP Henry trouser', 'Gyda!', 'Tempest TVP', 'A-band unicorn PU', 'Cindererlla', 'Charlotte Brazilian Aza.Low 2p', 'CSP Smock Top', 'Fall graphic tee', 'Rebecca or Delphine shirt', 'Henry polo. (1)']
+```
+
 ## Step 2: Create Huggingface Space
 
 From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode. The owner will automatically be your username.
@@ -40,11 +48,11 @@ To start creating items containing our application's logic, click on `Files` -> 
 scikit-learn
 ```
 
-## Step 4: Create backend
+## Step 4: Create app.py
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/06d35634-3db7-405f-a7be-45b40b04b9f8)
 
-Add the `group_items` and `all_items` from the previous step
+Populate the `grouped_items` and `all_items` from the previous step into the following code and create the new file `app.py`
 
 ```python
 import gradio as gr
@@ -52,9 +60,8 @@ import numpy as np
 import ast
 from sklearn.metrics.pairwise import cosine_similarity
 
-grouped_items = [['Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p'], ['Inca Jumper', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Inca jumper'], ['Gyda!', 'Thomas paperbag wide', 'Fiona Wide', 'Gyda!', 'Gyda!'], ['Drew Cardigan', 'Lauper Sweater'], ['SIRPA', 'SIRPA', 'Felicia Tank', 'EDC ROMAN BLOUSE', 'EDC ROMAN BLOUSE', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'RICHIE PELATED SKIRT', 'HOPPER 9.99', 'Bientot graphic tee', 'Bientot graphic tee', 'W YODA KNIT OL OFFER', 'W YODA KNIT OL OFFER', 'Linni tee', 'Linni tee', 'EDC LAURA LACE TOP', 'EDC LAURA LACE TOP', 'Wendy jersey top', 'Wendy jersey top', 'CSP Smock Top', 'CSP Smock Top', 'Linni tee', 'Linni tee', 'Jenner waist belt', 'Jenner waist belt', 'Svea Cropped Tank', 'Svea Cropped Tank', 'Fall graphic tee', 'Fall graphic tee'], ['Skinny L.W Bargain (1)'], ['Stork fancy', 'CSP Hackney tank'], ['Mini Trainer 5p Socks', 'Space 5 pkt tregging'], ['Håkan half zip CC', 'Dawn trousrer', 'TVP Henry trouser', 'Tempest TVP'], ['SC - MAJOR boot low'], ['Keyring fluff', 'Greta Shortie (Daisy Mid) 3p', 'Greta Shortie (Daisy Mid) 3p'], ['HM+ Glans tunic', 'HM+ Glans tunic', 'Glans SS', 'ED Tulip'], ['Valentino', 'A-band unicorn PU', 'HM+ Katie skatedress', '2P LS GIRLY PJ', 'Kai tunic', 'Cosy tunic', 'Lolly', 'Valentino', 'ED Madison Skinny HW', 'SORRENTO trousers', 'Glans tunic'], ['Rebecca or Delphine shirt', 'Swift Dress'], ['Janet SL-set (W)', 'Janet SL-set (W)', 'India PJ (W)', 'India PJ (W)'], ['Cindererlla'], ['Lola Lace-Up'], ['Cat Tee', 'Irma SL-set print (J)', 'Polly pencil case', 'Bracelet Tom'], ['Charlotte Brazilian Aza.Low 2p', 'Liza Superpush (Andes) 2pk', 'Henry polo. (1)', 'Mary fancy LS', 'Charlotte Brazilian Aza.Low 2p'], ['Nora Cardigan', 'Dolly hood', 'Jess oversize LS'], ['Latte slacks (1)'], ['FOG tanktop', 'MIST muscle tank', 'Boulevard TOP PRODUCT'], ['DOMINIC'], ['lennart dress'], ['Slurp long tregging'], ['Perrie trash']]
-
-all_items = ['ED Tulip', 'Felicia Tank', 'Bracelet Tom', 'DOMINIC', 'Bientot graphic tee', 'Inca jumper', 'Wendy jersey top', 'CSP Hackney tank', 'Glans tunic', 'SIRPA', 'Stork fancy', 'Cat Tee', 'Boulevard TOP PRODUCT', 'Lolly', 'Jess oversize LS', 'FOG tanktop', 'Slurp long tregging', 'Space 5 pkt tregging', 'HOPPER 9.99', 'Linni tee', 'Fiona Wide', 'Skinny L.W Bargain (1)', 'Lola Lace-Up', 'W YODA KNIT OL OFFER', 'RICHIE PELATED SKIRT', 'Lauper Sweater', 'Thomas paperbag wide', '2P LS GIRLY PJ', 'HM+ Katie skatedress', 'EDC LAURA LACE TOP', 'Valentino', 'Nora Cardigan', 'Cosy tunic', 'Polly pencil case', 'Irma SL-set print (J)', 'Dolly hood', 'Keyring fluff', 'ED Madison Skinny HW', 'Håkan half zip CC', 'Mary fancy LS', 'MIST muscle tank', 'Kai tunic', 'Latte slacks (1)', 'HM+ Glans tunic', 'Swift Dress', 'Janet SL-set (W)', 'Drew Cardigan', 'India PJ (W)', 'Glans SS', 'SC - MAJOR boot low', 'Greta Shortie (Daisy Mid) 3p', 'Jenner waist belt', 'Atlanta Push Body Harlow', 'Svea Cropped Tank', 'Inca Jumper', 'lennart dress', 'EDC ROMAN BLOUSE', 'SORRENTO trousers', 'Liza Superpush (Andes) 2pk', 'Mini Trainer 5p Socks', 'Rae Push (Melbourne) 2p', 'Perrie trash', 'Dawn trousrer', 'TVP Henry trouser', 'Gyda!', 'Tempest TVP', 'A-band unicorn PU', 'Cindererlla', 'Charlotte Brazilian Aza.Low 2p', 'CSP Smock Top', 'Fall graphic tee', 'Rebecca or Delphine shirt', 'Henry polo. (1)']
+grouped_items = <----Replace me
+all_items = <-----Replace me
 
 def recommend(group_items, all_items, input_items):
     input_items = ast.literal_eval(input_items) 
