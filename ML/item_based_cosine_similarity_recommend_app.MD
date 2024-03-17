@@ -107,7 +107,7 @@ Click on `App` and we can try out the Gradio Interface with the following input 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
 
-Create an `index.html` file on your computer and copy the below code into the file to create a frontend application using HTML, CSS, and Javascript. In the `itemList`, remember to populate the list of items which we have printed out in the previous step.
+Create an `index.html` file on your computer and copy the below code into the file to create a frontend application using HTML, CSS, and Javascript. You will also need to populate the `allItems` with the list from the previous step, and populate the `URL` to your Huggingface Space. If your username is `hughiephan` and spacename is `item-based-cosine-similarity-recommend` then the URL will be `https://hughiephan-item-based-cosine-similarity-recommend.hf.space`
 
 ```html
 <style>
@@ -273,7 +273,7 @@ Create an `index.html` file on your computer and copy the below code into the fi
 
 <script type="module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
-    var allItems =  <--------- Add allItems from the previous step into here
+    var allItems =           <--------- Add allItems from the previous step into here
     var selectElement = document.getElementById('itemSelect');
     allItems.forEach(function (item) {
         var option = document.createElement('option');
@@ -286,7 +286,8 @@ Create an `index.html` file on your computer and copy the below code into the fi
         var item1 = document.querySelector('.cart-item:nth-child(1) .item-name').textContent;
         var item2 = document.querySelector('.cart-item:nth-child(2) .item-name').textContent;
         var itemsArray = [item1, item2, selectedItem];
-        const app = await client("https://hughiephan-item-based-cosine-similarity-recommend.hf.space");
+        # const app = await client("https://hughiephan-item-based-cosine-similarity-recommend.hf.space");  
+        const app = await client("URL");        <--------- Add URL to your HuggingFace space here
         const result = await app.predict("/predict", [
             itemsArray,
         ]);
