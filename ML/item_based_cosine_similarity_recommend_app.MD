@@ -64,6 +64,9 @@ grouped_items = <----Add contents of group_items from previous step here
 all_items = <-----Add contents of all_items from previous step here
 
 def recommend(group_items, all_items, input_items):
+    print(input_items)
+    print(group_items)
+    print(all_items)
     input_items = ast.literal_eval(input_items) 
     item_vectors = []
     for sublist in group_items:
