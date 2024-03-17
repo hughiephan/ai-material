@@ -288,10 +288,10 @@ Create an `index.html` file on your computer and copy the below code into the fi
         var selectedItem = selectElement.value;
         var item1 = document.querySelector('.cart-item:nth-child(1) .item-name').textContent;
         var item2 = document.querySelector('.cart-item:nth-child(2) .item-name').textContent;
-        var itemsArray = [item1, item2, selectedItem];
+        var inputItems = [item1, item2, selectedItem];
         const app = await client("URL");        <--------- Add URL to your HuggingFace space here
         const result = await app.predict("/predict", [
-            itemsArray,
+            inputItems,
         ]);
         const arrayResult = JSON.parse(result.data[0].replace(/'/g, '"'));
         var parsedDataContainer = document.createElement('div');
