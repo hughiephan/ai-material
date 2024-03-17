@@ -45,7 +45,7 @@ To start creating items containing our application's logic, click on `Files` -> 
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af24a864-c614-4773-8e20-aea885161017)
 
-```
+```python
 scikit-learn
 ```
 
