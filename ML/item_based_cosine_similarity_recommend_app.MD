@@ -1,5 +1,6 @@
 ## Item-based Cosine Similarity Recommendation
 
+Using Gradio as an interface for item-based cosine similarity allows for a seamless integration of machine learning models into interactive web applications built on HTML, CSS, and Javascript.
 
 ## Step 1: Get a list of all items and a list of group items
 
