@@ -5,8 +5,6 @@
 
 In a Notebook, run the following code with this dataset `https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data` to create a list of group items and a list of all items.
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/965764d5-dead-49d1-a300-d65e1e4b95e4)
-
 ```python
 import pandas as pd
 transaction = pd.read_csv('../input/h-and-m-personalized-fashion-recommendations/transactions_train.csv', nrows=100)
