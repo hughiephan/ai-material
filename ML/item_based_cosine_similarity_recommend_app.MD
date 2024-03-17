@@ -286,7 +286,6 @@ Create an `index.html` file on your computer and copy the below code into the fi
         var item1 = document.querySelector('.cart-item:nth-child(1) .item-name').textContent;
         var item2 = document.querySelector('.cart-item:nth-child(2) .item-name').textContent;
         var itemsArray = [item1, item2, selectedItem];
-        # const app = await client("https://hughiephan-item-based-cosine-similarity-recommend.hf.space");  
         const app = await client("URL");        <--------- Add URL to your HuggingFace space here
         const result = await app.predict("/predict", [
             itemsArray,
