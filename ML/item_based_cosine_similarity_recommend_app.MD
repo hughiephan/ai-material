@@ -101,6 +101,11 @@ interface = gr.Interface(fn=recommend_interface,
 interface.launch()
 ```
 
+Click on `App` and we can try out the Gradio Interface with the following input `['Perrie trash', 'Glans tunic']`
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/35054468-6758-400b-aab6-b087b2410f23)
+
+
 ## Step 6: Create a frontend application
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/af5981cd-b156-4abb-803c-0d098743d848)
