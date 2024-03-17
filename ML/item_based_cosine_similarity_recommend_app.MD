@@ -2,7 +2,7 @@
 
 ## Step 1: Create Huggingface Space
 
-From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode.
+From this URL `https://huggingface.co/new-space` create a new Huggingface Space that we will deploy our backend along with our model. Input the space name as `item-based-cosine-similarity-recommend`, with the Gradio SDK, Free CPU Hardware, and set it in Public mode. The owner will automatically be your username.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/7f4fd9d6-2da1-44fa-b001-b61961f0c5de)
 
