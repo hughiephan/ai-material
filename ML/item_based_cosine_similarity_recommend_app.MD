@@ -272,24 +272,10 @@ Create an `index.html` file on your computer and copy the below code into the fi
 </html>
 
 <script type="module">
-    import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.12.0/dist/index.min.js";
-    var all_items = [
-        'Atlanta Push Body Harlow', 'Rae Push (Melbourne) 2p', 'Inca Jumper', 'W YODA KNIT OL OFFER', 'Inca jumper',
-        'Gyda!', 'Thomas paperbag wide', 'Fiona Wide', 'Drew Cardigan', 'Lauper Sweater', 'SIRPA', 'Felicia Tank',
-        'EDC ROMAN BLOUSE', 'RICHIE PELATED SKIRT', 'HOPPER 9.99', 'Bientot graphic tee', 'Linni tee', 'EDC LAURA LACE TOP',
-        'Wendy jersey top', 'CSP Smock Top', 'Jenner waist belt', 'Svea Cropped Tank', 'Fall graphic tee',
-        'Skinny L.W Bargain (1)', 'Stork fancy', 'CSP Hackney tank', 'Mini Trainer 5p Socks', 'Space 5 pkt tregging',
-        'Håkan half zip CC', 'Dawn trousrer', 'TVP Henry trouser', 'Tempest TVP', 'SC - MAJOR boot low', 'Keyring fluff',
-        'Greta Shortie (Daisy Mid) 3p', 'HM+ Glans tunic', 'Glans SS', 'ED Tulip', 'Valentino', 'A-band unicorn PU',
-        'HM+ Katie skatedress', '2P LS GIRLY PJ', 'Kai tunic', 'Cosy tunic', 'Lolly', 'ED Madison Skinny HW', 'SORRENTO trousers',
-        'Glans tunic', 'Rebecca or Delphine shirt', 'Swift Dress', 'Janet SL-set (W)', 'India PJ (W)', 'Cindererlla',
-        'Lola Lace-Up', 'Cat Tee', 'Irma SL-set print (J)', 'Polly pencil case', 'Bracelet Tom', 'Charlotte Brazilian Aza.Low 2p',
-        'Liza Superpush (Andes) 2pk', 'Henry polo. (1)', 'Mary fancy LS', 'Nora Cardigan', 'Dolly hood', 'Jess oversize LS',
-        'Latte slacks (1)', 'FOG tanktop', 'MIST muscle tank', 'Boulevard TOP PRODUCT', 'DOMINIC', 'lennart dress',
-        'Slurp long tregging', 'Perrie trash'
-    ];
+    import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+    var allItems =  <--------- Add allItems from the previous step into here
     var selectElement = document.getElementById('itemSelect');
-    all_items.forEach(function (item) {
+    allItems.forEach(function (item) {
         var option = document.createElement('option');
         option.value = item;
         option.textContent = item;
