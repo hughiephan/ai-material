@@ -52,7 +52,7 @@ scikit-learn
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/06d35634-3db7-405f-a7be-45b40b04b9f8)
 
-Populate the `grouped_items` and `all_items` from the previous step into the following code and create the new file `app.py`
+Create a new file `app.py`. We then populate the `grouped_items` and `all_items` from the previous step into the following code and keep everything else the same.
 
 ```python
 import gradio as gr
@@ -60,8 +60,8 @@ import numpy as np
 import ast
 from sklearn.metrics.pairwise import cosine_similarity
 
-grouped_items = <----Replace me
-all_items = <-----Replace me
+grouped_items = <----Add contents of group_items from previous step here
+all_items = <-----Add contents of all_items from previous step here
 
 def recommend(group_items, all_items, input_items):
     input_items = ast.literal_eval(input_items) 
