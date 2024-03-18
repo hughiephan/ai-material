@@ -78,7 +78,7 @@ for i in range(len(contours)):
     hulls[i] = cv2.convexHull(contours[i])
 image = np.zeros((720,1280,3), np.uint8)
 image = cv2.drawContours(image, hulls,-1,(255, 255, 255),-1)
-plt.imshow(im3)
+plt.imshow(image)
 print("Number of moving objects: ", len(hulls))
 ```
 
