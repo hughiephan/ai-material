@@ -42,7 +42,7 @@ Compute the absolute difference between two images `img1` and `img2`. This opera
 imgDiff = cv2.absdiff(img1, img2) 
 ```
 
-## Step 5: Dilate structure
+## Step 5: Dilate and erode structure
 
 We then compute a binary thresholded image from the input difference image. The thresholding operation converts pixel values above a certain threshold `30.0` to a maximum value `255` and the rest to zero, resulting in a binary image where pixels are either white `255` or black `0`. Then, the height and width of the thresholded image are obtained. A 5x5 rectangular structuring element `strucEle5x5` is created using `cv2.getStructuringElement()` to define the neighborhood for morphological operations. Then, a loop iterates twice, performing dilation followed by erosion on the thresholded image using the structuring element. Dilation expands the white regions in the image, while erosion shrinks them. This sequence of dilation and erosion operations helps in smoothing and refining the binary image, eliminating noise and fine details while preserving the significant features
 
