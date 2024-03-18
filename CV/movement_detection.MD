@@ -79,13 +79,13 @@ for i in range(2):
 
 ## Step 7: Contour
 
-Detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
+![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
+
+Detects contours in the thresholded image using the `cv2.findContours()`, with `cv2.RETR_EXTERNAL` specifies that only the external contours are to be retrieved, meaning only the contours outlining the outer edges of objects will be detected. Additionally, `cv2.CHAIN_APPROX_SIMPLE` indicates that a simplified representation of contours will be utilized, storing only the endpoints of each contour to conserve memory.
 
 ```python
 contours, _ = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
 
 ## Step 8: Convex hull
 
