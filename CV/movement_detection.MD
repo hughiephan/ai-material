@@ -1,5 +1,7 @@
 # Movement Detection with Absolute Difference
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/f9b4ea35-493e-4fe4-8822-02cb6fbc7bce)
+
 ## Step 1: Import libraries
 
 ```python
