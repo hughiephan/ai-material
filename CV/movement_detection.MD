@@ -69,7 +69,10 @@ im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
 
 
-## Step 7: Hull
+## Step 7: Convex hull
+
+Convex hull represents a simplified approximation of the shape formed by the contour. It is computed by identifying the outermost points of the contour and connecting them to form a convex polygon.
+
 ```python
 hulls = list(contours)
 for i in range(len(contours)):
