@@ -46,10 +46,10 @@ imgDiff = cv2.absdiff(img1, img2)
 
 We then compute a binary thresholded image from the input difference image. The thresholding operation converts pixel values above a certain threshold `30.0` to a maximum value `255` and the rest to zero, resulting in a binary image where pixels are either white `255` or black `0`. Then, the height and width of the thresholded image are obtained. A 5x5 rectangular structuring element `strucEle5x5` is created using `cv2.getStructuringElement()` to define the neighborhood for morphological operations. Then, a loop iterates twice, performing dilation followed by erosion on the thresholded image using the structuring element. Dilation expands the white regions in the image, while erosion shrinks them. This sequence of dilation and erosion operations helps in smoothing and refining the binary image, eliminating noise and fine details while preserving the significant features
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
+
 ```python
 _, imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
-ht = np.size(imgThresh,0)
-wd = np.size(imgThresh,1)
 strucEle5x5= cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
 for i in range(2):
     imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
@@ -58,6 +58,8 @@ for i in range(2):
 
 ## Step 6: Contour
 ```python
+ht = np.size(imgThresh,0)
+wd = np.size(imgThresh,1)
 contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 im2 = np.zeros((ht,wd,3), np.uint8)
 im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
@@ -79,7 +81,28 @@ im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
 
 ## Optional command
 ```python
+# Visualize original image
 plt.imshow(cv2.cvtColor(img1, cv2.COLOR_BGR2RGB))
+
+# Visualize threshold image, and after dilation and erosion
+_, imgThresh = cv2.threshold(imgDiff, 30.0, 255.0, cv2.THRESH_BINARY)
+plt.figure(figsize=(15, 4))
+plt.subplot(1, 3, 1)
+plt.title('Before')
+plt.axis('off')
+plt.imshow(imgThresh, cmap='gray')
+strucEle5x5 = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+imgThresh_dilated = cv2.dilate(imgThresh, strucEle5x5, iterations=2)
+plt.subplot(1, 3, 2)
+plt.title('After Dilation')
+plt.axis('off')
+plt.imshow(imgThresh_dilated, cmap='gray')
+imgThresh_eroded = cv2.erode(imgThresh_dilated, strucEle5x5, iterations=1)
+plt.subplot(1, 3, 3)
+plt.imshow(imgThresh_eroded, cmap='gray')
+plt.title('After Erosion')
+plt.axis('off')
+plt.show()
 ```
 
 ## Reference
