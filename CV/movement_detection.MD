@@ -68,15 +68,14 @@ Erosion removes white noises, but it also shrinks our objects, so we dilate them
 
 We will create a 5x5 rectangular structuring element to define the neighborhood for morphological operations. Then, a loop iterates twice, performing dilation followed by erosion on the thresholded image using the structuring element. Dilation expands the white regions in the image, while erosion shrinks them. This sequence of dilation and erosion operations helps smooth and refine the binary image, eliminating noise and fine details while preserving the significant features. 
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
+
 ```python
 kernel = np.ones((5, 5), dtype=np.uint8)
 for i in range(2):
     img = cv2.dilate(img, kernel, iterations=2)
     img = cv2.erode(img, kernel, iterations=1)
 ```
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
-
 ## Step 7: Contour
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
