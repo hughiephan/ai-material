@@ -57,6 +57,9 @@ for i in range(2):
 ```
 
 ## Step 6: Contour
+
+Calculates the height and width of the thresholded image using NumPy's `np.size()` function along the rows and columns. Then, detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
+
 ```python
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
