@@ -44,7 +44,7 @@ imgDiff = cv2.absdiff(img1, img2)
 
 ## Step 5: Dilate structure
 ```python
-ret,imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
+_, imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ht = np.size(imgThresh,0)
 wd = np.size(imgThresh,1)
 strucEle5x5= cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
