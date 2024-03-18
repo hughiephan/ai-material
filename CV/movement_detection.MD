@@ -71,6 +71,8 @@ im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 
 ## Step 7: Convex hull
 
+![image](https://github.com/hughiephan/DPL/assets/16631121/334ab918-8ad3-41ed-bb00-eecc4e75e04a)
+
 Convex hull represents a simplified approximation of the shape formed by the contour. It is computed by identifying the outermost points of the contour and connecting them to form a convex polygon.
 
 ```python
@@ -112,3 +114,4 @@ plt.show()
 ## Reference
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
 - https://omes-va.com/adicion-sustraccion-de-imagenes
+- https://www.tutorialspoint.com/how-to-find-and-draw-convex-hull-of-an-image-contour-in-opencv-python
