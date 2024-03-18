@@ -52,7 +52,7 @@ Compute a binary thresholded image from the input difference image. The threshol
 _, img = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 ```
 
-## Step 5: Morphological operations
+## Step 6: Morphological operations
 
 In the dilation process, the value of the output pixel is the `maximum` value of all the pixels that fall within the structuring element's size and shape. For example, in a binary image, if any of the input image's pixels falling within the kernel's range is set to the value 1, the corresponding pixel of the output image will be set to 1 as well.
 
@@ -77,7 +77,7 @@ for i in range(2):
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
 
-## Step 6: Contour
+## Step 7: Contour
 
 Detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
 
@@ -87,7 +87,7 @@ contours, _ = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
 
-## Step 7: Convex hull
+## Step 8: Convex hull
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/334ab918-8ad3-41ed-bb00-eecc4e75e04a)
 
