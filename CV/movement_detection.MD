@@ -11,17 +11,20 @@ import matplotlib.pyplot as plt
 ```
 
 ##  Step 2: Read video
-Download dataset from `https://www.kaggle.com/datasets/gauravduttakiit/video-analysis`
+Download dataset from `https://www.kaggle.com/datasets/gauravduttakiit/video-analysis` . We will read two frames from the video by using `cv2.VideoCapture`. The first value from `read` is a boolean indicating whether the frame was successfully read or not, and `img1`, which is the actual image data in the form of a NumPy array of the frame. We then read the next frame from the video capture object cap and store it in the variable `img2`. Now `img2` contains the image data of the second frame of the video.
 
 ```python
 cap = cv2.VideoCapture('/kaggle/input/video-analysis/AundhBridge.mp4')
-ret, img1 = cap.read()
-ret, img2 = cap.read()
+_, img1 = cap.read()
+_, img2 = cap.read()
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/9a4eaf6e-c5d9-4bbc-86e5-fe06ef1fd357)
 
-## Step 3: Gray and Blur
+## Step 3: Gray and blur
+
+Takes our two images `img1` and `img2`, and converts them from the BGR color space to grayscale. Using grayscale conversion simplifies the image to a single channel, representing the intensity of each pixel. Following the conversion, a Gaussian blur is applied to both images to reduce noise and detail in images by averaging the pixel values in a local neighborhood. In this code, a Gaussian kernel of size `(5,5)` and with a standard deviation of 0 is applied to both `img1` and `img2`.
+
 ```python
 img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
 img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
@@ -29,10 +32,11 @@ img1 = cv2.GaussianBlur(img1,(5,5),0)
 img2 = cv2.GaussianBlur(img2,(5,5),0)
 ```
 
-
-## Step 4:
+## Step 4: Absdiff
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/88e54921-503e-4ed0-b996-3c7501b6a76f)
+
+Compute the absolute difference between two images `img1` and `img2`. This operation calculates the absolute pixel-wise difference between corresponding pixels in the two input images. The resulting image highlights regions where significant changes have occurred between the two input images. This can be useful in motion detection, where changes in consecutive frames of a video stream are analyzed to identify moving objects or detect changes in a scene. 
 
 ```python
 imgDiff = cv2.absdiff(img1, img2) 
