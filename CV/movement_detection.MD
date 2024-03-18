@@ -8,7 +8,6 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline 
 ```
 
 ##  Step 2: Read video
