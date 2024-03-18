@@ -62,12 +62,9 @@ Detects contours in the thresholded image using the `cv2.findContours()` functio
 
 ```python
 contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-im2 = np.zeros((720,1280,3), np.uint8)
-im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
-
 
 ## Step 7: Convex hull
 
@@ -79,8 +76,8 @@ Convex hull represents a simplified approximation of the shape formed by the con
 hulls = list(contours)
 for i in range(len(contours)):
     hulls[i] = cv2.convexHull(contours[i])
-im3 = np.zeros((720,1280,3), np.uint8)
-im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
+image = np.zeros((720,1280,3), np.uint8)
+image = cv2.drawContours(image, hulls,-1,(255, 255, 255),-1)
 plt.imshow(im3)
 print("Number of moving objects: ", len(hulls))
 ```
@@ -111,6 +108,11 @@ plt.imshow(imgThresh_eroded, cmap='gray')
 plt.title('After Erosion')
 plt.axis('off')
 plt.show()
+
+# Visualize contour
+contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+image = np.zeros((720,1280,3), np.uint8)
+image = cv2.drawContours(image, contours,-1,(255, 255, 255),-1)
 ```
 
 ## Reference
