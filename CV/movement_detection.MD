@@ -54,10 +54,10 @@ We then compute a binary thresholded image from the input difference image. The 
 
 ```python
 _, img = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
-strucEle5x5= cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
+kernel = np.ones((5, 5), dtype=np.uint8)
 for i in range(2):
-    img = cv2.dilate(img,strucEle5x5,iterations = 2)
-    img = cv2.erode(img,strucEle5x5,iterations = 1)
+    img = cv2.dilate(img, kernel, iterations=2)
+    img = cv2.erode(img, kernel, iterations=1)
 ```
 
 ## Step 6: Contour
