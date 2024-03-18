@@ -85,7 +85,7 @@ plt.imshow(im3)
 print("Number of moving objects: ", len(hulls))
 ```
 
-![image](https://github.com/hughiephan/DPL/assets/16631121/42599119-6dcd-4c98-9370-c34a1ff7effc)
+![image](https://github.com/hughiephan/DPL/assets/16631121/6d0ce0f4-094a-49d5-a674-5e65d9d66694)
 
 ## Optional command
 ```python
