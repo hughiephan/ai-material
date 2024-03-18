@@ -42,7 +42,7 @@ Compute the absolute difference between two images `img1` and `img2`. This opera
 imgDiff = cv2.absdiff(img1, img2) 
 ```
 
-## Step 5: Dilate and erode structure
+## Step 5: Morphological operations
 
 Erosion removes white noises, but it also shrinks our objects, so we dilate them and since the noise is gone, they won’t come back, but our object area increases.
 
@@ -53,11 +53,11 @@ We then compute a binary thresholded image from the input difference image. The 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
 
 ```python
-_, imgThresh = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
+_, img = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 strucEle5x5= cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
 for i in range(2):
-    imgThresh = cv2.dilate(imgThresh,strucEle5x5,iterations = 2)
-    imgThresh = cv2.erode(imgThresh,strucEle5x5,iterations = 1)
+    img = cv2.dilate(img,strucEle5x5,iterations = 2)
+    img = cv2.erode(img,strucEle5x5,iterations = 1)
 ```
 
 ## Step 6: Contour
@@ -65,7 +65,7 @@ for i in range(2):
 Detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
 
 ```python
-contours, _ = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
@@ -94,27 +94,27 @@ print("Number of moving objects: ", len(hulls))
 plt.imshow(cv2.cvtColor(img1, cv2.COLOR_BGR2RGB))
 
 # Visualize threshold image, and after dilation and erosion
-_, imgThresh = cv2.threshold(imgDiff, 30.0, 255.0, cv2.THRESH_BINARY)
+_, img = cv2.threshold(imgDiff, 30.0, 255.0, cv2.THRESH_BINARY)
 plt.figure(figsize=(15, 4))
 plt.subplot(1, 3, 1)
 plt.title('Before')
 plt.axis('off')
-plt.imshow(imgThresh, cmap='gray')
+plt.imshow(img, cmap='gray')
 strucEle5x5 = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-imgThresh_dilated = cv2.dilate(imgThresh, strucEle5x5, iterations=2)
+img_dilated = cv2.dilate(img, strucEle5x5, iterations=2)
 plt.subplot(1, 3, 2)
 plt.title('After Dilation')
 plt.axis('off')
-plt.imshow(imgThresh_dilated, cmap='gray')
-imgThresh_eroded = cv2.erode(imgThresh_dilated, strucEle5x5, iterations=1)
+plt.imshow(img_dilated, cmap='gray')
+img_eroded = cv2.erode(img_dilated, strucEle5x5, iterations=1)
 plt.subplot(1, 3, 3)
-plt.imshow(imgThresh_eroded, cmap='gray')
+plt.imshow(img_eroded, cmap='gray')
 plt.title('After Erosion')
 plt.axis('off')
 plt.show()
 
 # Visualize contour
-contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 image = np.zeros((720,1280,3), np.uint8)
 image = cv2.drawContours(image, contours,-1,(255, 255, 255),-1)
 ```
