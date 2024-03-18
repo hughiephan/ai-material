@@ -44,6 +44,14 @@ imgDiff = cv2.absdiff(img1, img2)
 
 ## Step 5: Morphological operations
 
+In the dilation process, the value of the output pixel is the `maximum` value of all the pixels that fall within the structuring element's size and shape. For example, in a binary image, if any of the input image's pixels falling within the kernel's range is set to the value 1, the corresponding pixel of the output image will be set to 1 as well.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/f79edc19-3296-4735-9d63-1e3e766959c6)
+
+In the erosion process, the value of the output pixel is the `minimum` value of all the pixels that fall within the structuring element's size and shape.
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/08cb46d6-aa4f-43c3-bada-66817afd27fc)
+
 Erosion removes white noises, but it also shrinks our objects, so we dilate them and since the noise is gone, they won’t come back, but our object area increases.
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdc7e70a-0bcb-466c-a3e8-a821a08e73e6)
@@ -59,6 +67,9 @@ for i in range(2):
     img = cv2.dilate(img, kernel, iterations=2)
     img = cv2.erode(img, kernel, iterations=1)
 ```
+
+
+
 
 ## Step 6: Contour
 
@@ -123,3 +134,4 @@ image = cv2.drawContours(image, contours,-1,(255, 255, 255),-1)
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
 - https://omes-va.com/adicion-sustraccion-de-imagenes
 - https://www.tutorialspoint.com/how-to-find-and-draw-convex-hull-of-an-image-contour-in-opencv-python
+- https://docs.opencv.org/4.x/dd/dd7/tutorial_morph_lines_detection.html
