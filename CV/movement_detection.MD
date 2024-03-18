@@ -42,6 +42,16 @@ Compute the absolute difference between two images `img1` and `img2`. This opera
 imgDiff = cv2.absdiff(img1, img2) 
 ```
 
+## Step 5: Thresholding
+
+![image](https://github.com/hughiephan/DPL/assets/16631121/5b4d32a7-01f6-4bfb-bce7-292dead3ee8c)
+
+Compute a binary thresholded image from the input difference image. The thresholding operation converts pixel values above a certain threshold `30.0` to a maximum value `255` and the rest to zero, resulting in a binary image where pixels are either white `255` or black `0`. 
+
+```python
+_, img = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
+```
+
 ## Step 5: Morphological operations
 
 In the dilation process, the value of the output pixel is the `maximum` value of all the pixels that fall within the structuring element's size and shape. For example, in a binary image, if any of the input image's pixels falling within the kernel's range is set to the value 1, the corresponding pixel of the output image will be set to 1 as well.
@@ -56,20 +66,16 @@ Erosion removes white noises, but it also shrinks our objects, so we dilate them
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/bdc7e70a-0bcb-466c-a3e8-a821a08e73e6)
 
-We then compute a binary thresholded image from the input difference image. The thresholding operation converts pixel values above a certain threshold `30.0` to a maximum value `255` and the rest to zero, resulting in a binary image where pixels are either white `255` or black `0`. Then, the height and width of the thresholded image are obtained. A 5x5 rectangular structuring element `strucEle5x5` is created using `cv2.getStructuringElement()` to define the neighborhood for morphological operations. Then, a loop iterates twice, performing dilation followed by erosion on the thresholded image using the structuring element. Dilation expands the white regions in the image, while erosion shrinks them. This sequence of dilation and erosion operations helps smooth and refine the binary image, eliminating noise and fine details while preserving the significant features. 
-
-![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
+We will create a 5x5 rectangular structuring element to define the neighborhood for morphological operations. Then, a loop iterates twice, performing dilation followed by erosion on the thresholded image using the structuring element. Dilation expands the white regions in the image, while erosion shrinks them. This sequence of dilation and erosion operations helps smooth and refine the binary image, eliminating noise and fine details while preserving the significant features. 
 
 ```python
-_, img = cv2.threshold(imgDiff,30.0,255.0,cv2.THRESH_BINARY)
 kernel = np.ones((5, 5), dtype=np.uint8)
 for i in range(2):
     img = cv2.dilate(img, kernel, iterations=2)
     img = cv2.erode(img, kernel, iterations=1)
 ```
 
-
-
+![image](https://github.com/hughiephan/DPL/assets/16631121/d4ff7e74-2e73-4093-9642-ac9b14266907)
 
 ## Step 6: Contour
 
