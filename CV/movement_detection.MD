@@ -61,7 +61,7 @@ for i in range(2):
 Detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
 
 ```python
-contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 ```
 
 ![image](https://github.com/hughiephan/DPL/assets/16631121/466476c2-c4a3-4c57-abd8-a3fe9e606494)
