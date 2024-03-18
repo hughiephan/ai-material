@@ -78,3 +78,4 @@ plt.imshow(cv2.cvtColor(img1, cv2.COLOR_BGR2RGB))
 
 ## Reference
 - https://www.kaggle.com/code/gauravduttakiit/pre-processing-for-video-data
+- https://omes-va.com/adicion-sustraccion-de-imagenes
