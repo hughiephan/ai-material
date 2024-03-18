@@ -58,13 +58,11 @@ for i in range(2):
 
 ## Step 6: Contour
 
-Calculates the height and width of the thresholded image using NumPy's `np.size()` function along the rows and columns. Then, detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
+Detects contours in the thresholded image using the `cv2.findContours()` function, specifying parameters for contour retrieval and approximation. Finally, the contours detected are drawn onto the new image using `cv2.drawContours()`, resulting in a visualization of the contours overlaid on a black background.
 
 ```python
-ht = np.size(imgThresh,0)
-wd = np.size(imgThresh,1)
 contours, hierarchy = cv2.findContours(imgThresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-im2 = np.zeros((ht,wd,3), np.uint8)
+im2 = np.zeros((720,1280,3), np.uint8)
 im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 ```
 
@@ -76,7 +74,7 @@ im2 = cv2.drawContours(im2,contours,-1,(255, 255, 255),-1)
 hulls = list(contours)
 for i in range(len(contours)):
     hulls[i] = cv2.convexHull(contours[i])
-im3 = np.zeros((ht,wd,3), np.uint8)
+im3 = np.zeros((720,1280,3), np.uint8)
 im3 = cv2.drawContours(im2,hulls,-1,(255, 255, 255),-1)
 ```
 
