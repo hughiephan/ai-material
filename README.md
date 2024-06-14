@@ -6,4 +6,6 @@ A comprehensive repository of AI educational materials for my teaching at FPT Un
 
 ## Contents
 
+Covering a broad spectrum of essential topics in machine learning and deep learning. It begins with probability theory for modeling uncertainty and decision-making. Optimization techniques are explored to enhance algorithm efficiency. Deep learning is extensively covered, including neural networks and advanced architectures like transformers. Linear algebra provides tools for data manipulation, while functional analysis supports theoretical understanding of complex systems. Information theory quantifies data content and aids in compression and processing. Probabilistic models and Bayesian methods are taught for handling uncertainty and making informed decisions.
+
 ![Untitled-2023-08-01-2301](https://github.com/hughiephan/DPL/assets/16631121/ea6531a5-d605-4ee5-af92-7905f1e55689)
