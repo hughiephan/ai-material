@@ -10,6 +10,14 @@ Covering a broad spectrum of essential topics in machine learning and deep learn
 
 ![Untitled-2023-08-01-2301](https://github.com/hughiephan/DPL/assets/16631121/ea6531a5-d605-4ee5-af92-7905f1e55689)
 
+## Tutorial
+
+![image](https://github.com/hughiephan/ai-material/assets/16631121/7eec83b2-7e18-49ba-ad7e-7b3e6966ea7f)
+
+## Assignment
+
+![image](https://github.com/hughiephan/ai-material/assets/16631121/57e0db80-1a59-41c3-8b30-c57d0ec9f8e3)
+
 ## License
 
 Feel free to use these materials for personal or commercial projects without the need for attribution. However, I'd appreciate hearing from you if you decide to use it as I'm curious to see what you create!
