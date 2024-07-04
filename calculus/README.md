@@ -1,5 +1,7 @@
 # Real Analysis
 
+Real analysis provides the rigorous foundation needed for advanced topics in mathematics. It formalizes and justifies concepts such as limits, continuity, differentiation, and integration.
+
 ## Fixed-Point Theorems
 - Caristi fixed-point theorem
 
@@ -70,3 +72,4 @@
 ## Reference
 - https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/pages/lecture-notes-and-readings/
 - https://tongzhang-ml.org/lt-book/lt-book.pdf
+- https://en.wikipedia.org/wiki/Category:Theorems_in_real_analysis
