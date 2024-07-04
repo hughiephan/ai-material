@@ -10,7 +10,7 @@ TBD
 
 Given $g(x) \leq f(x) \leq h(x)$ for $x$ near $a$, with:
 - $\limsup_{x \to a} f(x)$: The smallest value that $f(x)$ can oscillate up to as $x$ approaches $a$, 
-- and $\liminf_{x \to a} f(x)$: The largest value that $f(x)$ can oscillate down to as $x$ approaches $a$
+- $\liminf_{x \to a} f(x)$: The largest value that $f(x)$ can oscillate down to as $x$ approaches $a$
 
 $L = \lim_{x \to a} g(x) \leq \liminf_{x \to a} f(x) \leq \limsup_{x \to a} f(x) \leq \lim_{x \to a} h(x) = L$
 
