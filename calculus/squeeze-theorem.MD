@@ -19,3 +19,4 @@ Since the outer limits $\lim_{x \to a} g(x)$ and $\lim_{x \to a} h(x)$ both equa
 ## Reference
 - https://en.wikipedia.org/wiki/Squeeze_theorem
 - https://www.math.clemson.edu/~petersj/Courses/M453/Lectures/L11-LiminfLimsupSeq.pdf
+- https://math.libretexts.org/Bookshelves/Analysis/Introduction_to_Mathematical_Analysis_I_(Lafferriere_Lafferriere_and_Nguyen)
