@@ -19,7 +19,7 @@ Step 1: Search Procedure
 
 ![image](https://github.com/user-attachments/assets/8f67b5eb-e17a-4356-92da-ef93ab4083ed)
 
-Step 2: Guess the Limit) 
+Step 2: Guess the Limit
 
 The sequence $a_1, a_2, a_3, \ldots$ is monotone increasing and bounded above by $b_0 = L$. So it converges. Call the limit $s$.
 
