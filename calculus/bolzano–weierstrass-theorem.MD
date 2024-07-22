@@ -43,6 +43,10 @@ $$
 n \geq N \implies |s_{i_n} - s| \leq |s_{i_n} - a_n| + |a_n - s| < \epsilon
 $$
 
+## Application
+
+https://www.sangakoo.com/en/unit/theorem-of-bolzano
+
 ## Reference
 - https://personal.math.ubc.ca/~feldman/m320/bolzano.pdf
 - https://en.wikipedia.org/wiki/Bolzano%E2%80%93Weierstrass_theorem
