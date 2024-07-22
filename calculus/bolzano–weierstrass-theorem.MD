@@ -23,15 +23,15 @@ Step 2: Guess the Limit
 
 The sequence $a_1, a_2, a_3, \ldots$ is monotone increasing and bounded above by $b_0 = L$. So it converges. Call the limit $s$.
 
-Step 3: Prove that $\lim_{n \to \infty} s_n = s$): 
+Step 3: Prove that $\lim_{n \to \infty} s_n = s$: 
 
-Let $\epsilon > 0$. Since $(a_n)_{n \in \mathbb{N}}$ converges to $s$,
+Let $\epsilon > 0$. Since $(a_n)_{n \in \mathbb{N}}$ converges to $s$
 
 $$
 \exists N_1 \in \mathbb{N} \text{ such that } |a_n - s| < \frac{\epsilon}{2} \text{ whenever } n \geq N_1
 $$
 
-Since $s_{i_n}$ lies in the interval $[a_n, b_n]$, and the length of the interval $[a_n, b_n]$ is $\frac{L}{2^n}$, the distance from $s_{i_n}$ to $a_n$ is at most $\frac{L}{2^{n-1}}$, which converges to zero as $n \to \infty$,
+Since $s_{i_n}$ lies in the interval $[a_n, b_n]$, and the length of the interval $[a_n, b_n]$ is $\frac{L}{2^n}$, the distance from $s_{i_n}$ to $a_n$ is at most $\frac{L}{2^{n-1}}$, which converges to zero as $n \to \infty$
 
 $$
 \exists N_2 \in \mathbb{N} \text{ such that } |s_{i_n} - a_n| < \frac{\epsilon}{2} \text{ whenever } n \geq N_2
