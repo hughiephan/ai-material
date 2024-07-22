@@ -7,7 +7,7 @@ Every bounded sequence of real numbers has a convergent subsequence
 
 Let $(s_n)_{n \in \mathbb{N}}$ be a real sequence of real numbers with $|s_n| \leq L$  
 
-Step 1 (Search Procedure):
+Step 1: Search Procedure
 
 - Set $a_0 = -L$ and $b_0 = L$. Then $|b_0 - a_0| = 2L$
 
@@ -19,9 +19,13 @@ Step 1 (Search Procedure):
 
 ![image](https://github.com/user-attachments/assets/8f67b5eb-e17a-4356-92da-ef93ab4083ed)
 
-Step 2 (Guess the Limit): The sequence $a_1, a_2, a_3, \ldots$ is monotone increasing and bounded above by $b_0 = L$. So it converges. Call the limit $s$.
+Step 2: Guess the Limit) 
 
-Step 3 (Prove that $\lim_{n \to \infty} s_n = s$): Let $\epsilon > 0$. Since $(a_n)_{n \in \mathbb{N}}$ converges to $s$,
+The sequence $a_1, a_2, a_3, \ldots$ is monotone increasing and bounded above by $b_0 = L$. So it converges. Call the limit $s$.
+
+Step 3: Prove that $\lim_{n \to \infty} s_n = s$): 
+
+Let $\epsilon > 0$. Since $(a_n)_{n \in \mathbb{N}}$ converges to $s$,
 
 $$
 \exists N_1 \in \mathbb{N} \text{ such that } |a_n - s| < \frac{\epsilon}{2} \text{ whenever } n \geq N_1
