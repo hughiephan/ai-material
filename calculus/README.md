@@ -33,7 +33,7 @@ Real analysis provides the rigorous foundation needed for advanced topics in mat
 - Anderson's theorem
 - Bernstein's theorem on monotone functions
 - Blumberg theorem
-- Bolzano–Weierstrass theorem
+- Bolzano–Weierstrass theorem ✅
 - Heine–Borel theorem
 - Identity theorem
 - Implicit function theorem
