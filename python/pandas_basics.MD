@@ -1,5 +1,5 @@
 # Pandas basics
-
+ 
 ## 1. Understanding Series vs. DataFrames
 
 A `Series` is a one-dimensional array (essentially a single column of data), whereas a `DataFrame` is a two-dimensional table made up of one or more Series. In this example, we create a standalone Series for ages and then incorporate it as a column into a larger DataFrame.
