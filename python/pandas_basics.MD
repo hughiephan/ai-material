@@ -10,7 +10,7 @@ import pandas as pd
 number_series = pd.Series([20, 30, 40])
 
 family = pd.DataFrame({
-    "Name": ["Alice", "Bob", "Charlie"],
+    "Name": ["Bob", "Charlie", "Bob"],
     "Age": number_series,
 })
 ```
