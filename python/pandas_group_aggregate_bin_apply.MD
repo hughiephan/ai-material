@@ -15,8 +15,6 @@ df = pd.DataFrame({
 })
 ```
 
----
-
 ️## Groupby + Mean: The Binary Insight
 When you apply `.mean()` to a binary (0/1) column, the result is the **proportion of 1s**. This is a powerful shortcut for calculating survival rates or conversion rates.
 ```python
@@ -28,7 +26,6 @@ print(survival_rates)
 > **🔍 Why it works:**
 > If a group has survivors `[1, 1, 0, 0]`, the mean is $\frac{1+1+0+0}{4} = 0.5$. Thus, a mean of **0.5** equals a **50% survival rate**.
 
----
 
 ## Using `.aggregate()` for Multiple Statistics
 Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allows you to compute different statistics for different columns simultaneously.
@@ -52,8 +49,6 @@ summary = df.groupby("Sex").agg(
 )
 ```
 
----
-
 ## Using `cut()` + `groupby()`: Binning Data
 Continuous data like **Age** can be noisy. `pd.cut()` allows you to group these values into meaningful categories (bins).
 
@@ -72,8 +67,8 @@ You can now group by these new bins to see survival rates across demographics.
 demographic_survival = df.groupby(["Sex", "AgeGroup"])["Survived"].mean()
 ```
 
-️## Using `.apply()`: Row vs. Column Logic
-
+## Using `.apply()`: Row vs. Column Logic
+️
 The `.apply()` method is the "Swiss Army Knife" of Pandas, but the `axis` parameter is crucial.
 
 ### 🔹 Axis = 1 (Row-wise)
