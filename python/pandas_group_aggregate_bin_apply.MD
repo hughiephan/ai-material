@@ -15,7 +15,8 @@ df = pd.DataFrame({
 })
 ```
 
-️## Groupby + Mean: The Binary Insight
+## Groupby + Mean: The Binary Insight
+
 When you apply `.mean()` to a binary (0/1) column, the result is the **proportion of 1s**. This is a powerful shortcut for calculating survival rates or conversion rates.
 ```python
 # Calculate survival rate by Sex
