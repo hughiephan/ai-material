@@ -71,7 +71,7 @@ demographic_survival = df.groupby(["Sex", "AgeGroup"])["Survived"].mean()
 ️
 The `.apply()` method is the "Swiss Army Knife" of Pandas, but the `axis` parameter is crucial.
 
-### 🔹 Axis = 1 (Row-wise)
+### Axis = 1 (Row-wise)
 Use this when your logic depends on **multiple columns** within the same row.
 ```python
 def risk_level(row):
@@ -80,14 +80,14 @@ def risk_level(row):
 df["Risk"] = df.apply(risk_level, axis=1)
 ```
 
-### 🔹 Axis = 0 (Column-wise)
+### Axis = 0 (Column-wise)
 Use this to apply a function across the **entire column**.
 ```python
 # Calculate the mean for specific numeric columns
 column_means = df[["Age", "Survived"]].apply(lambda col: col.mean(), axis=0)
 ```
 
-### 🔹 Apply with Groupby
+### Apply with Groupby
 You can also apply complex custom logic to entire groups.
 ```python
 def survival_percentage(group):
