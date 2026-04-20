@@ -3,7 +3,7 @@
 This tutorial covers four fundamental Pandas operations using a single dataset. We will explore how to group data, calculate multiple statistics, bin continuous variables, and apply custom logic across rows and columns.
 
 ## The Dataset
-We'll use a simplified version of a Titanic-style dataset. It contains three variables: **Age**, **Sex**, and **Survived** (where $1$ is "Yes" and $0$ is "No").
+We'll use a simplified version of a Titanic-style dataset. It contains three variables: **Age**, **Sex**, and **Survived** (where 1 is "Yes" and 0 is "No").
 
 ```python
 import pandas as pd
