@@ -73,6 +73,7 @@ demographic_survival = df.groupby(["Sex", "AgeGroup"])["Survived"].mean()
 ```
 
 ️## Using `.apply()`: Row vs. Column Logic
+
 The `.apply()` method is the "Swiss Army Knife" of Pandas, but the `axis` parameter is crucial.
 
 ### 🔹 Axis = 1 (Row-wise)
