@@ -35,26 +35,11 @@ df.groupby("Sex")["Survived"].mean()
 
 Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allows you to compute different statistics for different columns simultaneously.
 
-### Standard Aggregation
-
 ```python
 df.groupby("Sex").agg({
     "Age": ["min", "max"],
     "Survived": ["mean", "sum"]
 })
-```
-
-### Named Aggregation (Recommended)
-
-This approach keeps your column names clean and easy to read.
-
-```python
-summary = df.groupby("Sex").agg(
-    avg_age=("Age", "mean"),
-    oldest=("Age", "max"),
-    survival_rate=("Survived", "mean"),
-    total_survivors=("Survived", "sum")
-)
 ```
 
 ## Using `cut()` + `groupby()`: Binning Data
