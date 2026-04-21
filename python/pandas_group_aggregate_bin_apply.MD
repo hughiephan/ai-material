@@ -51,8 +51,8 @@ Continuous data like **Age** can be noisy. With a small dataset, fewer bins work
 For example, we don't show by age but by groups of age, let's say Young and Old. Young is from 0 to 40, and Old Age is between 40 and 100
 
 ```python
-bins = [0, 40, 100]
-labels = ["Young", "Old"]
+bins = [0, 40, 100]   # This will create 2 bins of 0 to 40, and 40 to 100
+labels = ["Young", "Old"]   # With the 2 bins above, we with labels them as young and old
 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
 ```
