@@ -16,7 +16,7 @@ df = pd.DataFrame({
 })
 ```
 
-## Groupby, Apply, and Mean
+## `Groupby`, `Apply`, and `Mean`
 
 Let's calculate the survival rate of males and females on the Titanic.
 
@@ -44,9 +44,7 @@ df.groupby("Sex").agg({
 
 ## Using `cut()` + `groupby()` to bin data
 
-Continuous data like **Age** can be noisy. With a small dataset, fewer bins work better.
-
-### Create Simpler Age Groups
+Continuous data like **Age** can be noisy. With a small dataset, fewer bins work better. Let's try to create simpler Age Groups
 
 For example, we don't show by age but by groups of age, let's say Young and Old. Young is from 0 to 40, and Old Age is between 40 and 100
 
