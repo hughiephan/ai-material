@@ -31,7 +31,7 @@ df.groupby("Sex")["Survived"].apply(print)
 df.groupby("Sex")["Survived"].mean()
 ```
 
-## Using `.aggregate()` for Multiple Statistics
+## Using `.aggregate()`
 
 Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allows you to compute different statistics for different columns simultaneously.
 
