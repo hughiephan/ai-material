@@ -64,5 +64,5 @@ def survival_percentage(group):
     # Custom calculation: sum of survivors divided by group size
     return group["Survived"].sum() / len(group)
 
-df.groupby("Sex").apply(survival_percentage)
+df.groupby("Sex").apply(survival_percentage) # Observing the result, this is essentially the mean method. This is useful if you cannot find the built-in method.
 ```
