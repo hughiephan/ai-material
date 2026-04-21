@@ -52,9 +52,10 @@ For example, we don't show by age but by groups of age, let's say Young and Old.
 
 ```python
 bins = [0, 40, 100]   # This will create 2 bins of 0 to 40, and 40 to 100
-labels = ["Young", "Old"]   # With the 2 bins above, we with labels them as young and old
+labels = ["Young", "Old"]   # With the 2 bins above, we label them as young and old
 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
+df
 ```
 
 ### Multi-Level Grouping
