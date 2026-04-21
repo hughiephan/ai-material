@@ -2,7 +2,7 @@
 
 We will explore how to group data, aggregation methods like mean, cutting values into bins, and the apply method.
 
-## The Dataset
+## Dataset
 
 Firstly, we'll use a simplified version of a Titanic-style dataset as an example (most of the time, you would work with a .csv file). It contains three variables: **Age**, **Sex**, and **Survived** (where 1 is "Survived" and 0 is "Dead").
 
