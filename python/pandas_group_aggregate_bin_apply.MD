@@ -16,7 +16,7 @@ df = pd.DataFrame({
 })
 ```
 
-## Groupby + Mean: The Binary Insight
+## Groupby, Apply, and Mean
 
 Let's calculate the survival rate of males and females on the Titanic.
 
