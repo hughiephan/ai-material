@@ -58,15 +58,6 @@ df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
 df
 ```
 
-### Multi-Level Grouping
-
-You can now group by these new bins to see survival rates across demographics.
-
-```python
-# Survival rate by Sex AND Age Group
-demographic_survival = df.groupby(["Sex", "AgeGroup"])["Survived"].mean()
-```
-
 ## Using `.apply()`: Row vs. Column Logic
 
 The `.apply()` method is the "Swiss Army Knife" of Pandas, but the `axis` parameter is crucial.
