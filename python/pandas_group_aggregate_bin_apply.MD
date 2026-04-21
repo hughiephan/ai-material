@@ -12,18 +12,23 @@ import pandas as pd
 df = pd.DataFrame({
     "Age": [10, 22, 34, 58, 75],
     "Sex": ["male", "female", "female", "male", "female"],
-    "Survived": [0, 1, 1, 0, 1]
+    "Survived": [0, 1, 1, 1, 1]
 })
 ```
 
 ## Groupby + Mean: The Binary Insight
 
-
+Let's calculate the survival rate of males and females on the Titanic.
 
 ```python
-# Calculate survival rate by Sex
-survival_rates = df.groupby("Sex")["Survived"].apply(print)
-survival_rates = df.groupby("Sex")["Survived"].mean()
+# Run the group by with the two columns: sex and survived
+df.groupby("Sex")["Survived"] # Returning a SeriesGroupBy 
+
+# Print the result out with the apply method
+df.groupby("Sex")["Survived"].apply(print) 
+
+# There are other built-in methods, like calculating the mean of survival rates.
+df.groupby("Sex")["Survived"].mean()
 ```
 
 > **🔍 Why it works:**
