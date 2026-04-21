@@ -1,10 +1,10 @@
 # Pandas Essentials: Grouping, Aggregating, Binning, and Applying
 
-This tutorial covers four fundamental Pandas operations using a single dataset. We will explore how to group data, calculate multiple statistics, bin continuous variables, and apply custom logic across rows and columns.
+We will explore how to group data, aggregation methods like mean, cutting values into bins, and the apply method.
 
 ## The Dataset
 
-We'll use a simplified version of a Titanic-style dataset. It contains three variables: **Age**, **Sex**, and **Survived** (where 1 is "Yes" and 0 is "No").
+Firstly, we'll use a simplified version of a Titanic-style dataset as an example (most of the time, you would work with a .csv file). It contains three variables: **Age**, **Sex**, and **Survived** (where 1 is "Survived" and 0 is "Dead").
 
 ```python
 import pandas as pd
@@ -18,12 +18,12 @@ df = pd.DataFrame({
 
 ## Groupby + Mean: The Binary Insight
 
-When you apply `.mean()` to a binary (0/1) column, the result is the **proportion of 1s**. This is a powerful shortcut for calculating survival rates or conversion rates.
+
 
 ```python
 # Calculate survival rate by Sex
+survival_rates = df.groupby("Sex")["Survived"].apply(print)
 survival_rates = df.groupby("Sex")["Survived"].mean()
-print(survival_rates)
 ```
 
 > **🔍 Why it works:**
