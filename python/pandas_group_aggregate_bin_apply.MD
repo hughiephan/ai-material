@@ -48,6 +48,8 @@ Continuous data like **Age** can be noisy. With a small dataset, fewer bins work
 
 ### Create Simpler Age Groups
 
+For example, we don't show by age but by groups of age, let's say Young and Old. Young is from 0 to 40, and Old Age is between 40 and 100
+
 ```python
 bins = [0, 40, 100]
 labels = ["Young", "Old"]
