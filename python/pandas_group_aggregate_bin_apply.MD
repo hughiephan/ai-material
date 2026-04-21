@@ -1,10 +1,10 @@
 # Pandas Essentials: Grouping, Aggregating, Binning, and Applying
 
-We will explore how to group data, aggregation methods like mean, cutting values into bins, and the apply method.
+We will go through how to group data, use aggregation functions such as mean, divide continuous values into bins, and apply custom functions.
 
 ## Dataset
 
-Firstly, we'll use a simplified version of a Titanic-style dataset as an example (most of the time, you would work with a .csv file). It contains three variables: **Age**, **Sex**, and **Survived** (where 1 is "Survived" and 0 is "Dead").
+To begin, we’ll use a simplified Titanic-like dataset as an example (in practice, you would usually load data from a `.csv` file). The dataset includes three columns: **Age**, **Sex**, and **Survived** (where 1 indicates survival and 0 indicates death).
 
 ```python
 import pandas as pd
@@ -18,51 +18,53 @@ df = pd.DataFrame({
 
 ## `Groupby`, `Apply`, and `Mean`
 
-Let's calculate the survival rate of males and females on the Titanic.
+Now, let’s compute the survival rate for males and females.
 
 ```python
-# Run the group by with the two columns: sex and survived
-df.groupby("Sex")["Survived"] # Returning a SeriesGroupBy 
+# Group data by the "Sex" column and select "Survived"
+df.groupby("Sex")["Survived"] # Returns a SeriesGroupBy object
 
-# Print the result out with the apply method
+# Display each group using apply
 df.groupby("Sex")["Survived"].apply(print) 
 
-# There are other built-in methods, like calculating the mean of survival rates.
+# You can also use built-in functions such as mean to calculate survival rates
 df.groupby("Sex")["Survived"].mean()
 ```
 
 ## Using `.aggregate()`
 
-Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allows you to compute different statistics for different columns simultaneously.
+In many cases, a single metric is not sufficient. The `.agg()` (or `.aggregate()`) method allows you to calculate multiple statistics across different columns at once.
 
 ```python
 df.groupby("Sex").agg({
-    "Age": ["min", "max"],  # Let's find out about the minimum and maximum age for males and females in the data
-    "Survived": ["mean", "sum"]  # And survival rate through the mean and counting for male and female in the data
+    "Age": ["min", "max"],  # Compute the minimum and maximum ages for each group
+    "Survived": ["mean", "sum"]  # Compute survival rate (mean) and total survivors (sum)
 })
 ```
 
 ## Using `cut()` + `groupby()` to bin data
 
-Continuous data like **Age** can be noisy. With a small dataset, fewer bins work better. Let's try to create simpler Age Groups
+Continuous variables like **Age** can be overly detailed. For small datasets, it’s often better to group values into broader categories. Here, we create simple age groups.
 
-For example, we don't show by age but by groups of age, let's say Young and Old. Young is from 0 to 40, and Old Age is between 40 and 100
+Instead of analyzing exact ages, we divide them into categories: Young (0–40) and Old (40–100).
 
 ```python
-bins = [0, 40, 100]   # This will create 2 bins of 0 to 40, and 40 to 100
-labels = ["Young", "Old"]   # With the 2 bins above, we label them as young and old
+bins = [0, 40, 100]   # Defines two intervals: 0–40 and 40–100
+labels = ["Young", "Old"]   # Assign labels to each interval
 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
 ```
 
-## Advanced `.apply` 
+## Advanced `.apply`
 
-With the `.apply` above, we only print out the result, but can also use it for complex custom logic to entire groups
+Previously, `.apply` was used just to display results, but it can also handle more complex, custom computations on each group.
 
 ```python
 def survival_percentage(group):
-    # Custom calculation: sum of survivors divided by group size
+    # Calculate survival rate: number of survivors divided by total group size
     return group["Survived"].sum() / len(group)
 
-df.groupby("Sex").apply(survival_percentage) # Observing the result, this is essentially the mean method. This is useful if you cannot find the built-in method.
+df.groupby("Sex").apply(survival_percentage) 
 ```
+
+From the result, you’ll notice this gives the same output as the mean. This approach becomes useful when a built-in function does not directly support your required calculation.
