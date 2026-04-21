@@ -42,7 +42,7 @@ df.groupby("Sex").agg({
 })
 ```
 
-## Using `cut()` + `groupby()`: Binning Data
+## Using `cut()` + `groupby()` to bin data
 
 Continuous data like **Age** can be noisy. With a small dataset, fewer bins work better.
 
