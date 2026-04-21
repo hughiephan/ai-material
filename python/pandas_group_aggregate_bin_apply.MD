@@ -57,31 +57,7 @@ labels = ["Young", "Old"]   # With the 2 bins above, we label them as young and 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
 ```
 
-## Using `.apply()`: Row vs. Column Logic
-
-The `.apply()` method is the "Swiss Army Knife" of Pandas, but the `axis` parameter is crucial.
-
-### Axis = 1 (Row-wise)
-
-Use this when your logic depends on **multiple columns** within the same row.
-
-```python
-def risk_level(row):
-    return "High" if row["Age"] > 60 else "Low"
-
-df["Risk"] = df.apply(risk_level, axis=1)
-```
-
-### Axis = 0 (Column-wise)
-
-Use this to apply a function across the **entire column**.
-
-```python
-# Calculate the mean for specific numeric columns
-column_means = df[["Age", "Survived"]].apply(lambda col: col.mean(), axis=0)
-```
-
-### Apply with Groupby
+## Apply with Groupby
 
 You can also apply complex custom logic to entire groups.
 
