@@ -14,6 +14,7 @@ df = pd.DataFrame({
     "Sex": ["male", "female", "female", "male", "female"],
     "Survived": [0, 1, 1, 1, 1]
 })
+df
 ```
 
 ## Groupby, Apply, and Mean
