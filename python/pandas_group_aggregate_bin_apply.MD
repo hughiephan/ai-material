@@ -14,7 +14,6 @@ df = pd.DataFrame({
     "Sex": ["male", "female", "female", "male", "female"],
     "Survived": [0, 1, 1, 1, 1]
 })
-df
 ```
 
 ## Groupby, Apply, and Mean
@@ -56,7 +55,6 @@ bins = [0, 40, 100]   # This will create 2 bins of 0 to 40, and 40 to 100
 labels = ["Young", "Old"]   # With the 2 bins above, we label them as young and old
 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
-df
 ```
 
 ## Using `.apply()`: Row vs. Column Logic
