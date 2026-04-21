@@ -55,35 +55,14 @@ labels = ["Young", "Old"]   # With the 2 bins above, we label them as young and 
 df["AgeGroup"] = pd.cut(df["Age"], bins=bins, labels=labels)
 ```
 
-## Apply with Groupby
+## Advanced `.apply` 
 
-You can also apply complex custom logic to entire groups.
+With the `.apply` above, we only print out the result, but can also use it for complex custom logic to entire groups
 
 ```python
 def survival_percentage(group):
     # Custom calculation: sum of survivors divided by group size
     return group["Survived"].sum() / len(group)
 
-group_logic = df.groupby("Sex").apply(survival_percentage)
-```
-
----
-
-## Summary: Putting It All Together
-
-This final snippet combines all the concepts into one clean workflow:
-
-```python
-# 1. Create Simpler Bins
-df["AgeGroup"] = pd.cut(df["Age"], bins=[0, 40, 100], 
-                       labels=["Young", "Old"])
-
-# 2. Complex Grouping and Aggregation
-final_report = df.groupby(["Sex", "AgeGroup"]).agg(
-    avg_age=("Age", "mean"),
-    survival_rate=("Survived", "mean"),
-    count=("Survived", "count")
-).dropna()
-
-print(final_report)
+df.groupby("Sex").apply(survival_percentage)
 ```
