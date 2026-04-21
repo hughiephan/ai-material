@@ -31,9 +31,6 @@ df.groupby("Sex")["Survived"].apply(print)
 df.groupby("Sex")["Survived"].mean()
 ```
 
-> **🔍 Why it works:**
-> If a group has survivors `[1, 1, 0, 0]`, the mean is $\frac{1+1+0+0}{4} = 0.5$. Thus, a mean of **0.5** equals a **50% survival rate**.
-
 ## Using `.aggregate()` for Multiple Statistics
 
 Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allows you to compute different statistics for different columns simultaneously.
