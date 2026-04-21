@@ -37,8 +37,8 @@ Sometimes one metric isn't enough. The `.agg()` (or `.aggregate()`) method allow
 
 ```python
 df.groupby("Sex").agg({
-    "Age": ["min", "max"],
-    "Survived": ["mean", "sum"]
+    "Age": ["min", "max"],  # Let's find out about the minimum and maximum age for males and females in the data
+    "Survived": ["mean", "sum"]  # And survival rate through the mean and counting for male and female in the data
 })
 ```
 
