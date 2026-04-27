@@ -51,7 +51,7 @@ df
 
 ## 2. Example of `coerce`
 
-Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this a concise and efficient alternative to writing custom cleaning logic.
+Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this an alternative to writing custom cleaning logic.
 
 ```python
 df['Score_numeric'] = pd.to_numeric(df['Score'], errors='coerce')
