@@ -6,7 +6,6 @@ This tutorial demonstrates 5 core Pandas techniques using a mocked dataframe:
 2. Coerce (handling invalid numeric values)
 3. Replace (string cleaning)
 4. Join (combining dataframes using an index)
-5. Merge (combining dataframes using columns)
 
 ---
 
@@ -88,20 +87,4 @@ weather = pd.DataFrame({
 df_joined = df.join(weather, on='date')
 
 df_joined
-```
-
----
-
-## 5. Example of a Merge
-
-The `.merge()` method combines dataframes by matching columns directly rather than relying on index alignment. It is more flexible and works well when both dataframes store their keys as regular columns.
-
-```python
-# Reset weather index for merge
-weather_reset = weather.reset_index()
-
-# Merge
-df_merged = df.merge(weather_reset, on='date')
-
-df_merged
 ```
