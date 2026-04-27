@@ -39,7 +39,7 @@ def my_converter(value):
     try:
         return float(value)
     except ValueError:
-        return math.nan
+        return math.nan  # Most of the time we don't use 0 since we don't want it to mess with the data
 
 df['Price'] = df['Price'].apply(my_converter)
 df["Price"].dtype
