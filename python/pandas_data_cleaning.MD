@@ -1,6 +1,6 @@
-# 🐼 Pandas Data Cleaning & Joining (Custom DataFrames)
+# Pandas Data Cleaning & Joining (Custom DataFrames)
 
-This tutorial demonstrates 4 core Pandas techniques using **manually created datasets**:
+This tutorial demonstrates 4 core Pandas techniques using manually created datasets:
 
 1. Converter (custom cleaning function)
 2. Coerce (handling invalid numeric values)
@@ -9,11 +9,9 @@ This tutorial demonstrates 4 core Pandas techniques using **manually created dat
 
 ---
 
-## 📌 1. Example of a Converter (Custom Function)
+## 1. Example of a Converter (Custom Function)
 
 Instead of using `read_csv`, we simulate messy data and apply a converter manually.
-
-### Example
 
 ```python
 import pandas as pd
@@ -46,9 +44,7 @@ data
 
 ---
 
-## 📌 2. Example of `coerce`
-
-### Example
+## 2. Example of `coerce`
 
 ```python
 df = pd.DataFrame({
@@ -69,8 +65,6 @@ df
 ---
 
 ## 📌 3. Example of `replace`
-
-### Example
 
 ```python
 df = pd.DataFrame({
