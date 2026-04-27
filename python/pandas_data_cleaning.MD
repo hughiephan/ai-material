@@ -1,6 +1,6 @@
 # Pandas Data Preprocessing
 
-This tutorial explores four essential data preprocessing techniques in Pandas, utilising a mocked DataFrame to illustrate practical applications. 
+This tutorial explores four essential data preprocessing techniques in Pandas, utilising a mocked DataFrame.
 
 The process begins with `Converters`, which allow for the implementation of custom functions to handle specialised data logic.
 
