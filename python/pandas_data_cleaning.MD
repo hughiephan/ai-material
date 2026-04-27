@@ -27,7 +27,7 @@ df = pd.DataFrame({
 })
 ```
 
-## 1. Example of a Converter to run a custom function
+## 1. Example of a `Converter` to run a custom function
 
 This approach uses a custom function to clean the `Price` column. It attempts to convert each value into a float, and replaces invalid entries with `NaN`, allowing the column to be safely used for numeric operations.
 
@@ -74,7 +74,7 @@ df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
 df['Revenue'].mean()
 ```
 
-## 4. Example of a Join
+## 4. Example of a `Join`
 
 The `.join()` method combines the main dataframe with another dataframe by aligning a column (`date`) with the index of the second dataframe. This approach is efficient when the secondary dataset is already indexed by the key variable.
 
