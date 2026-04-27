@@ -10,8 +10,6 @@ The **Replace** function is then applied for string cleaning through targeted va
 
 Finally, we demonstrate how to combine separate datasets using the **Join** operation.
 
----
-
 ## Base dataframe
 
 We start with a small, messy dataframe that will be reused throughout all sections. The goal is to progressively clean and enrich this dataset.
@@ -28,8 +26,6 @@ df = pd.DataFrame({
     'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03'])
 })
 ```
-
----
 
 ## 1. Example of a Converter to run a custom function
 
@@ -52,8 +48,6 @@ df["Price"].dtype
 df["Price"].mean()
 ```
 
----
-
 ## 2. Example of `coerce`
 
 Here, the `Score` column is converted into numeric format using `errors='coerce'`. Any invalid values are automatically replaced with `NaN`, making this a concise alternative to custom cleaning functions.
@@ -67,8 +61,6 @@ df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
 df['Score'].mean()
 ```
 
----
-
 ## 3. Example of `replace`
 
 The `Revenue` column is cleaned by removing the `$` symbol before converting the values into floats. This is a common step when dealing with formatted financial data.
@@ -81,8 +73,6 @@ df['Revenue'].mean()  # TypeError due to string values
 df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
 df['Revenue'].mean()
 ```
-
----
 
 ## 4. Example of a Join
 
