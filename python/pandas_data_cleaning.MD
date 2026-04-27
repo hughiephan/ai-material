@@ -25,9 +25,6 @@ df = pd.DataFrame({
     'Score': ['85', 'bad', '70'],
     'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03'])
 })
-
-df["Price"].dtype # Return dtype('O') which is string
-df["Price"].mean() # This will give us error since it cannot work on string
 ```
 
 ## 1. Example of a Converter to run a custom function
@@ -35,6 +32,9 @@ df["Price"].mean() # This will give us error since it cannot work on string
 This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
 
 ```python
+df["Price"].dtype # Return dtype('O') which is string
+df["Price"].mean() # This will give us error since it cannot work on string
+
 def my_converter(value):
     try:
         return float(value)
@@ -51,9 +51,11 @@ df["Price"].mean()
 Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this an alternative to writing custom cleaning logic.
 
 ```python
-df['Score_numeric'] = pd.to_numeric(df['Score'], errors='coerce')
+df['Score'] = pd.to_numeric(df['Score']) 
+df['Score'].mean() # ValueError: Unable to parse string "bad" at position 1
 
-df
+df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
+df['Score'].mean()
 ```
 
 ## 3. Example of `replace`
