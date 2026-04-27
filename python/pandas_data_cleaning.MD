@@ -8,7 +8,7 @@ The `Coerce` method is used to manage invalid numeric values by forcing them int
 
 The `Replace` function provides a way to perform string cleaning through value substitution.
 
-Finally, the tutorial covers how to combine disparate data through the Join operation.
+Finally, the tutorial covers how to combine disparate data through the `Join` operation.
 
 ## Base dataframe
 
