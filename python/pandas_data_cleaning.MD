@@ -1,18 +1,24 @@
+Here’s a refined rewrite that **keeps your structure and intent**, but improves clarity, flow, and wording slightly:
+
+---
+
 # Pandas Data Preprocessing
 
-This tutorial explores four essential data preprocessing techniques in Pandas, utilising a mocked DataFrame.
+This tutorial introduces four essential data preprocessing techniques in Pandas using a mocked DataFrame.
 
-The process begins with `Converters`, which allow for the implementation of custom functions to handle specialised data logic.
+We begin with **Converters**, which enable the use of custom functions to handle specialised data transformation logic.
 
-The `Coerce` method is used to manage invalid numeric values by forcing them into a consistent format, such as NaN, rather than allowing them to break the pipeline. 
+Next, the **Coerce** method is used to deal with invalid numeric values by converting them into a consistent representation (such as `NaN`), instead of allowing them to interrupt the data processing pipeline.
 
-The `Replace` function provides a way to perform string cleaning through value substitution.
+The **Replace** function is then applied for string cleaning through targeted value substitution.
 
-Finally, the tutorial covers how to combine disparate data through the `Join` operation.
+Finally, we demonstrate how to combine separate datasets using the **Join** operation.
+
+---
 
 ## Base dataframe
 
-We start with a small, messy dataframe that we will reuse across all sections. We will progressively clean and enrich this dataframe.
+We start with a small, messy dataframe that will be reused throughout all sections. The goal is to progressively clean and enrich this dataset.
 
 ```python
 import pandas as pd
@@ -27,57 +33,65 @@ df = pd.DataFrame({
 })
 ```
 
+---
+
 ## 1. Example of a Converter to run a custom function
 
-This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
+This approach uses a custom function to clean the `Price` column. It attempts to convert each value into a float, and replaces invalid entries with `NaN`, allowing the column to be safely used for numeric operations.
 
 ```python
 # Doesn't work
-df["Price"].dtype # Return dtype('O') which is string
-df["Price"].mean() # This will give us error since it cannot work on string
+df["Price"].dtype  # Returns dtype('O') (string)
+df["Price"].mean()  # Error: cannot compute mean on strings
 
 # Work
 def my_converter(value):
     try:
         return float(value)
     except ValueError:
-        return math.nan  # Most of the time we don't use 0 since we don't want it to mess with the data
+        return math.nan  # Avoid using 0 as it can distort analysis
 
 df['Price'] = df['Price'].apply(my_converter)
 df["Price"].dtype
 df["Price"].mean()
 ```
 
+---
+
 ## 2. Example of `coerce`
 
-Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this an alternative to writing custom cleaning logic.
+Here, the `Score` column is converted into numeric format using `errors='coerce'`. Any invalid values are automatically replaced with `NaN`, making this a concise alternative to custom cleaning functions.
 
 ```python
 # Doesn't work
-df['Score'] = pd.to_numeric(df['Score']) 
-df['Score'].mean() # ValueError: Unable to parse string "bad" at position 1
+df['Score'] = pd.to_numeric(df['Score'])
+df['Score'].mean()  # ValueError: Unable to parse string "bad"
 
 # Work
 df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
 df['Score'].mean()
 ```
 
+---
+
 ## 3. Example of `replace`
 
-We clean the `Revenue` column by removing the `$` symbol and then converting the values into floats. This step is common when working with formatted financial data.
+The `Revenue` column is cleaned by removing the `$` symbol before converting the values into floats. This is a common step when dealing with formatted financial data.
 
 ```python
 # Doesn't work
-df['Revenue'].mean() # TypeError: Could not convert string '$1000$2500$1800' to numeric
+df['Revenue'].mean()  # TypeError due to string values
 
 # Work
 df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
 df['Revenue'].mean()
 ```
 
+---
+
 ## 4. Example of a Join
 
-The `.join()` method is used to combine the main dataframe with another dataframe by matching a column (`date`) with the index of another DataFrame. This is efficient when the secondary dataframe is indexed by the key variable.
+The `.join()` method combines the main dataframe with another dataframe by aligning a column (`date`) with the index of the second dataframe. This approach is efficient when the secondary dataset is already indexed by the key variable.
 
 ```python
 # Create a secondary dataframe (e.g., weather)
