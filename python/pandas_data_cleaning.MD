@@ -1,10 +1,6 @@
-Here’s your updated version with **only 3 rows in all examples**:
+# Pandas Data Preprocessing
 
----
-
-# Pandas Data Cleaning & Joining
-
-This tutorial demonstrates 5 core Pandas techniques using a mocked dataframe:
+This tutorial demonstrates 4 core Pandas data preprocessing techniques using a mocked dataframe:
 
 1. Converter (custom cleaning function)
 2. Coerce (handling invalid numeric values)
