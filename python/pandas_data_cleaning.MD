@@ -7,8 +7,6 @@ This tutorial demonstrates 4 core Pandas data preprocessing techniques using a m
 3. Replace (string cleaning)
 4. Join (combining dataframes using an index)
 
----
-
 ## Base dataframe
 
 We start with a small, messy dataframe that we will reuse across all sections. We will progressively clean and enrich this dataframe.
