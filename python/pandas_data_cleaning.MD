@@ -1,3 +1,7 @@
+Here’s your updated version with **only 3 rows in all examples**:
+
+---
+
 # Pandas Data Cleaning & Joining
 
 This tutorial demonstrates 5 core Pandas techniques using a mocked dataframe:
@@ -18,11 +22,11 @@ import pandas as pd
 import math
 
 df = pd.DataFrame({
-    'Product': ['A', 'B', 'C', 'D'],
-    'Price': ['10.5', '20.0', 'invalid', '15.2'],
-    'Revenue': ['$1000', '$2500', '$1800', '$2200'],
-    'Score': ['85', '90', 'bad', '70'],
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04'])
+    'Product': ['A', 'B', 'C'],
+    'Price': ['10.5', 'invalid', '15.2'],
+    'Revenue': ['$1000', '$2500', '$1800'],
+    'Score': ['85', 'bad', '70'],
+    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03'])
 })
 
 df
@@ -79,8 +83,8 @@ The `.join()` method is used to combine the main dataframe with another datafram
 ```python
 # Create a secondary dataframe (e.g., weather)
 weather = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04']),
-    'temperature': [30, 32, 29, 31]
+    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
+    'temperature': [30, 32, 29]
 }).set_index('date')
 
 # Join
