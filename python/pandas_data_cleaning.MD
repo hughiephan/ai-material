@@ -82,12 +82,11 @@ The `.join()` method is used to combine the main dataframe with another datafram
 ```python
 # Create a secondary dataframe (e.g., weather)
 weather = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
+    'weather_date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
     'temperature': [30, 32, 29]
-}).set_index('date')
+}).set_index('weather_date')
 
 # Join
 df_joined = df.join(weather, on='date')
-
 df_joined
 ```
