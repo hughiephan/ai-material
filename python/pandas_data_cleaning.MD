@@ -10,7 +10,7 @@ This tutorial demonstrates 5 core Pandas techniques using a mocked dataframe:
 
 ---
 
-## 🧱 Base Dataset
+## Base Dataset
 
 We start with a small, messy dataset that we will reuse across all sections. We will progressively clean and enrich this dataset.
 
