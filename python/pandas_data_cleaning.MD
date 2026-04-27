@@ -4,7 +4,7 @@ This tutorial explores four essential data preprocessing techniques in Pandas, u
 
 The process begins with `Converters`, which allow for the implementation of custom functions to handle specialised data logic.
 
-To ensure data integrity, the `Coerce` method is used to manage invalid numeric values by forcing them into a consistent format, such as NaN, rather than allowing them to break the pipeline. 
+The `Coerce` method is used to manage invalid numeric values by forcing them into a consistent format, such as NaN, rather than allowing them to break the pipeline. 
 
 Furthermore, the `Replace` function provides a streamlined way to perform string cleaning and value substitution.
 
