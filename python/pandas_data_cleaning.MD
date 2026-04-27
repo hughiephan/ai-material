@@ -41,9 +41,9 @@ def my_converter(value):
     except ValueError:
         return math.nan
 
-df['Price_clean'] = df['Price'].apply(my_converter)
-
-df
+df['Price'] = df['Price'].apply(my_converter)
+df["Price"].dtype
+df["Price"].mean()
 ```
 
 ## 2. Example of `coerce`
