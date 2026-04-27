@@ -29,7 +29,8 @@ df = pd.DataFrame({
     'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03'])
 })
 
-df
+df["Price"].dtype # Return dtype('O') which is string
+df["Price"].mean() # This will give us error since it cannot work on string
 ```
 
 ---
