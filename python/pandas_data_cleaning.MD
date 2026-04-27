@@ -87,3 +87,5 @@ weather = pd.DataFrame({
 
 df.join(weather, on='date')
 ```
+
+If there is no index available, we can alternatively use `.merge()` to join directly on columns.
