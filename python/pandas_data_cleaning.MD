@@ -2,7 +2,7 @@
 
 This tutorial explores four essential data preprocessing techniques in Pandas, utilising a mocked DataFrame to illustrate practical applications. 
 
-The process begins with `Converters`, which allow for the implementation of custom cleaning functions to handle specialised data logic.
+The process begins with `Converters`, which allow for the implementation of custom functions to handle specialised data logic.
 
 To ensure data integrity, the `Coerce` method is used to manage invalid numeric values by forcing them into a consistent format, such as NaN, rather than allowing them to break the pipeline. 
 
