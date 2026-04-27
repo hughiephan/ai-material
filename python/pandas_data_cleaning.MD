@@ -63,7 +63,7 @@ df['Score'].mean()
 We clean the `Revenue` column by removing the `$` symbol and then converting the values into floats. This step is common when working with formatted financial data.
 
 ```python
-df['Revenue_clean'] = df['Revenue'].str.replace('$', '').astype(float)
+df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
 
 df
 ```
