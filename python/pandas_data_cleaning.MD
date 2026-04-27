@@ -1,53 +1,59 @@
-# Pandas Data Cleaning & Joining (Custom DataFrames)
+# Pandas Data Cleaning & Joining
 
-This tutorial demonstrates 5 core Pandas techniques using manually created datasets:
+This tutorial demonstrates 5 core Pandas techniques using a mocked dataframe:
 
 1. Converter (custom cleaning function)
 2. Coerce (handling invalid numeric values)
 3. Replace (string cleaning)
-4. Join (combining datasets using index)
+4. Join (combining datasets using an index)
 5. Merge (combining datasets using columns)
 
 ---
 
-## 1. Example of a Converter (Custom Function)
+## 🧱 Base Dataset
 
-This approach mimics the behavior of `converters` in `read_csv` by manually applying a function to clean values after the DataFrame is created. It is particularly useful when working with already-loaded or synthetic data. The custom function attempts to convert values into floats, and if it encounters invalid entries (such as text), it safely replaces them with `NaN`, preventing downstream errors in analysis.
+We start with a small, messy dataset that we will reuse across all sections. We will progressively clean and enrich this dataset.
 
 ```python
 import pandas as pd
 import math
 
-# Create a messy dataset
-data = pd.DataFrame({
+df = pd.DataFrame({
     'Product': ['A', 'B', 'C', 'D'],
-    'Price': ['10.5', '20.0', 'invalid', '15.2']
+    'Price': ['10.5', '20.0', 'invalid', '15.2'],
+    'Revenue': ['$1000', '$2500', '$1800', '$2200'],
+    'Score': ['85', '90', 'bad', '70'],
+    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04'])
 })
 
-# Custom converter
+df
+```
+
+---
+
+## 1. Example of a Converter (Custom Function)
+
+This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
+
+```python
 def my_converter(value):
     try:
         return float(value)
     except ValueError:
         return math.nan
 
-# Apply converter
-data['Price_clean'] = data['Price'].apply(my_converter)
+df['Price_clean'] = df['Price'].apply(my_converter)
 
-data
+df
 ```
 
 ---
 
 ## 2. Example of `coerce`
 
-Using `errors='coerce'` in `pandas.to_numeric()` provides a concise and efficient way to handle invalid numeric values. Instead of raising errors when encountering non-numeric entries, Pandas automatically converts them into `NaN`. This method is generally preferred for quick cleaning tasks because it avoids the need for custom functions while remaining highly readable.
+Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this a concise and efficient alternative to writing custom cleaning logic.
 
 ```python
-df = pd.DataFrame({
-    'Score': ['85', '90', 'bad', '70']
-})
-
 df['Score_numeric'] = pd.to_numeric(df['Score'], errors='coerce')
 
 df
@@ -57,16 +63,10 @@ df
 
 ## 3. Example of `replace`
 
-String cleaning is often necessary when numeric values are stored with additional formatting characters, such as currency symbols. The `.str.replace()` method removes these unwanted characters, making the data suitable for type conversion. Once cleaned, the column can be safely converted into a numeric type, enabling further analysis.
+We clean the `Revenue` column by removing the `$` symbol and then converting the values into floats. This step is common when working with formatted financial data.
 
 ```python
-df = pd.DataFrame({
-    'Revenue': ['$1000', '$2500', '$1800']
-})
-
-# Remove '$' and convert
-df['Revenue'] = df['Revenue'].str.replace('$', '')
-df['Revenue'] = df['Revenue'].astype(float)
+df['Revenue_clean'] = df['Revenue'].str.replace('$', '').astype(float)
 
 df
 ```
@@ -75,47 +75,33 @@ df
 
 ## 4. Example of a Join
 
-The `.join()` method combines DataFrames by aligning a column from one DataFrame with the index of another. This is particularly efficient for time-series or indexed data where one dataset is naturally keyed by an index (such as dates). By setting the index appropriately, `.join()` provides a clean and fast way to enrich one dataset with additional features from another.
+The `.join()` method is used to combine the main dataset with another dataset by matching a column (`date`) with the index of another DataFrame. This is efficient when the secondary dataset is indexed by the key variable.
 
 ```python
-sales = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
-    'sales': [100, 150, 200]
-})
-
+# Create a secondary dataset (e.g., weather)
 weather = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
-    'temperature': [30, 32, 29]
-})
+    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04']),
+    'temperature': [30, 32, 29, 31]
+}).set_index('date')
 
-# Set index for join
-weather = weather.set_index('date')
+# Join
+df_joined = df.join(weather, on='date')
 
-# Perform join
-combined_join = sales.join(weather, on='date')
-
-combined_join
+df_joined
 ```
 
 ---
 
 ## 5. Example of a Merge
 
-The `.merge()` method is a more general and flexible way to combine DataFrames by matching values across columns rather than relying on index alignment. It supports a variety of join types (inner, left, right, outer) and is ideal when working with relational-style data where keys exist as regular columns in both datasets.
+The `.merge()` method combines datasets by matching columns directly rather than relying on index alignment. It is more flexible and works well when both datasets store their keys as regular columns.
 
 ```python
-sales = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
-    'sales': [100, 150, 200]
-})
+# Reset weather index for merge
+weather_reset = weather.reset_index()
 
-weather = pd.DataFrame({
-    'date': pd.to_datetime(['2026-01-01', '2026-01-02', '2026-01-03']),
-    'temperature': [30, 32, 29]
-})
+# Merge
+df_merged = df.merge(weather_reset, on='date')
 
-# Perform merge
-combined_merge = sales.merge(weather, on='date')
-
-combined_merge
+df_merged
 ```
