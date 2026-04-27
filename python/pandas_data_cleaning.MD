@@ -95,7 +95,5 @@ weather = pd.DataFrame({
     'temperature': [30, 32, 29]
 }).set_index('weather_date')
 
-# Join
-df_joined = df.join(weather, on='date')
-df_joined
+df.join(weather, on='date')
 ```
