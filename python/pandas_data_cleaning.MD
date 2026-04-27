@@ -32,9 +32,11 @@ df = pd.DataFrame({
 This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
 
 ```python
+# Doesn't work
 df["Price"].dtype # Return dtype('O') which is string
 df["Price"].mean() # This will give us error since it cannot work on string
 
+# Work
 def my_converter(value):
     try:
         return float(value)
@@ -51,9 +53,11 @@ df["Price"].mean()
 Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this an alternative to writing custom cleaning logic.
 
 ```python
+# Doesn't work
 df['Score'] = pd.to_numeric(df['Score']) 
 df['Score'].mean() # ValueError: Unable to parse string "bad" at position 1
 
+# Work
 df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
 df['Score'].mean()
 ```
@@ -63,9 +67,12 @@ df['Score'].mean()
 We clean the `Revenue` column by removing the `$` symbol and then converting the values into floats. This step is common when working with formatted financial data.
 
 ```python
-df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
+# Doesn't work
+df['Revenue'].mean() # TypeError: Could not convert string '$1000$2500$1800' to numeric
 
-df
+# Work
+df['Revenue'] = df['Revenue'].str.replace('$', '').astype(float)
+df['Revenue'].mean()
 ```
 
 ## 4. Example of a Join
