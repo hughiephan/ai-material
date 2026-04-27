@@ -1,7 +1,3 @@
-Here’s a revised **Markdown tutorial** using **custom DataFrames (no `read_csv`)** and completely **different examples** for each concept.
-
----
-
 # 🐼 Pandas Data Cleaning & Joining (Custom DataFrames)
 
 This tutorial demonstrates 4 core Pandas techniques using **manually created datasets**:
@@ -143,42 +139,3 @@ combined = sales.merge(weather, on='date')
 * More flexible than `join`
 * Works even if no index is set
 
----
-
-## 🧠 Extra Tip: Normalize Dates
-
-```python
-df = pd.DataFrame({
-    'datetime': pd.to_datetime([
-        '2026-01-01 10:30:00',
-        '2026-01-01 15:45:00'
-    ])
-})
-
-df['date_only'] = df['datetime'].dt.normalize()
-
-df
-```
-
-### 💡 Explanation
-
-* Converts time to `00:00:00`
-* Keeps datetime type (better than `.dt.date` for grouping)
-
----
-
-## ✅ Summary
-
-| Task                  | Method                        |
-| --------------------- | ----------------------------- |
-| Custom cleaning       | `.apply(converter)`           |
-| Handle invalid values | `to_numeric(errors='coerce')` |
-| Clean strings         | `.str.replace()`              |
-| Combine data          | `.join()` / `.merge()`        |
-
----
-
-If you want, I can extend this into:
-
-* 🚗 A **transport dataset example** (closer to your GTFS work)
-* 📊 Or a **visual pipeline diagram** showing how these steps connect together
