@@ -1,11 +1,14 @@
 # Pandas Data Preprocessing
 
-This tutorial demonstrates 4 core Pandas data preprocessing techniques using a mocked dataframe:
+This tutorial explores four essential data preprocessing techniques in Pandas, utilising a mocked DataFrame to illustrate practical applications. 
 
-1. Converter (custom cleaning function)
-2. Coerce (handling invalid numeric values)
-3. Replace (string cleaning)
-4. Join (combining dataframes using an index)
+The process begins with `Converters`, which allow for the implementation of custom cleaning functions to handle specialised data logic.
+
+To ensure data integrity, the `Coerce` method is used to manage invalid numeric values by forcing them into a consistent format, such as NaN, rather than allowing them to break the pipeline. 
+
+Furthermore, the `Replace` function provides a streamlined way to perform string cleaning and value substitution.
+
+Finally, the tutorial covers how to combine disparate data through the Join operation effectively.
 
 ## Base dataframe
 
