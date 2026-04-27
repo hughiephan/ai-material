@@ -30,7 +30,7 @@ df["Price"].dtype # Return dtype('O') which is string
 df["Price"].mean() # This will give us error since it cannot work on string
 ```
 
-## 1. Example of a Converter (Custom Function)
+## 1. Example of a Converter to run a custom function
 
 This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
 
