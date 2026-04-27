@@ -60,8 +60,7 @@ Here, the `Score` column is converted into numeric format using `errors='coerce'
 
 ```python
 # Doesn't work
-df['Score'] = pd.to_numeric(df['Score'])
-df['Score'].mean()  # ValueError: Unable to parse string "bad"
+df['Score'] = pd.to_numeric(df['Score']) # ValueError: Unable to parse string "bad"
 
 # Work
 df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
