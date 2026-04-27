@@ -27,8 +27,6 @@ df["Price"].dtype # Return dtype('O') which is string
 df["Price"].mean() # This will give us error since it cannot work on string
 ```
 
----
-
 ## 1. Example of a Converter (Custom Function)
 
 This approach applies a custom function to clean the `Price` column. It attempts to convert values into floats and replaces invalid entries with `NaN`, ensuring the column becomes usable for numeric analysis without breaking the workflow.
@@ -45,8 +43,6 @@ df['Price_clean'] = df['Price'].apply(my_converter)
 df
 ```
 
----
-
 ## 2. Example of `coerce`
 
 Here, we convert the `Score` column into numeric values using `errors='coerce'`. Any invalid value is automatically replaced with `NaN`, making this an alternative to writing custom cleaning logic.
@@ -57,8 +53,6 @@ df['Score_numeric'] = pd.to_numeric(df['Score'], errors='coerce')
 df
 ```
 
----
-
 ## 3. Example of `replace`
 
 We clean the `Revenue` column by removing the `$` symbol and then converting the values into floats. This step is common when working with formatted financial data.
@@ -68,8 +62,6 @@ df['Revenue_clean'] = df['Revenue'].str.replace('$', '').astype(float)
 
 df
 ```
-
----
 
 ## 4. Example of a Join
 
