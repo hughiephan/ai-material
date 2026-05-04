@@ -127,7 +127,7 @@ So after the first run, the list gets emptied. On the second run, `delivery` is 
 
 Let’s demonstrate the difference between aliasing and copying.
 
-### Case 1: aliasing (shared reference)
+### Aliasing (shared reference)
 
 ```python
 a = [1, 2, 3]
@@ -148,7 +148,7 @@ This is exactly what happened in `best_path`.
 
 ---
 
-### Case 2: using `.copy()` (independent object)
+### Using `.copy()` (independent object)
 
 ```python
 a = [1, 2, 3]
@@ -167,16 +167,4 @@ Now `b` is a separate list in memory, so modifying `a` does not affect it.
 
 ---
 
-## Fix for `best_path`
-
-To avoid mutating the original input:
-
-```python
-remaining_points = points.copy()
-```
-
-This ensures each run of the function works on a fresh list, preventing the “empty list on second run” bug.
-
----
-
-In short: the post-mortem debugger helped us trace execution *after failure*, but the real insight came from understanding **shared references vs copied objects in Python**.
+So in the end, the post-mortem debugger allowed us to inspect the program after it failed, but the key takeaway comes from understanding the difference between shared references and copied objects in Python. From here, the responsibility shifts to you: make sure you understand how the algorithm behaves end-to-end, and apply .copy() appropriately to prevent unintended side effects and fix the issue.
