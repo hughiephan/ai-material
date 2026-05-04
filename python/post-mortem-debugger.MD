@@ -119,13 +119,19 @@ remaining_points.remove(current_point)
 
 We are modifying the *original list in-place*. Since `remaining_points = points`, both variables point to the same list in memory. That means every `.remove()` call is also modifying the original `delivery` list.
 
-So after the first run, the list gets emptied. On the second run, `delivery` is already empty, so `points[0]` crashes immediately.
+So after the first run, the list gets emptied. On the second run, `delivery` is already empty, so `points[0]` crashes immediately. 
+
+We can prove that it is empty by just running
+
+```
+delivery # And yes, it's showing the empty list
+```
 
 ---
 
-## Why `.copy()` fixes the problem
+## How do we fix the problem, using `.copy()`?
 
-Let’s demonstrate the difference between aliasing and copying.
+Before we can do that, let’s demonstrate the difference between aliasing and copying.
 
 ### Aliasing (shared reference)
 
