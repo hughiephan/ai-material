@@ -55,25 +55,25 @@ best_path(delivery)
 
 Now we use a post-mortem debugger:
 
-```
+```python
 %debug
 ```
 
 One useful command is `p` (print), which lets us inspect variables.
 
-```
+```python
 p random_value   # works fine → 100
 ```
 
 If we are unsure where the issue is, we can move up the stack trace:
 
-```
+```python
 u   # go up to best_path(delivery)
 ```
 
 Now let’s test variable scope.
 
-```
+```python
 p another_random_value
 ```
 
@@ -81,13 +81,13 @@ This fails — because we are *outside* the function where it was defined. `anot
 
 So we move back down into the function context:
 
-```
+```python
 d
 ```
 
 Now we try again:
 
-```
+```python
 p another_random_value   # now it works → 200
 ```
 
@@ -95,20 +95,20 @@ But we still haven’t found the bug.
 
 Let’s inspect the data:
 
-```
+```python
 p points
 ```
 
 We discover something important:
 
-```
+```python
 []
 ```
 
 The list is empty. That’s the root of the problem.
 
 Also, make sure to stop the debugger using `exit`
-```
+```python
 exit
 ```
 
@@ -128,7 +128,7 @@ So after the first run, the list gets emptied. On the second run, `delivery` is 
 
 We can prove that it is empty by just running
 
-```
+```python
 delivery # And yes, it's showing the empty list
 ```
 
