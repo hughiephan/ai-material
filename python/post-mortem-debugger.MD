@@ -95,7 +95,16 @@ a            # a has the 1 removed
 b            # oh, b also has the 1 removed, we don't want that to happens as it would be quite similar to the best path function issue earlier
 ```
 
-So what we can do is
+So what we can do is use the copy
 
+```
+a = [1,2,3]  
+b = a.copy()      
+id(a)        # Let's check the id of a 
+id(b)        # Let's check the id of b, they are different now
+a.remove(1)  # So let's run the remove the 1 value from the list again
+a            # a has the 1 removed
+b            # b still has the same number of items
+```
 
 
