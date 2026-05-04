@@ -73,6 +73,29 @@ So let's now go back into the best_path function, we can use the d which stand f
 p another_random_value # Good, it shows us the error now since we are inside the function and we can access all the local variables of that function
 ```
 
+But we still haven't found the error, let's try to print out some other things. We can see that the points[0] is trying to access the first value in the points list, so let's see what the list of the points contain
+```
+p points # Hhmm this returned empty list [], this probably is the culprit
+```
+
+To show case the exact problem, this would becoming from the .remove function. Since we gives the list and the list is ran succuessfully for the best_path function call, but after that finishes, it clears the whole list. That's why in the second run you wouldn't be able to run it since the delivery is essentially empty before the algorithm can process it.
+```
+remaining_points.remove(current_point)
+```
+
+So for that you could use a .copy() to ... (please explain why copy helps).
+
+```
+a = [1,2,3]  # Initialize the list of 1, 2,3
+b = a        # Let's assign the a to b
+id(a)        # Let's check the id of a 
+id(b)        # Let's check the id of b, oh they are similar
+a.remove(1)  # So let's run the remove the 1 value out of the list
+a            # a has the 1 removed
+b            # oh, b also has the 1 removed, we don't want that to happens as it would be quite similar to the best path function issue earlier
+```
+
+So what we can do is
 
 
 
