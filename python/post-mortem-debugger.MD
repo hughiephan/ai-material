@@ -1,16 +1,15 @@
+# Using a post-mortem debugger
 
-# Using a post morterm debugger
+Let’s use the example of finding the “closest-point path” to illustrate how a post-mortem debugger works.
 
-Let's use the example of finding the "closet-point path" to help us illustrate the post morterm debugger.
+Unlike a normal debugger, where we set breakpoints before running the code, a post-mortem debugger lets us inspect the program *after it has already crashed*. While modern IDEs provide visual debugging tools, there are still cases where a command-driven post-mortem approach is useful for understanding what actually went wrong.
 
-Unlike the normal debugger where we have to set break points, the post morterm debugger allows us to run the debugging process directly after the code has crashed. The usual debugger even though is a modern, visual interface or a quick, sometimes there are use cases for a command-driven approach for post-mortem analysis.
-
-To illustrate the use of post morterm debugger, I'll also add some global random_value and another_random value of a 100 and 200
+To demonstrate this, we’ll also introduce a couple of global and local variables (`random_value = 100` and `another_random_value = 200`) just to observe scope behavior during debugging.
 
 ```python
 import math
 
-random_value = 100  # Random Global variable
+random_value = 100  # global variable
 
 def distance(p1, p2):
     return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
@@ -23,7 +22,7 @@ def find_closest(start_point, remaining_points):
     return closest_point
 
 def best_path(points):
-    another_random_value = 200  # Random Local variable
+    another_random_value = 200  # local variable
     current_point = points[0]
     remaining_points = points
     path = []
@@ -38,73 +37,146 @@ def best_path(points):
 delivery = [(1,1), (3,3), (2,2)]
 ```
 
-Run the code once, it works
-```python 
+Run the code once — it works:
+
+```python
 best_path(delivery)
 ```
 
-Run the code a second time, it crashes.
-```python 
+Run it a second time — it crashes:
+
+```python
 best_path(delivery)
 ```
 
-Why does that happen? We could first run the %debug, and it will show us the exact location that the error happens.
+---
+
+## Why does this happen?
+
+Now we use a post-mortem debugger:
+
 ```
 %debug
 ```
 
-One useful method is p which short for print, and I want to see the values of the variables in the code, so let's print out the random global value we add earlier.
+One useful command is `p` (print), which lets us inspect variables.
+
 ```
-p random_value # We can see it still works fine and giving us the result of 100
+p random_value   # works fine → 100
 ```
 
-So let's pretend we are not sure where the problems are, we can use the u which stands for up to go to the original function that call to the function that has the error
+If we are unsure where the issue is, we can move up the stack trace:
+
 ```
-u # we are now at the best_path(delivery)
+u   # go up to best_path(delivery)
 ```
 
-Remeber the second random value we added earlier, let's see if we can still access it
+Now let’s test variable scope.
+
 ```
-p another_random_value # So it doesn't work now, it's because we are outside of the function best_path. And the value is a local one, and can only be access when we are inside the function
+p another_random_value
 ```
 
-So let's now go back into the best_path function, we can use the d which stand for down to go into it
+This fails — because we are *outside* the function where it was defined. `another_random_value` is a local variable, so it only exists while we are inside `best_path`.
+
+So we move back down into the function context:
+
 ```
-p another_random_value # Good, it shows us the error now since we are inside the function and we can access all the local variables of that function
+d
 ```
 
-But we still haven't found the error, let's try to print out some other things. We can see that the points[0] is trying to access the first value in the points list, so let's see what the list of the points contain
+Now we try again:
+
 ```
-p points # Hhmm this returned empty list [], this probably is the culprit
+p another_random_value   # now it works → 200
 ```
 
-To show case the exact problem, this would becoming from the .remove function. Since we gives the list and the list is ran succuessfully for the best_path function call, but after that finishes, it clears the whole list. That's why in the second run you wouldn't be able to run it since the delivery is essentially empty before the algorithm can process it.
+But we still haven’t found the bug.
+
+Let’s inspect the data:
+
 ```
+p points
+```
+
+We discover something important:
+
+```
+[]
+```
+
+The list is empty. That’s the root of the problem.
+
+---
+
+## What actually caused the crash?
+
+The issue comes from this line:
+
+```python
 remaining_points.remove(current_point)
 ```
 
-So for that you could use a .copy() to ... (please explain why copy helps).
+We are modifying the *original list in-place*. Since `remaining_points = points`, both variables point to the same list in memory. That means every `.remove()` call is also modifying the original `delivery` list.
 
+So after the first run, the list gets emptied. On the second run, `delivery` is already empty, so `points[0]` crashes immediately.
+
+---
+
+## Why `.copy()` fixes the problem
+
+Let’s demonstrate the difference between aliasing and copying.
+
+### Case 1: aliasing (shared reference)
+
+```python
+a = [1, 2, 3]
+b = a
+
+id(a)
+id(b)   # same object
+
+a.remove(1)
+
+a  # [2, 3]
+b  # [2, 3] → unexpected side effect
 ```
-a = [1,2,3]  # Initialize the list of 1, 2,3
-b = a        # Let's assign the a to b
-id(a)        # Let's check the id of a 
-id(b)        # Let's check the id of b, oh they are similar
-a.remove(1)  # So let's run the remove the 1 value out of the list
-a            # a has the 1 removed
-b            # oh, b also has the 1 removed, we don't want that to happens as it would be quite similar to the best path function issue earlier
+
+Both variables point to the same list in memory, so changes affect both.
+
+This is exactly what happened in `best_path`.
+
+---
+
+### Case 2: using `.copy()` (independent object)
+
+```python
+a = [1, 2, 3]
+b = a.copy()
+
+id(a)
+id(b)   # different objects
+
+a.remove(1)
+
+a  # [2, 3]
+b  # [1, 2, 3] → unchanged
 ```
 
-So what we can do is use the copy
+Now `b` is a separate list in memory, so modifying `a` does not affect it.
 
+---
+
+## Fix for `best_path`
+
+To avoid mutating the original input:
+
+```python
+remaining_points = points.copy()
 ```
-a = [1,2,3]  
-b = a.copy()      
-id(a)        # Let's check the id of a 
-id(b)        # Let's check the id of b, they are different now
-a.remove(1)  # So let's run the remove the 1 value from the list again
-a            # a has the 1 removed
-b            # b still has the same number of items
-```
 
+This ensures each run of the function works on a fresh list, preventing the “empty list on second run” bug.
 
+---
+
+In short: the post-mortem debugger helped us trace execution *after failure*, but the real insight came from understanding **shared references vs copied objects in Python**.
