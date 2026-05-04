@@ -107,6 +107,11 @@ We discover something important:
 
 The list is empty. That’s the root of the problem.
 
+Also, make sure to stop the debugger using `exit`
+```
+exit
+```
+
 ---
 
 ## What actually caused the crash?
